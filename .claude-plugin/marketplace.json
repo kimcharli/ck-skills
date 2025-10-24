@@ -1,0 +1,48 @@
+{
+  "name": "ck-skills",
+  "version": "1.0.0",
+  "description": "Collection of Claude Code skills by kimcharli",
+  "author": "kimcharli",
+  "license": "MIT",
+  "homepage": "https://github.com/kimcharli/ck-skills",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kimcharli/ck-skills.git"
+  },
+  "plugins": [
+    {
+      "name": "doc-review-commands",
+      "version": "1.0.0",
+      "source": "./plugins/doc-review-commands",
+      "description": "AI-powered documentation management system for Claude Code - keeps project documentation in sync with code changes",
+      "author": "kimcharli",
+      "license": "MIT",
+      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/doc-review-commands",
+      "tags": [
+        "documentation",
+        "automation",
+        "markdown",
+        "changelog",
+        "readme",
+        "quality-assurance",
+        "sdd"
+      ],
+      "keywords": [
+        "doc-review",
+        "documentation-management",
+        "automated-updates",
+        "specification-driven-development"
+      ],
+      "category": "documentation",
+      "commands": 6,
+      "features": [
+        "Modular architecture (6 focused commands)",
+        "88% token reduction vs monolithic",
+        "External bash analyzer tool",
+        "SDD support",
+        "Quality validation with scoring",
+        "Professional templates"
+      ]
+    }
+  ]
+}
