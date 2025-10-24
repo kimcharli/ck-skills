@@ -23,10 +23,11 @@ Doc Review Commands is a **modular documentation toolkit** for Claude Code that 
 
 ### Installation
 
-#### Option 1: Plugin Install (Easiest - When Available)
+#### Option 1: Plugin Marketplace (When Published)
 ```bash
 # In Claude Code, run:
-/plugin install doc-review-commands
+/plugin marketplace add kimcharli/doc-review-commands
+/plugin install doc-review-commands@doc-review-commands
 
 # Restart Claude Code, then:
 /ck:doc-review/help

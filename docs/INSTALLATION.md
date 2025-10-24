@@ -41,22 +41,25 @@ git --version
 
 ---
 
-## 🚀 Method 1: Plugin Command Installation (Easiest)
+## 🚀 Method 1: Plugin Marketplace Installation (When Published)
 
-### Using `/plugin` Command in Claude Code
+### Using `/plugin marketplace` Command in Claude Code
 
-If Doc Review Commands is registered in the Claude Skills marketplace, you can install directly within Claude Code:
+Once Doc Review Commands is published to a Claude Code plugin marketplace, install directly within Claude Code:
 
 ```bash
-# In Claude Code terminal or chat
-/plugin install doc-review-commands
+# In Claude Code terminal or chat, add the marketplace:
+/plugin marketplace add kimcharli/doc-review-commands
+
+# Then install from the marketplace:
+/plugin install doc-review-commands@doc-review-commands
 ```
 
 **What happens:**
 - ✅ Automatically downloads the skill from marketplace
 - ✅ Installs to correct Claude Code directory
 - ✅ Makes all commands available immediately
-- ✅ Automatic updates when new versions released
+- ✅ Easy updates when new versions released
 
 ### Restart Claude Code
 
@@ -81,10 +84,22 @@ After installation, restart Claude Code to activate the commands:
 - Simplest installation method
 - No git clone needed
 - No manual setup
-- Automatic updates
+- Browser-based plugin discovery
 - Easy uninstall
 
-**Note:** This method becomes available after Doc Review Commands is published to the Claude Skills marketplace.
+**Current Status:** Available for local installation via Method 2 (below). Will be available via `/plugin marketplace` after publishing to a Claude Code plugin marketplace.
+
+### Alternative: Direct Marketplace URL
+
+If the skill is hosted in a GitHub marketplace, you can add it directly:
+
+```bash
+# Add custom marketplace from GitHub URL
+/plugin marketplace add https://github.com/kimcharli/doc-review-commands/raw/main/manifest.json
+
+# Or use the shorthand if marketplace.json is set up:
+/plugin marketplace add kimcharli/doc-review-commands
+```
 
 ---
 

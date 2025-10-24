@@ -4,10 +4,11 @@ Get up and running with Doc Review Commands in 5 minutes.
 
 ## Installation
 
-### Option 1: Plugin Install (When Available)
+### Option 1: Plugin Marketplace (When Published)
 ```bash
 # In Claude Code:
-/plugin install doc-review-commands
+/plugin marketplace add kimcharli/doc-review-commands
+/plugin install doc-review-commands@doc-review-commands
 # Then restart Claude Code
 ```
 
