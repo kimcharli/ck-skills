@@ -36,6 +36,7 @@ Based on the analysis, here's what needs updating:
 
 **Available Sub-Commands:**
 
+- `/ck:doc-review/quick` - Fast updates, no analysis (~400-600 tokens)
 - `/ck:doc-review/analyze` - Run analysis only (no updates)
 - `/ck:doc-review/core` - Update README, CLAUDE, CHANGELOG
 - `/ck:doc-review/sdd` - Update SDD artifacts (spec.md, plan.md, tasks.md)
