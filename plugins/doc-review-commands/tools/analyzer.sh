@@ -16,6 +16,93 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+# Cache configuration
+CACHE_DIR="${HOME}/.cache/doc-review"
+CACHE_LIFETIME_ANALYSIS=3600      # 1 hour
+CACHE_LIFETIME_LINKS=14400         # 4 hours
+CACHE_LIFETIME_METRICS=86400       # 24 hours
+
+# ============================================================================
+# Function: init_cache
+# Purpose: Initialize cache directory
+# ============================================================================
+init_cache() {
+    mkdir -p "$CACHE_DIR" 2>/dev/null || true
+}
+
+# ============================================================================
+# Function: get_cache_file
+# Purpose: Get cache file path for a given cache key
+# ============================================================================
+get_cache_file() {
+    local cache_key="$1"
+    echo "$CACHE_DIR/$cache_key.cache"
+}
+
+# ============================================================================
+# Function: is_cache_valid
+# Purpose: Check if cache exists and is still valid (not expired)
+# ============================================================================
+is_cache_valid() {
+    local cache_key="$1"
+    local lifetime="${2:-3600}"  # Default to 1 hour
+    local cache_file=$(get_cache_file "$cache_key")
+
+    if [ ! -f "$cache_file" ]; then
+        return 1  # Cache doesn't exist
+    fi
+
+    local file_age=$(($(date +%s) - $(stat -f%m "$cache_file" 2>/dev/null || stat -c%Y "$cache_file" 2>/dev/null || echo 0)))
+    if [ "$file_age" -lt "$lifetime" ]; then
+        return 0  # Cache is valid
+    else
+        return 1  # Cache is expired
+    fi
+}
+
+# ============================================================================
+# Function: read_cache
+# Purpose: Read and output cache content if valid
+# ============================================================================
+read_cache() {
+    local cache_key="$1"
+    local lifetime="${2:-3600}"
+
+    if is_cache_valid "$cache_key" "$lifetime"; then
+        cat "$(get_cache_file "$cache_key")"
+        return 0
+    fi
+    return 1
+}
+
+# ============================================================================
+# Function: write_cache
+# Purpose: Write content to cache file
+# ============================================================================
+write_cache() {
+    local cache_key="$1"
+    local cache_file=$(get_cache_file "$cache_key")
+
+    cat > "$cache_file" 2>/dev/null || true
+}
+
+# ============================================================================
+# Function: clear_cache
+# Purpose: Clear cache for a specific key or all caches
+# ============================================================================
+clear_cache() {
+    local cache_key="${1:-all}"
+
+    if [ "$cache_key" = "all" ]; then
+        rm -rf "$CACHE_DIR" 2>/dev/null || true
+        mkdir -p "$CACHE_DIR" 2>/dev/null || true
+        echo -e "${GREEN}✅ Cache cleared${NC}"
+    else
+        rm -f "$(get_cache_file "$cache_key")" 2>/dev/null || true
+        echo -e "${GREEN}✅ Cache cleared for: $cache_key${NC}"
+    fi
+}
+
 # ============================================================================
 # Function: check_and_install_linting_tools
 # Purpose: Check if markdownlint and prettier are installed, install if needed
@@ -338,6 +425,126 @@ analyze_impact() {
 }
 
 # ============================================================================
+# Function: validate_links
+# Purpose: Validate all markdown links point to existing files
+# ============================================================================
+validate_links() {
+    echo "=== 🔗 Link Validation ==="
+    echo ""
+
+    local total_links=0
+    local broken_links=0
+    local external_links=0
+    local broken_list=""
+
+    # Find all markdown links [text](path)
+    while IFS= read -r line; do
+        if [[ "$line" =~ \]\(([^)]+)\) ]]; then
+            local url="${BASH_REMATCH[1]}"
+            total_links=$((total_links + 1))
+
+            # Check if it's an external link
+            if [[ "$url" =~ ^https?:// ]]; then
+                external_links=$((external_links + 1))
+            # Check if local file exists
+            elif [ -f "$url" ]; then
+                :  # Link is valid
+            else
+                broken_links=$((broken_links + 1))
+                broken_list="$broken_list\n   - $url"
+            fi
+        fi
+    done < <(find . -name "*.md" -exec cat {} \; 2>/dev/null)
+
+    echo "📊 Link Summary:"
+    echo "   ✅ Valid local links: $((total_links - broken_links - external_links))"
+    echo "   ❌ Broken links: $broken_links"
+    echo "   ⚠️  External links: $external_links"
+    echo ""
+
+    if [ "$broken_links" -gt 0 ]; then
+        echo -e "${RED}Broken Links Found:${NC}$broken_list"
+        echo ""
+    fi
+}
+
+# ============================================================================
+# Function: validate_references
+# Purpose: Validate file:line references in documentation
+# ============================================================================
+validate_references() {
+    echo "=== 📍 Reference Validation ==="
+    echo ""
+
+    local total_refs=0
+    local valid_refs=0
+    local invalid_refs=0
+    local invalid_list=""
+
+    # Find all file:line references (e.g., src/main.py:123)
+    while IFS= read -r ref; do
+        if [ -n "$ref" ]; then
+            total_refs=$((total_refs + 1))
+            local file="${ref%:*}"
+            local line="${ref#*:}"
+
+            # Check if file exists
+            if [ ! -f "$file" ]; then
+                invalid_refs=$((invalid_refs + 1))
+                invalid_list="$invalid_list\n   - $ref (file not found)"
+            else
+                valid_refs=$((valid_refs + 1))
+            fi
+        fi
+    done < <(grep -oh '[a-zA-Z0-9_/.-]*\.[a-z]*:[0-9]*' $(find . -name "*.md" 2>/dev/null) 2>/dev/null | sort -u)
+
+    echo "📊 Reference Summary:"
+    echo "   ✅ Valid references: $valid_refs"
+    echo "   ❌ Invalid references: $invalid_refs"
+    echo "   📝 Total references: $total_refs"
+    echo ""
+
+    if [ "$invalid_refs" -gt 0 ]; then
+        echo -e "${RED}Invalid References Found:${NC}$invalid_list"
+        echo ""
+    fi
+}
+
+# ============================================================================
+# Function: validate_versions
+# Purpose: Check version consistency across documentation files
+# ============================================================================
+validate_versions() {
+    echo "=== 📌 Version Consistency Check ==="
+    echo ""
+
+    local version_count=0
+    declare -A versions
+
+    # Find all version patterns
+    while IFS= read -r version; do
+        if [ -n "$version" ]; then
+            version_count=$((version_count + 1))
+            versions["$version"]=$((${versions["$version"]:-0} + 1))
+        fi
+    done < <(grep -h "v[0-9]\+\.[0-9]\+\.[0-9]\+" $(find . -name "*.md" 2>/dev/null) 2>/dev/null | grep -oh "v[0-9]\+\.[0-9]\+\.[0-9]\+" | sort -u)
+
+    echo "📊 Found Versions:"
+    for version in "${!versions[@]}"; do
+        echo "   - $version (${versions[$version]} occurrences)"
+    done
+
+    if [ ${#versions[@]} -gt 1 ]; then
+        echo ""
+        echo -e "${YELLOW}⚠️  Multiple versions found - consider standardizing${NC}"
+    else
+        echo ""
+        echo -e "${GREEN}✅ All versions are consistent${NC}"
+    fi
+    echo ""
+}
+
+# ============================================================================
 # Function: generate_metrics
 # Purpose: Generate documentation metrics for reporting
 # ============================================================================
@@ -377,6 +584,9 @@ generate_metrics() {
 # Main execution
 # ============================================================================
 main() {
+    # Initialize cache directory
+    init_cache
+
     local command=${1:-help}
 
     case "$command" in
@@ -384,49 +594,137 @@ main() {
             check_and_install_linting_tools && run_markdown_linting
             ;;
         principles)
-            analyze_principles
+            # Try cache first
+            if read_cache "principles" "$CACHE_LIFETIME_ANALYSIS"; then
+                echo -e "${YELLOW}(from cache)${NC}"
+            else
+                analyze_principles | tee >(write_cache "principles")
+            fi
             ;;
         structure)
-            analyze_structure
+            # Try cache first
+            if read_cache "structure" "$CACHE_LIFETIME_ANALYSIS"; then
+                echo -e "${YELLOW}(from cache)${NC}"
+            else
+                analyze_structure | tee >(write_cache "structure")
+            fi
             ;;
         categorize)
             categorize_files
             ;;
+        validate|validate-all)
+            validate_links
+            validate_references
+            validate_versions
+            ;;
+        validate-links)
+            validate_links
+            ;;
+        validate-references)
+            validate_references
+            ;;
+        validate-versions)
+            validate_versions
+            ;;
         impact)
-            analyze_impact
+            # Try cache first (shorter TTL since code changes)
+            if read_cache "impact" 1800; then
+                echo -e "${YELLOW}(from cache)${NC}"
+            else
+                analyze_impact | tee >(write_cache "impact")
+            fi
             ;;
         metrics)
-            generate_metrics
+            # Try cache first
+            if read_cache "metrics" "$CACHE_LIFETIME_METRICS"; then
+                echo -e "${YELLOW}(from cache)${NC}"
+            else
+                generate_metrics | tee >(write_cache "metrics")
+            fi
             ;;
         all)
             check_and_install_linting_tools
             echo ""
             run_markdown_linting
             echo ""
-            analyze_principles
+            if read_cache "principles" "$CACHE_LIFETIME_ANALYSIS"; then
+                echo -e "${YELLOW}(from cache)${NC}"
+            else
+                analyze_principles | tee >(write_cache "principles")
+            fi
             echo ""
-            analyze_structure
+            if read_cache "structure" "$CACHE_LIFETIME_ANALYSIS"; then
+                echo -e "${YELLOW}(from cache)${NC}"
+            else
+                analyze_structure | tee >(write_cache "structure")
+            fi
             echo ""
             categorize_files
             echo ""
-            analyze_impact
+            if read_cache "impact" 1800; then
+                echo -e "${YELLOW}(from cache)${NC}"
+            else
+                analyze_impact | tee >(write_cache "impact")
+            fi
             echo ""
-            generate_metrics
+            if read_cache "metrics" "$CACHE_LIFETIME_METRICS"; then
+                echo -e "${YELLOW}(from cache)${NC}"
+            else
+                generate_metrics | tee >(write_cache "metrics")
+            fi
+            echo ""
+            validate_links
+            echo ""
+            validate_references
+            echo ""
+            validate_versions
+            ;;
+        cache)
+            echo "=== 📦 Cache Status ==="
+            echo "Cache directory: $CACHE_DIR"
+            echo "Cache contents:"
+            if [ -d "$CACHE_DIR" ]; then
+                ls -lh "$CACHE_DIR" 2>/dev/null | tail -n +2 | while read line; do
+                    echo "  $line"
+                done
+                echo ""
+                echo "Cache sizes:"
+                du -sh "$CACHE_DIR" 2>/dev/null | sed 's/^/  /'
+            else
+                echo "  (no cache directory yet)"
+            fi
+            echo ""
+            ;;
+        clear-cache|clear)
+            local cache_key="${2:-all}"
+            clear_cache "$cache_key"
             ;;
         help|--help|-h)
             echo "Documentation Analyzer Tool"
             echo ""
-            echo "Usage: $0 <command>"
+            echo "Usage: $0 <command> [options]"
             echo ""
             echo "Commands:"
-            echo "  lint        - Check/install linting tools and auto-fix markdown"
-            echo "  principles  - Extract project documentation principles"
-            echo "  structure   - Analyze documentation structure"
-            echo "  categorize  - Categorize files by content type"
-            echo "  impact      - Analyze change impact from git history"
-            echo "  metrics     - Generate documentation metrics"
-            echo "  all         - Run all analyses including linting"
-            echo "  help        - Show this help message"
+            echo "  lint              - Check/install linting tools and auto-fix markdown"
+            echo "  principles        - Extract project documentation principles (cached)"
+            echo "  structure         - Analyze documentation structure (cached)"
+            echo "  categorize        - Categorize files by content type"
+            echo "  impact            - Analyze change impact from git history (cached)"
+            echo "  metrics           - Generate documentation metrics (cached)"
+            echo "  validate          - Run all validation checks (link, reference, version)"
+            echo "  validate-links    - Check all markdown links point to existing files"
+            echo "  validate-references - Check file:line references are valid"
+            echo "  validate-versions - Check version consistency across docs"
+            echo "  all               - Run all analyses including linting (uses cache)"
+            echo "  cache             - Show cache status"
+            echo "  clear-cache       - Clear all caches (or 'clear-cache <key>' for specific)"
+            echo "  help              - Show this help message"
+            echo ""
+            echo "Caching:"
+            echo "  - Analysis results cached for 1 hour"
+            echo "  - Impact analysis cached for 30 minutes"
+            echo "  - Metrics cached for 24 hours"
+            echo "  - Cache location: $CACHE_DIR"
             echo ""
             ;;
         *)
