@@ -23,6 +23,16 @@ Doc Review Commands is a **modular documentation toolkit** for Claude Code that 
 
 ### Installation
 
+#### Option 1: Plugin Install (Easiest - When Available)
+```bash
+# In Claude Code, run:
+/plugin install doc-review-commands
+
+# Restart Claude Code, then:
+/ck:doc-review/help
+```
+
+#### Option 2: Manual Install (Current)
 ```bash
 # Clone the repository
 git clone https://github.com/kimcharli/doc-review-commands.git
@@ -34,6 +44,8 @@ cd doc-review-commands
 # Verify installation
 /ck:doc-review/help
 ```
+
+See [Installation Guide](docs/INSTALLATION.md) for more methods and troubleshooting.
 
 ### Basic Usage
 

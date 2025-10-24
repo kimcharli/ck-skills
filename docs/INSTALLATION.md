@@ -8,10 +8,11 @@ Complete installation instructions for Doc Review Commands - Multiple methods av
 
 Doc Review Commands can be installed using:
 
-1. **Automatic Installation** (Recommended) - One command
-2. **Manual Installation** - Step-by-step
-3. **From Backup** - Restore from backup
-4. **Claude Skills Registry** - Future: via Skill market
+1. **Plugin Command** (Easiest) - `/plugin install` in Claude Code
+2. **Automatic Installation** (Recommended) - One command with install.sh
+3. **Manual Installation** - Step-by-step file copying
+4. **From Backup** - Restore from backup
+5. **Claude Skills Registry** - Via Skill marketplace (future)
 
 ---
 
@@ -40,7 +41,54 @@ git --version
 
 ---
 
-## 🚀 Method 1: Automatic Installation (Recommended)
+## 🚀 Method 1: Plugin Command Installation (Easiest)
+
+### Using `/plugin` Command in Claude Code
+
+If Doc Review Commands is registered in the Claude Skills marketplace, you can install directly within Claude Code:
+
+```bash
+# In Claude Code terminal or chat
+/plugin install doc-review-commands
+```
+
+**What happens:**
+- ✅ Automatically downloads the skill from marketplace
+- ✅ Installs to correct Claude Code directory
+- ✅ Makes all commands available immediately
+- ✅ Automatic updates when new versions released
+
+### Restart Claude Code
+
+After installation, restart Claude Code to activate the commands:
+
+```bash
+# Restart Claude Code application
+# Then commands are available:
+/ck:doc-review/help
+```
+
+### Verify Installation
+
+```bash
+# In Claude Code, run:
+/ck:doc-review/help
+
+# Should display comprehensive help guide
+```
+
+**Benefits:**
+- Simplest installation method
+- No git clone needed
+- No manual setup
+- Automatic updates
+- Easy uninstall
+
+**Note:** This method becomes available after Doc Review Commands is published to the Claude Skills marketplace.
+
+---
+
+## 🚀 Method 2: Automatic Installation (Recommended)
 
 ### Step 1: Clone Repository
 
