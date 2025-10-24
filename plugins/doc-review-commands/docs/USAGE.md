@@ -6,14 +6,14 @@ Complete reference for all Doc Review Commands with examples and patterns.
 
 ## 🎯 Quick Command Reference
 
-| Command | Token Cost | Time | Use Case |
-|---------|------------|------|----------|
-| `/ck:doc-review/help` | ~200 | Instant | First time? Start here |
-| `/ck:doc-review/analyze` | ~600-800 | < 1s | What needs updating? |
-| `/ck:doc-review/core` | ~1.2-1.5K | 15-30s | Update README/CLAUDE/CHANGELOG |
-| `/ck:doc-review/sdd` | ~1.5-1.8K | 30-60s | Update spec/plan/tasks |
-| `/ck:doc-review/qa` | ~1.8-2K | 10-20s | Validate before commit |
-| `/ck:doc-review/main` | ~900-1.2K + subs | Variable | Full orchestrated update |
+| Command                  | Token Cost       | Time     | Use Case                       |
+| ------------------------ | ---------------- | -------- | ------------------------------ |
+| `/ck:doc-review/help`    | ~200             | Instant  | First time? Start here         |
+| `/ck:doc-review/analyze` | ~600-800         | < 1s     | What needs updating?           |
+| `/ck:doc-review/core`    | ~1.2-1.5K        | 15-30s   | Update README/CLAUDE/CHANGELOG |
+| `/ck:doc-review/sdd`     | ~1.5-1.8K        | 30-60s   | Update spec/plan/tasks         |
+| `/ck:doc-review/qa`      | ~1.8-2K          | 10-20s   | Validate before commit         |
+| `/ck:doc-review/main`    | ~900-1.2K + subs | Variable | Full orchestrated update       |
 
 ---
 
@@ -22,6 +22,7 @@ Complete reference for all Doc Review Commands with examples and patterns.
 ### `/ck:doc-review/help` - Get Started
 
 **What it does:**
+
 - Shows all available commands
 - Explains usage patterns
 - Provides decision tree
@@ -29,16 +30,19 @@ Complete reference for all Doc Review Commands with examples and patterns.
 - Includes troubleshooting
 
 **When to use:**
+
 - First time setup
 - Forgot a command
 - Need usage examples
 
 **Example:**
+
 ```bash
 /ck:doc-review/help
 ```
 
 **Output:**
+
 ```
 Command reference, usage patterns, decision tree, token budgets, help
 ```
@@ -48,6 +52,7 @@ Command reference, usage patterns, decision tree, token budgets, help
 ### `/ck:doc-review/analyze` - What Needs Updating?
 
 **What it does:**
+
 - ✅ Extracts documentation principles from your project
 - ✅ Analyzes current documentation structure
 - ✅ Identifies recently modified files
@@ -56,17 +61,20 @@ Command reference, usage patterns, decision tree, token budgets, help
 - ✅ **Makes ZERO file changes**
 
 **When to use:**
+
 - "What docs need updating?"
 - Before starting documentation work
 - Quick health check
 - Understanding project structure
 
 **Syntax:**
+
 ```bash
 /ck:doc-review/analyze
 ```
 
 **Example Output:**
+
 ```
 === Documentation Analysis ===
 
@@ -99,6 +107,7 @@ You can provide context for more targeted analysis:
 ### `/ck:doc-review/core` - Update Core Files
 
 **What it does:**
+
 - ✅ Updates `README.md` (features, usage, installation)
 - ✅ Updates `CLAUDE.md` (AI context, module documentation)
 - ✅ Updates `CHANGELOG.md` (version entry)
@@ -106,6 +115,7 @@ You can provide context for more targeted analysis:
 - ✅ Validates changes before completing
 
 **When to use:**
+
 - Added a new feature
 - Updated existing functionality
 - Need to document new API/module
@@ -113,6 +123,7 @@ You can provide context for more targeted analysis:
 - Before sharing project publicly
 
 **Syntax:**
+
 ```bash
 /ck:doc-review/core "what changed"
 ```
@@ -120,16 +131,19 @@ You can provide context for more targeted analysis:
 **Examples:**
 
 1. **New Feature:**
+
 ```bash
 /ck:doc-review/core "added authentication module"
 ```
 
 2. **Bug Fix:**
+
 ```bash
 /ck:doc-review/core "fixed token calculation bug"
 ```
 
 3. **Architecture Change:**
+
 ```bash
 /ck:doc-review/core "refactored analyzer to external bash tool"
 ```
@@ -164,17 +178,20 @@ $ /ck:doc-review/core "added QA validation command"
 **What Gets Updated:**
 
 In **README.md:**
+
 - Features section
 - Usage patterns
 - Command reference
 - Quick start
 
 In **CLAUDE.md:**
+
 - New module documentation
 - API changes
 - Context updates
 
 In **CHANGELOG.md:**
+
 - New version entry
 - Added/Changed/Fixed sections
 
@@ -183,6 +200,7 @@ In **CHANGELOG.md:**
 ### `/ck:doc-review/sdd` - Update SDD Artifacts
 
 **What it does:**
+
 - ✅ Updates `specs/*/spec.md` (marks requirements complete)
 - ✅ Updates `plan.md` (phase status)
 - ✅ Updates `tasks.md` (marks tasks done)
@@ -190,6 +208,7 @@ In **CHANGELOG.md:**
 - ✅ Validates SDD ↔ code consistency
 
 **When to use:**
+
 - Completed an implementation phase
 - Need to sync specs with code
 - Mark requirements as done
@@ -197,6 +216,7 @@ In **CHANGELOG.md:**
 - Update technical contracts
 
 **Syntax:**
+
 ```bash
 /ck:doc-review/sdd "phase or feature description"
 ```
@@ -204,16 +224,19 @@ In **CHANGELOG.md:**
 **Examples:**
 
 1. **Phase Completion:**
+
 ```bash
 /ck:doc-review/sdd "Phase 2 - Modularization complete"
 ```
 
 2. **Feature Implementation:**
+
 ```bash
 /ck:doc-review/sdd "Feature 005 - QA validation system"
 ```
 
 3. **Architecture Update:**
+
 ```bash
 /ck:doc-review/sdd "Refactored analyzer as external tool"
 ```
@@ -243,6 +266,7 @@ $ /ck:doc-review/sdd "Modular command architecture"
 ```
 
 **SDD Consistency Checks:**
+
 - Requirements → Implementation alignment
 - Plan → Tasks alignment
 - Contracts → Code alignment
@@ -253,6 +277,7 @@ $ /ck:doc-review/sdd "Modular command architecture"
 ### `/ck:doc-review/qa` - Quality Validation
 
 **What it does:**
+
 - ✅ Validates all markdown links (finds broken links)
 - ✅ Checks file:line references (e.g., `src/file.py:45`)
 - ✅ Verifies terminology consistency
@@ -263,6 +288,7 @@ $ /ck:doc-review/sdd "Modular command architecture"
 - ✅ **Generates quality score (0-100)**
 
 **When to use:**
+
 - Before committing documentation changes
 - After major documentation updates
 - Find and fix broken links
@@ -270,6 +296,7 @@ $ /ck:doc-review/sdd "Modular command architecture"
 - Before releasing to GitHub
 
 **Syntax:**
+
 ```bash
 /ck:doc-review/qa
 ```
@@ -346,6 +373,7 @@ $ /ck:doc-review/qa
 7. **Completeness (10%)** - Required sections present
 
 **Scoring:**
+
 - 90-100: Excellent documentation ✨
 - 80-89: Good documentation 👍
 - 70-79: Acceptable, needs minor fixes
@@ -356,6 +384,7 @@ $ /ck:doc-review/qa
 ### `/ck:doc-review/main` - Full Orchestration
 
 **What it does:**
+
 - ✅ Runs comprehensive analysis
 - ✅ Shows analysis summary
 - ✅ Asks which areas to update
@@ -364,12 +393,14 @@ $ /ck:doc-review/qa
 - ✅ Shows final summary
 
 **When to use:**
+
 - Not sure what needs updating
 - Want guided workflow
 - Comprehensive documentation update
 - First time using the system
 
 **Syntax:**
+
 ```bash
 /ck:doc-review/main "what changed"
 ```

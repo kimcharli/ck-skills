@@ -7,6 +7,7 @@ Professional templates used by Doc Review Commands for consistent, high-quality 
 ## 📋 Overview
 
 Doc Review Commands uses pre-defined templates for:
+
 - **README.md** - Features and quick start
 - **CLAUDE.md** - AI context and module documentation
 - **CHANGELOG.md** - Version entries
@@ -26,6 +27,7 @@ Used when adding new features to README:
 ## 🎯 New Feature: [Feature Name]
 
 **What it does:**
+
 - ✅ [Benefit 1]
 - ✅ [Benefit 2]
 - ✅ [Benefit 3]
@@ -52,13 +54,17 @@ Used for installation and basic usage:
 ### Installation
 
 \`\`\`bash
+
 # Command or instructions
+
 \`\`\`
 
 ### Basic Usage
 
 \`\`\`bash
+
 # Common usage example
+
 \`\`\`
 
 **Time:** [Expected execution time]
@@ -70,13 +76,14 @@ Used for installation and basic usage:
 ```markdown
 ## 🔍 Commands Reference
 
-| Command | Purpose | Tokens | Time |
-|---------|---------|--------|------|
+| Command    | Purpose       | Tokens    | Time   |
+| ---------- | ------------- | --------- | ------ |
 | `/command` | [Description] | ~XXX-XXXK | XX-XXs |
 
 ### `/command` - [Title]
 
 **What it does:**
+
 - ✅ [Capability 1]
 - ✅ [Capability 2]
 
@@ -109,6 +116,7 @@ Used for documenting new modules or APIs:
 **Purpose:** [What this module does]
 
 **Key Components:**
+
 - [Component 1] - [Description]
 - [Component 2] - [Description]
 - [Component 3] - [Description]
@@ -120,6 +128,7 @@ Used for documenting new modules or APIs:
 [Code example]
 
 **Performance:**
+
 - [Metric 1]: [Value]
 - [Metric 2]: [Value]
 
@@ -127,6 +136,7 @@ Used for documenting new modules or APIs:
 [Internal/external dependencies]
 
 **Related:**
+
 - [Related module 1]
 - [Related module 2]
 ```
@@ -142,6 +152,7 @@ Used for documenting new modules or APIs:
 \`\`\`
 
 **Parameters:**
+
 - `param1` (type): [Description]
 - `param2` (type): [Description]
 
@@ -171,6 +182,7 @@ Used for documenting new modules or APIs:
 \`\`\`
 
 **Options:**
+
 - \`key\`: [Description]
 - \`key\`: [Description]
 
@@ -193,31 +205,38 @@ Used for documenting new modules or APIs:
 ## [Version] - [YYYY-MM-DD]
 
 ### Added
+
 - [New feature 1]
 - [New feature 2]
 - [New capability]
 
 ### Changed
+
 - [Modified behavior 1]
 - [Modified behavior 2]
 - [Enhancement]
 
 ### Fixed
+
 - [Bug fix 1]
 - [Bug fix 2]
 
 ### Performance
+
 - [Performance improvement 1]
 - [Performance improvement 2]
 
 ### Architecture
+
 - [Architecture change 1]
 - [Architecture change 2]
 
 ### Deprecated
+
 - [Deprecated feature 1]
 
 ### Security
+
 - [Security fix 1]
 ```
 
@@ -295,28 +314,34 @@ See [MIGRATION.md](docs/MIGRATION.md) for upgrade instructions
 **Owner:** [Name]
 
 ### Objectives
+
 1. [Objective 1]
 2. [Objective 2]
 3. [Objective 3]
 
 ### Tasks
+
 - [ ] [Task 1] (Est: Xs)
 - [ ] [Task 2] (Est: Xs)
 - [ ] [Task 3] (Est: Xs)
 
 ### Dependencies
+
 - [Dependency 1]
 - [Dependency 2]
 
 ### Success Criteria
+
 - [ ] [Criterion 1]
 - [ ] [Criterion 2]
 
 ### Risks
+
 - [Risk 1]: [Mitigation]
 - [Risk 2]: [Mitigation]
 
 ### Notes
+
 [Any additional notes]
 ```
 
@@ -334,6 +359,7 @@ See [MIGRATION.md](docs/MIGRATION.md) for upgrade instructions
 [What needs to be done]
 
 **Acceptance Criteria:**
+
 - [ ] [Criterion 1]
 - [ ] [Criterion 2]
 - [ ] [Criterion 3]
@@ -342,6 +368,7 @@ See [MIGRATION.md](docs/MIGRATION.md) for upgrade instructions
 [Implementation notes, blockers, dependencies]
 
 **Related:**
+
 - [Related task 1]
 - [Related task 2]
 ```
@@ -358,7 +385,9 @@ See [MIGRATION.md](docs/MIGRATION.md) for upgrade instructions
 **Scenario:** [When to use this pattern]
 
 \`\`\`bash
+
 # Step-by-step example
+
 step1
 step 2
 step 3
@@ -380,16 +409,17 @@ step 3
 
 \`\`\`
 ┌─────────────────┐
-│   Component 1   │
+│ Component 1 │
 └────────┬────────┘
-         │
-         ▼
+│
+▼
 ┌─────────────────┐
-│   Component 2   │
+│ Component 2 │
 └──────────────────┘
 \`\`\`
 
 **Flow:**
+
 1. [Step 1]
 2. [Step 2]
 3. [Step 3]
@@ -401,13 +431,17 @@ step 3
 ### Example: [Title]
 
 \`\`\`bash
+
 # Input
+
 [Input/Setup]
 
 # Command
+
 [Command to run]
 
 # Output
+
 [Expected output]
 \`\`\`
 
@@ -415,6 +449,7 @@ step 3
 [What's happening and why]
 
 **Key Points:**
+
 - [Point 1]
 - [Point 2]
 ```
@@ -435,6 +470,7 @@ step 3
 [How to avoid this issue]
 
 **Related Issues:**
+
 - [Similar issue 1]
 - [Similar issue 2]
 ```
@@ -473,6 +509,7 @@ Templates are **guidelines**, not absolute rules:
 ### `/ck:doc-review/core`
 
 Uses these templates:
+
 - README features section
 - CLAUDE.md module documentation
 - CHANGELOG.md version entry
@@ -480,6 +517,7 @@ Uses these templates:
 ### `/ck:doc-review/sdd`
 
 Uses these templates:
+
 - spec.md requirement sections
 - plan.md phase sections
 - tasks.md task entries
@@ -524,6 +562,7 @@ Look for repeating documentation structures in your project:
 \`\`\`
 
 **Status Codes:**
+
 - `200` - [Success description]
 - `400` - [Error description]
 ```
@@ -597,6 +636,7 @@ Here's a complete example using templates:
 Comprehensive quality validation with 7-category scoring.
 
 **What it does:**
+
 - ✅ Validates all markdown links
 - ✅ Checks file:line references
 - ✅ Verifies terminology consistency
@@ -622,6 +662,7 @@ Before committing documentation changes.
 **Purpose:** Validate documentation quality across the project
 
 **Key Functions:**
+
 - Link validation
 - Cross-reference checking
 - Terminology consistency
@@ -633,6 +674,7 @@ Before committing documentation changes.
 \`\`\`
 
 **Scoring Categories:**
+
 1. Link Validation (20%)
 2. Cross-References (15%)
 3. Terminology (15%)
@@ -648,6 +690,7 @@ Before committing documentation changes.
 
 ```markdown
 ### Added
+
 - New `/ck:doc-review/qa` command for quality validation
 - 7-category documentation scoring system
 - Broken link detection and reporting

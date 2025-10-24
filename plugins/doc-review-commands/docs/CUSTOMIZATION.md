@@ -25,6 +25,7 @@ The main customization file for how documentation is categorized.
 **Location:** `~/.claude/commands/ck/doc-review/config/categories.json`
 
 **What it controls:**
+
 - How files are categorized by content patterns
 - Essential root files to always consider
 - File size thresholds for special handling
@@ -228,6 +229,7 @@ Files larger than 200 lines are handled differently (more careful updates).
 ### Locate Template Files
 
 Templates are defined in the command files:
+
 - `commands/core.md` - README, CLAUDE, CHANGELOG templates
 - `commands/sdd.md` - Spec, plan, tasks templates
 - `commands/qa.md` - QA validation templates
@@ -240,12 +242,15 @@ Edit the "README Update Template" section in `commands/core.md`:
 ## README Update Template
 
 ### Features Section
+
 [Customize feature description format]
 
 ### Usage Section
+
 [Customize usage example format]
 
 ### Commands Section
+
 [Customize command reference table]
 ```
 
@@ -327,7 +332,7 @@ analyze_api_completeness() {
 
 #### Check Example Code Validity
 
-```bash
+````bash
 analyze_examples() {
   local total=$(grep -c '```' docs/*.md)
   local python=$(grep -c '```python' docs/*.md)
@@ -337,7 +342,7 @@ analyze_examples() {
   echo "  Python: $python"
   echo "  Bash: $bash"
 }
-```
+````
 
 #### Check Documentation Coverage
 
@@ -419,6 +424,7 @@ Generate diagrams for: $ARGUMENTS
 📊 Diagram generated: diagrams/[name].mmd
 
 View with:
+
 - GitHub (automatic rendering)
 - Mermaid Live Editor
 - IDE extensions
@@ -502,11 +508,7 @@ Generate API docs for: $ARGUMENTS
 {
   "categories": {
     "company-standards": {
-      "patterns": [
-        "Company Policy",
-        "Internal Standards",
-        "Team Guidelines"
-      ],
+      "patterns": ["Company Policy", "Internal Standards", "Team Guidelines"],
       "description": "Company and team specific docs"
     }
   }
@@ -581,8 +583,8 @@ Maintain different configs per project:
   "categories": {
     "api": {
       "patterns": [
-        "^## API",        // More specific patterns
-        "^### Endpoint"   // Use regex anchors
+        "^## API", // More specific patterns
+        "^### Endpoint" // Use regex anchors
       ]
     }
   }
@@ -682,6 +684,7 @@ When setting up for your project:
 **Cause:** Config file not loaded or has syntax errors
 
 **Solution:**
+
 ```bash
 # Verify config syntax
 cat ~/.claude/commands/ck/doc-review/config/categories.json
@@ -695,6 +698,7 @@ python -m json.tool config/categories.json
 **Cause:** Patterns don't match your documentation style
 
 **Solution:**
+
 1. Check exact heading text in your docs
 2. Update patterns to match exactly
 3. Test with grep: `grep "pattern" docs/*.md`
@@ -704,6 +708,7 @@ python -m json.tool config/categories.json
 **Cause:** analyzer.sh not executable or missing
 
 **Solution:**
+
 ```bash
 chmod +x ~/.claude/commands/ck/doc-review/tools/analyzer.sh
 ```

@@ -5,6 +5,7 @@ Get up and running with Doc Review Commands in 5 minutes.
 ## Installation
 
 ### Option 1: Plugin Marketplace (When Published)
+
 ```bash
 # In Claude Code:
 /plugin marketplace add kimcharli/doc-review-commands
@@ -13,6 +14,7 @@ Get up and running with Doc Review Commands in 5 minutes.
 ```
 
 ### Option 2: Manual Install
+
 ```bash
 git clone https://github.com/kimcharli/doc-review-commands.git
 cd doc-review-commands
@@ -69,14 +71,14 @@ See [Installation Guide](INSTALLATION.md) for more options.
 
 ## Command Cheat Sheet
 
-| Command | When to Use |
-|---------|-------------|
-| `/ck:doc-review/help` | Need usage guide |
-| `/ck:doc-review/analyze` | "What docs need updating?" |
+| Command                   | When to Use                |
+| ------------------------- | -------------------------- |
+| `/ck:doc-review/help`     | Need usage guide           |
+| `/ck:doc-review/analyze`  | "What docs need updating?" |
 | `/ck:doc-review/core "X"` | Quick README/CLAUDE update |
-| `/ck:doc-review/sdd "X"` | Update SDD artifacts |
-| `/ck:doc-review/qa` | Before committing docs |
-| `/ck:doc-review/main "X"` | Full guided update |
+| `/ck:doc-review/sdd "X"`  | Update SDD artifacts       |
+| `/ck:doc-review/qa`       | Before committing docs     |
+| `/ck:doc-review/main "X"` | Full guided update         |
 
 ## Next Steps
 

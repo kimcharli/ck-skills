@@ -13,6 +13,7 @@ allowed-tools: Bash(cat:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Gl
 **Update core documentation for:** $ARGUMENTS
 
 **Files to update:**
+
 - README.md
 - CLAUDE.md
 - CHANGELOG.md
@@ -33,19 +34,25 @@ Based on $ARGUMENTS, update relevant sections:
 
 **Features Section:**
 If new feature added, use this template:
-```markdown
+
+````markdown
 ### [Feature Name]
+
 Brief description of what it does and why it's useful.
 
 **Usage:**
+
 ```[language]
 # Code example here
 ```
+````
 
 **Key Features:**
+
 - Feature point 1
 - Feature point 2
-```
+
+````
 
 **Installation Section:**
 - Update if new dependencies added
@@ -85,12 +92,14 @@ Add AI assistant context for: $ARGUMENTS
 - **Usage Pattern**:
   ```[language]
   # Example usage
-  ```
+````
+
 - **Error Handling**:
   - Common error 1: Solution
   - Common error 2: Solution
 - **Related Components**: [Links to related sections]
-```
+
+````
 
 **Additional Context:**
 - Update architecture overview if structure changed
@@ -132,7 +141,7 @@ Check current version and determine if this is:
 
 ### Deprecated
 - [What's being removed in future]
-```
+````
 
 ### Make Updates
 
@@ -145,6 +154,7 @@ Check current version and determine if this is:
 ## Step 5: Validation
 
 **Check Updates:**
+
 - [ ] README.md updated with new feature/changes
 - [ ] CLAUDE.md has AI context for new components
 - [ ] CHANGELOG.md has version entry with categorized changes
@@ -161,16 +171,19 @@ Check current version and determine if this is:
 **Scope:** $ARGUMENTS
 
 **Files Updated:**
-| File | Sections Modified | Lines Changed |
-|------|-------------------|---------------|
-| README.md | [list sections] | ~[estimate] |
-| CLAUDE.md | [list sections] | ~[estimate] |
-| CHANGELOG.md | [version entry] | ~[estimate] |
+
+| File         | Sections Modified | Lines Changed |
+| ------------ | ----------------- | ------------- |
+| README.md    | [list sections]   | ~[estimate]   |
+| CLAUDE.md    | [list sections]   | ~[estimate]   |
+| CHANGELOG.md | [version entry]   | ~[estimate]   |
 
 **Key Changes:**
+
 - [Bullet point summary of main changes]
 
 **Validation:**
+
 - [x] All core files updated
 - [x] Examples tested
 - [x] No sensitive data
@@ -183,6 +196,7 @@ Check current version and determine if this is:
 ## Next Steps
 
 Recommended follow-up:
+
 - [ ] Review changes: `git diff README.md CLAUDE.md CHANGELOG.md`
 - [ ] Test any code examples added
 - [ ] Update SDD if needed: `/ck:doc-review/sdd $ARGUMENTS`

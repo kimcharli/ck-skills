@@ -4,7 +4,7 @@ Steps to publish doc-review-commands to GitHub.
 
 ## 1. Create GitHub Repository
 
-1. Go to https://github.com/new
+1. Go to <https://github.com/new>
 2. Repository name: `doc-review-commands`
 3. Description: `AI-powered documentation management system for Claude Code`
 4. Public repository
@@ -32,12 +32,14 @@ git push -u origin main
 2. Tag: `v1.0.0`
 3. Release title: `v1.0.0 - Initial Release`
 4. Description:
-   ```markdown
+
+   ````markdown
    ## 🎉 Initial Release
 
    Doc Review Commands v1.0.0 is here! A modular documentation management system for Claude Code.
 
    ### ✨ Features
+
    - 6 modular commands for efficient documentation updates
    - 88% token reduction vs monolithic commands
    - 70% faster execution with focused sub-commands
@@ -48,13 +50,16 @@ git push -u origin main
    - Professional documentation templates
 
    ### 📦 Installation
+
    ```bash
    git clone https://github.com/kimcharli/doc-review-commands.git
    cd doc-review-commands
    ./install.sh
    ```
+   ````
 
    ### 🚀 Quick Start
+
    ```bash
    /ck:doc-review/help      # Show usage guide
    /ck:doc-review/core "X"  # Update core files
@@ -67,6 +72,9 @@ git push -u origin main
    - [Examples](examples/basic-usage.md)
 
    **Full Changelog**: Initial release
+
+   ```
+
    ```
 
 5. Click "Publish release"
@@ -89,7 +97,9 @@ git push
 ## 5. Repository Settings
 
 ### Topics/Tags
+
 Add topics to help discovery:
+
 - `claude-code`
 - `documentation`
 - `ai-tools`
@@ -100,14 +110,17 @@ Add topics to help discovery:
 - `developer-tools`
 
 ### About Section
+
 - Description: "AI-powered documentation management system for Claude Code - 88% token reduction, 70% faster"
 - Website: (your blog if you have one)
 - Topics: (as above)
 
 ### Issues
+
 Enable issues for bug reports and feature requests
 
 ### Discussions
+
 Enable discussions for community Q&A
 
 ## 6. Optional: GitHub Actions
@@ -140,6 +153,7 @@ jobs:
 ## 8. Maintenance
 
 Regular tasks:
+
 - Respond to issues within 48 hours
 - Review pull requests promptly
 - Update CHANGELOG.md for each release

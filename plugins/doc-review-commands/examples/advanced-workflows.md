@@ -7,6 +7,7 @@ Power user patterns and advanced use cases for Doc Review Commands.
 ## 📋 Overview
 
 This guide covers:
+
 - Batch processing workflows
 - CI/CD integration
 - Multi-phase project workflows
@@ -38,6 +39,7 @@ cat /tmp/analysis.txt
 ```
 
 **Benefits:**
+
 - Single token cost instead of 5x
 - One commit instead of 5
 - Better documentation of release cohort
@@ -63,6 +65,7 @@ cat /tmp/analysis.txt
 ```
 
 **Structure:**
+
 ```bash
 Phase 1: Requirements gathering
 ├── Implement features
@@ -98,6 +101,7 @@ git commit -m "docs: weekly documentation update"
 ```
 
 **Token Efficiency:**
+
 - Daily updates: 1.2K × 4 = 4.8K
 - Weekly QA: 1.8K
 - **Total: 6.6K tokens**
@@ -133,6 +137,7 @@ git push origin v2.0
 ```
 
 **QA Loop:**
+
 ```
 /core → /qa → Fix → /core → /qa → ...
 
@@ -156,9 +161,9 @@ name: Documentation QA
 on:
   pull_request:
     paths:
-      - 'docs/**'
-      - '*.md'
-      - 'commands/**'
+      - "docs/**"
+      - "*.md"
+      - "commands/**"
 
 jobs:
   qa:
@@ -217,20 +222,24 @@ exit 0
 
 ```markdown
 ## Description
+
 [Description of changes]
 
 ## Documentation Changes
+
 - [ ] README updated
 - [ ] CHANGELOG updated
 - [ ] API docs updated (if applicable)
 
 ## Quality Checklist
+
 - [ ] Ran `/ck:doc-review/qa` locally
 - [ ] Quality score >= 80
 - [ ] All links valid
 - [ ] No broken references
 
 ## Related Issues
+
 [Issue numbers]
 ```
 

@@ -22,6 +22,7 @@ Present the analysis results in a user-friendly format:
 [Summarize principles detected from analysis output above]
 
 **Detected Constraints:**
+
 - [List any detected principles or "None detected"]
 
 **Impact:** [Explain what this means for documentation updates]
@@ -31,12 +32,14 @@ Present the analysis results in a user-friendly format:
 ### 📁 Documentation Structure
 
 **Inventory:**
+
 - Total .md files: [from metrics]
 - Root directory: [count]
 - docs/ directory: [count]
 - specs/ directory: [count]
 
 **Organization Assessment:**
+
 - [Summarize if current structure is good or needs reorganization]
 - [List any potential improvements]
 
@@ -48,12 +51,14 @@ Present the analysis results in a user-friendly format:
 [List files changed from git analysis]
 
 **Documentation Impact:**
+
 - README.md: [Needs update? Why?]
 - CLAUDE.md: [Needs update? Why?]
 - SDD artifacts: [Needs update? Why?]
 - API/Technical docs: [Needs update? Why?]
 
 **Recommended Actions:**
+
 1. [Prioritized list of documentation updates needed]
 2. [...]
 
@@ -62,11 +67,13 @@ Present the analysis results in a user-friendly format:
 ### 📊 Current Metrics
 
 **Documentation Health:**
+
 - Total documentation lines: [from metrics]
 - Last commit: [from git]
 - Last doc update: [from git]
 
 **Quality Indicators:**
+
 - Large files (>200 lines): [count and list]
 - Potential misplaced files: [count and list]
 - SDD coverage: [number of active specs]
@@ -78,12 +85,15 @@ Present the analysis results in a user-friendly format:
 Based on this analysis, here's what you should do:
 
 ### High Priority
+
 - [List high-priority updates]
 
 ### Medium Priority
+
 - [List medium-priority updates]
 
 ### Low Priority / Optional
+
 - [List optional improvements]
 
 ---
@@ -91,11 +101,13 @@ Based on this analysis, here's what you should do:
 ## Next Steps
 
 **To update documentation, use:**
+
 - `/ck:doc-review/core [feature]` - Update core files
 - `/ck:doc-review/sdd [feature]` - Update SDD artifacts
 - `/ck:doc-review/main [feature]` - Full update with user choice
 
 **To validate quality:**
+
 - `/ck:doc-review/qa` - Run quality checks
 
 ---

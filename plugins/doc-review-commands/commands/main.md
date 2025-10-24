@@ -31,6 +31,7 @@ Review the analysis output above to understand:
 Based on the analysis, here's what needs updating:
 
 **Available Sub-Commands:**
+
 - `/ck:doc-review/analyze` - Run analysis only (no updates)
 - `/ck:doc-review/core` - Update README, CLAUDE, CHANGELOG
 - `/ck:doc-review/sdd` - Update SDD artifacts (spec, plan, tasks)
@@ -53,7 +54,7 @@ Use AskUserQuestion to ask:
   **description:** "README.md, CLAUDE.md, CHANGELOG.md - Quick updates (1-2 min)"
 
 - **label:** "SDD Artifacts"
-  **description:** "specs/*/spec.md, plan.md, tasks.md - Specification updates (2-3 min)"
+  **description:** "specs/\*/spec.md, plan.md, tasks.md - Specification updates (2-3 min)"
 
 - **label:** "Run QA Only"
   **description:** "Link validation, consistency checks - No content changes"
@@ -67,22 +68,26 @@ Use AskUserQuestion to ask:
 
 Based on user selection, invoke appropriate sub-commands:
 
-### If "Core Files" selected:
+### If "Core Files" selected
+
 ```
 /ck:doc-review/core $ARGUMENTS
 ```
 
-### If "SDD Artifacts" selected:
+### If "SDD Artifacts" selected
+
 ```
 /ck:doc-review/sdd $ARGUMENTS
 ```
 
-### If "Run QA Only" selected:
+### If "Run QA Only" selected
+
 ```
 /ck:doc-review/qa
 ```
 
-### If "Full Update" selected:
+### If "Full Update" selected
+
 ```
 /ck:doc-review/core $ARGUMENTS
 /ck:doc-review/sdd $ARGUMENTS
@@ -102,13 +107,16 @@ After all sub-commands complete, provide aggregated summary:
 **Scope:** $ARGUMENTS
 
 **Sub-Commands Executed:**
+
 - [List which sub-commands ran]
 
 **Total Updates:**
+
 - Files modified: [aggregate count]
 - Total time: [sum of execution times]
 
 **Next Steps:**
+
 - [ ] Review changes: `git diff`
 - [ ] Commit updates: `git add . && git commit -m "docs: ..."`
 - [ ] Push if ready: `git push`

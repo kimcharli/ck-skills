@@ -39,6 +39,7 @@ Structured Summary
 ### Folder Rationale
 
 **Self-Contained Design:**
+
 - All commands in one folder for easy installation
 - Paired with config and tools (no scattered dependencies)
 - Portable across systems (single folder copy)
@@ -52,24 +53,26 @@ Structured Summary
 
 Each command is **single-responsibility** and **independently executable**:
 
-| Command | Responsibility | Dependencies |
-|---------|-----------------|--------------|
-| `main` | Orchestrate analysis + delegation | All sub-commands |
-| `analyze` | Extract project insights | analyzer.sh tool |
-| `core` | Update main docs | Read, Edit tools |
-| `sdd` | Update specs/plans | Read, Edit tools |
-| `qa` | Validate documentation | Grep tool |
-| `help` | Display usage guide | None |
+| Command   | Responsibility                    | Dependencies     |
+| --------- | --------------------------------- | ---------------- |
+| `main`    | Orchestrate analysis + delegation | All sub-commands |
+| `analyze` | Extract project insights          | analyzer.sh tool |
+| `core`    | Update main docs                  | Read, Edit tools |
+| `sdd`     | Update specs/plans                | Read, Edit tools |
+| `qa`      | Validate documentation            | Grep tool        |
+| `help`    | Display usage guide               | None             |
 
 ### Why Modular?
 
 **Before (Monolithic):**
+
 - 419 lines in one command
 - 10-12K tokens per invocation
 - All features load together
 - Hard to maintain or extend
 
 **After (Modular):**
+
 - 6 focused commands, 1,667 lines total
 - 900-2K tokens per invocation
 - Load only needed functionality
@@ -90,16 +93,20 @@ allowed-tools: Bash(*), Read(*), Edit(*)
 ---
 
 ## Context
+
 [External data loads here]
 
 ## Task
+
 [What the user wants]
 
 ## Implementation
+
 [Step-by-step logic]
 ```
 
 **Key Pattern:**
+
 - YAML frontmatter defines capabilities
 - Context section loads external data (blazingly fast!)
 - Task section describes goal
@@ -127,6 +134,7 @@ Pattern-based file categorization:
 ```
 
 **Why Pattern-Based?**
+
 - Flexible (customize for any project)
 - No hardcoded assumptions
 - Works with different documentation styles
@@ -146,6 +154,7 @@ Bash script for instant analysis:
 ```
 
 **Performance Advantage:**
+
 - Runs in < 1 second
 - Executes in bash context (no Claude overhead)
 - Returns structured output
@@ -251,6 +260,7 @@ help → displays help
 4. Reference in `main.md`
 
 **Example:**
+
 ```markdown
 ---
 description: Generate diagrams
@@ -258,6 +268,7 @@ allowed-tools: Bash(mermaid), Write(*)
 ---
 
 ## Task
+
 Generate architecture diagrams from documentation
 ```
 
@@ -292,21 +303,21 @@ analyze_custom() {
 
 ### Token Efficiency
 
-| Operation | Before | After | Savings |
-|-----------|--------|-------|---------|
-| Analysis | 800 | 200 | 75% |
-| Update | 3K | 1.2K | 60% |
-| Validation | 2.5K | 1.8K | 28% |
-| **Total** | **~10K** | **~1.2K** | **88%** |
+| Operation  | Before   | After     | Savings |
+| ---------- | -------- | --------- | ------- |
+| Analysis   | 800      | 200       | 75%     |
+| Update     | 3K       | 1.2K      | 60%     |
+| Validation | 2.5K     | 1.8K      | 28%     |
+| **Total**  | **~10K** | **~1.2K** | **88%** |
 
 ### Execution Speed
 
-| Operation | Time |
-|-----------|------|
-| Analyze | < 1s (bash) |
-| Core update | 15-30s |
-| SDD update | 30-60s |
-| Validate | 10-20s |
+| Operation   | Time        |
+| ----------- | ----------- |
+| Analyze     | < 1s (bash) |
+| Core update | 15-30s      |
+| SDD update  | 30-60s      |
+| Validate    | 10-20s      |
 
 ---
 
@@ -333,6 +344,7 @@ analyze_custom() {
 ### Extensibility
 
 The modular design supports:
+
 - Custom commands
 - Custom categories
 - Custom tools

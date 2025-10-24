@@ -56,6 +56,7 @@ Once Doc Review Commands is published to a Claude Code plugin marketplace, insta
 ```
 
 **What happens:**
+
 - ✅ Automatically downloads the skill from marketplace
 - ✅ Installs to correct Claude Code directory
 - ✅ Makes all commands available immediately
@@ -81,6 +82,7 @@ After installation, restart Claude Code to activate the commands:
 ```
 
 **Benefits:**
+
 - Simplest installation method
 - No git clone needed
 - No manual setup
@@ -121,6 +123,7 @@ cd doc-review-commands
 ```
 
 **What the installer does:**
+
 - ✅ Creates `~/.claude/commands/ck/doc-review/` directory
 - ✅ Copies all command files
 - ✅ Installs configuration files
@@ -138,6 +141,7 @@ cd doc-review-commands
 ```
 
 **Expected Output:**
+
 ```
 📚 Documentation Review System - Help Guide
 Version: Phase 3 (Modular Architecture)
@@ -291,6 +295,7 @@ mkdir -p ~/.claude/
 **Causes and Solutions:**
 
 1. **Installation path issue:**
+
    ```bash
    # Verify installation location
    ls ~/.claude/commands/ck/doc-review/commands/help.md
@@ -300,6 +305,7 @@ mkdir -p ~/.claude/
    ```
 
 2. **Claude Code not recognizing commands:**
+
    ```bash
    # Restart Claude Code
    # Then try again
@@ -307,6 +313,7 @@ mkdir -p ~/.claude/
    ```
 
 3. **Using wrong command syntax:**
+
    ```bash
    # Wrong: /doc-review/help
    # Correct: /ck:doc-review/help
@@ -402,6 +409,7 @@ chmod +x ~/.claude/tools/analyzer.sh
 ### Permissions
 
 Installation requires write access to:
+
 - `~/.claude/commands/ck/` (create/write)
 - `~/.claude/tools/` (optional, write)
 
@@ -531,12 +539,14 @@ mv ~/.claude/commands/ck/doc-review.backup ~/.claude/commands/ck/doc-review
 ### Copy Installation Between Machines
 
 **On source machine:**
+
 ```bash
 # Create archive
 tar -czf doc-review-commands.tar.gz ~/.claude/commands/ck/doc-review/
 ```
 
 **On destination machine:**
+
 ```bash
 # Extract
 mkdir -p ~/.claude/commands/ck/
@@ -549,6 +559,7 @@ tar -xzf doc-review-commands.tar.gz -C ~/.claude/commands/ck/
 ### Installation via SSH
 
 **From remote machine:**
+
 ```bash
 # Clone and install via SSH
 ssh user@remote 'cd /tmp && \
@@ -618,7 +629,7 @@ If installation fails:
 3. **Check File Permissions** - Ensure write access to `~/.claude/`
 4. **Try Manual Installation** - If automatic fails, try method 2
 5. **Consult Troubleshooting** - See section above
-6. **Open an Issue** - Report on GitHub: https://github.com/kimcharli/doc-review-commands/issues
+6. **Open an Issue** - Report on GitHub: <https://github.com/kimcharli/doc-review-commands/issues>
 
 ---
 
@@ -634,16 +645,18 @@ After successful installation:
 
 ---
 
-## 🎉 Installation Complete!
+## 🎉 Installation Complete
 
 Your Doc Review Commands system is ready to use.
 
 **Quick verification:**
+
 ```bash
 /ck:doc-review/help
 ```
 
 **Next command to try:**
+
 ```bash
 /ck:doc-review/analyze
 ```

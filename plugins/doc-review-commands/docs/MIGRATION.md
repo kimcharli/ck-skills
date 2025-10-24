@@ -7,6 +7,7 @@ Upgrade from older versions or migrate from alternative documentation management
 ## 📋 Overview
 
 This guide covers:
+
 - Upgrading between versions
 - Migrating from monolithic commands
 - Migrating from manual documentation workflows
@@ -32,6 +33,7 @@ v1.0 introduces major architectural changes with **full backward compatibility**
 #### Changes You Need to Know
 
 1. **Command Names Changed**
+
    ```bash
    # Old (v0.x)
    /ck:doc-review-monolithic
@@ -46,6 +48,7 @@ v1.0 introduces major architectural changes with **full backward compatibility**
    ```
 
 2. **Installation Method Changed**
+
    ```bash
    # Old: Manual file copying
    # New: One-command installation
@@ -53,6 +56,7 @@ v1.0 introduces major architectural changes with **full backward compatibility**
    ```
 
 3. **Configuration Added**
+
    ```bash
    # New: Pattern-based categories
    config/categories.json
@@ -81,13 +85,13 @@ cd doc-review-commands
 
 #### Command Mapping
 
-| Old Command | New Equivalent | Token Savings |
-|-------------|----------------|---------------|
-| `doc-review monolithic` | `/ck:doc-review/main` | Same |
-| (N/A) | `/ck:doc-review/core` | 85% less than old |
-| (N/A) | `/ck:doc-review/sdd` | 80% less than old |
-| (N/A) | `/ck:doc-review/qa` | 70% less than old |
-| (N/A) | `/ck:doc-review/analyze` | 75% less than old |
+| Old Command             | New Equivalent           | Token Savings     |
+| ----------------------- | ------------------------ | ----------------- |
+| `doc-review monolithic` | `/ck:doc-review/main`    | Same              |
+| (N/A)                   | `/ck:doc-review/core`    | 85% less than old |
+| (N/A)                   | `/ck:doc-review/sdd`     | 80% less than old |
+| (N/A)                   | `/ck:doc-review/qa`      | 70% less than old |
+| (N/A)                   | `/ck:doc-review/analyze` | 75% less than old |
 
 ---
 
@@ -98,12 +102,14 @@ If you were using a monolithic documentation command:
 ### Update Your Workflow
 
 #### Old Workflow
+
 ```bash
 # Everything in one command (expensive)
 /ck:doc-review-monolithic "add feature"
 ```
 
 #### New Workflow
+
 ```bash
 # Quick update (focused, cheap)
 /ck:doc-review/core "add feature"
@@ -115,10 +121,12 @@ If you were using a monolithic documentation command:
 ### Token Budget Impact
 
 **Before (monolithic):**
+
 - Average use: 10-12K tokens
 - Monthly (20 updates): 200-240K tokens
 
 **After (modular):**
+
 - Average use: 900-2K tokens
 - Monthly (20 updates): 18-40K tokens
 
@@ -215,17 +223,21 @@ Share the help guide with your team:
 If you had custom documentation patterns:
 
 #### Old Approach
+
 ```markdown
 <!-- Manual notes in README -->
+
 ## Documentation Guidelines
 
 Our API docs should have:
+
 - Endpoint description
 - Method and path
 - Request/response examples
 ```
 
 #### New Approach
+
 ```json
 {
   "categories": {
@@ -240,11 +252,13 @@ Our API docs should have:
 ### Creating categories.json
 
 1. **Identify your patterns**
+
    ```bash
    grep -r "## " docs/ | cut -d: -f2 | sort | uniq
    ```
 
 2. **Group into categories**
+
    ```
    - API docs → "## API", "Endpoint", "Request"
    - Setup docs → "## Installation", "Setup"
@@ -252,6 +266,7 @@ Our API docs should have:
    ```
 
 3. **Create configuration**
+
    ```json
    {
      "categories": {
@@ -264,6 +279,7 @@ Our API docs should have:
    ```
 
 4. **Test**
+
    ```bash
    /ck:doc-review/analyze
    ```
@@ -273,6 +289,7 @@ Our API docs should have:
 ## 📁 File Structure Migration
 
 ### Old Structure
+
 ```
 project/
 ├── README.md
@@ -284,6 +301,7 @@ project/
 ```
 
 ### New Structure (Recommended)
+
 ```
 project/
 ├── README.md
@@ -376,6 +394,7 @@ Dependencies: None (bash only)
 Uses patterns defined in `config/categories.json`
 
 **Functions:**
+
 - analyze_principles()
 - analyze_structure()
 - analyze_categorization()
@@ -490,6 +509,7 @@ git commit -m "docs: adopt Doc Review Commands system"
 ### Communication Plan
 
 1. **Announce the change**
+
    ```
    Subject: Adopting new documentation system
 
@@ -498,6 +518,7 @@ git commit -m "docs: adopt Doc Review Commands system"
    ```
 
 2. **Share resources**
+
    ```bash
    # Send this to team
    /ck:doc-review/help
@@ -509,6 +530,7 @@ git commit -m "docs: adopt Doc Review Commands system"
    ```
 
 3. **Train team**
+
    ```bash
    # Schedule walkthrough
    Demonstrate:
@@ -518,6 +540,7 @@ git commit -m "docs: adopt Doc Review Commands system"
    ```
 
 4. **Gradual rollout**
+
    ```bash
    # Phase 1: Volunteers only
    # Phase 2: New documentation uses it
@@ -552,6 +575,7 @@ git revert <commit-sha>
 Track improvements after migration:
 
 ### Before Migration
+
 ```
 Manual documentation updates:
 - Time per update: 30-45 min
@@ -561,6 +585,7 @@ Manual documentation updates:
 ```
 
 ### After Migration
+
 ```
 Doc Review Commands:
 - Time per update: 5-15 min (70% faster)

@@ -47,6 +47,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ## 📋 Command Reference
 
 ### `/ck:doc-review/help` (This Command)
+
 **Purpose:** Show help and usage guide
 **Token Cost:** ~200 tokens (one-time)
 **Files Modified:** None
@@ -55,12 +56,14 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ---
 
 ### `/ck:doc-review/analyze`
+
 **Purpose:** Analyze documentation needs without making changes
 **Token Cost:** ~600-800 tokens
 **Files Modified:** None
 **Execution Time:** < 1 second
 
 **What It Does:**
+
 - ✅ Detects project documentation principles
 - ✅ Analyzes current documentation structure
 - ✅ Identifies what needs updating (from git history)
@@ -68,12 +71,14 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 - ❌ Makes zero changes
 
 **When to Use:**
+
 - "What docs need updating?"
 - Before starting documentation work
 - Quick health check
 - Understanding project doc structure
 
 **Example:**
+
 ```bash
 /ck:doc-review/analyze
 
@@ -87,12 +92,14 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ---
 
 ### `/ck:doc-review/core`
+
 **Purpose:** Update core documentation files
 **Token Cost:** ~1,200-1,500 tokens
 **Files Modified:** README.md, CLAUDE.md, CHANGELOG.md
 **Execution Time:** 15-30 seconds
 
 **What It Does:**
+
 - ✅ Updates README.md (features, usage, installation)
 - ✅ Updates CLAUDE.md (AI context, module docs)
 - ✅ Updates CHANGELOG.md (version entry)
@@ -100,12 +107,14 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 - ✅ Validates changes
 
 **When to Use:**
+
 - Just added a new feature
 - Need to document new API/module
 - Quick documentation update
 - Before sharing project
 
 **Example:**
+
 ```bash
 /ck:doc-review/core "ApstraWorkModule implementation"
 
@@ -117,6 +126,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ```
 
 **Templates Provided:**
+
 - README feature section
 - CLAUDE module documentation
 - CHANGELOG version entry
@@ -124,25 +134,29 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ---
 
 ### `/ck:doc-review/sdd`
+
 **Purpose:** Update SDD (Specification-Driven Development) artifacts
 **Token Cost:** ~1,500-1,800 tokens
-**Files Modified:** specs/*/spec.md, plan.md, tasks.md, contracts/*.md
+**Files Modified:** specs/_/spec.md, plan.md, tasks.md, contracts/_.md
 **Execution Time:** 30-60 seconds
 
 **What It Does:**
-- ✅ Marks requirements (FR-*) as completed in spec.md
+
+- ✅ Marks requirements (FR-\*) as completed in spec.md
 - ✅ Updates implementation plan and phase status in plan.md
 - ✅ Marks tasks complete and adds notes in tasks.md
 - ✅ Updates design contracts and API specs
 - ✅ Validates SDD ↔ code consistency
 
 **When to Use:**
+
 - Completed an implementation phase
 - Need to sync specs with code
 - Mark requirements as done
 - Document architecture decisions
 
 **Example:**
+
 ```bash
 /ck:doc-review/sdd "Phase 2 completion"
 
@@ -155,6 +169,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ```
 
 **SDD Consistency Checks:**
+
 - Requirements → Implementation alignment
 - Plan → Tasks alignment
 - Contracts → Code alignment
@@ -163,12 +178,14 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ---
 
 ### `/ck:doc-review/qa`
+
 **Purpose:** Quality assurance - validate documentation
 **Token Cost:** ~1,800-2,000 tokens
 **Files Modified:** None
 **Execution Time:** 10-20 seconds
 
 **What It Does:**
+
 - ✅ Validates markdown links (finds broken links)
 - ✅ Checks file:line references (path/to/file.py:123)
 - ✅ Checks terminology consistency
@@ -179,12 +196,14 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 - ✅ Generates scored report (0-100)
 
 **When to Use:**
+
 - Before committing documentation changes
 - After major documentation updates
 - Find and fix broken links
 - Ensure documentation quality
 
 **Example:**
+
 ```bash
 /ck:doc-review/qa
 
@@ -201,6 +220,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ```
 
 **QA Categories:**
+
 1. Link Validation (20 points)
 2. Cross-Reference Validation (15 points)
 3. Terminology Consistency (15 points)
@@ -212,12 +232,14 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ---
 
 ### `/ck:doc-review` (Main Orchestrator)
+
 **Purpose:** Smart orchestration - analyze and delegate
 **Token Cost:** ~900-1,200 tokens (orchestrator only) + selected sub-commands
 **Files Modified:** Depends on user selection
 **Execution Time:** Variable (depends on selection)
 
 **What It Does:**
+
 - ✅ Runs comprehensive analysis (via doc-analyzer.sh)
 - ✅ Shows analysis summary
 - ✅ Asks user which areas to update
@@ -225,12 +247,14 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 - ✅ Aggregates and shows summary
 
 **When to Use:**
+
 - Not sure what needs updating
 - Want guided workflow
 - Comprehensive documentation update
 - First time using the system
 
 **Example:**
+
 ```bash
 /ck:doc-review "feature 005 implementation"
 
@@ -261,6 +285,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ## 🎓 Usage Patterns
 
 ### Pattern 1: Quick README Update (Most Common)
+
 ```bash
 # Scenario: Added new feature, need docs
 /ck:doc-review/core "new feature name"
@@ -271,6 +296,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ```
 
 ### Pattern 2: Analysis First (Recommended for New Users)
+
 ```bash
 # Step 1: Understand what needs updating
 /ck:doc-review/analyze
@@ -283,6 +309,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ```
 
 ### Pattern 3: Full Update After Major Work
+
 ```bash
 # Completed major implementation
 /ck:doc-review "Phase 2 complete"
@@ -296,6 +323,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ```
 
 ### Pattern 4: QA Before Commit (Best Practice)
+
 ```bash
 # Before git commit
 /ck:doc-review/qa
@@ -309,6 +337,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ```
 
 ### Pattern 5: SDD Update After Phase
+
 ```bash
 # Completed implementation phase
 /ck:doc-review/sdd "Phase 2"
@@ -323,6 +352,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ## 🗂️ File Structure Reference
 
 ### Command Files Location
+
 ```
 ~/.claude/commands/ck/
 ├── doc-review.md              # Main orchestrator
@@ -335,6 +365,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ```
 
 ### Supporting Tools
+
 ```
 ~/.claude/tools/
 └── doc-analyzer.sh            # External analysis script
@@ -347,6 +378,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 ```
 
 ### Documentation
+
 ```
 docs/
 ├── ck-doc-review-analysis.md            # Architecture analysis
@@ -361,18 +393,19 @@ docs/
 
 ### Per-Command Token Costs
 
-| Command | Tokens | Use Case |
-|---------|--------|----------|
-| `:help` | ~200 | One-time reference |
-| `:analyze` | ~600-800 | Analysis only |
-| `:core` | ~1.2-1.5K | Quick update |
-| `:sdd` | ~1.5-1.8K | SDD update |
-| `:qa` | ~1.8-2K | Quality check |
+| Command      | Tokens                   | Use Case           |
+| ------------ | ------------------------ | ------------------ |
+| `:help`      | ~200                     | One-time reference |
+| `:analyze`   | ~600-800                 | Analysis only      |
+| `:core`      | ~1.2-1.5K                | Quick update       |
+| `:sdd`       | ~1.5-1.8K                | SDD update         |
+| `:qa`        | ~1.8-2K                  | Quality check      |
 | `doc-review` | ~900-1.2K + sub-commands | Full orchestration |
 
 ### Monthly Token Budget Examples
 
 **Light Usage (10 updates/month):**
+
 ```
 10x :core updates: 12-15K tokens
 2x :qa checks: 3.6-4K tokens
@@ -381,6 +414,7 @@ Total: ~16-19K tokens/month
 ```
 
 **Medium Usage (20 updates/month):**
+
 ```
 15x :core updates: 18-22.5K tokens
 4x :sdd updates: 6-7.2K tokens
@@ -390,6 +424,7 @@ Total: ~31-38K tokens/month
 ```
 
 **Heavy Usage (40 updates/month):**
+
 ```
 25x :core updates: 30-37.5K tokens
 8x :sdd updates: 12-14.4K tokens
@@ -400,6 +435,7 @@ Total: ~69-84K tokens/month
 ```
 
 **Original System (Same Usage):**
+
 ```
 40x monolithic commands: 400-480K tokens/month
 Savings with Phase 3: 83-93%
@@ -413,6 +449,7 @@ Savings with Phase 3: 83-93%
 
 **Cause:** Sub-command file not installed
 **Solution:**
+
 ```bash
 # Check if files exist
 ls ~/.claude/commands/ck/doc-review*.md
@@ -427,6 +464,7 @@ ls ~/.claude/commands/ck/doc-review*.md
 
 **Cause:** doc-analyzer.sh not executable or not found
 **Solution:**
+
 ```bash
 # Check if tool exists
 ls -l ~/.claude/tools/doc-analyzer.sh
@@ -444,6 +482,7 @@ chmod +x ~/.claude/tools/doc-analyzer.sh
 
 **Cause:** Links broken after file reorganization
 **Solution:**
+
 ```bash
 # Run QA to identify broken links
 /ck:doc-review/qa
@@ -459,6 +498,7 @@ chmod +x ~/.claude/tools/doc-analyzer.sh
 
 **Cause:** Requirements/tasks out of sync with code
 **Solution:**
+
 ```bash
 # Update SDD artifacts
 /ck:doc-review/sdd "current feature"
@@ -472,6 +512,7 @@ chmod +x ~/.claude/tools/doc-analyzer.sh
 ## 💡 Tips & Best Practices
 
 ### 1. Run `:analyze` First (New Projects)
+
 ```bash
 # When starting with a new project
 /ck:doc-review/analyze
@@ -482,6 +523,7 @@ chmod +x ~/.claude/tools/doc-analyzer.sh
 ```
 
 ### 2. Use `:core` for Quick Updates
+
 ```bash
 # Daily workflow: added feature, need docs
 /ck:doc-review/core "feature name"
@@ -492,6 +534,7 @@ chmod +x ~/.claude/tools/doc-analyzer.sh
 ```
 
 ### 3. Run `:qa` Before Commits
+
 ```bash
 # Git workflow
 git add .
@@ -501,6 +544,7 @@ git commit -m "docs: ..."
 ```
 
 ### 4. Use Orchestrator When Unsure
+
 ```bash
 # Not sure what needs updating?
 /ck:doc-review "what changed"
@@ -511,6 +555,7 @@ git commit -m "docs: ..."
 ```
 
 ### 5. Batch SDD Updates
+
 ```bash
 # Don't update SDD after every task
 # Batch at phase boundaries
@@ -554,15 +599,18 @@ Start
 ## 📚 Further Reading
 
 **Architecture Deep Dive:**
+
 - `docs/ck-doc-review-analysis.md` - Initial architecture analysis
 - `docs/ck-doc-review-phase3-improvements.md` - Current system design
 
 **Phase Evolution:**
+
 - Phase 1: Progressive disclosure + patterns config
 - Phase 2: External tool architecture
 - Phase 3: Full modularization (current)
 
 **External Tools:**
+
 - `~/.claude/tools/doc-analyzer.sh help` - Tool documentation
 - Run `doc-analyzer.sh all` to see full analysis output
 
@@ -571,17 +619,20 @@ Start
 ## 🆘 Getting Help
 
 ### Within the System
+
 ```bash
 /ck:doc-review/help              # This guide
 ~/.claude/tools/doc-analyzer.sh help  # Tool help
 ```
 
 ### Documentation
+
 ```bash
 cat docs/ck-doc-review-phase3-improvements.md  # Full system docs
 ```
 
 ### Quick Reference Card
+
 ```bash
 # Analysis
 /ck:doc-review/analyze

@@ -12,6 +12,7 @@ Common workflows and patterns for everyday use.
 ```
 
 **What gets updated:**
+
 - `README.md` - Usage examples for UserAuth
 - `CLAUDE.md` - AI context about UserAuth module
 - `CHANGELOG.md` - v1.2.0 entry with "Added UserAuth"
@@ -30,6 +31,7 @@ Common workflows and patterns for everyday use.
 ```
 
 **Workflow:**
+
 1. Analysis shown (principles, structure, changes, metrics)
 2. You're asked: "Which areas to update?"
 3. You select: "Core Files" + "SDD Artifacts"
@@ -50,6 +52,7 @@ Common workflows and patterns for everyday use.
 ```
 
 **Output:**
+
 ```
 === Documentation Quality Report ===
 
@@ -80,6 +83,7 @@ Recommendations:
 ```
 
 **Output:**
+
 ```
 === Project Documentation Analysis ===
 
@@ -107,6 +111,7 @@ Recommendations:
 ```
 
 **What gets updated:**
+
 - `specs/*/spec.md` - Mark FR-005-1, FR-005-2 complete
 - `specs/*/plan.md` - Phase 2 status = ✅ Completed
 - `specs/*/tasks.md` - 15 tasks marked done with notes

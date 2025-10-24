@@ -13,17 +13,19 @@ allowed-tools: Bash(find:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), G
 **Update SDD (Specification-Driven Development) artifacts for:** $ARGUMENTS
 
 **Target files:**
-- specs/*/spec.md - Functional requirements
-- specs/*/plan.md - Implementation plan
-- specs/*/tasks.md - Task breakdown
-- specs/*/contracts/*.md - Design contracts
+
+- specs/\*/spec.md - Functional requirements
+- specs/\*/plan.md - Implementation plan
+- specs/\*/tasks.md - Task breakdown
+- specs/_/contracts/_.md - Design contracts
 
 ---
 
 ## Step 1: Identify Relevant Spec Directory
 
 Based on $ARGUMENTS, determine which spec directory to update:
-- Extract feature number (e.g., "feature 005" → specs/005-*)
+
+- Extract feature number (e.g., "feature 005" → specs/005-\*)
 - Or identify by feature name
 - List matching directories found
 
@@ -33,19 +35,20 @@ Based on $ARGUMENTS, determine which spec directory to update:
 
 ### Read Current spec.md
 
-Read the relevant specs/*/spec.md file.
+Read the relevant specs/\*/spec.md file.
 
 ### Update Requirements
 
 **What to update:**
 
 1. **Mark Completed Requirements:**
-   - Find requirements (FR-*) that are now implemented
+   - Find requirements (FR-\*) that are now implemented
    - Change status markers:
      - [ ] → [x] for completed
      - Add ✅ emoji if used in doc
 
 2. **Add New Requirements (if discovered during implementation):**
+
 ```markdown
 ### FR-[N]: [Requirement Title]
 
@@ -56,6 +59,7 @@ Read the relevant specs/*/spec.md file.
 [What the requirement is]
 
 **Acceptance Criteria:**
+
 - [ ] Criterion 1
 - [ ] Criterion 2
 
@@ -78,29 +82,34 @@ Apply changes using Edit tool.
 
 ### Read Current plan.md
 
-Read the relevant specs/*/plan.md file.
+Read the relevant specs/\*/plan.md file.
 
 ### Update Plan Status
 
 **What to update:**
 
 1. **Phase Completion:**
+
 ```markdown
 ## Implementation Phases
 
 ### Phase 1: [Name]
+
 **Status:** ✅ Completed
 **Completion Date:** YYYY-MM-DD
 
 **Implemented:**
+
 - [What was built]
 - [What was built]
 
 **Deviations:**
+
 - [Any changes from original plan]
 ```
 
 2. **Architecture Decisions:**
+
 ```markdown
 ### Architecture Decision: [Title]
 
@@ -109,11 +118,13 @@ Read the relevant specs/*/plan.md file.
 **Alternatives Considered:** [Other options]
 **Implementation:** path/to/file.py:123
 **Trade-offs:**
+
 - Pro: [Benefit]
 - Con: [Cost]
 ```
 
 3. **Design Patterns Used:**
+
 ```markdown
 ### Design Pattern: [Pattern Name]
 
@@ -137,13 +148,14 @@ Apply changes using Edit tool.
 
 ### Read Current tasks.md
 
-Read the relevant specs/*/tasks.md file.
+Read the relevant specs/\*/tasks.md file.
 
 ### Update Task Status
 
 **What to update:**
 
 1. **Mark Completed Tasks:**
+
 ```markdown
 - [x] Task name
   - **Status:** ✅ Completed
@@ -153,6 +165,7 @@ Read the relevant specs/*/tasks.md file.
 ```
 
 2. **Update In-Progress Tasks:**
+
 ```markdown
 - [ ] Task name
   - **Status:** 🔄 In Progress (60% complete)
@@ -161,6 +174,7 @@ Read the relevant specs/*/tasks.md file.
 ```
 
 3. **Add New Tasks (if discovered):**
+
 ```markdown
 - [ ] New task discovered during implementation
   - **Priority:** High
@@ -178,27 +192,31 @@ Apply changes using Edit tool.
 
 ### Find Contract Files
 
-Look for specs/*/contracts/*.md files related to this feature.
+Look for specs/_/contracts/_.md files related to this feature.
 
 ### Update Contracts
 
 **What to update:**
 
 1. **API Contracts:**
-```markdown
+
+````markdown
 ## Endpoint: [Name]
 
 **Method:** GET/POST/etc
 **Path:** /api/v1/resource
 
 **Request:**
+
 ```json
 {
   "param": "value"
 }
 ```
+````
 
 **Response:**
+
 ```json
 {
   "result": "value"
@@ -206,7 +224,8 @@ Look for specs/*/contracts/*.md files related to this feature.
 ```
 
 **Implementation:** path/to/handler.py:123
-```
+
+````
 
 2. **Interface Contracts:**
 ```markdown
@@ -218,7 +237,7 @@ Look for specs/*/contracts/*.md files related to this feature.
 - `method_name(param: Type) -> ReturnType`
   - Purpose: [What it does]
   - Example: [Usage example]
-```
+````
 
 3. **Data Schema Contracts:**
    - Update schema definitions to match actual implementation
@@ -243,6 +262,7 @@ Apply changes using Edit tool for each contract file.
 - [ ] All completed tasks have corresponding requirement markers
 
 **If inconsistencies found:**
+
 - Document them
 - Fix or note as deviations with explanation
 
@@ -257,24 +277,28 @@ Apply changes using Edit tool for each contract file.
 **Spec Directory:** specs/[directory]
 
 **Files Updated:**
-| File | Updates Made | Lines Changed |
-|------|--------------|---------------|
-| spec.md | [FR-X completed, FR-Y updated] | ~[estimate] |
-| plan.md | [Phase X status, architecture decisions] | ~[estimate] |
-| tasks.md | [X tasks completed, Y added] | ~[estimate] |
-| contracts/*.md | [Contracts updated] | ~[estimate] |
+
+| File            | Updates Made                             | Lines Changed |
+| --------------- | ---------------------------------------- | ------------- |
+| spec.md         | [FR-X completed, FR-Y updated]           | ~[estimate]   |
+| plan.md         | [Phase X status, architecture decisions] | ~[estimate]   |
+| tasks.md        | [X tasks completed, Y added]             | ~[estimate]   |
+| contracts/\*.md | [Contracts updated]                      | ~[estimate]   |
 
 **Requirement Status:**
+
 - Completed: [count] requirements
 - In Progress: [count] requirements
 - Remaining: [count] requirements
 
 **Phase Status:**
+
 - Completed phases: [list]
 - Current phase: [name] ([%] complete)
 - Remaining phases: [list]
 
 **SDD Consistency:**
+
 - [x] Requirements ↔ Implementation aligned
 - [x] Plan ↔ Tasks aligned
 - [x] Contracts ↔ Code aligned
@@ -288,6 +312,7 @@ Apply changes using Edit tool for each contract file.
 ## Next Steps
 
 Recommended actions:
+
 - [ ] Review SDD updates: `git diff specs/`
 - [ ] Update core docs: `/ck:doc-review/core $ARGUMENTS`
 - [ ] Run QA validation: `/ck:doc-review/qa`

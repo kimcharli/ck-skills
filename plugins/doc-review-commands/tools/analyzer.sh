@@ -17,6 +17,87 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # ============================================================================
+# Function: check_and_install_linting_tools
+# Purpose: Check if markdownlint and prettier are installed, install if needed
+# ============================================================================
+check_and_install_linting_tools() {
+    echo "=== 🔧 Linting Tools Setup ==="
+    echo ""
+
+    local need_install=false
+
+    # Check markdownlint
+    if ! command -v markdownlint &> /dev/null; then
+        echo -e "${YELLOW}⚠️  markdownlint not found${NC}"
+        need_install=true
+    else
+        echo -e "${GREEN}✅ markdownlint${NC} - $(markdownlint --version 2>/dev/null || echo 'available')"
+    fi
+
+    # Check prettier
+    if ! command -v prettier &> /dev/null; then
+        echo -e "${YELLOW}⚠️  prettier not found${NC}"
+        need_install=true
+    else
+        echo -e "${GREEN}✅ prettier${NC} - $(prettier --version 2>/dev/null || echo 'available')"
+    fi
+
+    if [ "$need_install" = true ]; then
+        echo ""
+        echo -e "${BLUE}📦 Installing missing tools...${NC}"
+        npm install -g markdownlint-cli prettier 2>/dev/null || {
+            echo -e "${RED}❌ Failed to install tools. Please install manually:${NC}"
+            echo "   npm install -g markdownlint-cli prettier"
+            return 1
+        }
+        echo -e "${GREEN}✅ Tools installed successfully${NC}"
+    fi
+
+    echo ""
+}
+
+# ============================================================================
+# Function: run_markdown_linting
+# Purpose: Run markdownlint and prettier to auto-fix markdown files
+# ============================================================================
+run_markdown_linting() {
+    echo "=== 🎨 Markdown Linting & Auto-Fix ==="
+    echo ""
+
+    local md_files=$(find . -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+
+    if [ "$md_files" -eq 0 ]; then
+        echo "No markdown files found"
+        return 0
+    fi
+
+    echo "Processing $md_files markdown files..."
+    echo ""
+
+    # Run markdownlint with auto-fix
+    echo -e "${BLUE}Running markdownlint --fix...${NC}"
+    markdownlint --fix . --ignore node_modules --ignore '.git' 2>/dev/null || true
+    echo -e "${GREEN}✅ markdownlint complete${NC}"
+    echo ""
+
+    # Run prettier
+    echo -e "${BLUE}Running prettier...${NC}"
+    prettier --write "**/*.md" 2>/dev/null || true
+    echo -e "${GREEN}✅ prettier complete${NC}"
+    echo ""
+
+    # Show changed files
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        local changed=$(git diff --name-only 2>/dev/null | grep "\.md$" | wc -l)
+        if [ "$changed" -gt 0 ]; then
+            echo "📝 Modified files:"
+            git diff --name-only 2>/dev/null | grep "\.md$" | sed 's/^/   /'
+            echo ""
+        fi
+    fi
+}
+
+# ============================================================================
 # Function: analyze_principles
 # Purpose: Extract and validate project-specific documentation principles
 # ============================================================================
@@ -299,6 +380,9 @@ main() {
     local command=${1:-help}
 
     case "$command" in
+        lint)
+            check_and_install_linting_tools && run_markdown_linting
+            ;;
         principles)
             analyze_principles
             ;;
@@ -315,6 +399,10 @@ main() {
             generate_metrics
             ;;
         all)
+            check_and_install_linting_tools
+            echo ""
+            run_markdown_linting
+            echo ""
             analyze_principles
             echo ""
             analyze_structure
@@ -331,12 +419,13 @@ main() {
             echo "Usage: $0 <command>"
             echo ""
             echo "Commands:"
+            echo "  lint        - Check/install linting tools and auto-fix markdown"
             echo "  principles  - Extract project documentation principles"
             echo "  structure   - Analyze documentation structure"
             echo "  categorize  - Categorize files by content type"
             echo "  impact      - Analyze change impact from git history"
             echo "  metrics     - Generate documentation metrics"
-            echo "  all         - Run all analyses"
+            echo "  all         - Run all analyses including linting"
             echo "  help        - Show this help message"
             echo ""
             ;;

@@ -13,11 +13,13 @@ Thank you for your interest in contributing! This document provides guidelines f
 ## 🐛 Reporting Bugs
 
 **Before submitting a bug report:**
+
 1. Check existing [issues](https://github.com/kimcharli/doc-review-commands/issues)
 2. Verify you're using the latest version
 3. Test with the analyzer tool: `tools/analyzer.sh help`
 
 **Bug report should include:**
+
 - Description of the issue
 - Steps to reproduce
 - Expected vs actual behavior
@@ -27,6 +29,7 @@ Thank you for your interest in contributing! This document provides guidelines f
 ## 💡 Feature Requests
 
 We welcome feature suggestions! Please:
+
 1. Check [existing feature requests](https://github.com/kimcharli/doc-review-commands/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
 2. Describe the use case clearly
 3. Explain how it fits the project's goals
@@ -35,6 +38,7 @@ We welcome feature suggestions! Please:
 ## 🔧 Development Setup
 
 ### Prerequisites
+
 - Claude Code installed
 - Bash shell
 - Git
@@ -63,6 +67,7 @@ cd doc-review-commands
 ## 📝 Code Style
 
 ### Markdown Files (Commands)
+
 - Use consistent heading levels
 - Include clear descriptions
 - Add examples where helpful
@@ -70,6 +75,7 @@ cd doc-review-commands
 - Use code blocks with language tags
 
 ### Bash Scripts
+
 - Use shellcheck for linting
 - Add comments for complex logic
 - Handle errors gracefully (`set -e`)
@@ -77,6 +83,7 @@ cd doc-review-commands
 - Include help/usage information
 
 ### Configuration Files (JSON)
+
 - Use 2-space indentation
 - Include descriptive field names
 - Add comments via `_comment` fields if needed
@@ -102,6 +109,7 @@ tools/analyzer.sh all
 
 1. **Fork the repository**
 2. **Create a feature branch**
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -112,6 +120,7 @@ tools/analyzer.sh all
    - Update documentation
 
 4. **Commit with clear messages**
+
    ```bash
    git commit -m "feat: add diagram generation command"
    git commit -m "fix: correct token path in analyzer"
@@ -128,6 +137,7 @@ tools/analyzer.sh all
    - `chore:` - Maintenance tasks
 
 5. **Push to your fork**
+
    ```bash
    git push origin feature/your-feature-name
    ```
@@ -158,6 +168,7 @@ tools/analyzer.sh all
 ## 🌟 Recognition
 
 Contributors will be:
+
 - Listed in README.md
 - Credited in release notes
 - Thanked in CHANGELOG.md
