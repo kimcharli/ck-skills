@@ -424,4 +424,27 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
+## 📚 References & Documentation
+
+### Claude Code Official Documentation
+- [Claude Code Plugins Guide](https://docs.claude.com/en/docs/claude-code/plugins)
+- [Plugin Marketplaces](https://docs.claude.com/en/docs/claude-code/plugin-marketplaces)
+- [Claude Code Overview](https://claude.ai/code)
+
+### Related Resources
+- [GitHub: ck-skills Repository](https://github.com/kimcharli/ck-skills)
+- [GitHub: doc-review-commands Plugin](https://github.com/kimcharli/ck-skills/tree/main/doc-review-commands)
+- [Claude Code Marketplace](https://claudecodemarketplace.com/)
+
+### Tools & Technologies
+- [markdownlint](https://github.com/igorshubovych/markdownlint-cli) - Markdown style checker and auto-fixer
+- [prettier](https://prettier.io/) - Code formatter
+
+### Inspiration
+- Specification-Driven Development (SDD) methodology
+- Modular command architecture for Claude Code
+- Zero-dependency tool design philosophy
+
+---
+
 **Made with ❤️ for better documentation workflows**
