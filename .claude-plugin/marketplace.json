@@ -1,7 +1,7 @@
 {
-  "name": "ck-skills",
+  "name": "doc-review-commands",
   "version": "1.0.0",
-  "description": "Collection of Claude Code skills by kimcharli",
+  "description": "AI-powered documentation management system for Claude Code - keeps project documentation in sync with code changes",
   "author": "kimcharli",
   "license": "MIT",
   "homepage": "https://github.com/kimcharli/ck-skills",
