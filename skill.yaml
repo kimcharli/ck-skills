@@ -288,7 +288,11 @@ documentation:
     - en
   main: README.md
   quick_start: docs/QUICKSTART.md
+  installation: docs/INSTALLATION.md
   detailed: docs/USAGE.md
+  architecture: docs/ARCHITECTURE.md
+  customization: docs/CUSTOMIZATION.md
+  migration: docs/MIGRATION.md
   examples: examples/
 
 # Development

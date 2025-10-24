@@ -94,10 +94,15 @@ Six focused commands instead of one monolithic tool:
 
 ## 📚 Documentation
 
+### Getting Started
+
+- [Quick Start](docs/QUICKSTART.md) - Get running in 5 minutes
+- [Installation](docs/INSTALLATION.md) - Complete installation guide with troubleshooting
+
 ### User Guides
 
-- [Architecture](docs/ARCHITECTURE.md) - System design and philosophy
 - [Usage Guide](docs/USAGE.md) - Detailed command documentation
+- [Architecture](docs/ARCHITECTURE.md) - System design and philosophy
 - [Templates](docs/TEMPLATES.md) - Documentation templates reference
 - [Customization](docs/CUSTOMIZATION.md) - How to customize for your project
 - [Migration](docs/MIGRATION.md) - Migrate from older versions
