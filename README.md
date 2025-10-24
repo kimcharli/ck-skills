@@ -25,7 +25,7 @@ Doc Review Commands is a **modular documentation toolkit** for Claude Code that 
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/doc-review-commands.git
+git clone https://github.com/kimcharli/doc-review-commands.git
 cd doc-review-commands
 
 # Run the installer
@@ -361,18 +361,18 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/YOUR_USERNAME/doc-review-commands)
-- [Issues](https://github.com/YOUR_USERNAME/doc-review-commands/issues)
-- [Discussions](https://github.com/YOUR_USERNAME/doc-review-commands/discussions)
-- [Releases](https://github.com/YOUR_USERNAME/doc-review-commands/releases)
+- [GitHub Repository](https://github.com/kimcharli/doc-review-commands)
+- [Issues](https://github.com/kimcharli/doc-review-commands/issues)
+- [Discussions](https://github.com/kimcharli/doc-review-commands/discussions)
+- [Releases](https://github.com/kimcharli/doc-review-commands/releases)
 
 ---
 
 ## 📮 Support
 
-- 🐛 [Report bugs](https://github.com/YOUR_USERNAME/doc-review-commands/issues)
-- 💡 [Request features](https://github.com/YOUR_USERNAME/doc-review-commands/issues)
-- 💬 [Ask questions](https://github.com/YOUR_USERNAME/doc-review-commands/discussions)
+- 🐛 [Report bugs](https://github.com/kimcharli/doc-review-commands/issues)
+- 💡 [Request features](https://github.com/kimcharli/doc-review-commands/issues)
+- 💬 [Ask questions](https://github.com/kimcharli/doc-review-commands/discussions)
 
 ---
 

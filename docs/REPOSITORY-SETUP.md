@@ -19,8 +19,8 @@ cd /Users/ckim/Projects/doc-review-commands
 # Change default branch to main
 git branch -M main
 
-# Add remote (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/doc-review-commands.git
+# Add remote (replace kimcharli)
+git remote add origin https://github.com/kimcharli/doc-review-commands.git
 
 # Push
 git push -u origin main
@@ -49,7 +49,7 @@ git push -u origin main
 
    ### 📦 Installation
    ```bash
-   git clone https://github.com/YOUR_USERNAME/doc-review-commands.git
+   git clone https://github.com/kimcharli/doc-review-commands.git
    cd doc-review-commands
    ./install.sh
    ```
@@ -76,9 +76,9 @@ git push -u origin main
 After creating the repository, update these placeholders in README.md:
 
 ```bash
-# Replace YOUR_USERNAME with your GitHub username
-sed -i '' 's/YOUR_USERNAME/your-actual-username/g' README.md
-sed -i '' 's/YOUR_USERNAME/your-actual-username/g' CONTRIBUTING.md
+# Replace kimcharli with your GitHub username
+sed -i '' 's/kimcharli/your-actual-username/g' README.md
+sed -i '' 's/kimcharli/your-actual-username/g' CONTRIBUTING.md
 
 # Commit the changes
 git add README.md CONTRIBUTING.md
@@ -162,7 +162,7 @@ git push origin v1.1.0
 # Then create release on GitHub
 
 # View repository
-open https://github.com/YOUR_USERNAME/doc-review-commands
+open https://github.com/kimcharli/doc-review-commands
 ```
 
 ---

@@ -13,7 +13,7 @@ Thank you for your interest in contributing! This document provides guidelines f
 ## 🐛 Reporting Bugs
 
 **Before submitting a bug report:**
-1. Check existing [issues](https://github.com/YOUR_USERNAME/doc-review-commands/issues)
+1. Check existing [issues](https://github.com/kimcharli/doc-review-commands/issues)
 2. Verify you're using the latest version
 3. Test with the analyzer tool: `tools/analyzer.sh help`
 
@@ -27,7 +27,7 @@ Thank you for your interest in contributing! This document provides guidelines f
 ## 💡 Feature Requests
 
 We welcome feature suggestions! Please:
-1. Check [existing feature requests](https://github.com/YOUR_USERNAME/doc-review-commands/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
+1. Check [existing feature requests](https://github.com/kimcharli/doc-review-commands/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
 2. Describe the use case clearly
 3. Explain how it fits the project's goals
 4. Consider token efficiency and performance impact
@@ -43,7 +43,7 @@ We welcome feature suggestions! Please:
 
 ```bash
 # Fork and clone
-git clone https://github.com/YOUR_USERNAME/doc-review-commands.git
+git clone https://github.com/kimcharli/doc-review-commands.git
 cd doc-review-commands
 
 # Install for testing
@@ -164,8 +164,8 @@ Contributors will be:
 
 ## 📞 Getting Help
 
-- 💬 [Discussions](https://github.com/YOUR_USERNAME/doc-review-commands/discussions) - Ask questions
-- 🐛 [Issues](https://github.com/YOUR_USERNAME/doc-review-commands/issues) - Report bugs
+- 💬 [Discussions](https://github.com/kimcharli/doc-review-commands/discussions) - Ask questions
+- 🐛 [Issues](https://github.com/kimcharli/doc-review-commands/issues) - Report bugs
 - 📧 Contact maintainers (see README)
 
 ## 📜 Code of Conduct

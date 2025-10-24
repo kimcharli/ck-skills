@@ -5,7 +5,7 @@ Get up and running with Doc Review Commands in 5 minutes.
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/doc-review-commands.git
+git clone https://github.com/kimcharli/doc-review-commands.git
 cd doc-review-commands
 ./install.sh
 ```

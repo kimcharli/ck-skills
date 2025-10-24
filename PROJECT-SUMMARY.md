@@ -165,7 +165,7 @@ doc-review-commands/
 cd /Users/ckim/Projects/doc-review-commands
 
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/doc-review-commands.git
+git remote add origin https://github.com/kimcharli/doc-review-commands.git
 git push -u origin main
 ```
 
@@ -183,8 +183,8 @@ git push -u origin main
 ### 4. Update Links
 
 ```bash
-# Replace YOUR_USERNAME
-sed -i '' 's/YOUR_USERNAME/your-github-username/g' README.md CONTRIBUTING.md docs/*.md
+# Replace kimcharli
+sed -i '' 's/kimcharli/your-github-username/g' README.md CONTRIBUTING.md docs/*.md
 
 git add .
 git commit -m "docs: update repository links"
@@ -301,4 +301,4 @@ The repository is ready when:
 
 **Made with ❤️ for better documentation workflows**
 
-**Repository:** https://github.com/YOUR_USERNAME/doc-review-commands (after push)
+**Repository:** https://github.com/kimcharli/doc-review-commands (after push)

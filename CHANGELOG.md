@@ -37,5 +37,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Progressive disclosure pattern
 - Zero external dependencies (bash only)
 
-[Unreleased]: https://github.com/YOUR_USERNAME/doc-review-commands/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/YOUR_USERNAME/doc-review-commands/releases/tag/v1.0.0
+[Unreleased]: https://github.com/kimcharli/doc-review-commands/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/kimcharli/doc-review-commands/releases/tag/v1.0.0
