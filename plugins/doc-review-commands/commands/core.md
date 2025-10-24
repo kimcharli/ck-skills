@@ -1,12 +1,17 @@
 ---
+
 description: Update core documentation files (README, CLAUDE, CHANGELOG)
 allowed-tools: Bash(cat:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(*)
 ---
 
+# Core Documentation Update Command
+
 ## Context
 
-- Config: !`cat ~/.claude/commands/ck/doc-review/config/categories.json`
-- Recent changes: !`git diff --name-only HEAD~5..HEAD 2>/dev/null || echo "No recent commits"`
+- Config:
+  !`cat ~/.claude/commands/ck/doc-review/config/categories.json`
+- Recent changes:
+  !`git diff --name-only HEAD~5..HEAD 2>/dev/null || echo "No recent commits"`
 
 ## Task
 
@@ -36,6 +41,7 @@ Based on $ARGUMENTS, update relevant sections:
 If new feature added, use this template:
 
 ````markdown
+
 ### [Feature Name]
 
 Brief description of what it does and why it's useful.
@@ -82,7 +88,7 @@ Add AI assistant context for: $ARGUMENTS
 
 **Use this template:**
 
-```markdown
+````markdown
 ### [Module/Feature Name]
 - **Purpose**: [What it does in one sentence]
 - **Location**: `path/to/file.py:123`
@@ -90,8 +96,9 @@ Add AI assistant context for: $ARGUMENTS
   - `ClassName` - Description
   - `function_name()` - Description
 - **Usage Pattern**:
-  ```[language]
+  ```bash
   # Example usage
+  ```
 ````
 
 - **Error Handling**:
@@ -124,7 +131,7 @@ Check current version and determine if this is:
 
 ### Use Template
 
-```markdown
+````markdown
 ## [Version] - YYYY-MM-DD
 
 ### Added

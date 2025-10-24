@@ -12,7 +12,8 @@ allowed-tools: Bash(cat:*)
 
 ## 🎯 What Is This?
 
-The `/ck:doc-review` system is a **modular documentation update toolkit** that helps you:
+The `/ck:doc-review` system is a **modular documentation update toolkit** that
+helps you:
 
 ✅ Keep documentation in sync with code changes
 ✅ Update README, CLAUDE.md, CHANGELOG consistently
@@ -24,7 +25,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 
 ## 🏗️ Architecture Overview
 
-```
+```text
 ┌─────────────────────────────────────────┐
 │ /ck:doc-review (Orchestrator)           │
 │ • Analyzes changes                      │
@@ -353,7 +354,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 
 ### Command Files Location
 
-```
+```text
 ~/.claude/commands/ck/
 ├── doc-review.md              # Main orchestrator
 ├── doc-review:analyze.md      # Analysis only
@@ -366,7 +367,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 
 ### Supporting Tools
 
-```
+```text
 ~/.claude/tools/
 └── doc-analyzer.sh            # External analysis script
     ├── principles             # Extract doc principles
@@ -379,7 +380,7 @@ The `/ck:doc-review` system is a **modular documentation update toolkit** that h
 
 ### Documentation
 
-```
+```text
 docs/
 ├── ck-doc-review-analysis.md            # Architecture analysis
 ├── ck-doc-review-phase1-improvements.md # Phase 1 docs
@@ -406,7 +407,7 @@ docs/
 
 **Light Usage (10 updates/month):**
 
-```
+```plaintext
 10x :core updates: 12-15K tokens
 2x :qa checks: 3.6-4K tokens
 1x :help reference: 200 tokens
@@ -415,7 +416,7 @@ Total: ~16-19K tokens/month
 
 **Medium Usage (20 updates/month):**
 
-```
+```plaintext
 15x :core updates: 18-22.5K tokens
 4x :sdd updates: 6-7.2K tokens
 4x :qa checks: 7.2-8K tokens
@@ -425,7 +426,7 @@ Total: ~31-38K tokens/month
 
 **Heavy Usage (40 updates/month):**
 
-```
+```plaintext
 25x :core updates: 30-37.5K tokens
 8x :sdd updates: 12-14.4K tokens
 8x :qa checks: 14.4-16K tokens
@@ -570,7 +571,7 @@ git commit -m "docs: ..."
 
 ## 🎯 Decision Tree: Which Command to Use?
 
-```
+```text
 Start
   │
   ├─ Need help? → /ck:doc-review/help
@@ -625,7 +626,7 @@ Start
 ~/.claude/tools/doc-analyzer.sh help  # Tool help
 ```
 
-### Documentation
+### Documentation Files
 
 ```bash
 cat docs/ck-doc-review-phase3-improvements.md  # Full system docs

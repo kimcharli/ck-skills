@@ -1,17 +1,21 @@
 ---
-description: Documentation update orchestrator - analyzes and delegates to focused sub-commands
+
+description: Documentation update orchestrator - analyzes and delegates to sub-commands
 allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:*), Bash(~/.claude/tools/doc-analyzer.sh:*), Read(*), SlashCommand(*), AskUserQuestion(*)
 ---
 
+# Documentation Update Orchestrator
+
 ## Context
 
-- Analysis: !`~/.claude/commands/ck/doc-review/tools/analyzer.sh all || ~/.claude/tools/doc-analyzer.sh all`
+- Analysis:
+  !`~/.claude/commands/ck/doc-review/tools/analyzer.sh all || ~/.claude/tools/doc-analyzer.sh all`
 
 ## Task
 
 **Update all documentation for:** $ARGUMENTS
 
-**🎯 Smart Orchestration:** This command analyzes your changes and delegates to focused sub-commands.
+**🎯 Smart Orchestration:** This command analyzes your changes and delegates to sub-commands.
 
 ---
 
@@ -34,7 +38,7 @@ Based on the analysis, here's what needs updating:
 
 - `/ck:doc-review/analyze` - Run analysis only (no updates)
 - `/ck:doc-review/core` - Update README, CLAUDE, CHANGELOG
-- `/ck:doc-review/sdd` - Update SDD artifacts (spec, plan, tasks)
+- `/ck:doc-review/sdd` - Update SDD artifacts (spec.md, plan.md, tasks.md)
 - `/ck:doc-review/qa` - Quality validation and link checking
 
 ---
@@ -70,25 +74,25 @@ Based on user selection, invoke appropriate sub-commands:
 
 ### If "Core Files" selected
 
-```
+```bash
 /ck:doc-review/core $ARGUMENTS
 ```
 
 ### If "SDD Artifacts" selected
 
-```
+```bash
 /ck:doc-review/sdd $ARGUMENTS
 ```
 
 ### If "Run QA Only" selected
 
-```
+```bash
 /ck:doc-review/qa
 ```
 
 ### If "Full Update" selected
 
-```
+```bash
 /ck:doc-review/core $ARGUMENTS
 /ck:doc-review/sdd $ARGUMENTS
 /ck:doc-review/qa

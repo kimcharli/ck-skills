@@ -1,16 +1,22 @@
 ---
+
 description: Quality validation - auto-fix linting, check links, consistency, completeness
 allowed-tools: Bash(find:*), Bash(grep:*), Bash(git:*), Bash(npm:*), Read(*), Grep(*), Glob(*), Edit(*), Write(*)
 ---
 
+# Quality Assurance Validation Command
+
 ## Context
 
 - All markdown files: !`find . -name "*.md" | wc -l`
-- Recent doc changes: !`git log -5 --oneline -- "*.md" 2>/dev/null || echo "No recent doc commits"`
+- Recent doc changes:
+  !`git log -5 --oneline -- "*.md" 2>/dev/null || echo "No recent doc commits"`
 
 ## Task
 
-**Quality validation and auto-fix of documentation** - Automatically fixes formatting issues with linting tools, then performs validation checks for links, consistency, and completeness.
+**Quality validation and auto-fix** - Automatically fixes formatting issues with
+linting tools, then performs validation checks for links, consistency, and
+completeness.
 
 ---
 
@@ -99,7 +105,7 @@ For each link found:
 
 **Report Format:**
 
-```
+```text
 ✅ Valid links: [count]
 ❌ Broken links: [count]
 ⚠️  External links: [count] (manual review needed)
@@ -130,7 +136,7 @@ For each reference:
 
 **Report Format:**
 
-```
+```text
 ✅ Valid references: [count]
 ❌ Invalid file references: [count]
 ⚠️  Questionable line numbers: [count]
@@ -165,7 +171,7 @@ grep -i "apstra\|APSTRA\|Apstra" . -r --include="*.md"
 
 **Report Format:**
 
-```
+```text
 📝 Terminology Review:
 
 Consistent:
@@ -201,7 +207,7 @@ grep -E "version.*[0-9]" . -r --include="*.md" -i
 
 **Report Format:**
 
-```
+```text
 📊 Version Consistency:
 
 Found Versions:
@@ -222,7 +228,7 @@ Recommendation:
 
 ### Check Requirement Traceability
 
-Find all requirement IDs (FR-_, NFR-_):
+Find all requirement IDs (FR-\*, NFR-\*):
 
 ```bash
 grep -E "(FR|NFR)-[0-9]+" . -r --include="*.md"
@@ -236,7 +242,7 @@ grep -E "(FR|NFR)-[0-9]+" . -r --include="*.md"
 
 **Report Format:**
 
-```
+```text
 🔍 SDD Traceability:
 
 Requirements in spec.md: [count]
@@ -270,7 +276,7 @@ grep -E "^\`\`\`" . -r --include="*.md"
 
 **Report Format:**
 
-```
+```text
 💻 Code Example Review:
 
 Code blocks found: [count]
@@ -313,7 +319,7 @@ Check if standard files have expected sections:
 
 **Report Format:**
 
-```
+```text
 📋 Completeness Check:
 
 README.md:

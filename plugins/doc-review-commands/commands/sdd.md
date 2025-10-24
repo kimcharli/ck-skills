@@ -1,16 +1,23 @@
 ---
+
 description: Update SDD artifacts (spec.md, plan.md, tasks.md, contracts)
 allowed-tools: Bash(find:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(*)
 ---
 
+# SDD Artifacts Update Command
+
 ## Context
 
-- SDD files: !`find ./specs -name "spec.md" -o -name "plan.md" -o -name "tasks.md" | sort`
-- Recent changes: !`git diff --name-only HEAD~5..HEAD 2>/dev/null || echo "No recent commits"`
+- SDD files:
+  !`find ./specs -name "spec.md" -o -name "plan.md" -o -name "tasks.md" | sort`
+- Recent changes:
+  !`git diff --name-only HEAD~5..HEAD 2>/dev/null || echo "No recent commits"`
 
 ## Task
 
-**Update SDD (Specification-Driven Development) artifacts for:** $ARGUMENTS
+**Update SDD artifacts for:** $ARGUMENTS
+
+SDD stands for Specification-Driven Development.
 
 **Target files:**
 
@@ -49,7 +56,7 @@ Read the relevant specs/\*/spec.md file.
 
 2. **Add New Requirements (if discovered during implementation):**
 
-```markdown
+````markdown
 ### FR-[N]: [Requirement Title]
 
 **Priority:** [High/Medium/Low]
@@ -65,7 +72,7 @@ Read the relevant specs/\*/spec.md file.
 
 **Implementation Notes:**
 [Details from actual implementation]
-```
+````
 
 3. **Update Requirement Details:**
    - Add implementation notes to existing requirements
@@ -90,7 +97,7 @@ Read the relevant specs/\*/plan.md file.
 
 1. **Phase Completion:**
 
-```markdown
+````markdown
 ## Implementation Phases
 
 ### Phase 1: [Name]
@@ -106,11 +113,11 @@ Read the relevant specs/\*/plan.md file.
 **Deviations:**
 
 - [Any changes from original plan]
-```
+````
 
 2. **Architecture Decisions:**
 
-```markdown
+````markdown
 ### Architecture Decision: [Title]
 
 **Decision:** [What was decided]
@@ -121,17 +128,17 @@ Read the relevant specs/\*/plan.md file.
 
 - Pro: [Benefit]
 - Con: [Cost]
-```
+````
 
 3. **Design Patterns Used:**
 
-```markdown
+````markdown
 ### Design Pattern: [Pattern Name]
 
 **Location:** path/to/implementation.py:123
 **Purpose:** [Why this pattern was used]
 **Implementation Details:** [How it's implemented]
-```
+````
 
 4. **Risk Updates:**
    - Mark mitigated risks as resolved
@@ -156,31 +163,31 @@ Read the relevant specs/\*/tasks.md file.
 
 1. **Mark Completed Tasks:**
 
-```markdown
+````markdown
 - [x] Task name
   - **Status:** ✅ Completed
   - **Completion Date:** YYYY-MM-DD
   - **Implementation:** path/to/file.py:123
   - **Notes:** [Any lessons learned or important details]
-```
+````
 
 2. **Update In-Progress Tasks:**
 
-```markdown
+````markdown
 - [ ] Task name
   - **Status:** 🔄 In Progress (60% complete)
   - **Current State:** [What's done, what's remaining]
   - **Blockers:** [Any issues]
-```
+````
 
 3. **Add New Tasks (if discovered):**
 
-```markdown
+````markdown
 - [ ] New task discovered during implementation
   - **Priority:** High
   - **Dependency:** [Other tasks this depends on]
   - **Estimate:** [Time estimate]
-```
+````
 
 ### Make Updates
 
