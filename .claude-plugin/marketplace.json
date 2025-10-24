@@ -1,5 +1,7 @@
 {
-  "owner": "kimcharli",
+  "owner": {
+    "name": "kimcharli"
+  },
   "name": "ck-skills",
   "version": "1.0.0",
   "description": "Collection of Claude Code skills by kimcharli",
