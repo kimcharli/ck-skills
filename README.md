@@ -48,6 +48,25 @@ cd doc-review-commands
 
 See [Installation Guide](docs/INSTALLATION.md) for more methods and troubleshooting.
 
+### Uninstall
+
+**From Plugin Marketplace:**
+```bash
+# In Claude Code, run:
+/plugin
+# Then navigate to manage installed plugins and disable/remove doc-review-commands
+```
+
+**Manual Installation:**
+```bash
+# Run the uninstaller in the installation directory
+cd ~/.claude/commands/ck/doc-review
+./uninstall.sh
+
+# Or manually remove:
+rm -rf ~/.claude/commands/ck/doc-review
+```
+
 ### Basic Usage
 
 ```bash
