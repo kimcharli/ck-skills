@@ -294,7 +294,7 @@ Total: ~16-22K tokens/month
 ## Documentation Files
 
 - **OPTIMIZATION-ANALYSIS.md** - Complete optimization strategy and implementation details
-- **plugins/doc-review-commands/commands/quick.md** - Lightweight mode guide
+- **../commands/quick.md** - Lightweight mode guide
 - **~/.claude/tools/doc-analyzer.sh help** - Tool documentation
 
 ---
@@ -303,7 +303,7 @@ Total: ~16-22K tokens/month
 
 For detailed optimization information:
 ```bash
-cat OPTIMIZATION-ANALYSIS.md
+cat docs/OPTIMIZATION-ANALYSIS.md
 ```
 
 For quick command help:
