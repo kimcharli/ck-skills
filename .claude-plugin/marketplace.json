@@ -16,6 +16,25 @@
   },
   "plugins": [
     {
+      "name": "skill-builder",
+      "version": "1.0.0",
+      "source": "./plugins/skill-builder",
+      "description": "Create production-ready Claude Code skills in minutes - fully generated, optimized, and well-tested skills without boilerplate",
+      "author": {
+        "name": "kimcharli"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/skill-builder",
+      "tags": [
+        "skill-generation",
+        "automation",
+        "templates",
+        "productivity",
+        "development"
+      ],
+      "category": "development"
+    },
+    {
       "name": "doc-review-commands",
       "version": "1.0.0",
       "source": "./plugins/doc-review-commands",
