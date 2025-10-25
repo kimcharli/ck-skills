@@ -22,67 +22,32 @@ A modular marketplace of skills for Claude Code including doc-review-commands, s
 
 ## 🚀 Quick Start
 
-### Installation
+### Installation (Recommended Approach)
 
-#### Option 1: From Claude Code Plugin Marketplace
+Install plugins directly through Claude Code's plugin system. This is the **official recommended approach** per [Claude Code Plugins Documentation](https://docs.claude.com/en/docs/claude-code/plugins).
 
 ```bash
 # In Claude Code, run:
-claude plugin marketplace add github:kimcharli/ck-skills
-claude plugin install doc-review-commands@ck-skills
-claude plugin install skill-builder@ck-skills
+/plugin marketplace add github:kimcharli/ck-skills
+/plugin install doc-review-commands@ck-skills
+/plugin install skill-builder@ck-skills
 
-# Then use:
+# Then verify installation:
 /ck:doc-review/help
 /ck:skill-builder "your skill description"
 ```
 
-#### Option 2: Manual Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/kimcharli/ck-skills.git
-cd ck-skills
-
-# Install doc-review-commands
-cd plugins/doc-review-commands
-./install.sh
-
-# Install skill-builder
-cd ../skill-builder
-./install.sh
-
-# Verify
-/ck:doc-review/help
-/ck:skill-builder "test"
-```
-
-See individual skill README.md files in `plugins/[skill-name]/docs/` for detailed setup.
+See individual skill README.md files in `plugins/[skill-name]/docs/` for detailed usage.
 
 ### Uninstall
 
-**From Plugin Marketplace:**
-
 ```bash
 # In Claude Code, run:
-claude plugin uninstall doc-review-commands
-claude plugin uninstall skill-builder
-
-# Plugins are automatically removed from:
-# ~/.claude/plugins/marketplaces/ck-skills/plugins/[skill-name]/
+/plugin uninstall doc-review-commands
+/plugin uninstall skill-builder
 ```
 
-**Manual Installation:**
-
-```bash
-# If you installed manually with install.sh, run the uninstaller:
-cd ~/.claude/plugins/marketplaces/ck-skills/plugins/doc-review-commands
-./uninstall.sh
-
-# Or manually remove:
-rm -rf ~/.claude/plugins/marketplaces/ck-skills/plugins/doc-review-commands
-rm -rf ~/.claude/plugins/marketplaces/ck-skills/plugins/skill-builder
-```
+Plugins are automatically removed from `~/.claude/plugins/marketplaces/ck-skills/plugins/[skill-name]/`
 
 ### Basic Usage
 
@@ -181,15 +146,13 @@ ck-skills/
 │   │   ├── config/                   # Configuration files
 │   │   ├── docs/                     # Documentation
 │   │   ├── tests/                    # Test suite
-│   │   ├── manifest.json             # Plugin manifest
-│   │   └── install.sh                # Installation script
+│   │   └── manifest.json             # Plugin manifest
 │   └── skill-builder/
 │       ├── commands/                 # Command definitions (.md files)
 │       ├── tools/                    # Bash executables
 │       ├── docs/                     # Documentation
 │       ├── tests/                    # Test suite
-│       ├── templates/                # Skill templates
-│       └── install.sh                # Installation script
+│       └── templates/                # Skill templates
 ├── README.md
 └── CHANGELOG.md
 ```
