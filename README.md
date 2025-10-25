@@ -1,54 +1,63 @@
-# Doc Review Commands
+# ck-skills
 
-**AI-powered documentation management system for Claude Code**
+**Collection of Production-Ready Claude Code Skills**
 
-A modular, efficient command system that keeps your project documentation in sync with code changes. Reduce documentation update time by 70% and token consumption by 88%.
+A modular marketplace of skills for Claude Code including doc-review-commands, skill-builder, and more. Discover, install, and customize skills to enhance your workflow.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-blue)](https://claude.ai/code)
+[![GitHub: kimcharli/ck-skills](https://img.shields.io/badge/GitHub-ck--skills-black)](https://github.com/kimcharli/ck-skills)
 
 ---
 
 ## 🎯 What is This?
 
-Doc Review Commands is a **modular documentation toolkit** for Claude Code that helps you:
+**ck-skills** is a marketplace of production-ready skills for Claude Code. Each skill is fully generated, tested, and documented. Use them as-is or customize for your workflow:
 
-- ✅ Keep README, CLAUDE.md, and CHANGELOG in sync with code
-- ✅ Maintain SDD (Specification-Driven Development) artifacts
-- ✅ Validate documentation quality before commits
-- ✅ Update docs 70% faster with focused sub-commands
-- ✅ Save 88% tokens with modular architecture
+- ✅ **doc-review-commands** - Keep documentation in sync with code (70% faster, 88% token savings)
+- ✅ **skill-builder** - Create new production-ready skills in minutes
+- ✅ More skills coming soon
+- ✅ Install from marketplace or use locally
+- ✅ Customize templates and extend with your own logic
 
 ## 🚀 Quick Start
 
 ### Installation
 
-#### Option 1: Plugin Marketplace (When Published)
+#### Option 1: From Claude Code Plugin Marketplace
 
 ```bash
 # In Claude Code, run:
-/plugin marketplace add kimcharli/ck-skills
-/plugin install doc-review-commands@ck-skills
+claude plugin marketplace add github:kimcharli/ck-skills
+claude plugin install doc-review-commands@ck-skills
+claude plugin install skill-builder@ck-skills
 
-# Restart Claude Code, then:
+# Then use:
 /ck:doc-review/help
+/ck:skill-builder "your skill description"
 ```
 
-#### Option 2: Manual Install (Current)
+#### Option 2: Manual Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/kimcharli/doc-review-commands.git
-cd doc-review-commands
+git clone https://github.com/kimcharli/ck-skills.git
+cd ck-skills
 
-# Run the installer
+# Install doc-review-commands
+cd plugins/doc-review-commands
 ./install.sh
 
-# Verify installation
+# Install skill-builder
+cd ../skill-builder
+./install.sh
+
+# Verify
 /ck:doc-review/help
+/ck:skill-builder "test"
 ```
 
-See [Installation Guide](docs/INSTALLATION.md) for more methods and troubleshooting.
+See individual skill README.md files in `plugins/[skill-name]/docs/` for detailed setup.
 
 ### Uninstall
 
@@ -56,19 +65,23 @@ See [Installation Guide](docs/INSTALLATION.md) for more methods and troubleshoot
 
 ```bash
 # In Claude Code, run:
-/plugin
-# Then navigate to manage installed plugins and disable/remove doc-review-commands
+claude plugin uninstall doc-review-commands
+claude plugin uninstall skill-builder
+
+# Plugins are automatically removed from:
+# ~/.claude/plugins/marketplaces/ck-skills/plugins/[skill-name]/
 ```
 
 **Manual Installation:**
 
 ```bash
-# Run the uninstaller in the installation directory
-cd ~/.claude/commands/ck/doc-review
+# If you installed manually with install.sh, run the uninstaller:
+cd ~/.claude/plugins/marketplaces/ck-skills/plugins/doc-review-commands
 ./uninstall.sh
 
 # Or manually remove:
-rm -rf ~/.claude/commands/ck/doc-review
+rm -rf ~/.claude/plugins/marketplaces/ck-skills/plugins/doc-review-commands
+rm -rf ~/.claude/plugins/marketplaces/ck-skills/plugins/skill-builder
 ```
 
 ### Basic Usage
@@ -153,20 +166,51 @@ Six focused commands instead of one monolithic tool:
 
 ## 🏗️ Architecture
 
-### Folder Structure
+### Repository Structure
+
+This is the marketplace source repository:
 
 ```
-~/.claude/commands/ck/doc-review/
-├── main.md              # Main orchestrator
-├── analyze.md           # Analysis sub-command
-├── core.md              # Core files update
-├── sdd.md               # SDD artifacts update
-├── qa.md                # Quality validation
-├── help.md              # Help documentation
+ck-skills/
+├── .claude-plugin/
+│   └── marketplace.json              # Central plugin registry
+├── plugins/
+│   ├── doc-review-commands/
+│   │   ├── commands/                 # Command definitions (.md files)
+│   │   ├── tools/                    # Bash executables
+│   │   ├── config/                   # Configuration files
+│   │   ├── docs/                     # Documentation
+│   │   ├── tests/                    # Test suite
+│   │   ├── manifest.json             # Plugin manifest
+│   │   └── install.sh                # Installation script
+│   └── skill-builder/
+│       ├── commands/                 # Command definitions (.md files)
+│       ├── tools/                    # Bash executables
+│       ├── docs/                     # Documentation
+│       ├── tests/                    # Test suite
+│       ├── templates/                # Skill templates
+│       └── install.sh                # Installation script
+├── README.md
+└── CHANGELOG.md
+```
+
+### Installed Plugin Structure
+
+When installed from marketplace, plugins are placed in `~/.claude/plugins/marketplaces/ck-skills/plugins/[skill-name]/`:
+
+```
+~/.claude/plugins/marketplaces/ck-skills/plugins/doc-review-commands/
+├── commands/
+│   ├── main.md              # Main orchestrator
+│   ├── analyze.md           # Analysis sub-command
+│   ├── core.md              # Core files update
+│   ├── sdd.md               # SDD artifacts update
+│   ├── qa.md                # Quality validation
+│   └── help.md              # Help documentation
 ├── config/
-│   └── categories.json  # Pattern configuration
+│   └── categories.json      # Pattern configuration
 └── tools/
-    └── analyzer.sh      # Analysis tool
+    └── analyzer.sh          # Analysis tool
 ```
 
 ### Command Flow
