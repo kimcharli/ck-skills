@@ -183,7 +183,8 @@ Next Steps:
 Documentation:
 - Quick start: docs/README.md
 - Full guide: docs/GUIDE.md
-- Framework reference: SKILL-CREATION-FRAMEWORK.md
+- Framework: docs/SKILL-CREATION-FRAMEWORK.md
+- Example: docs/SKILL-CREATION-EXAMPLE.md
 
 Use the skill:
 - /ck:[skill-name] "your input"

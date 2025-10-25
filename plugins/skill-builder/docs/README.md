@@ -201,8 +201,8 @@ Skill Builder can generate:
 
 - **This file** - Quick start and overview
 - **GUIDE.md** - Complete reference
-- **SKILL-CREATION-FRAMEWORK.md** - Detailed framework documentation
-- **SKILL-CREATION-EXAMPLE.md** - Real working example
+- **SKILL-CREATION-FRAMEWORK.md** - Detailed skill creation framework with design principles
+- **SKILL-CREATION-EXAMPLE.md** - Real working example (code-formatter skill)
 
 ---
 
