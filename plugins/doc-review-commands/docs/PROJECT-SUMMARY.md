@@ -57,16 +57,19 @@ doc-review-commands/
 ## ✨ Features
 
 ### Modular Architecture
+
 - **6 focused commands** instead of monolithic tool
 - Each command has single responsibility
 - Load only what you need (token efficient)
 
 ### Performance
+
 - **88% token reduction** vs original monolithic command
 - **70% faster execution** with focused sub-commands
 - **< 1s analysis** with external bash tool
 
 ### Capabilities
+
 - Smart orchestration with user control
 - Pattern-based file categorization
 - SDD (Specification-Driven Development) support
@@ -78,38 +81,42 @@ doc-review-commands/
 
 ## 🚀 Commands Overview
 
-| Command | Purpose | Tokens | Time |
-|---------|---------|--------|------|
-| `main` | Smart orchestrator | ~900-1.2K | Variable |
-| `analyze` | Analysis only | ~600-800 | < 1s |
-| `core` | README/CLAUDE/CHANGELOG | ~1.2-1.5K | 15-30s |
-| `sdd` | SDD artifacts | ~1.5-1.8K | 30-60s |
-| `qa` | Quality validation | ~1.8-2K | 10-20s |
-| `help` | Usage guide | ~200 | Instant |
+| Command   | Purpose                 | Tokens    | Time     |
+| --------- | ----------------------- | --------- | -------- |
+| `main`    | Smart orchestrator      | ~900-1.2K | Variable |
+| `analyze` | Analysis only           | ~600-800  | < 1s     |
+| `core`    | README/CLAUDE/CHANGELOG | ~1.2-1.5K | 15-30s   |
+| `sdd`     | SDD artifacts           | ~1.5-1.8K | 30-60s   |
+| `qa`      | Quality validation      | ~1.8-2K   | 10-20s   |
+| `help`    | Usage guide             | ~200      | Instant  |
 
 ---
 
 ## 📊 Evolution Journey
 
 ### Phase 1: Progressive Disclosure
+
 - Added user choice before execution
 - Extracted patterns to config file
 - Added execution metrics
 - **Result:** 40% token reduction
 
 ### Phase 2: External Tools
+
 - Created bash analyzer tool
 - Analysis runs in Context
 - Added templates for updates
 - **Result:** 75% token reduction
 
 ### Phase 3: Full Modularization
+
 - Split into 6 focused commands
 - Folder-based organization
 - Self-contained system
 - **Result:** 88% token reduction
 
 ### Phase 4: Repository Creation
+
 - Production-ready packaging
 - Installation scripts
 - Comprehensive documentation
@@ -120,6 +127,7 @@ doc-review-commands/
 ## 📦 What's Included
 
 ### Core Files
+
 - ✅ README.md - Comprehensive project documentation
 - ✅ LICENSE - MIT License
 - ✅ CHANGELOG.md - Version history (v1.0.0)
@@ -127,18 +135,21 @@ doc-review-commands/
 - ✅ .gitignore - Proper ignore patterns
 
 ### Command System
+
 - ✅ 6 modular command files (1,667 lines)
 - ✅ Pattern configuration (categories.json)
 - ✅ External analyzer tool (336 lines bash)
 - ✅ Installation/uninstallation scripts
 
 ### Documentation
+
 - ✅ Quick Start guide
 - ✅ Repository setup instructions
 - ✅ Basic usage examples
 - ✅ Custom config examples
 
 ### Git Repository
+
 - ✅ Initialized with git
 - ✅ Initial commit created
 - ✅ Ready to push to GitHub
@@ -209,6 +220,7 @@ git push
 ## 📈 Impact Metrics
 
 ### Before (Monolithic Command)
+
 - 419 lines, ~10-12K tokens per use
 - One-size-fits-all approach
 - Slow (baseline performance)
@@ -216,6 +228,7 @@ git push
 - Difficult to share (copy 8+ files)
 
 ### After (Modular System)
+
 - 6 commands, ~900-2K tokens per use
 - Right-sized for each task
 - 70% faster execution
@@ -223,6 +236,7 @@ git push
 - Simple to share (one folder/repo)
 
 ### ROI
+
 - **Development Time:** ~8 hours total (all phases)
 - **Token Savings:** 85-90% per invocation
 - **Time Savings:** 70% faster per use
@@ -244,6 +258,7 @@ git push
 ## 🚀 Future Enhancements (v1.1+)
 
 ### Planned Features
+
 - [ ] Diagram generation sub-command (mermaid)
 - [ ] Multi-language template support
 - [ ] CI/CD integration mode
@@ -253,6 +268,7 @@ git push
 - [ ] GitHub Actions for testing
 
 ### Community Requests
+
 - (Collect after open sourcing)
 
 ---
@@ -260,6 +276,7 @@ git push
 ## 📞 Support & Community
 
 Once published:
+
 - **Issues:** Bug reports and feature requests
 - **Discussions:** Q&A and community help
 - **Pull Requests:** Welcome contributions
@@ -285,6 +302,7 @@ MIT License - Free to use, modify, and distribute
 ## 🎯 Success Criteria
 
 The repository is ready when:
+
 - [x] All files committed
 - [x] Documentation complete
 - [x] Installation tested
@@ -301,4 +319,4 @@ The repository is ready when:
 
 **Made with ❤️ for better documentation workflows**
 
-**Repository:** https://github.com/kimcharli/doc-review-commands (after push)
+**Repository:** <https://github.com/kimcharli/doc-review-commands> (after push)

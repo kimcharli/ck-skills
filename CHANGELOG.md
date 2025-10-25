@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
+
 - Diagram generation sub-command
 - Multi-language template support
 - CI/CD integration mode
@@ -15,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-10-24
 
 ### Added
+
 - Initial release of modular documentation system
 - 6 core commands: main, analyze, core, sdd, qa, help
 - External bash analyzer tool for instant analysis
@@ -26,11 +28,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive documentation and examples
 
 ### Performance
+
 - 88% token reduction vs monolithic commands
 - 70% faster execution with focused sub-commands
 - Sub-second analysis with external tools
 
 ### Architecture
+
 - Modular folder structure
 - Self-contained system (commands + config + tools)
 - Dual tool path support (local + global)

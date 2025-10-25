@@ -24,6 +24,7 @@ Doc Review Commands is a **modular documentation toolkit** for Claude Code that 
 ### Installation
 
 #### Option 1: Plugin Marketplace (When Published)
+
 ```bash
 # In Claude Code, run:
 /plugin marketplace add kimcharli/ck-skills
@@ -34,6 +35,7 @@ Doc Review Commands is a **modular documentation toolkit** for Claude Code that 
 ```
 
 #### Option 2: Manual Install (Current)
+
 ```bash
 # Clone the repository
 git clone https://github.com/kimcharli/doc-review-commands.git
@@ -51,6 +53,7 @@ See [Installation Guide](docs/INSTALLATION.md) for more methods and troubleshoot
 ### Uninstall
 
 **From Plugin Marketplace:**
+
 ```bash
 # In Claude Code, run:
 /plugin
@@ -58,6 +61,7 @@ See [Installation Guide](docs/INSTALLATION.md) for more methods and troubleshoot
 ```
 
 **Manual Installation:**
+
 ```bash
 # Run the uninstaller in the installation directory
 cd ~/.claude/commands/ck/doc-review
@@ -91,14 +95,14 @@ rm -rf ~/.claude/commands/ck/doc-review
 
 Six focused commands instead of one monolithic tool:
 
-| Command | Purpose | Token Cost | Time |
-|---------|---------|------------|------|
-| `/main` | Smart orchestrator | ~900-1.2K | Variable |
-| `/analyze` | Analysis only | ~600-800 | < 1s |
-| `/core` | README/CLAUDE/CHANGELOG | ~1.2-1.5K | 15-30s |
-| `/sdd` | SDD artifacts | ~1.5-1.8K | 30-60s |
-| `/qa` | Quality validation | ~1.8-2K | 10-20s |
-| `/help` | Usage guide | ~200 | Instant |
+| Command    | Purpose                 | Token Cost | Time     |
+| ---------- | ----------------------- | ---------- | -------- |
+| `/main`    | Smart orchestrator      | ~900-1.2K  | Variable |
+| `/analyze` | Analysis only           | ~600-800   | < 1s     |
+| `/core`    | README/CLAUDE/CHANGELOG | ~1.2-1.5K  | 15-30s   |
+| `/sdd`     | SDD artifacts           | ~1.5-1.8K  | 30-60s   |
+| `/qa`      | Quality validation      | ~1.8-2K    | 10-20s   |
+| `/help`    | Usage guide             | ~200       | Instant  |
 
 ### ⚡ Performance
 
@@ -243,6 +247,7 @@ Savings:              88% token reduction
 Smart orchestration with user control.
 
 **What it does:**
+
 - Runs comprehensive analysis
 - Asks which areas to update
 - Delegates to sub-commands
@@ -257,6 +262,7 @@ Smart orchestration with user control.
 Analysis only, zero file changes.
 
 **What it does:**
+
 - Extracts documentation principles
 - Analyzes structure and metrics
 - Assesses change impact
@@ -271,6 +277,7 @@ Analysis only, zero file changes.
 Updates README, CLAUDE, CHANGELOG.
 
 **What it does:**
+
 - README.md: Features, usage, installation
 - CLAUDE.md: AI context, module docs
 - CHANGELOG.md: Version entry
@@ -284,10 +291,11 @@ Updates README, CLAUDE, CHANGELOG.
 Updates specification-driven development docs.
 
 **What it does:**
+
 - spec.md: Mark requirements complete
 - plan.md: Update phase status
 - tasks.md: Mark tasks done
-- contracts/*.md: Update API specs
+- contracts/\*.md: Update API specs
 
 **When to use:** After completing implementation phases
 
@@ -298,6 +306,7 @@ Updates specification-driven development docs.
 Comprehensive quality checks, zero changes.
 
 **What it does:**
+
 - Validates links (finds broken links)
 - Checks file:line references
 - Verifies terminology consistency
@@ -314,6 +323,7 @@ Comprehensive quality checks, zero changes.
 Comprehensive usage guide.
 
 **What it does:**
+
 - Shows all commands
 - Provides usage patterns
 - Decision tree for choosing commands
@@ -427,20 +437,24 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## 📚 References & Documentation
 
 ### Claude Code Official Documentation
+
 - [Claude Code Plugins Guide](https://docs.claude.com/en/docs/claude-code/plugins)
 - [Plugin Marketplaces](https://docs.claude.com/en/docs/claude-code/plugin-marketplaces)
 - [Claude Code Overview](https://claude.ai/code)
 
 ### Related Resources
+
 - [GitHub: ck-skills Repository](https://github.com/kimcharli/ck-skills)
 - [GitHub: doc-review-commands Plugin](https://github.com/kimcharli/ck-skills/tree/main/doc-review-commands)
 - [Claude Code Marketplace](https://claudecodemarketplace.com/)
 
 ### Tools & Technologies
+
 - [markdownlint](https://github.com/igorshubovych/markdownlint-cli) - Markdown style checker and auto-fixer
 - [prettier](https://prettier.io/) - Code formatter
 
 ### Inspiration
+
 - Specification-Driven Development (SDD) methodology
 - Modular command architecture for Claude Code
 - Zero-dependency tool design philosophy
