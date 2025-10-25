@@ -169,10 +169,31 @@ skills/my-skill/
    /ck:my-skill "test input"
    ```
 
-4. **Deploy when ready**
+4. **Deploy as a Plugin (Optional)**
+
+   To make your skill discoverable in a marketplace:
+
+   - Add to marketplace `.claude-plugin/marketplace.json`:
+     ```json
+     {
+       "name": "my-skill",
+       "version": "1.0.0",
+       "source": "./plugins/my-skill",
+       "description": "Your skill description",
+       "author": { "name": "your-name" },
+       "license": "MIT",
+       "category": "development"
+     }
+     ```
+
+   - Push to GitHub remote
+   - Update marketplace: `claude plugin marketplace update your-marketplace`
+   - Install: `claude plugin install my-skill@your-marketplace`
+
+5. **Deploy as a Local Command (Simple)**
    - Move to ~/.claude/commands/
    - Make commands executable
-   - Use the skill!
+   - Use directly: `/ck:my-skill "test input"`
 
 ---
 
@@ -216,15 +237,23 @@ See `SKILL-CREATION-EXAMPLE.md` for a complete code-formatter skill with:
 
 ---
 
+## Deployment
+
+For detailed deployment instructions, see:
+- `PLUGIN-DEPLOYMENT-GUIDE.md` - Complete deployment guide with marketplace integration
+- Shows both local and marketplace deployment options
+- Includes troubleshooting and best practices
+
 ## Support
 
-For framework details, see:
+For framework and creation details, see:
 - `SKILL-CREATION-FRAMEWORK.md` - Complete framework
-- `HOW-TO-CREATE-A-SKILL.md` - Step-by-step guide
-- `SKILL-CREATION-EXAMPLE.md` - Real example
+- `SKILL-CREATION-EXAMPLE.md` - Real working example
+- `PLUGIN-DEPLOYMENT-GUIDE.md` - Deployment and marketplace integration
 
 ---
 
 **Status:** Production Ready
 **Version:** 1.0
 **Generated Skills:** Ready to customize and deploy
+**Marketplace Support:** Full support for plugin marketplace deployment

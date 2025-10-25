@@ -150,6 +150,12 @@ Ask for confirmation:
 - Review specific files?
 - Generate additional templates?
 
+**Note:** To make this skill discoverable in a marketplace:
+1. Add entry to marketplace `.claude-plugin/marketplace.json` (see docs/README.md)
+2. Commit and push to GitHub remote
+3. Update marketplace cache: `claude plugin marketplace update your-marketplace`
+4. Install from marketplace: `claude plugin install [skill-name]@your-marketplace`
+
 ---
 
 ## Phase 6: Generate & Write Files
