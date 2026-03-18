@@ -28,8 +28,7 @@ Ask ALL questions before generating anything. Collect all answers first.
 3. Language / stack?      (e.g. Python/uv, Node/TypeScript, Go)
 4. Runtime target?        (CLI | service | library | web app)
 5. External integrations? (e.g. "Apstra REST API" — or press Enter to skip)
-6. AI tools to support?   (claude / gemini / copilot — comma-separated)
-7. Full repo path?        (e.g. /Users/ckim/Projects/my-new-tool)
+6. Full repo path?        (e.g. /Users/ckim/Projects/my-new-tool)
 ```
 
 If the user skips a question, use a sensible default and note it.
@@ -41,13 +40,12 @@ If the user skips a question, use a sensible default and note it.
 After collecting all answers, run:
 
 ```bash
-~/.claude/commands/ck/sdd-init/tools/create-project.sh \
+${CLAUDE_PLUGIN_ROOT}/tools/create-project.sh \
   --name       "<project_name>" \
   --purpose    "<project_purpose>" \
   --stack      "<language_stack>" \
   --runtime    "<runtime_target>" \
   --integrations "<integrations_or_empty>" \
-  --tools      "<comma_separated_tools>" \
   --path       "<repo_path>"
 ```
 
@@ -67,8 +65,6 @@ Files created:
   AGENTS.md                          — AI constitution + SDD gates
   README.md                          — project overview
   .gitignore
-  GEMINI.md                          — (if gemini selected)
-  .github/copilot-instructions.md    — (if copilot selected)
   docs/sdd-how-to-apply.md           — SDD workflow reference
   specs/requirements.md              — Phase 1 (Status: DRAFT)
   specs/design.md                    — Phase 2 (Status: DRAFT)

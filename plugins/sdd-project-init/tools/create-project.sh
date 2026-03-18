@@ -10,10 +10,8 @@
 #     --stack "Python/uv" \
 #     --runtime "CLI" \
 #     --integrations "Apstra REST API" \
-#     --tools "claude,gemini,copilot" \
 #     --path "/Users/ckim/Projects/my-tool"
 #
-# --tools is a comma-separated list of: claude, gemini, copilot
 # --integrations is optional; omit or pass "" to skip
 #
 
@@ -31,7 +29,6 @@ PROJECT_PURPOSE=""
 LANGUAGE_STACK=""
 RUNTIME_TARGET=""
 INTEGRATIONS=""
-TOOLS=""
 REPO_PATH=""
 
 while [[ $# -gt 0 ]]; do
@@ -41,7 +38,6 @@ while [[ $# -gt 0 ]]; do
         --stack)        LANGUAGE_STACK="$2";  shift 2 ;;
         --runtime)      RUNTIME_TARGET="$2";  shift 2 ;;
         --integrations) INTEGRATIONS="$2";    shift 2 ;;
-        --tools)        TOOLS="$2";           shift 2 ;;
         --path)         REPO_PATH="$2";       shift 2 ;;
         *) echo "Unknown argument: $1"; exit 1 ;;
     esac
@@ -71,16 +67,6 @@ else
     INTEGRATIONS_LINE=""
 fi
 
-# Tool flags
-USE_GEMINI=false
-USE_COPILOT=false
-IFS=',' read -ra TOOL_LIST <<< "$TOOLS"
-for t in "${TOOL_LIST[@]}"; do
-    t=$(echo "$t" | tr -d ' ')
-    [[ "$t" == "gemini" ]]  && USE_GEMINI=true
-    [[ "$t" == "copilot" ]] && USE_COPILOT=true
-done
-
 # ── Create project directory ───────────────────────────────────────────────────
 echo ""
 echo -e "${BLUE}╔════════════════════════════════════════════╗${NC}"
@@ -96,7 +82,6 @@ if [ -d "$REPO_PATH" ] && [ "$(ls -A "$REPO_PATH" 2>/dev/null)" ]; then
 fi
 
 mkdir -p "$REPO_PATH"
-mkdir -p "$REPO_PATH/.github"
 mkdir -p "$REPO_PATH/docs"
 mkdir -p "$REPO_PATH/specs/features"
 
@@ -138,17 +123,6 @@ echo -e "${GREEN}   ✓ specs/design.md${NC}"
 echo -e "${GREEN}   ✓ specs/tasks.md${NC}"
 echo -e "${GREEN}   ✓ specs/features/_template.md${NC}"
 echo -e "${GREEN}   ✓ docs/sdd-how-to-apply.md${NC}"
-
-# ── Conditional files ──────────────────────────────────────────────────────────
-if $USE_GEMINI; then
-    cp "$TEMPLATE_DIR/GEMINI.md" "$REPO_PATH/GEMINI.md"
-    echo -e "${GREEN}   ✓ GEMINI.md${NC}"
-fi
-
-if $USE_COPILOT; then
-    cp "$TEMPLATE_DIR/.github/copilot-instructions.md" "$REPO_PATH/.github/copilot-instructions.md"
-    echo -e "${GREEN}   ✓ .github/copilot-instructions.md${NC}"
-fi
 
 # ── Git init ───────────────────────────────────────────────────────────────────
 if command -v git &>/dev/null; then

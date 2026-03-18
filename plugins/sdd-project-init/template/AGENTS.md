@@ -49,3 +49,11 @@ If a requirement changes mid-implementation, stop and update specs first.
 - Use Opus for spec phases (requirements, design)
 - Use Sonnet for implementation phases (tasks, code)
 - Spawn subagents per task in `specs/tasks.md` for parallel execution
+
+## Tool Compatibility
+
+AGENTS.md is the single source of truth for all AI tools:
+
+- **Claude Code** — reads AGENTS.md natively
+- **Gemini CLI** — reads AGENTS.md since v0.28.0
+- **GitHub Copilot Chat** — reads AGENTS.md since v0.19.0
