@@ -7,20 +7,40 @@ building and maintaining this marketplace.
 
 ## Plugin System
 
-### plugin.json and manifest.json coexist — but schema conflicts
-**Date:** 2026-03-18  
-**Context:** Adding `sdd-project-init` with Copilot CLI support.
+### plugin.json must live inside .claude-plugin/ — not at plugin root
 
-Claude Code validates **both** `manifest.json` and `plugin.json` when both
-are present in a plugin directory. Copilot CLI-specific fields (`skills`,
-`agents`, `hooks`) in `plugin.json` cause Claude Code's validator to fail
-with `Invalid input`.
+**Date:** 2026-03-18 (updated)
+**Context:** `claude plugin install sdd-project-init@ck-skills` failed with
+`skills: Invalid input`.
 
-**Rule:** Keep `plugin.json` to shared metadata-only fields:
-`name`, `description`, `version`, `author`, `license`, `keywords`.  
-Let `manifest.json` carry all Claude Code-specific fields.  
-Copilot-specific path fields (`skills`, `agents`) are not safe to include
-until Claude Code confirms it ignores unknown fields.
+When `plugin.json` sits at the plugin root alongside a `commands/` directory,
+`claude plugin install` auto-injects `"skills": ["commands/"]` into
+`plugin.json`. That format is invalid and fails validation.
+
+The fix: place the manifest at `.claude-plugin/plugin.json` (the same
+structure used by working plugins like `claude-mem`). Claude Code then
+auto-discovers `commands/*.md` without injecting a `skills` field.
+
+**Rule:** Always use `.claude-plugin/plugin.json` — never a root-level
+`plugin.json`. Keep the manifest to metadata-only fields:
+`name`, `description`, `version`, `author`, `license`, `keywords`.
+The `commands/` directory is auto-discovered; no `skills` field is needed.
+
+### Command .md files need YAML frontmatter
+
+**Date:** 2026-03-18
+**Context:** `claude plugin validate` warned about missing frontmatter.
+
+Command files in `commands/` should start with YAML frontmatter:
+
+```markdown
+---
+name: init
+description: Short description of what the command does
+---
+```
+
+Without it, validation passes with a warning. With it, clean pass.
 
 ---
 
@@ -34,15 +54,10 @@ plugin to `marketplace.json` and pushing to GitHub does not automatically
 invalidate the cache.
 
 **Fix:** After pushing a new plugin to the marketplace:
-```bash
-rm -rf ~/.claude/plugins/cache/ck-skills
-claude plugin marketplace add github:kimcharli/ck-skills
-claude plugin install <new-plugin>@ck-skills
-```
 
-Or if `marketplace refresh` is available in the installed Claude Code version:
 ```bash
-claude plugin marketplace refresh ck-skills
+claude plugin marketplace update ck-skills
+claude plugin install <new-plugin>@ck-skills
 ```
 
 ---

@@ -103,10 +103,11 @@ ck-skills/
 │   └── marketplace.json              # Registry — read by Claude Code + Copilot CLI
 ├── plugins/
 │   ├── sdd-project-init/             # SDD project bootstrapper
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json           # Plugin manifest (metadata only)
 │   │   ├── commands/                 # Skill command files
 │   │   ├── template/                 # Model file tree for generated projects
 │   │   ├── tools/                    # create-project.sh
-│   │   ├── plugin.json               # Copilot CLI manifest
 │   │   ├── manifest.json             # Claude Code manifest
 │   │   ├── install.sh
 │   │   └── README.md
