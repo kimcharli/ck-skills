@@ -54,6 +54,26 @@
         "sdd"
       ],
       "category": "documentation"
+    },
+    {
+      "name": "sdd-project-init",
+      "version": "1.0.0",
+      "source": "./plugins/sdd-project-init",
+      "description": "Initialize a new project with Spec-Driven Development structure — interview-driven, generates all files fully populated",
+      "author": {
+        "name": "kimcharli"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/sdd-project-init",
+      "tags": [
+        "sdd",
+        "spec-driven-development",
+        "project-init",
+        "scaffold",
+        "bootstrap",
+        "workflow"
+      ],
+      "category": "project-management"
     }
   ]
 }
