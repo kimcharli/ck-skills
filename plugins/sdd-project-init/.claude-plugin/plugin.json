@@ -1,0 +1,10 @@
+{
+  "name": "sdd-project-init",
+  "version": "1.0.0",
+  "description": "Initialize a new project with Spec-Driven Development structure — interview-driven, generates all files fully populated",
+  "author": {
+    "name": "kimcharli"
+  },
+  "license": "MIT",
+  "keywords": ["sdd", "spec-driven-development", "project-init", "scaffold", "bootstrap", "workflow"]
+}
