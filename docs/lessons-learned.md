@@ -79,27 +79,26 @@ Always test install on both tools when adding a new plugin.
 
 ---
 
-### Gemini CLI supports AGENTS.md (v0.28.0+)
-**Date:** 2026-03-18  
-**Context:** Consolidating AI steering files.
+### Gemini CLI has a native skill system (v0.25.0+)
+**Date:** 2026-03-18 (updated)
+**Context:** Correcting earlier misinformation about Gemini CLI's extensibility.
 
-Gemini CLI (v0.28.0+) now reads `AGENTS.md` if `GEMINI.md` is missing. This
-allows us to maintain a single "constitution" file that works across Claude
-Code, Copilot, and Gemini CLI.
+Gemini CLI has a robust skill system that allows installing capabilities from
+GitHub repositories or local directories. Unlike Claude Code's `plugin.json`,
+Gemini CLI requires a **`SKILL.md`** file at the root of the skill directory.
 
-**Rule:** Use `AGENTS.md` as the single source of truth for AI instructions.
-Avoid creating `GEMINI.md` or `.github/copilot-instructions.md` unless
-tool-specific overrides are absolutely necessary.
+**Rule:** Every skill must include a `SKILL.md` file with YAML frontmatter
+(`name` and `description`). The description is what Gemini uses to decide
+when to activate the skill.
 
----
-
-### Copilot CLI supports AGENTS.md (v0.19.0+)
-**Date:** 2026-03-18  
-**Context:** Consolidating AI steering files.
-
-GitHub Copilot CLI (v0.19.0+) honors `AGENTS.md` for project-level
-instructions. This alignment with Claude Code's convention simplifies
-repository management.
+**Installation:**
+```bash
+gemini skills install https://github.com/kimcharli/ck-skills/tree/main/plugins/<skill-name>
+```
+Or for local development:
+```bash
+gemini skills install ./plugins/<skill-name>
+```
 
 ---
 
