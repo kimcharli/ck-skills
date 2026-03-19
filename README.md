@@ -78,7 +78,7 @@ chmod +x install.sh && ./install.sh
 /ck:sdd-init
 ```
 Runs a 7-question interview, then generates a fully populated project with
-`AGENTS.md`, `specs/`, `docs/`, `GEMINI.md`, and `.github/copilot-instructions.md`.
+`AGENTS.md` (the AI constitution), `specs/`, and `docs/`.
 
 ### doc-review-commands — Keep docs in sync
 ```bash
