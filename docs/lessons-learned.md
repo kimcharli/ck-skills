@@ -91,11 +91,12 @@ Gemini CLI requires a **`SKILL.md`** file at the root of the skill directory.
 (`name` and `description`). The description is what Gemini uses to decide
 when to activate the skill.
 
-**Installation:**
+**Installation (from a sub-directory in a Git repo):**
 ```bash
-gemini skills install https://github.com/kimcharli/ck-skills/tree/main/plugins/<skill-name>
+gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/<skill-name>
 ```
-Or for local development:
+
+**Installation (from a local directory):**
 ```bash
 gemini skills install ./plugins/<skill-name>
 ```
