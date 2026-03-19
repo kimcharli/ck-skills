@@ -96,6 +96,35 @@ init_cache() {
     mkdir -p "$CACHE_DIR"
 }
 
+# Generate root SKILL.md file
+generate_root_skill() {
+    local name="$1"
+    local description="$2"
+
+    cat > "$SKILLS_BASE_DIR/$name/SKILL.md" <<EOF
+---
+name: $name
+description: $description
+---
+
+# ${name^}
+
+This skill provides $description.
+
+## Procedures
+
+1. **Analysis**: Understand the user's request and identify key parameters.
+1. **Execution**: Call the appropriate tool or script in the \`tools/\` directory.
+1. **Reporting**: Present the results clearly to the user.
+
+## Instructions
+
+- Follow the procedures defined in this skill.
+- Use the tools provided in the \`tools/\` directory.
+- Maintain consistency with the repository's coding standards.
+EOF
+}
+
 # Generate main command file
 generate_main_command() {
     local name="$1"
@@ -537,6 +566,7 @@ generate_skill() {
 
     # Generate files
     log_info "Generating command files..."
+    generate_root_skill "$name" "$description"
     generate_main_command "$name" "$description" "$features"
     generate_quick_command "$name" "$description"
     generate_validate_command "$name"
@@ -550,6 +580,13 @@ generate_skill() {
 
     log_info "Generating documentation..."
     generate_docs "$name" "$description" "$features"
+
+    log_info "Validating generated skill..."
+    if [ -f "$SCRIPT_DIR/validate-skill.sh" ]; then
+        bash "$SCRIPT_DIR/validate-skill.sh" "$SKILLS_BASE_DIR/$name"
+    else
+        log_warning "validate-skill.sh not found in $SCRIPT_DIR, skipping validation."
+    fi
 
     log_success "Skill created: $SKILLS_BASE_DIR/$name/"
 

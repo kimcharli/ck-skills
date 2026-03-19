@@ -1,6 +1,7 @@
-______________________________________________________________________
-
-## name: sdd-git-commit description: Orchestrates a professional Git commit workflow including hygiene checks, documentation parity (SDD), project state tracking (CHANGELOG, TODO, Session Memos), and post-commit reflection. metadata: author: kimcharli version: 1.0.0 conventions: [Conventional Commits, SDD]
+---
+name: sdd-git-commit
+description: Orchestrates a professional Git commit workflow including hygiene checks, documentation parity (SDD), project state tracking (CHANGELOG, TODO, Session Memos), and post-commit reflection.
+---
 
 # SDD Git Commit
 

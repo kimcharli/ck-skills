@@ -1,6 +1,7 @@
-______________________________________________________________________
-
-## name: doc-review-commands description: Analyze and keep documentation in sync with code changes using specialized commands for core, sdd, qa, and main review workflows
+---
+name: doc-review-commands
+description: Analyze and keep documentation in sync with code changes using specialized commands for core, sdd, qa, and main review workflows.
+---
 
 # Doc Review Commands
 

@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **Skill Metadata**: Reverted `SKILL.md` files to standard YAML frontmatter to fix Gemini CLI installation regression.
+
+### Added
+
+- **Automated Validation**: Created `validate-skill.sh` to ensure `SKILL.md` files remain compliant with Gemini CLI requirements.
+- **Skill Builder Resilience**: Enhanced `generator.sh` to automatically generate root `SKILL.md` files and run post-generation validation.
+- **Linting Integration**: Integrated automated skill validation into the `python-lint-fix` workflow (`lint-fix.sh`).
+
 ### Planned
 
 - Diagram generation sub-command

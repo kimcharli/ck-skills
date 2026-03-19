@@ -1,6 +1,7 @@
-______________________________________________________________________
-
-## name: python-lint-fix description: Runs Ruff (Python), mdformat (Markdown), and markdownlint (Markdown) checks, auto-fixes issues, and verifies tests pass. Use when the user asks to lint, fix, format, or clean up code. metadata: author: kimcharli version: 1.0.0
+---
+name: python-lint-fix
+description: Runs Ruff (Python), mdformat (Markdown), and markdownlint (Markdown) checks, auto-fixes issues, and verifies tests pass. Use when the user asks to lint, fix, format, or clean up code.
+---
 
 # Python Lint Fix
 

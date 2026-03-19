@@ -1,6 +1,7 @@
-______________________________________________________________________
-
-## name: sdd-project-init description: Bootstrap a new project with Spec-Driven Development (SDD) structure, including AGENTS.md, specs/, and docs/
+---
+name: sdd-project-init
+description: Bootstrap a new project with Spec-Driven Development (SDD) structure, including AGENTS.md, specs/, and docs/.
+---
 
 # SDD Project Init
 

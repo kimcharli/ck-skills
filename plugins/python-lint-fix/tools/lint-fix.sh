@@ -108,7 +108,15 @@ if check_markdownlint; then
     markdownlint '**/*.md'
 fi
 
-echo -e "${BLUE}=== Step 4: Verification ===${NC}"
+echo -e "${BLUE}=== Step 4: Skill Validation (SKILL.md) ===${NC}"
+VALIDATOR=$(find . -name "validate-skill.sh" -not -path "*/.git/*" | head -n 1)
+if [ -f "$VALIDATOR" ]; then
+    bash "$VALIDATOR" .
+else
+    echo -e "${YELLOW}⚠️  Skill validator (validate-skill.sh) not found.${NC}"
+fi
+
+echo -e "${BLUE}=== Step 5: Verification ===${NC}"
 if command -v uv &> /dev/null && [ -f "pyproject.toml" ]; then
     echo "Verifying clean state..."
     uv run ruff check . && uv run ruff format --check .
@@ -116,7 +124,7 @@ elif command -v ruff &> /dev/null; then
     ruff check . && ruff format --check .
 fi
 
-echo -e "${BLUE}=== Step 5: Testing (pytest) ===${NC}"
+echo -e "${BLUE}=== Step 6: Testing (pytest) ===${NC}"
 if command -v uv &> /dev/null && [ -f "pyproject.toml" ]; then
     echo "Running tests..."
     uv run pytest -q || echo -e "${RED}Tests failed!${NC}"

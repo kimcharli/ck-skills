@@ -1,6 +1,7 @@
-______________________________________________________________________
-
-## name: skill-builder description: Create new production-ready Gemini CLI skills and plugins with standardized structure, commands, and tools
+---
+name: skill-builder
+description: Create new production-ready Gemini CLI skills and plugins with standardized structure, commands, and tools.
+---
 
 # Skill Builder
 
