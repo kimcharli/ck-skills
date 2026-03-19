@@ -29,8 +29,10 @@ echo -e "${GREEN}   ✓ SKILL.md${NC}"
 
 echo -e "${BLUE}🔧 Installing tools...${NC}"
 cp "$SCRIPT_DIR/tools/lint-fix.sh" "$INSTALL_DIR/tools/"
+cp "$SCRIPT_DIR/tools/.markdownlint.json" "$INSTALL_DIR/tools/"
 chmod +x "$INSTALL_DIR/tools/lint-fix.sh"
 echo -e "${GREEN}   ✓ tools/lint-fix.sh${NC}"
+echo -e "${GREEN}   ✓ tools/.markdownlint.json${NC}"
 
 echo ""
 echo -e "${GREEN}╔════════════════════════════════════════════╗${NC}"

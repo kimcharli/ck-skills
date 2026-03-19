@@ -91,20 +91,21 @@ fi
 
 echo -e "${BLUE}=== Step 3: Markdown Linting (markdownlint) ===${NC}"
 if check_markdownlint; then
-    ML_CONFIG=""
-    if [ -f ".markdownlint.json" ] || [ -f ".markdownlint.yaml" ] || [ -f ".markdownlint.yml" ]; then
-        echo "Using existing markdownlint configuration."
-    else
-        echo "No markdownlint config found, using fallback."
-        ML_CONFIG="--config ${SCRIPT_DIR}/.markdownlint.json"
+    if [ ! -f ".markdownlint.json" ] && [ ! -f ".markdownlint.yaml" ] && [ ! -f ".markdownlint.yml" ]; then
+        if [ -f "${SCRIPT_DIR}/.markdownlint.json" ]; then
+            echo -e "${YELLOW}No markdownlint config found, copying model to project root.${NC}"
+            cp "${SCRIPT_DIR}/.markdownlint.json" .
+        else
+            echo -e "${YELLOW}Warning: No markdownlint config found and model missing in ${SCRIPT_DIR}.${NC}"
+        fi
     fi
 
     echo "Running markdownlint --fix ..."
     # markdownlint-cli supports globbing
-    markdownlint --fix $ML_CONFIG '**/*.md' 2>/dev/null || true
+    markdownlint --fix '**/*.md' 2>/dev/null || true
     
     echo "Running final markdownlint check..."
-    markdownlint $ML_CONFIG '**/*.md'
+    markdownlint '**/*.md'
 fi
 
 echo -e "${BLUE}=== Step 4: Verification ===${NC}"

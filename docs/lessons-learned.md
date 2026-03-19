@@ -109,9 +109,27 @@ gemini skills install ./plugins/<skill-name>
 
 ______________________________________________________________________
 
-## SDD Structure
+### SDD Structure
+
+### .markdownlint.json Normalization via Symlinks
+
+**Date:** 2026-03-19\
+**Context:** Avoiding file duplication across `python-lint-fix` and `sdd-project-init`.
+
+To maintain a single source of truth for markdown linting standards while ensuring each plugin remains self-contained upon installation, we use symbolic links within the repository.
+
+**The Setup:**
+- The master configuration is at the project root: `.markdownlint.json`.
+- Plugins (like `python-lint-fix` and `sdd-project-init`) symlink to this master file within their own directory structure (e.g., `plugins/python-lint-fix/tools/.markdownlint.json` → `../../../.markdownlint.json`).
+
+**Why this works:**
+- **Repository Normalization**: Only one version of the config exists in the repo.
+- **Standalone Functional Integrity**: The `cp` command used in `install.sh` and `create-project.sh` follows the symlink and copies the *actual content*. This ensures that once a skill is installed or a project is initialized, it has its own independent copy of the config and does not rely on the `ck-skills` repository structure.
+
+**Rule:** For shared configuration files across plugins, use symlinks to a root-level master file to avoid normalization issues.
 
 ### specs/ vs docs/ separation
+
 
 **Date:** 2026-03-18\
 **Context:** `sdd-project-init` template design.
