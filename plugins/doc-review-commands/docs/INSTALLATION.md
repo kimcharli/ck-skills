@@ -2,19 +2,19 @@
 
 Complete installation instructions for Doc Review Commands - Multiple methods available.
 
----
+______________________________________________________________________
 
 ## 📋 Overview
 
 Doc Review Commands can be installed using:
 
 1. **Plugin Command** (Easiest) - `/plugin install` in Claude Code
-2. **Automatic Installation** (Recommended) - One command with install.sh
-3. **Manual Installation** - Step-by-step file copying
-4. **From Backup** - Restore from backup
-5. **Claude Skills Registry** - Via Skill marketplace (future)
+1. **Automatic Installation** (Recommended) - One command with install.sh
+1. **Manual Installation** - Step-by-step file copying
+1. **From Backup** - Restore from backup
+1. **Claude Skills Registry** - Via Skill marketplace (future)
 
----
+______________________________________________________________________
 
 ## ✅ Prerequisites
 
@@ -39,7 +39,7 @@ bash --version
 git --version
 ```
 
----
+______________________________________________________________________
 
 ## 🚀 Method 1: Plugin Marketplace Installation (When Published)
 
@@ -103,7 +103,7 @@ If the skill is hosted in a GitHub marketplace, you can add it directly:
 /plugin marketplace add kimcharli/doc-review-commands
 ```
 
----
+______________________________________________________________________
 
 ## 🚀 Method 2: Automatic Installation (Recommended)
 
@@ -159,7 +159,7 @@ cd doc-review-commands && \
 /ck:doc-review/help
 ```
 
----
+______________________________________________________________________
 
 ## 🔧 Method 2: Manual Installation
 
@@ -211,7 +211,7 @@ ls -la ~/.claude/commands/ck/doc-review/
 /ck:doc-review/help
 ```
 
----
+______________________________________________________________________
 
 ## 🔄 Method 3: Update Existing Installation
 
@@ -263,7 +263,7 @@ cp tools/analyzer.sh ~/.claude/commands/ck/doc-review/tools/
 chmod +x ~/.claude/commands/ck/doc-review/tools/analyzer.sh
 ```
 
----
+______________________________________________________________________
 
 ## 🐛 Troubleshooting Installation
 
@@ -304,7 +304,7 @@ mkdir -p ~/.claude/
    ./install.sh
    ```
 
-2. **Claude Code not recognizing commands:**
+1. **Claude Code not recognizing commands:**
 
    ```bash
    # Restart Claude Code
@@ -312,7 +312,7 @@ mkdir -p ~/.claude/
    /ck:doc-review/help
    ```
 
-3. **Using wrong command syntax:**
+1. **Using wrong command syntax:**
 
    ```bash
    # Wrong: /doc-review/help
@@ -362,7 +362,7 @@ python3 -m json.tool ~/.claude/commands/ck/doc-review/config/categories.json
 /ck:doc-review/core "test"
 ```
 
----
+______________________________________________________________________
 
 ## 📍 Installation Locations
 
@@ -394,7 +394,7 @@ cp tools/analyzer.sh ~/.claude/tools/
 chmod +x ~/.claude/tools/analyzer.sh
 ```
 
----
+______________________________________________________________________
 
 ## 🔐 Security Considerations
 
@@ -437,7 +437,7 @@ rm -rf ~/.claude/commands/ck/doc-review
 mv ~/.claude/commands/ck/doc-review.backup ~/.claude/commands/ck/doc-review
 ```
 
----
+______________________________________________________________________
 
 ## ✨ Post-Installation
 
@@ -494,7 +494,7 @@ if git diff --cached --name-only | grep -q '\.md$'; then
 fi
 ```
 
----
+______________________________________________________________________
 
 ## 🗑️ Uninstallation
 
@@ -532,7 +532,7 @@ mv ~/.claude/commands/ck/doc-review.backup ~/.claude/commands/ck/doc-review
 /ck:doc-review/help
 ```
 
----
+______________________________________________________________________
 
 ## 🔄 Installation on Multiple Machines
 
@@ -569,7 +569,7 @@ ssh user@remote 'cd /tmp && \
   /ck:doc-review/help'
 ```
 
----
+______________________________________________________________________
 
 ## 📦 Installation Variants
 
@@ -601,7 +601,7 @@ chmod +x ~/.claude/commands/ck/doc-review/tools/analyzer.sh
 # - Documentation reference
 ```
 
----
+______________________________________________________________________
 
 ## ✅ Installation Verification Checklist
 
@@ -618,32 +618,32 @@ After installation, verify everything is working:
 - [ ] Configuration file is valid JSON
 - [ ] Analyzer tool is executable
 
----
+______________________________________________________________________
 
 ## 🆘 Getting Help
 
 If installation fails:
 
 1. **Check Prerequisites** - Ensure Bash 4.0+ and Claude Code are installed
-2. **Review Error Messages** - Read the output carefully
-3. **Check File Permissions** - Ensure write access to `~/.claude/`
-4. **Try Manual Installation** - If automatic fails, try method 2
-5. **Consult Troubleshooting** - See section above
-6. **Open an Issue** - Report on GitHub: <https://github.com/kimcharli/doc-review-commands/issues>
+1. **Review Error Messages** - Read the output carefully
+1. **Check File Permissions** - Ensure write access to `~/.claude/`
+1. **Try Manual Installation** - If automatic fails, try method 2
+1. **Consult Troubleshooting** - See section above
+1. **Open an Issue** - Report on GitHub: <https://github.com/kimcharli/doc-review-commands/issues>
 
----
+______________________________________________________________________
 
 ## 📚 Next Steps
 
 After successful installation:
 
 1. **Read Quick Start** - See [QUICKSTART.md](QUICKSTART.md)
-2. **Review Usage Guide** - See [USAGE.md](USAGE.md)
-3. **Explore Examples** - See [examples/](../examples/)
-4. **Customize Configuration** - See [CUSTOMIZATION.md](CUSTOMIZATION.md)
-5. **Set Up Aliases** - Add shortcuts to shell config
+1. **Review Usage Guide** - See [USAGE.md](USAGE.md)
+1. **Explore Examples** - See [examples/](../examples/)
+1. **Customize Configuration** - See [CUSTOMIZATION.md](CUSTOMIZATION.md)
+1. **Set Up Aliases** - Add shortcuts to shell config
 
----
+______________________________________________________________________
 
 ## 🎉 Installation Complete
 
@@ -661,7 +661,7 @@ Your Doc Review Commands system is ready to use.
 /ck:doc-review/analyze
 ```
 
----
+______________________________________________________________________
 
 **Installation Guide Complete**
 

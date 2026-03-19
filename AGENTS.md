@@ -1,39 +1,42 @@
-# {{PROJECT_NAME}} — Project Constitution
+# ck-skills — Project Constitution
 
 ## Purpose
 
-{{PROJECT_PURPOSE}}
+A collection of specialized skills and plugins for AI CLI agents (Claude Code, Gemini CLI, Copilot CLI) to enhance productivity and standardize development workflows using Spec-Driven Development (SDD).
 
 ## Stack & Environment
 
-- **Language**: {{LANGUAGE_STACK}}
-- **Runtime**: {{RUNTIME_TARGET}}
-  {{INTEGRATIONS_LINE}}
+- **Language**: Bash, Node.js, Python
+- **Runtime**: CLI Plugins
+- **Package Managers**: `uv` (Python), `npm` (Node.js)
 
 ## Project Structure
 
 ```
-{{PROJECT_NAME}}/
+ck-skills/
 ├── AGENTS.md                    # This file — read first, always
 ├── README.md
+├── .markdownlint.json           # Shared lint config
+├── docs/                        # Project documentation
+├── plugins/                     # Self-contained skill packages
+│   ├── python-lint-fix/
+│   ├── sdd-project-init/
+│   └── sdd-git-commit/
 ├── specs/
 │   ├── requirements.md          # What + Why  (edit before any feature)
 │   ├── design.md                # How         (edit after requirements approved)
 │   ├── tasks.md                 # Ordered tasks (edit after design approved)
 │   └── features/                # Per-feature spec files
-│       └── _template.md
-├── src/
-│   └── {{PACKAGE_NAME}}/
-├── tests/
-└── pyproject.toml
+└── tests/                       # Project-wide tests (BATS)
 ```
 
 ## Conventions
 
-- All source code lives under `src/{{PACKAGE_NAME}}/`
-- Tests mirror the source tree under `tests/`
-- Commit after every completed task in `specs/tasks.md`
-- Mark tasks `[x]` in `specs/tasks.md` before committing
+- All new features MUST start with a requirement update in `specs/`.
+- Use `BATS` for testing all shell-based skills.
+- Follow the `.markdownlint.json` standards for all documentation.
+- Commit after every completed task in `specs/tasks.md`.
+- Mark tasks `[x]` in `specs/tasks.md` before committing.
 
 ## SDD Gates — check before every coding session
 
@@ -50,16 +53,16 @@ start of every session. Then enforce these gates in order:
 If a gate fails, refuse to write code and name the gate that failed.
 If a requirement changes mid-implementation, stop and update specs first.
 
-## Claude Code Workflow
+## AI Agent Workflow
 
-- Use Opus for spec phases (requirements, design)
-- Use Sonnet for implementation phases (tasks, code)
-- Spawn subagents per task in `specs/tasks.md` for parallel execution
+- Use **Opus** (Claude) or **Pro** (Gemini) for spec phases (requirements, design).
+- Use **Sonnet** (Claude) or **Flash** (Gemini) for implementation phases (tasks, code).
+- Always run `bash plugins/python-lint-fix/tools/lint-fix.sh` before completing a task.
 
 ## Tool Compatibility
 
 AGENTS.md is the single source of truth for all AI tools:
 
 - **Claude Code** — reads AGENTS.md natively
-- **Gemini CLI** — reads AGENTS.md since v0.28.0
-- **GitHub Copilot Chat** — reads AGENTS.md since v0.19.0
+- **Gemini CLI** — reads AGENTS.md natively
+- **GitHub Copilot Chat** — reads AGENTS.md via context

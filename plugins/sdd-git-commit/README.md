@@ -2,7 +2,7 @@
 
 Orchestrates a professional Git commit workflow including hygiene checks, documentation parity (SDD), project state tracking (CHANGELOG, TODO, Session Memos), and post-commit reflection.
 
----
+______________________________________________________________________
 
 ## Installation
 
@@ -21,44 +21,46 @@ copilot plugin install sdd-git-commit@ck-skills
 cd plugins/sdd-git-commit && ./install.sh
 ```
 
----
+______________________________________________________________________
 
 ## Usage
 
 **Claude Code:**
+
 ```
 /ck:commit
 ```
 
 Or naturally:
+
 ```
 Commit my changes
 Wrap up this task and commit
 ```
 
----
+______________________________________________________________________
 
 ## Workflow
 
-1.  **Hygiene**: Check for secrets, local configs, or build artifacts in the diff.
-2.  **Lint**: Run project linting (if available).
-3.  **SDD Gate**: Ensure source code and its corresponding specification file remain in sync.
-4.  **State Tracking**: Update `CHANGELOG.md`, `TODO.md`, and `SESSION_MEMO.md`.
-5.  **Commit**: Generate a Conventional Commit message and commit.
-6.  **Reflection**: Briefly reflect on surprising findings or learned lessons.
+1. **Hygiene**: Check for secrets, local configs, or build artifacts in the diff.
+1. **Lint**: Run project linting (if available).
+1. **SDD Gate**: Ensure source code and its corresponding specification file remain in sync.
+1. **State Tracking**: Update `CHANGELOG.md`, `TODO.md`, and `SESSION_MEMO.md`.
+1. **Commit**: Generate a Conventional Commit message and commit.
+1. **Reflection**: Briefly reflect on surprising findings or learned lessons.
 
----
+______________________________________________________________________
 
 ## SDD Parity Table Example
 
 The skill encourages maintaining a one-to-one relationship between source files and specifications:
 
-| Source File | Spec File |
-|---|---|
+| Source File   | Spec File       |
+| ------------- | --------------- |
 | `src/core.py` | `specs/core.md` |
-| `src/api.py` | `specs/api.md` |
+| `src/api.py`  | `specs/api.md`  |
 
----
+______________________________________________________________________
 
 ## Related
 

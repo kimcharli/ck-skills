@@ -1,14 +1,13 @@
----
-description: Documentation review system help - usage guide and command reference
-allowed-tools: Bash(cat:*)
----
+______________________________________________________________________
+
+## description: Documentation review system help - usage guide and command reference allowed-tools: Bash(cat:\*)
 
 # 📚 Documentation Review System - Help Guide
 
 **Version:** Phase 3 (Modular Architecture)
 **Last Updated:** 2025-10-24
 
----
+______________________________________________________________________
 
 ## 🎯 What Is This?
 
@@ -21,7 +20,7 @@ helps you:
 ✅ Validate documentation quality before commits
 ✅ Save 88% tokens compared to manual updates
 
----
+______________________________________________________________________
 
 ## 🏗️ Architecture Overview
 
@@ -43,7 +42,7 @@ helps you:
 └────────┘ └─────┘ └────┘ └────┘ └──────┘
 ```
 
----
+______________________________________________________________________
 
 ## 📋 Command Reference
 
@@ -54,7 +53,7 @@ helps you:
 **Files Modified:** None
 **Use When:** First time using system, or need reminder
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review/analyze`
 
@@ -90,7 +89,7 @@ helps you:
   - Execution: 0.8s
 ```
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review/core`
 
@@ -132,7 +131,7 @@ helps you:
 - CLAUDE module documentation
 - CHANGELOG version entry
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review/sdd`
 
@@ -176,7 +175,7 @@ helps you:
 - Contracts → Code alignment
 - Traceability validation
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review/qa`
 
@@ -223,14 +222,14 @@ helps you:
 **QA Categories:**
 
 1. Link Validation (20 points)
-2. Cross-Reference Validation (15 points)
-3. Terminology Consistency (15 points)
-4. Version Consistency (15 points)
-5. SDD Consistency (15 points)
-6. Code Example Quality (10 points)
-7. Completeness (10 points)
+1. Cross-Reference Validation (15 points)
+1. Terminology Consistency (15 points)
+1. Version Consistency (15 points)
+1. SDD Consistency (15 points)
+1. Code Example Quality (10 points)
+1. Completeness (10 points)
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review` (Main Orchestrator)
 
@@ -281,7 +280,7 @@ helps you:
   - Total time: 78s
 ```
 
----
+______________________________________________________________________
 
 ## 🎓 Usage Patterns
 
@@ -348,7 +347,7 @@ helps you:
 # Updates: All SDD artifacts
 ```
 
----
+______________________________________________________________________
 
 ## 🗂️ File Structure Reference
 
@@ -388,7 +387,7 @@ docs/
 └── ck-doc-review-phase3-improvements.md # Phase 3 docs (current)
 ```
 
----
+______________________________________________________________________
 
 ## 📊 Token Budgeting
 
@@ -442,7 +441,7 @@ Total: ~69-84K tokens/month
 Savings with Phase 3: 83-93%
 ```
 
----
+______________________________________________________________________
 
 ## 🔧 Troubleshooting
 
@@ -459,7 +458,7 @@ ls ~/.claude/commands/ck/doc-review*.md
 # If missing, reinstall from docs
 ```
 
----
+______________________________________________________________________
 
 ### "Analysis fails with error"
 
@@ -477,7 +476,7 @@ chmod +x ~/.claude/tools/doc-analyzer.sh
 ~/.claude/tools/doc-analyzer.sh help
 ```
 
----
+______________________________________________________________________
 
 ### "QA reports many broken links"
 
@@ -493,7 +492,7 @@ chmod +x ~/.claude/tools/doc-analyzer.sh
 /ck:doc-review/qa
 ```
 
----
+______________________________________________________________________
 
 ### "SDD consistency check fails"
 
@@ -508,7 +507,7 @@ chmod +x ~/.claude/tools/doc-analyzer.sh
 # Update as needed
 ```
 
----
+______________________________________________________________________
 
 ## 💡 Tips & Best Practices
 
@@ -567,7 +566,7 @@ git commit -m "docs: ..."
 → Cleaner commits
 ```
 
----
+______________________________________________________________________
 
 ## 🎯 Decision Tree: Which Command to Use?
 
@@ -595,7 +594,7 @@ Start
      └─ /ck:doc-review "scope" → Select "Full Update"
 ```
 
----
+______________________________________________________________________
 
 ## 📚 Further Reading
 
@@ -615,7 +614,7 @@ Start
 - `~/.claude/tools/doc-analyzer.sh help` - Tool documentation
 - Run `doc-analyzer.sh all` to see full analysis output
 
----
+______________________________________________________________________
 
 ## 🆘 Getting Help
 
@@ -650,17 +649,17 @@ cat docs/ck-doc-review-phase3-improvements.md  # Full system docs
 /ck:doc-review/help
 ```
 
----
+______________________________________________________________________
 
 ## ✨ Key Takeaways
 
 1. **Modular = Efficient** - Use focused commands, not monolithic tool
-2. **Analyze First** - Understand before updating
-3. **Core for Speed** - Most common use case
-4. **QA Before Commit** - Catch issues early
-5. **Orchestrate When Unsure** - Guided workflow helps
+1. **Analyze First** - Understand before updating
+1. **Core for Speed** - Most common use case
+1. **QA Before Commit** - Catch issues early
+1. **Orchestrate When Unsure** - Guided workflow helps
 
----
+______________________________________________________________________
 
 **Last Updated:** 2025-10-24
 **Version:** Phase 3 (Modular Architecture)

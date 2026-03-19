@@ -2,28 +2,28 @@
 
 This guide explains how to take a generated skill and deploy it as a discoverable Claude Code plugin in a marketplace.
 
----
+______________________________________________________________________
 
 ## Overview
 
 Generated skills can be deployed in two ways:
 
 1. **Local Command** - Simple, direct use on your machine
-2. **Marketplace Plugin** - Discoverable and installable across machines
+1. **Marketplace Plugin** - Discoverable and installable across machines
 
----
+______________________________________________________________________
 
 ## Quick Comparison
 
-| Aspect | Local Command | Marketplace Plugin |
-|--------|---------------|-------------------|
-| Setup Time | < 1 minute | 5-10 minutes |
-| Discovery | Manual sharing | Discoverable by others |
-| Installation | Copy directory | `claude plugin install` |
-| Updates | Manual | Automatic via marketplace |
-| Scope | Single machine | Team/Community |
+| Aspect       | Local Command  | Marketplace Plugin        |
+| ------------ | -------------- | ------------------------- |
+| Setup Time   | < 1 minute     | 5-10 minutes              |
+| Discovery    | Manual sharing | Discoverable by others    |
+| Installation | Copy directory | `claude plugin install`   |
+| Updates      | Manual         | Automatic via marketplace |
+| Scope        | Single machine | Team/Community            |
 
----
+______________________________________________________________________
 
 ## Option 1: Local Command Deployment (Simple)
 
@@ -53,7 +53,7 @@ chmod +x ~/.claude/commands/ck/my-skill/tools/*.sh
 /ck:my-skill:validate "check output"
 ```
 
----
+______________________________________________________________________
 
 ## Option 2: Marketplace Plugin Deployment (Distributed)
 
@@ -173,7 +173,7 @@ claude plugin list
 /ck:my-skill "test input"
 ```
 
----
+______________________________________________________________________
 
 ## Key Learnings from Marketplace Integration
 
@@ -224,13 +224,14 @@ claude plugin install plugin-name@marketplace
     ↓ (discovers and installs)
 ```
 
----
+______________________________________________________________________
 
 ## Common Issues & Solutions
 
 ### Issue: Plugin not found after update
 
 **Solution:**
+
 - ✅ Commit marketplace.json changes
 - ✅ Push to GitHub: `git push`
 - ✅ Update marketplace: `claude plugin marketplace update your-marketplace`
@@ -239,28 +240,30 @@ claude plugin install plugin-name@marketplace
 ### Issue: Plugin source path incorrect
 
 **Solution:**
+
 - Verify `"source"` is relative path from repo root: `"./plugins/my-skill"`
 - Verify directory exists at that path
-- Verify commands/*.md files are present
+- Verify commands/\*.md files are present
 
 ### Issue: Commands not found in installed plugin
 
 **Solution:**
+
 - Verify YAML frontmatter in command files
 - Check file names match command names (e.g., `my-skill.md` for `/ck:my-skill`)
 - Run `claude plugin validate` on your plugin directory
 
----
+______________________________________________________________________
 
 ## Publishing Your Marketplace
 
 To share with others:
 
 1. Push your marketplace to GitHub
-2. Share the repo URL: `https://github.com/your-username/my-marketplace`
-3. Others add with: `claude plugin marketplace add github:your-username/my-marketplace`
+1. Share the repo URL: `https://github.com/your-username/my-marketplace`
+1. Others add with: `claude plugin marketplace add github:your-username/my-marketplace`
 
----
+______________________________________________________________________
 
 ## Version Management
 
@@ -271,20 +274,21 @@ Update version numbers when:
 - ✅ Major breaking changes → Major version (1.0.0 → 2.0.0)
 
 Increment in both:
+
 - Individual skill version in marketplace.json
 - Marketplace version itself
 
----
+______________________________________________________________________
 
 ## Next Steps
 
 1. Choose deployment option (local or marketplace)
-2. Follow the steps above
-3. Test your skill works: `/ck:my-skill "test"`
-4. Share with team if using marketplace
-5. Keep docs updated in your skill's README
+1. Follow the steps above
+1. Test your skill works: `/ck:my-skill "test"`
+1. Share with team if using marketplace
+1. Keep docs updated in your skill's README
 
----
+______________________________________________________________________
 
 ## References
 

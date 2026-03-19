@@ -1,8 +1,6 @@
----
+______________________________________________________________________
 
-description: Quality validation - auto-fix linting, check links, consistency, completeness
-allowed-tools: Bash(find:*), Bash(grep:*), Bash(git:*), Bash(npm:*), Read(*), Grep(*), Glob(*), Edit(*), Write(*)
----
+## description: Quality validation - auto-fix linting, check links, consistency, completeness allowed-tools: Bash(find:*), Bash(grep:*), Bash(git:*), Bash(npm:*), Read(*), Grep(*), Glob(*), Edit(*), Write(\*)
 
 # Quality Assurance Validation Command
 
@@ -18,7 +16,7 @@ allowed-tools: Bash(find:*), Bash(grep:*), Bash(git:*), Bash(npm:*), Read(*), Gr
 linting tools, then performs validation checks for links, consistency, and
 completeness.
 
----
+______________________________________________________________________
 
 ## Linting & Auto-Fix Phase
 
@@ -79,7 +77,7 @@ git diff --name-only 2>/dev/null || echo "Not a git repo"
 echo "✅ Auto-fix complete"
 ```
 
----
+______________________________________________________________________
 
 ## QA Check 1: Link Validation
 
@@ -115,7 +113,7 @@ Broken Links Found:
 - [...]
 ```
 
----
+______________________________________________________________________
 
 ## QA Check 2: Cross-Reference Consistency
 
@@ -146,7 +144,7 @@ Issues Found:
 - CLAUDE.md references file.py:999 (file only has 200 lines)
 ```
 
----
+______________________________________________________________________
 
 ## QA Check 3: Terminology Consistency
 
@@ -187,7 +185,7 @@ Recommendations:
 - Use "Python" (capitalized) for language name
 ```
 
----
+______________________________________________________________________
 
 ## QA Check 4: Version Number Consistency
 
@@ -222,7 +220,7 @@ Recommendation:
 - Update pyproject.toml to 1.2.0 or clarify version strategy
 ```
 
----
+______________________________________________________________________
 
 ## QA Check 5: SDD Consistency (if applicable)
 
@@ -257,7 +255,7 @@ Completed but Not Marked:
 - FR-003 marked done in tasks.md but not in spec.md
 ```
 
----
+______________________________________________________________________
 
 ## QA Check 6: Code Example Syntax
 
@@ -288,7 +286,7 @@ Issues:
 - CLAUDE.md:120 - No language specified
 ```
 
----
+______________________________________________________________________
 
 ## QA Check 7: Completeness Check
 
@@ -332,7 +330,7 @@ CLAUDE.md:
 - ⚠️  Core modules section is sparse
 ```
 
----
+______________________________________________________________________
 
 ## Output: QA Summary Report
 
@@ -340,7 +338,7 @@ CLAUDE.md:
 
 **Validation Date:** [YYYY-MM-DD]
 
----
+______________________________________________________________________
 
 ### Auto-Fix Results
 
@@ -359,14 +357,14 @@ CLAUDE.md:
 - Code blocks with language specified (MD040)
 - Emphasis replaced with headings (MD036)
 
----
+______________________________________________________________________
 
 ### Overall Quality Score
 
 **Baseline Score:** [X]/100 (before fixes)
 **After Fixes:** [X]/100 (after linting)
 
----
+______________________________________________________________________
 
 ### Link Validation
 
@@ -407,43 +405,47 @@ CLAUDE.md:
 - Missing sections: [count]
 - Score: [X]/10
 
----
+______________________________________________________________________
 
 ### Priority Issues
 
 **High Priority (Fix Immediately):**
 
 1. [Issue description and location]
-2. [...]
+1. [...]
 
 **Medium Priority (Fix Soon):**
 
 1. [Issue description and location]
-2. [...]
+1. [...]
 
 **Low Priority (Nice to Have):**
 
 1. [Issue description and location]
-2. [...]
+1. [...]
 
----
+______________________________________________________________________
 
 ### Recommended Actions
 
 1. **Fix broken links:**
+
    - [Specific links to fix]
 
-2. **Update version numbers:**
+1. **Update version numbers:**
+
    - [Where to update]
 
-3. **Standardize terminology:**
+1. **Standardize terminology:**
+
    - Use "[term]" instead of "[variation]"
 
-4. **Complete missing sections:**
+1. **Complete missing sections:**
+
    - Add troubleshooting to README.md
    - [...]
 
----
+______________________________________________________________________
 
 ## Next Steps
 
@@ -454,7 +456,7 @@ CLAUDE.md:
 - [ ] Commit auto-fixes: `git commit -m "docs: Auto-fix linting issues (markdownlint + prettier)"`
 - [ ] Re-run QA to verify: `/ck:doc-review/qa`
 
----
+______________________________________________________________________
 
 ## Implementation Notes
 

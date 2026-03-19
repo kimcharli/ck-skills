@@ -1,7 +1,6 @@
----
-name: doc-review-commands
-description: Analyze and keep documentation in sync with code changes using specialized commands for core, sdd, qa, and main review workflows.
----
+______________________________________________________________________
+
+## name: doc-review-commands description: Analyze and keep documentation in sync with code changes using specialized commands for core, sdd, qa, and main review workflows
 
 # Doc Review Commands
 
@@ -18,8 +17,8 @@ This skill provides specialized commands to help keep your project's documentati
 ## Procedures
 
 1. **Analysis**: Use `tools/analyzer.sh` to identify documentation gaps or inconsistencies.
-2. **Review**: Review the changes provided by the user and update the relevant documentation files.
-3. **Validation**: Use the QA command to ensure all documentation standards are met before finishing.
+1. **Review**: Review the changes provided by the user and update the relevant documentation files.
+1. **Validation**: Use the QA command to ensure all documentation standards are met before finishing.
 
 ## Instructions
 

@@ -5,11 +5,11 @@ Steps to publish doc-review-commands to GitHub.
 ## 1. Create GitHub Repository
 
 1. Go to <https://github.com/new>
-2. Repository name: `doc-review-commands`
-3. Description: `AI-powered documentation management system for Claude Code`
-4. Public repository
-5. **Do NOT** initialize with README, .gitignore, or license (already have them)
-6. Click "Create repository"
+1. Repository name: `doc-review-commands`
+1. Description: `AI-powered documentation management system for Claude Code`
+1. Public repository
+1. **Do NOT** initialize with README, .gitignore, or license (already have them)
+1. Click "Create repository"
 
 ## 2. Push Local Repository
 
@@ -29,9 +29,12 @@ git push -u origin main
 ## 3. Create First Release
 
 1. Go to repository → Releases → "Create a new release"
-2. Tag: `v1.0.0`
-3. Release title: `v1.0.0 - Initial Release`
-4. Description:
+
+1. Tag: `v1.0.0`
+
+1. Release title: `v1.0.0 - Initial Release`
+
+1. Description:
 
    ````markdown
    ## 🎉 Initial Release
@@ -67,6 +70,7 @@ git push -u origin main
    ```
 
    ### 📚 Documentation
+
    - [README](README.md)
    - [Quick Start](docs/QUICKSTART.md)
    - [Examples](examples/basic-usage.md)
@@ -77,7 +81,7 @@ git push -u origin main
 
    ```
 
-5. Click "Publish release"
+1. Click "Publish release"
 
 ## 4. Update README Links
 
@@ -160,7 +164,7 @@ Regular tasks:
 - Tag new versions with semantic versioning
 - Keep documentation up to date
 
----
+______________________________________________________________________
 
 ## Quick Command Reference
 
@@ -179,6 +183,6 @@ git push origin v1.1.0
 open https://github.com/kimcharli/doc-review-commands
 ```
 
----
+______________________________________________________________________
 
 **Your repository is ready to share with the world!** 🚀

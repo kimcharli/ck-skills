@@ -2,7 +2,7 @@
 
 Complete reference for all Doc Review Commands with examples and patterns.
 
----
+______________________________________________________________________
 
 ## 🎯 Quick Command Reference
 
@@ -15,7 +15,7 @@ Complete reference for all Doc Review Commands with examples and patterns.
 | `/ck:doc-review/qa`      | ~1.8-2K          | 10-20s   | Validate before commit         |
 | `/ck:doc-review/main`    | ~900-1.2K + subs | Variable | Full orchestrated update       |
 
----
+______________________________________________________________________
 
 ## 📖 Individual Command Guide
 
@@ -47,7 +47,7 @@ Complete reference for all Doc Review Commands with examples and patterns.
 Command reference, usage patterns, decision tree, token budgets, help
 ```
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review/analyze` - What Needs Updating?
 
@@ -102,7 +102,7 @@ You can provide context for more targeted analysis:
 /ck:doc-review/analyze "added new feature"
 ```
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review/core` - Update Core Files
 
@@ -195,7 +195,7 @@ In **CHANGELOG.md:**
 - New version entry
 - Added/Changed/Fixed sections
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review/sdd` - Update SDD Artifacts
 
@@ -272,7 +272,7 @@ $ /ck:doc-review/sdd "Modular command architecture"
 - Contracts → Code alignment
 - Traceability validation
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review/qa` - Quality Validation
 
@@ -365,12 +365,12 @@ $ /ck:doc-review/qa
 **Quality Categories:**
 
 1. **Link Validation (20%)** - All links work
-2. **Cross-References (15%)** - File:line references valid
-3. **Terminology (15%)** - Consistent language
-4. **Versions (15%)** - Version numbers match
-5. **SDD (15%)** - Specs ↔ code aligned
-6. **Examples (10%)** - Code examples valid
-7. **Completeness (10%)** - Required sections present
+1. **Cross-References (15%)** - File:line references valid
+1. **Terminology (15%)** - Consistent language
+1. **Versions (15%)** - Version numbers match
+1. **SDD (15%)** - Specs ↔ code aligned
+1. **Examples (10%)** - Code examples valid
+1. **Completeness (10%)** - Required sections present
 
 **Scoring:**
 
@@ -379,7 +379,7 @@ $ /ck:doc-review/qa
 - 70-79: Acceptable, needs minor fixes
 - Below 70: Significant issues to address
 
----
+______________________________________________________________________
 
 ### `/ck:doc-review/main` - Full Orchestration
 
@@ -441,7 +441,7 @@ $ /ck:doc-review/main "Phase 2 implementation complete"
 ✨ Documentation updated successfully!
 ```
 
----
+______________________________________________________________________
 
 ## 🎓 Usage Patterns
 
@@ -459,7 +459,7 @@ $ /ck:doc-review/main "Phase 2 implementation complete"
 **Files updated:** README, CLAUDE, CHANGELOG
 **Best for:** Daily development workflow
 
----
+______________________________________________________________________
 
 ### Pattern 2: Analysis First (Recommended for New Users)
 
@@ -478,7 +478,7 @@ $ /ck:doc-review/main "Phase 2 implementation complete"
 
 **Best for:** Learning the system, understanding project structure
 
----
+______________________________________________________________________
 
 ### Pattern 3: Full Documentation Overhaul
 
@@ -496,7 +496,7 @@ $ /ck:doc-review/main "Phase 2 implementation complete"
 
 **Best for:** Phase completions, major releases
 
----
+______________________________________________________________________
 
 ### Pattern 4: QA Before Commit (Best Practice)
 
@@ -518,7 +518,7 @@ git commit -m "docs: updated for feature X"
 
 **Best for:** Quality assurance, preventing broken links
 
----
+______________________________________________________________________
 
 ### Pattern 5: SDD Batching (Efficient)
 
@@ -536,7 +536,7 @@ git commit -m "docs: updated for feature X"
 
 **Best for:** Large features, phases, architecture changes
 
----
+______________________________________________________________________
 
 ## 🎯 Decision Tree
 
@@ -565,7 +565,7 @@ Start
      └─ /ck:doc-review/main → Select "Full Update"
 ```
 
----
+______________________________________________________________________
 
 ## 💡 Tips & Best Practices
 
@@ -619,7 +619,7 @@ Start
 /ck:doc-review/core "updates"
 ```
 
----
+______________________________________________________________________
 
 ## 🔧 Advanced Usage
 
@@ -652,7 +652,7 @@ analyze_custom() {
 
 Use the architecture described in [ARCHITECTURE.md](ARCHITECTURE.md) to create new sub-commands.
 
----
+______________________________________________________________________
 
 ## 📊 Token Budget Examples
 
@@ -683,7 +683,7 @@ Total: ~31-38K tokens/month
 Total: ~69-84K tokens/month
 ```
 
----
+______________________________________________________________________
 
 ## ❓ FAQ
 
@@ -705,7 +705,7 @@ A: See [ARCHITECTURE.md](ARCHITECTURE.md) for extension points.
 **Q: Can I run commands outside Claude Code?**
 A: These are Claude Code commands. They require Claude Code environment.
 
----
+______________________________________________________________________
 
 **Usage Guide Complete**
 

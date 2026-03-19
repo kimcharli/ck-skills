@@ -1,8 +1,6 @@
----
+______________________________________________________________________
 
-description: Documentation update orchestrator - analyzes and delegates to sub-commands
-allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:*), Bash(~/.claude/tools/doc-analyzer.sh:*), Read(*), SlashCommand(*), AskUserQuestion(*)
----
+## description: Documentation update orchestrator - analyzes and delegates to sub-commands allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:*), Bash(~/.claude/tools/doc-analyzer.sh:*), Read(*), SlashCommand(*), AskUserQuestion(\*)
 
 # Documentation Update Orchestrator
 
@@ -17,7 +15,7 @@ allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:*), Bash(
 
 **🎯 Smart Orchestration:** This command analyzes your changes and delegates to sub-commands.
 
----
+______________________________________________________________________
 
 ## Analysis Review
 
@@ -28,7 +26,7 @@ Review the analysis output above to understand:
 ✅ **Changes:** Files modified in recent commits
 ✅ **Impact:** Which documentation needs updating
 
----
+______________________________________________________________________
 
 ## Recommended Update Plan
 
@@ -42,7 +40,7 @@ Based on the analysis, here's what needs updating:
 - `/ck:doc-review/sdd` - Update SDD artifacts (spec.md, plan.md, tasks.md)
 - `/ck:doc-review/qa` - Quality validation and link checking
 
----
+______________________________________________________________________
 
 ## User Confirmation
 
@@ -67,7 +65,7 @@ Use AskUserQuestion to ask:
 - **label:** "Full Update"
   **description:** "All documentation areas - Comprehensive update (3-5 min)"
 
----
+______________________________________________________________________
 
 ## Execution
 
@@ -101,7 +99,7 @@ Based on user selection, invoke appropriate sub-commands:
 
 **⚠️ Note:** Run sub-commands sequentially, wait for each to complete before running the next.
 
----
+______________________________________________________________________
 
 ## Final Summary
 
@@ -126,7 +124,7 @@ After all sub-commands complete, provide aggregated summary:
 - [ ] Commit updates: `git add . && git commit -m "docs: ..."`
 - [ ] Push if ready: `git push`
 
----
+______________________________________________________________________
 
 ## Benefits of Modular Approach
 

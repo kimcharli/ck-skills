@@ -1,7 +1,6 @@
----
-name: init
-description: Interview-driven SDD project initializer — creates AGENTS.md, specs/, docs/ fully populated
----
+______________________________________________________________________
+
+## name: init description: Interview-driven SDD project initializer — creates AGENTS.md, specs/, docs/ fully populated
 
 # /ck:sdd-init — SDD Project Initializer
 
@@ -10,13 +9,14 @@ short interview, then calling `create-project.sh` to generate exact copies of
 the model file tree with variable substitution.
 
 ## Trigger Phrases
+
 - `/ck:sdd-init`
 - "initialize a new project"
 - "set up a new repo with SDD"
 - "create a project skeleton"
 - "apply SDD to this project"
 
----
+______________________________________________________________________
 
 ## Step 1 — Interview
 
@@ -33,7 +33,7 @@ Ask ALL questions before generating anything. Collect all answers first.
 
 If the user skips a question, use a sensible default and note it.
 
----
+______________________________________________________________________
 
 ## Step 2 — Run create-project.sh
 
@@ -52,7 +52,7 @@ ${CLAUDE_PLUGIN_ROOT}/tools/create-project.sh \
 The script copies the model file tree from `template/`, substitutes variables,
 and runs `git init` + initial commit.
 
----
+______________________________________________________________________
 
 ## Step 3 — Confirm to the user
 

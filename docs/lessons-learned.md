@@ -3,7 +3,7 @@
 Running log of non-obvious findings, gotchas, and decisions made while
 building and maintaining this marketplace.
 
----
+______________________________________________________________________
 
 ## Plugin System
 
@@ -42,10 +42,11 @@ description: Short description of what the command does
 
 Without it, validation passes with a warning. With it, clean pass.
 
----
+______________________________________________________________________
 
 ### Marketplace cache is not auto-refreshed on install
-**Date:** 2026-03-18  
+
+**Date:** 2026-03-18\
 **Context:** `claude plugin install sdd-project-init@ck-skills` failed with
 "Plugin not found" even though `marketplace.json` on GitHub was correct.
 
@@ -60,15 +61,17 @@ claude plugin marketplace update ck-skills
 claude plugin install <new-plugin>@ck-skills
 ```
 
----
+______________________________________________________________________
 
 ## Copilot CLI Plugin System
 
 ### Copilot CLI has a full plugin system — not just copilot-instructions.md
-**Date:** 2026-03-18  
+
+**Date:** 2026-03-18\
 **Context:** Initial assumption was that Copilot only reads `.github/copilot-instructions.md`.
 
 As of GA (February 2026), Copilot CLI supports:
+
 - `copilot plugin marketplace add <org/repo>`
 - `copilot plugin install <name>@<marketplace>`
 - Reads `marketplace.json` from `.github/plugin/` **or** `.claude-plugin/` — so
@@ -77,9 +80,10 @@ As of GA (February 2026), Copilot CLI supports:
 **Rule:** ck-skills marketplace is shared between Claude Code and Copilot CLI.
 Always test install on both tools when adding a new plugin.
 
----
+______________________________________________________________________
 
 ### Gemini CLI has a native skill system (v0.25.0+)
+
 **Date:** 2026-03-18 (updated)
 **Context:** Correcting earlier misinformation about Gemini CLI's extensibility.
 
@@ -92,29 +96,33 @@ Gemini CLI requires a **`SKILL.md`** file at the root of the skill directory.
 when to activate the skill.
 
 **Installation (from a sub-directory in a Git repo):**
+
 ```bash
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/<skill-name>
 ```
 
 **Installation (from a local directory):**
+
 ```bash
 gemini skills install ./plugins/<skill-name>
 ```
 
----
+______________________________________________________________________
 
 ## SDD Structure
 
 ### specs/ vs docs/ separation
-**Date:** 2026-03-18  
+
+**Date:** 2026-03-18\
 **Context:** `sdd-project-init` template design.
 
-`specs/` = AI process artifacts (requirements, design, tasks) — Claude reads/writes frequently.  
-`docs/` = stable human reference — rarely updated, narrative content.  
+`specs/` = AI process artifacts (requirements, design, tasks) — Claude reads/writes frequently.\
+`docs/` = stable human reference — rarely updated, narrative content.\
 Mixing them in `docs/` blurs the boundary and makes AI context noisier.
 
 ### Steering docs (product.md, tech.md, structure.md) are redundant with AGENTS.md
-**Date:** 2026-03-18  
+
+**Date:** 2026-03-18\
 **Context:** ck-apstra-tool had all three from an earlier scaffold.
 
 For solo projects, these duplicate `AGENTS.md` sections with no benefit.

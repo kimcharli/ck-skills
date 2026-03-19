@@ -1,8 +1,6 @@
----
+______________________________________________________________________
 
-description: Update SDD artifacts (spec.md, plan.md, tasks.md, contracts)
-allowed-tools: Bash(find:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(*)
----
+## description: Update SDD artifacts (spec.md, plan.md, tasks.md, contracts) allowed-tools: Bash(find:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(\*)
 
 # SDD Artifacts Update Command
 
@@ -24,9 +22,9 @@ SDD stands for Specification-Driven Development.
 - specs/\*/spec.md - Functional requirements
 - specs/\*/plan.md - Implementation plan
 - specs/\*/tasks.md - Task breakdown
-- specs/_/contracts/_.md - Design contracts
+- specs/*/contracts/*.md - Design contracts
 
----
+______________________________________________________________________
 
 ## Step 1: Identify Relevant Spec Directory
 
@@ -36,7 +34,7 @@ Based on $ARGUMENTS, determine which spec directory to update:
 - Or identify by feature name
 - List matching directories found
 
----
+______________________________________________________________________
 
 ## Step 2: Update spec.md (Functional Requirements)
 
@@ -49,14 +47,15 @@ Read the relevant specs/\*/spec.md file.
 **What to update:**
 
 1. **Mark Completed Requirements:**
+
    - Find requirements (FR-\*) that are now implemented
    - Change status markers:
      - [ ] → [x] for completed
      - Add ✅ emoji if used in doc
 
-2. **Add New Requirements (if discovered during implementation):**
+1. **Add New Requirements (if discovered during implementation):**
 
-````markdown
+```markdown
 ### FR-[N]: [Requirement Title]
 
 **Priority:** [High/Medium/Low]
@@ -72,7 +71,7 @@ Read the relevant specs/\*/spec.md file.
 
 **Implementation Notes:**
 [Details from actual implementation]
-````
+```
 
 3. **Update Requirement Details:**
    - Add implementation notes to existing requirements
@@ -83,7 +82,7 @@ Read the relevant specs/\*/spec.md file.
 
 Apply changes using Edit tool.
 
----
+______________________________________________________________________
 
 ## Step 3: Update plan.md (Implementation Plan)
 
@@ -97,7 +96,7 @@ Read the relevant specs/\*/plan.md file.
 
 1. **Phase Completion:**
 
-````markdown
+```markdown
 ## Implementation Phases
 
 ### Phase 1: [Name]
@@ -113,11 +112,11 @@ Read the relevant specs/\*/plan.md file.
 **Deviations:**
 
 - [Any changes from original plan]
-````
+```
 
 2. **Architecture Decisions:**
 
-````markdown
+```markdown
 ### Architecture Decision: [Title]
 
 **Decision:** [What was decided]
@@ -128,17 +127,17 @@ Read the relevant specs/\*/plan.md file.
 
 - Pro: [Benefit]
 - Con: [Cost]
-````
+```
 
 3. **Design Patterns Used:**
 
-````markdown
+```markdown
 ### Design Pattern: [Pattern Name]
 
 **Location:** path/to/implementation.py:123
 **Purpose:** [Why this pattern was used]
 **Implementation Details:** [How it's implemented]
-````
+```
 
 4. **Risk Updates:**
    - Mark mitigated risks as resolved
@@ -149,7 +148,7 @@ Read the relevant specs/\*/plan.md file.
 
 Apply changes using Edit tool.
 
----
+______________________________________________________________________
 
 ## Step 4: Update tasks.md (Task Breakdown)
 
@@ -163,43 +162,43 @@ Read the relevant specs/\*/tasks.md file.
 
 1. **Mark Completed Tasks:**
 
-````markdown
+```markdown
 - [x] Task name
   - **Status:** ✅ Completed
   - **Completion Date:** YYYY-MM-DD
   - **Implementation:** path/to/file.py:123
   - **Notes:** [Any lessons learned or important details]
-````
+```
 
 2. **Update In-Progress Tasks:**
 
-````markdown
+```markdown
 - [ ] Task name
   - **Status:** 🔄 In Progress (60% complete)
   - **Current State:** [What's done, what's remaining]
   - **Blockers:** [Any issues]
-````
+```
 
 3. **Add New Tasks (if discovered):**
 
-````markdown
+```markdown
 - [ ] New task discovered during implementation
   - **Priority:** High
   - **Dependency:** [Other tasks this depends on]
   - **Estimate:** [Time estimate]
-````
+```
 
 ### Make Updates
 
 Apply changes using Edit tool.
 
----
+______________________________________________________________________
 
 ## Step 5: Update Design Contracts (if applicable)
 
 ### Find Contract Files
 
-Look for specs/_/contracts/_.md files related to this feature.
+Look for specs/*/contracts/*.md files related to this feature.
 
 ### Update Contracts
 
@@ -255,7 +254,7 @@ Look for specs/_/contracts/_.md files related to this feature.
 
 Apply changes using Edit tool for each contract file.
 
----
+______________________________________________________________________
 
 ## Step 6: SDD Consistency Validation
 
@@ -273,7 +272,7 @@ Apply changes using Edit tool for each contract file.
 - Document them
 - Fix or note as deviations with explanation
 
----
+______________________________________________________________________
 
 ## Output: Summary
 
@@ -314,7 +313,7 @@ Apply changes using Edit tool for each contract file.
 
 **Execution Time:** [X]s
 
----
+______________________________________________________________________
 
 ## Next Steps
 

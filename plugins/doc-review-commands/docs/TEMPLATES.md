@@ -2,7 +2,7 @@
 
 Professional templates used by Doc Review Commands for consistent, high-quality documentation updates.
 
----
+______________________________________________________________________
 
 ## 📋 Overview
 
@@ -15,7 +15,7 @@ Doc Review Commands uses pre-defined templates for:
 - **plan.md** - Implementation plans
 - **tasks.md** - Task tracking
 
----
+______________________________________________________________________
 
 ## 📖 README.md Templates
 
@@ -102,7 +102,7 @@ $ /command "example"
 \`\`\`
 ```
 
----
+______________________________________________________________________
 
 ## 🤖 CLAUDE.md Templates
 
@@ -195,7 +195,7 @@ Used for documenting new modules or APIs:
 \`\`\`
 ```
 
----
+______________________________________________________________________
 
 ## 📝 CHANGELOG.md Templates
 
@@ -261,7 +261,7 @@ Used for documenting new modules or APIs:
 See [MIGRATION.md](docs/MIGRATION.md) for upgrade instructions
 ```
 
----
+______________________________________________________________________
 
 ## 🔒 SDD Templates
 
@@ -373,7 +373,7 @@ See [MIGRATION.md](docs/MIGRATION.md) for upgrade instructions
 - [Related task 2]
 ```
 
----
+______________________________________________________________________
 
 ## 🎨 General Templates
 
@@ -475,7 +475,7 @@ step 3
 - [Similar issue 2]
 ```
 
----
+______________________________________________________________________
 
 ## 🎯 Template Customization
 
@@ -498,11 +498,11 @@ step 3
 Templates are **guidelines**, not absolute rules:
 
 1. **Keep the structure** - Sections, hierarchy
-2. **Adapt content** - Use your own examples, language
-3. **Adjust depth** - Add/remove details as needed
-4. **Maintain consistency** - Match existing documentation style
+1. **Adapt content** - Use your own examples, language
+1. **Adjust depth** - Add/remove details as needed
+1. **Maintain consistency** - Match existing documentation style
 
----
+______________________________________________________________________
 
 ## 📚 Template Usage in Commands
 
@@ -526,7 +526,7 @@ Uses these templates:
 
 Uses all templates above
 
----
+______________________________________________________________________
 
 ## 🔧 Creating Custom Templates
 
@@ -587,7 +587,7 @@ Used when documenting REST API endpoints.
 
 Mention your custom template in command files, and it will be used for updates.
 
----
+______________________________________________________________________
 
 ## 💡 Best Practices
 
@@ -622,7 +622,7 @@ Mention your custom template in command files, and it will be used for updates.
 - Simplify if too complex
 - Add new templates for new patterns
 
----
+______________________________________________________________________
 
 ## 📖 Example: Complete Feature Documentation
 
@@ -697,7 +697,7 @@ Before committing documentation changes.
 - Terminology consistency checking
 ```
 
----
+______________________________________________________________________
 
 **Templates Guide Complete**
 

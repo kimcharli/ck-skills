@@ -3,7 +3,7 @@
 Creates new production-ready ck-skills plugins in minutes. Generates all
 files — commands, tools, tests, docs, manifest — ready to use without boilerplate.
 
----
+______________________________________________________________________
 
 ## Installation
 
@@ -23,7 +23,7 @@ copilot plugin install skill-builder@ck-skills
 cd plugins/skill-builder && ./install.sh
 ```
 
----
+______________________________________________________________________
 
 ## Usage
 
@@ -35,7 +35,7 @@ cd plugins/skill-builder && ./install.sh
 /ck:skill-builder:quick "my-new-skill"
 ```
 
----
+______________________________________________________________________
 
 ## What Gets Generated
 
@@ -51,19 +51,19 @@ Each new skill includes:
 
 Complete and ready to register in `marketplace.json`.
 
----
+______________________________________________________________________
 
 ## After Generation
 
 1. Review generated files in `plugins/<your-skill>/`
-2. Fill in the placeholder logic in `tools/`
-3. Add to `.claude-plugin/marketplace.json`
-4. Test with `./tests/test-install.sh`
-5. Commit and push to ck-skills
+1. Fill in the placeholder logic in `tools/`
+1. Add to `.claude-plugin/marketplace.json`
+1. Test with `./tests/test-install.sh`
+1. Commit and push to ck-skills
 
 See `docs/PLUGIN-DEPLOYMENT-GUIDE.md` for the full deployment workflow.
 
----
+______________________________________________________________________
 
 ## Uninstall
 
@@ -72,7 +72,7 @@ claude plugin uninstall skill-builder   # Claude Code
 copilot plugin uninstall skill-builder  # Copilot CLI
 ```
 
----
+______________________________________________________________________
 
 ## Docs
 
@@ -80,7 +80,7 @@ copilot plugin uninstall skill-builder  # Copilot CLI
 - [Skill Creation Example](docs/SKILL-CREATION-EXAMPLE.md)
 - [Plugin Deployment Guide](docs/PLUGIN-DEPLOYMENT-GUIDE.md)
 
----
+______________________________________________________________________
 
 ## Related
 

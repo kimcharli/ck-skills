@@ -4,7 +4,7 @@
 
 Based on optimization patterns from doc-review-commands. This framework helps you build production-ready Claude Code skills with minimal token usage and maximum reliability.
 
----
+______________________________________________________________________
 
 ## 📋 Framework Overview
 
@@ -15,11 +15,12 @@ A **Skill Creation Framework** for building Claude Code commands/skills that are
 - **Fast** - Quick execution, progressive feedback
 - **Resilient** - Error handling, validation, recovery
 
----
+______________________________________________________________________
 
 ## 🏗️ Core Architecture
 
 ### Layer 1: Command Definition (Markdown + YAML)
+
 ```yaml
 ---
 description: What this skill does (concise)
@@ -32,31 +33,37 @@ Brief description...
 ```
 
 ### Layer 2: Bash Utility Scripts
+
 - Handle mechanical tasks (file operations, validation, caching)
 - Offload complexity from AI tokens
 - Provide reusable functions
 
 ### Layer 3: Caching & State Management
+
 - Cache expensive results (20-30% savings)
 - TTL-based cache invalidation
 - Smart cache key generation
 
 ### Layer 4: Validation & Testing
+
 - Input validation
 - Output validation
 - Self-tests and health checks
 
 ### Layer 5: Documentation
+
 - Quick reference guide
 - Usage examples
 - Error handling guide
 
----
+______________________________________________________________________
 
 ## 🎯 Design Principles
 
 ### Principle 1: Use Bash for Mechanical Tasks
+
 **Pattern:** Move validation, file operations, data transformation to bash
+
 ```bash
 # ✅ GOOD - Pure bash, no tokens
 validate_file_exists() {
@@ -70,7 +77,9 @@ validate_file_exists() {
 **Token Savings:** 30-40% by offloading mechanical work
 
 ### Principle 2: Cache Expensive Operations
+
 **Pattern:** Cache analysis results with TTL
+
 ```bash
 CACHE_DIR="$HOME/.cache/skill-$SKILL_NAME"
 CACHE_LIFETIME=3600  # 1 hour
@@ -91,7 +100,9 @@ write_cache "key" "$result"
 **Token Savings:** 20-30% on repeat operations
 
 ### Principle 3: Provide Lightweight Mode
+
 **Pattern:** Fast path for simple/known cases
+
 ```bash
 # Quick mode: skip analysis, direct action
 /skill:quick "simple task"  # 400-600 tokens
@@ -103,7 +114,9 @@ write_cache "key" "$result"
 **Token Savings:** 50-70% for simple cases
 
 ### Principle 4: Modular Design
+
 **Pattern:** Break into focused sub-commands
+
 ```bash
 # Instead of one monolithic command:
 /skill everything
@@ -118,7 +131,9 @@ write_cache "key" "$result"
 **Token Savings:** Load only what's needed
 
 ### Principle 5: Smart Error Handling
+
 **Pattern:** Graceful degradation and recovery
+
 ```bash
 # Try optimal path, fall back to safe defaults
 if [ -f "$CONFIG" ]; then
@@ -135,7 +150,7 @@ if ! validate_inputs; then
 fi
 ```
 
----
+______________________________________________________________________
 
 ## 📁 Skill Structure
 
@@ -165,19 +180,21 @@ skills/
 │       └── EXAMPLES.md              # Usage examples
 ```
 
----
+______________________________________________________________________
 
 ## ⚡ Creation Workflow
 
 ### Step 1: Define the Skill (5-10 min)
 
 **Inputs:**
+
 - What does the skill do?
 - Who uses it?
 - What are the inputs/outputs?
 - What are success/failure modes?
 
 **Outputs:**
+
 - Skill specification document
 - Use case scenarios
 - Architecture diagram
@@ -185,6 +202,7 @@ skills/
 ### Step 2: Build Core Logic (30-60 min)
 
 **Create:**
+
 - Main command file (my-skill.md)
 - Executor script (tools/executor.sh)
 - Basic error handling
@@ -194,6 +212,7 @@ skills/
 ### Step 3: Add Optimization (15-30 min)
 
 **Implement:**
+
 - Caching layer (20-30% savings)
 - Bash validation (30-40% savings)
 - Lightweight mode (50-70% savings)
@@ -203,6 +222,7 @@ skills/
 ### Step 4: Build Sub-commands (20-40 min)
 
 **Create:**
+
 - my-skill:quick (lightweight)
 - my-skill:validate (validation)
 - my-skill:help (documentation)
@@ -212,6 +232,7 @@ skills/
 ### Step 5: Write Tests (20-30 min)
 
 **Test:**
+
 - Basic functionality
 - Edge cases
 - Error conditions
@@ -222,6 +243,7 @@ skills/
 ### Step 6: Document (15-20 min)
 
 **Write:**
+
 - Quick reference
 - Complete guide
 - Examples
@@ -232,6 +254,7 @@ skills/
 ### Step 7: Validation & Polish (10-15 min)
 
 **Verify:**
+
 - All tests pass
 - Documentation complete
 - No regressions
@@ -239,11 +262,12 @@ skills/
 
 **Token Cost:** 400-600
 
----
+______________________________________________________________________
 
 ## 🎨 Template Library
 
 ### Template 1: Transformation Skill
+
 ```yaml
 Purpose: Transform data from one format to another
 Input: File or text in format A
@@ -252,6 +276,7 @@ Pattern: Read → Parse → Transform → Write → Validate
 ```
 
 ### Template 2: Analysis Skill
+
 ```yaml
 Purpose: Analyze data and generate insights
 Input: Files or text to analyze
@@ -260,6 +285,7 @@ Pattern: Load → Analyze → Cache → Report
 ```
 
 ### Template 3: Generator Skill
+
 ```yaml
 Purpose: Generate new content (code, docs, config)
 Input: Requirements or parameters
@@ -268,6 +294,7 @@ Pattern: Define → Generate → Validate → Output
 ```
 
 ### Template 4: Validation Skill
+
 ```yaml
 Purpose: Validate content against criteria
 Input: Files or text to validate
@@ -276,6 +303,7 @@ Pattern: Load → Validate → Report → Suggest fixes
 ```
 
 ### Template 5: Orchestration Skill
+
 ```yaml
 Purpose: Coordinate multiple operations
 Input: Complex task definition
@@ -283,31 +311,35 @@ Output: Coordinated results
 Pattern: Parse → Plan → Execute → Aggregate → Report
 ```
 
----
+______________________________________________________________________
 
 ## 💾 Caching Strategy
 
 ### Cache Types
 
 **1. Analysis Cache**
+
 - TTL: 1 hour
 - Use for: Results of expensive analysis
 - Key format: `skill:analysis:{file_hash}`
 - Example: Parsed file structure
 
 **2. Validation Cache**
+
 - TTL: 30 minutes
 - Use for: Validation results
 - Key format: `skill:validation:{input_hash}`
 - Example: Schema validation results
 
 **3. Template Cache**
+
 - TTL: 24 hours
 - Use for: Loaded templates
 - Key format: `skill:template:{name}`
 - Example: Code templates
 
 **4. Config Cache**
+
 - TTL: Never (manual clear)
 - Use for: Configuration data
 - Key format: `skill:config:{name}`
@@ -345,11 +377,12 @@ clear_cache() {
 }
 ```
 
----
+______________________________________________________________________
 
 ## ✅ Validation Framework
 
 ### Input Validation
+
 ```bash
 validate_inputs() {
     # Check required parameters
@@ -366,6 +399,7 @@ validate_inputs() {
 ```
 
 ### Output Validation
+
 ```bash
 validate_output() {
     # Check output exists
@@ -382,6 +416,7 @@ validate_output() {
 ```
 
 ### Self-Tests
+
 ```bash
 run_self_tests() {
     echo "Running self-tests..."
@@ -399,11 +434,12 @@ run_self_tests() {
 }
 ```
 
----
+______________________________________________________________________
 
 ## 🚀 Execution Modes
 
 ### Mode 1: Quick (Lightweight)
+
 - Skip analysis
 - Use defaults/templates
 - Direct execution
@@ -411,6 +447,7 @@ run_self_tests() {
 - **Time:** < 30 seconds
 
 ### Mode 2: Standard (Full)
+
 - Full analysis
 - Custom configuration
 - Complete validation
@@ -418,6 +455,7 @@ run_self_tests() {
 - **Time:** 2-3 seconds
 
 ### Mode 3: Expert (Advanced)
+
 - Deep analysis
 - Fine-grained control
 - Extensive options
@@ -425,38 +463,43 @@ run_self_tests() {
 - **Time:** 3-5 seconds
 
 ### Mode 4: Batch (Efficient)
+
 - Process multiple items
 - Amortize overhead
 - Minimal token per item
 - **Token cost:** 800-1K + 100-200 per item
 - **Time:** Variable
 
----
+______________________________________________________________________
 
 ## 📊 Token Budget
 
 ### Typical Skill Usage
 
 **Daily Usage (5 runs):**
+
 - 3 quick runs: 1.2-1.8K
 - 2 standard runs: 2.4-3K
 - **Total:** 3.6-4.8K tokens/day
 
 **Weekly Usage (35 runs):**
+
 - 25 quick runs: 10-15K
 - 10 standard runs: 12-15K
 - **Total:** 22-30K tokens/week
 
 **Monthly Usage (140 runs):**
+
 - 100 quick runs: 40-60K
 - 40 standard runs: 48-60K
 - **Total:** 88-120K tokens/month
 
----
+______________________________________________________________________
 
 ## 🔧 Debugging & Logging
 
 ### Logging Levels
+
 ```bash
 DEBUG=0   # No logging
 DEBUG=1   # Errors only
@@ -466,6 +509,7 @@ DEBUG=4   # With function traces
 ```
 
 ### Logging Functions
+
 ```bash
 log_error() {
     [ $DEBUG -ge 1 ] && echo "❌ ERROR: $*" >&2
@@ -484,12 +528,13 @@ log_debug() {
 }
 ```
 
----
+______________________________________________________________________
 
 ## 📚 Documentation Template
 
 ### Quick Start (README.md)
-```markdown
+
+````markdown
 # Skill Name
 
 One-sentence description.
@@ -498,7 +543,7 @@ One-sentence description.
 
 ```bash
 /skill "simple task"
-```
+````
 
 ## Examples
 
@@ -507,7 +552,8 @@ One-sentence description.
 ## Learn More
 
 See GUIDE.md for complete documentation.
-```
+
+````
 
 ### Complete Guide (GUIDE.md)
 ```markdown
@@ -538,47 +584,54 @@ See GUIDE.md for complete documentation.
 
 ## API Reference
 [Command reference]
-```
+````
 
----
+______________________________________________________________________
 
 ## 🎓 Best Practices
 
 ### 1. Start Simple
+
 - Implement MVP first (main functionality)
 - Add optimizations after (caching, modes)
 - Document as you go
 
 ### 2. Test Early & Often
+
 - Write tests before implementation
 - Test happy path and edge cases
 - Test error conditions
 
 ### 3. Cache Strategically
+
 - Cache expensive operations (analysis, parsing)
 - Don't cache user inputs (security)
 - Clear cache documentation
 
 ### 4. Modularize
+
 - Break into focused sub-commands
 - Reuse functions across commands
 - DRY principle
 
 ### 5. Document Thoroughly
+
 - Quick reference for common cases
 - Complete guide for advanced features
 - Examples for each feature
 
 ### 6. Monitor Performance
+
 - Track token usage
 - Measure execution time
 - Profile bottlenecks
 
----
+______________________________________________________________________
 
 ## 🛡️ Resilience Patterns
 
 ### Pattern 1: Graceful Degradation
+
 ```bash
 # Try optimal, fall back to safe
 if has_advanced_features; then
@@ -589,6 +642,7 @@ fi
 ```
 
 ### Pattern 2: Retry Logic
+
 ```bash
 retry_with_backoff() {
     local max_attempts=3
@@ -604,6 +658,7 @@ retry_with_backoff() {
 ```
 
 ### Pattern 3: Circuit Breaker
+
 ```bash
 # Stop trying if service is down
 if is_service_down; then
@@ -613,6 +668,7 @@ fi
 ```
 
 ### Pattern 4: Validation Before Action
+
 ```bash
 # Never proceed without validation
 validate_inputs || exit 1
@@ -621,20 +677,21 @@ perform_action
 validate_output || exit 1
 ```
 
----
+______________________________________________________________________
 
 ## ✨ Example: Complete Skill Creation
 
 See example in: `SKILL-CREATION-EXAMPLE.md`
 
 Includes:
+
 - Full skill definition
 - All support scripts
 - Test suite
 - Documentation
 - Real token measurements
 
----
+______________________________________________________________________
 
 ## 🎯 Success Criteria
 
@@ -650,7 +707,7 @@ A well-created skill should:
 - ✅ Have lightweight mode (50-70% savings)
 - ✅ Be maintainable and extensible
 
----
+______________________________________________________________________
 
 ## 📖 Further Reading
 
@@ -658,7 +715,7 @@ A well-created skill should:
 - `QUICK-REFERENCE.md` - Quick lookup guide
 - Doc-review-commands source code - Real implementation example
 
----
+______________________________________________________________________
 
 **Framework Version:** 1.0
 **Last Updated:** 2025-10-24

@@ -1,7 +1,6 @@
----
-name: skill-builder
-description: Create new production-ready Gemini CLI skills and plugins with standardized structure, commands, and tools.
----
+______________________________________________________________________
+
+## name: skill-builder description: Create new production-ready Gemini CLI skills and plugins with standardized structure, commands, and tools
 
 # Skill Builder
 
@@ -10,8 +9,8 @@ This skill helps you create new skills and plugins for Gemini CLI, Claude Code, 
 ## Procedures
 
 1. **Discovery**: Ask the user for the name and description of the new skill.
-2. **Generation**: Use `tools/generator.sh` to scaffold the skill structure.
-3. **Refinement**: Help the user fill in the `SKILL.md`, commands, and logic.
+1. **Generation**: Use `tools/generator.sh` to scaffold the skill structure.
+1. **Refinement**: Help the user fill in the `SKILL.md`, commands, and logic.
 
 ## Standard Structure
 

@@ -19,6 +19,7 @@ cd /Users/ckim/Projects/ck-skills/plugins/sdd-project-init
 ```
 
 Or from the marketplace:
+
 ```
 claude plugin install sdd-project-init@ck-skills
 ```
@@ -32,6 +33,7 @@ In any new project directory, tell Claude Code:
 ```
 
 Or naturally:
+
 ```
 Initialize a new project with SDD
 Set up a new repo with SDD structure

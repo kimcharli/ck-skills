@@ -1,13 +1,12 @@
----
-description: Quick skill scaffolding - generate skill structure with defaults
-allowed-tools: Bash(mkdir:*,cp:*), Write(*), Glob(*)
----
+______________________________________________________________________
+
+## description: Quick skill scaffolding - generate skill structure with defaults allowed-tools: Bash(mkdir:*,cp:*), Write(*), Glob(*)
 
 # Quick Skill Builder
 
 Rapid skill generation using default configuration and templates.
 
----
+______________________________________________________________________
 
 ## ⚡ Task
 
@@ -15,18 +14,20 @@ Rapid skill generation using default configuration and templates.
 
 **No questions asked - uses smart defaults**
 
----
+______________________________________________________________________
 
 ## Execution
 
 ### Step 1: Parse Input
 
 Extract skill details from $ARGUMENTS:
+
 - Detect skill type from keywords
 - Extract skill name
 - Infer features from context
 
 Example: "code formatter for python and javascript"
+
 - Type: Transformation
 - Name: code-formatter
 - Languages: Python, JavaScript
@@ -34,6 +35,7 @@ Example: "code formatter for python and javascript"
 ### Step 2: Generate Structure
 
 Create directory structure:
+
 ```
 skills/[skill-name]/
 ├── commands/
@@ -54,6 +56,7 @@ skills/[skill-name]/
 ### Step 3: Generate Files
 
 Generate from cached templates:
+
 - ✅ Command files (with proper frontmatter)
 - ✅ Bash scripts (executable, ready to customize)
 - ✅ Documentation (formatted, complete)
@@ -73,23 +76,23 @@ Time: < 30 seconds
 Ready to use and customize
 ```
 
----
+______________________________________________________________________
 
 ## Smart Defaults
 
 Automatically configured:
 
-| Setting | Default |
-|---------|---------|
-| Cache TTL | 3600 (1 hour) |
-| Quick mode | Enabled |
-| Validation | Enabled |
-| Tests | Basic suite included |
-| Documentation | Complete (README + GUIDE) |
-| Caching | 20-30% savings built-in |
-| Error handling | Comprehensive |
+| Setting        | Default                   |
+| -------------- | ------------------------- |
+| Cache TTL      | 3600 (1 hour)             |
+| Quick mode     | Enabled                   |
+| Validation     | Enabled                   |
+| Tests          | Basic suite included      |
+| Documentation  | Complete (README + GUIDE) |
+| Caching        | 20-30% savings built-in   |
+| Error handling | Comprehensive             |
 
----
+______________________________________________________________________
 
 ## Next Steps
 
@@ -104,7 +107,7 @@ bash skills/[skill-name]/tests/test-basic.sh
 /ck:[skill-name] "test input"
 ```
 
----
+______________________________________________________________________
 
 ## Examples
 
@@ -122,7 +125,7 @@ bash skills/[skill-name]/tests/test-basic.sh
 → Creates: skills/json-schema-validator/
 ```
 
----
+______________________________________________________________________
 
 ## Token Cost
 
@@ -131,7 +134,7 @@ bash skills/[skill-name]/tests/test-basic.sh
 - **Speed:** ~5 seconds file generation
 - **Ready:** Yes, customize immediately
 
----
+______________________________________________________________________
 
 ## Features
 

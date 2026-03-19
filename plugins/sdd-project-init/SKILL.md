@@ -1,7 +1,6 @@
----
-name: sdd-project-init
-description: Bootstrap a new project with Spec-Driven Development (SDD) structure, including AGENTS.md, specs/, and docs/.
----
+______________________________________________________________________
+
+## name: sdd-project-init description: Bootstrap a new project with Spec-Driven Development (SDD) structure, including AGENTS.md, specs/, and docs/
 
 # SDD Project Init
 
@@ -10,8 +9,8 @@ This skill bootstraps a new project with Spec-Driven Development structure. It r
 ## Procedures
 
 1. **Interview**: Ask the user for the project name, purpose, stack, and runtime.
-2. **Project Generation**: Call `tools/create-project.sh` with the provided information.
-3. **SDD Structure**: Ensure the following files and directories are created:
+1. **Project Generation**: Call `tools/create-project.sh` with the provided information.
+1. **SDD Structure**: Ensure the following files and directories are created:
    - `AGENTS.md` (AI constitution + SDD gates)
    - `README.md`
    - `.gitignore`

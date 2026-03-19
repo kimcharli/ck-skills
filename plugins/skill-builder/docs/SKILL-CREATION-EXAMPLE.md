@@ -3,13 +3,14 @@
 **Complete, working example of a skill created using the framework**
 
 This example shows how to create a `code-formatter` skill that:
+
 - Formats code in multiple languages
 - Caches formatting rules (20-30% savings)
 - Provides lightweight mode (50-70% savings)
 - Includes validation and tests
 - Has complete documentation
 
----
+______________________________________________________________________
 
 ## 📁 Directory Structure
 
@@ -35,13 +36,13 @@ skills/code-formatter/
     └── EXAMPLES.md
 ```
 
----
+______________________________________________________________________
 
 ## 📝 Command Files
 
 ### Main Command: code-formatter.md
 
-```markdown
+````markdown
 ---
 description: Format code in multiple languages (Python, JS, TypeScript, Go, Rust)
 allowed-tools: Read(*), Write(*), Edit(*), Bash(find:*,grep:*), Glob(*), Grep(*)
@@ -79,43 +80,45 @@ Determine:
        load_standard_rules
        cache_for_1_hour
    fi
-   ```
+````
 
 2. Load formatting rules for language
 
-3. Apply customizations
+1. Apply customizations
 
----
+______________________________________________________________________
 
 ## Step 3: Format Code
 
 Apply formatting rules to:
+
 - Indentation
 - Line length
 - Spacing
 - Import ordering
 - Naming conventions
 
----
+______________________________________________________________________
 
 ## Step 4: Validate Output
 
 1. ✅ Code is valid (parses correctly)
-2. ✅ Formatting applied
-3. ✅ No syntax errors introduced
-4. ✅ Changes preserved
+1. ✅ Formatting applied
+1. ✅ No syntax errors introduced
+1. ✅ Changes preserved
 
----
+______________________________________________________________________
 
 ## Step 5: Report Changes
 
 Show:
+
 - Files modified
 - Lines changed
 - Style metrics
 - Before/after comparison
 
----
+______________________________________________________________________
 
 ## Output Summary
 
@@ -124,7 +127,8 @@ Show:
 - Execution time: [seconds]
 
 Validation: ✅ All changes valid
-```
+
+````
 
 ### Lightweight Mode: code-formatter:quick.md
 
@@ -162,8 +166,9 @@ Fast formatting using standard rules (no customization).
 
 /ck:code-formatter:quick "app.js"
 # Formats JavaScript file with standard rules
-```
-```
+````
+
+````
 
 ---
 
@@ -299,7 +304,7 @@ main() {
 }
 
 main "$@"
-```
+````
 
 ### Validation Script: tools/validator.sh
 
@@ -348,7 +353,7 @@ validate_syntax "$1" && echo "✅ Syntax valid"
 validate_formatting "$1" && echo "✅ Formatting valid"
 ```
 
----
+______________________________________________________________________
 
 ## ✅ Test Suite
 
@@ -391,13 +396,13 @@ test_detect_javascript
 test_cache
 ```
 
----
+______________________________________________________________________
 
 ## 📚 Documentation
 
 ### Quick Start: docs/README.md
 
-```markdown
+````markdown
 # Code Formatter
 
 Format code in Python, JavaScript, TypeScript, Go, and Rust.
@@ -406,7 +411,7 @@ Format code in Python, JavaScript, TypeScript, Go, and Rust.
 
 ```bash
 /ck:code-formatter:quick "src/main.py"
-```
+````
 
 ## Full Usage
 
@@ -429,7 +434,8 @@ See EXAMPLES.md for more use cases.
 ## Learn More
 
 See GUIDE.md for complete documentation.
-```
+
+````
 
 ### Complete Guide: docs/GUIDE.md
 
@@ -473,7 +479,7 @@ python:
 javascript:
   indent_size: 2
   max_line_length: 80
-```
+````
 
 ## Token Usage
 
@@ -484,15 +490,17 @@ javascript:
 ## Error Handling
 
 If formatting fails:
+
 1. Try with defaults
-2. Report which rules failed
-3. Suggest manual fixes
+1. Report which rules failed
+1. Suggest manual fixes
 
 ## Performance
 
 - Fast cache checks (< 100ms)
 - Typical format time: 1-2 seconds
 - Validation included
+
 ```
 
 ---
@@ -503,39 +511,47 @@ If formatting fails:
 
 **First Run (No Cache):**
 ```
+
 - Language detection: 50-100 tokens
 - Load rules: 100-150 tokens
 - Format code: 200-300 tokens
 - Validate: 100-150 tokens
-─────────────────────────
-Total: 450-700 tokens
+  ─────────────────────────
+  Total: 450-700 tokens
+
 ```
 
 **Repeat Run (Cached):**
 ```
+
 - Load cached rules: 0 tokens (bash only)
 - Format code: 200-300 tokens
 - Validate: 100-150 tokens
-─────────────────────────
-Total: 300-450 tokens (35-50% savings)
+  ─────────────────────────
+  Total: 300-450 tokens (35-50% savings)
+
 ```
 
 **Quick Mode:**
 ```
+
 - Detect language: 50 tokens
 - Load cached rules: 0 tokens
 - Format: 200-300 tokens
-─────────────────────────
-Total: 250-350 tokens (50-60% savings)
+  ─────────────────────────
+  Total: 250-350 tokens (50-60% savings)
+
 ```
 
 ### Execution Time
 
 ```
-Quick format:       5-10 seconds
-Standard format:    15-20 seconds
-Validation:         2-3 seconds
-Cache operations:   < 100ms
+
+Quick format: 5-10 seconds
+Standard format: 15-20 seconds
+Validation: 2-3 seconds
+Cache operations: < 100ms
+
 ```
 
 ---
@@ -587,3 +603,4 @@ Cache operations:   < 100ms
 **Example Version:** 1.0
 **Status:** Complete & Tested
 **Based on:** Skill Creation Framework
+```

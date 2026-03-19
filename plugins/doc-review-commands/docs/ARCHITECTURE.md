@@ -2,7 +2,7 @@
 
 **Doc Review Commands** follows a modular, command-based architecture designed for efficiency, maintainability, and extensibility.
 
----
+______________________________________________________________________
 
 ## 🏗️ System Overview
 
@@ -18,7 +18,7 @@ Files Updated OR Analysis Returned
 Structured Summary
 ```
 
----
+______________________________________________________________________
 
 ## 📁 Folder Structure
 
@@ -45,7 +45,7 @@ Structured Summary
 - Portable across systems (single folder copy)
 - Clean git structure for updates
 
----
+______________________________________________________________________
 
 ## 🎯 Command Architecture
 
@@ -78,7 +78,7 @@ Each command is **single-responsibility** and **independently executable**:
 - Load only needed functionality
 - **88% token savings** ✅
 
----
+______________________________________________________________________
 
 ## 🔧 Core Components
 
@@ -160,7 +160,7 @@ Bash script for instant analysis:
 - Returns structured output
 - Reduces Claude token consumption
 
----
+______________________________________________________________________
 
 ## 📊 Data Flow
 
@@ -192,7 +192,7 @@ Edit tool updates files
 Summary returned
 ```
 
----
+______________________________________________________________________
 
 ## 🎯 Design Patterns
 
@@ -248,16 +248,16 @@ help → displays help
 
 **Benefit:** Easy to understand, test, and extend.
 
----
+______________________________________________________________________
 
 ## 🔄 Extension Points
 
 ### Add a New Command
 
 1. Create `commands/mycommand.md`
-2. Define YAML frontmatter
-3. Implement logic
-4. Reference in `main.md`
+1. Define YAML frontmatter
+1. Implement logic
+1. Reference in `main.md`
 
 **Example:**
 
@@ -297,7 +297,7 @@ analyze_custom() {
 }
 ```
 
----
+______________________________________________________________________
 
 ## 📈 Performance Characteristics
 
@@ -319,18 +319,18 @@ analyze_custom() {
 | SDD update  | 30-60s      |
 | Validate    | 10-20s      |
 
----
+______________________________________________________________________
 
 ## 🔐 Design Principles
 
 1. **Modularization** - Break into focused commands
-2. **Externalization** - Move execution outside Claude
-3. **Configuration** - Customize without coding
-4. **Progressive** - Disclose information gradually
-5. **Portable** - Single folder, no dependencies
-6. **Documented** - Clear structure, extensive guides
+1. **Externalization** - Move execution outside Claude
+1. **Configuration** - Customize without coding
+1. **Progressive** - Disclose information gradually
+1. **Portable** - Single folder, no dependencies
+1. **Documented** - Clear structure, extensive guides
 
----
+______________________________________________________________________
 
 ## 🚀 Future Architecture
 
@@ -351,17 +351,17 @@ The modular design supports:
 - Custom templates
 - Custom workflows
 
----
+______________________________________________________________________
 
 ## 🎓 Learning Path
 
 1. **Start:** Read `/ck:doc-review/help`
-2. **Understand:** Study `commands/main.md`
-3. **Explore:** Review `commands/core.md` and `commands/sdd.md`
-4. **Extend:** Create your own command
-5. **Master:** Customize categories.json and analyzer.sh
+1. **Understand:** Study `commands/main.md`
+1. **Explore:** Review `commands/core.md` and `commands/sdd.md`
+1. **Extend:** Create your own command
+1. **Master:** Customize categories.json and analyzer.sh
 
----
+______________________________________________________________________
 
 **Architecture Guide Complete**
 

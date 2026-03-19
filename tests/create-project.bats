@@ -105,6 +105,11 @@ run_create() {
     [ -f "$WORK_DIR/my-tool/.gitignore" ]
 }
 
+@test "generates .markdownlint.json" {
+    run_create
+    [ -f "$WORK_DIR/my-tool/.markdownlint.json" ]
+}
+
 @test "generates specs/requirements.md" {
     run_create
     [ -f "$WORK_DIR/my-tool/specs/requirements.md" ]

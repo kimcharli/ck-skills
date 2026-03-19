@@ -4,7 +4,7 @@ Bootstraps a new project with Spec-Driven Development structure. Runs a short
 interview, then generates all files fully populated — no `[placeholder]` values
 left behind.
 
----
+______________________________________________________________________
 
 ## Installation
 
@@ -24,21 +24,24 @@ copilot plugin install sdd-project-init@ck-skills
 cd plugins/sdd-project-init && ./install.sh
 ```
 
----
+______________________________________________________________________
 
 ## Usage
 
 **Claude Code:**
+
 ```
 /ck:sdd-init
 ```
 
 **Copilot CLI:**
+
 ```
 /sdd-project-init
 ```
 
 Or naturally in either tool:
+
 ```
 Initialize a new project with SDD
 Set up a new repo with SDD structure
@@ -47,7 +50,7 @@ Set up a new repo with SDD structure
 Runs a 7-question interview, then calls `create-project.sh` to copy the model
 file tree with variable substitution — deterministic, no AI-generated content.
 
----
+______________________________________________________________________
 
 ## What Gets Generated
 
@@ -69,7 +72,7 @@ your-project/
 All files are exact copies of `template/` with `{{variables}}` substituted.
 Edit `template/` to change what gets generated for all future projects.
 
----
+______________________________________________________________________
 
 ## After Init
 
@@ -82,7 +85,7 @@ Edit `template/` to change what gets generated for all future projects.
 
 See the generated `docs/sdd-how-to-apply.md` for the full daily workflow.
 
----
+______________________________________________________________________
 
 ## Uninstall
 
@@ -92,7 +95,7 @@ copilot plugin uninstall sdd-project-init  # Copilot CLI
 ./uninstall.sh                             # Manual
 ```
 
----
+______________________________________________________________________
 
 ## Related
 

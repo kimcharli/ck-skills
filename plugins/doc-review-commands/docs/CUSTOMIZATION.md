@@ -2,7 +2,7 @@
 
 Adapt Doc Review Commands to your project's specific needs and documentation style.
 
----
+______________________________________________________________________
 
 ## 🎯 Customization Overview
 
@@ -14,7 +14,7 @@ Doc Review Commands is **highly customizable** without code changes:
 - ➕ Add new commands and workflows
 - 🚀 Extend functionality for unique needs
 
----
+______________________________________________________________________
 
 ## 📁 Configuration Files
 
@@ -62,7 +62,7 @@ The main customization file for how documentation is categorized.
 }
 ```
 
----
+______________________________________________________________________
 
 ## 🎨 Customizing Categories
 
@@ -190,7 +190,7 @@ Create sections matching your patterns:
 }
 ```
 
----
+______________________________________________________________________
 
 ## 🔧 Customizing Essential Files
 
@@ -222,7 +222,7 @@ Use this to ensure specific files are always considered for updates.
 
 Files larger than 200 lines are handled differently (more careful updates).
 
----
+______________________________________________________________________
 
 ## 📝 Customizing Templates
 
@@ -278,7 +278,7 @@ Then reference in commands with:
 See custom templates in templates/custom.md
 ```
 
----
+______________________________________________________________________
 
 ## 🔨 Customizing the Analyzer
 
@@ -362,7 +362,7 @@ analyze_coverage() {
 }
 ```
 
----
+______________________________________________________________________
 
 ## ➕ Creating Custom Commands
 
@@ -459,7 +459,7 @@ Generate API docs for: $ARGUMENTS
 📚 API documentation generated for $ARGUMENTS
 ```
 
----
+______________________________________________________________________
 
 ## 🎯 Customization Patterns
 
@@ -515,7 +515,7 @@ Generate API docs for: $ARGUMENTS
 }
 ```
 
----
+______________________________________________________________________
 
 ## 🔄 Advanced Customizations
 
@@ -561,7 +561,7 @@ Maintain different configs per project:
 └── analyzer.ml.sh               # ML-specific
 ```
 
----
+______________________________________________________________________
 
 ## 🚀 Performance Tuning
 
@@ -593,7 +593,7 @@ Maintain different configs per project:
 
 More specific patterns = faster matching
 
----
+______________________________________________________________________
 
 ## ✅ Customization Checklist
 
@@ -608,7 +608,7 @@ When setting up for your project:
 - [ ] Document custom configurations
 - [ ] Share config with team
 
----
+______________________________________________________________________
 
 ## 📚 Customization Examples
 
@@ -675,7 +675,7 @@ When setting up for your project:
 }
 ```
 
----
+______________________________________________________________________
 
 ## 🐛 Troubleshooting Customization
 
@@ -700,8 +700,8 @@ python -m json.tool config/categories.json
 **Solution:**
 
 1. Check exact heading text in your docs
-2. Update patterns to match exactly
-3. Test with grep: `grep "pattern" docs/*.md`
+1. Update patterns to match exactly
+1. Test with grep: `grep "pattern" docs/*.md`
 
 ### Issue: Analyzer Not Running
 
@@ -713,7 +713,7 @@ python -m json.tool config/categories.json
 chmod +x ~/.claude/commands/ck/doc-review/tools/analyzer.sh
 ```
 
----
+______________________________________________________________________
 
 ## 📖 Further Reading
 
@@ -721,7 +721,7 @@ chmod +x ~/.claude/commands/ck/doc-review/tools/analyzer.sh
 - [Templates Guide](TEMPLATES.md) - Documentation templates
 - [Usage Guide](USAGE.md) - Command reference
 
----
+______________________________________________________________________
 
 **Customization Guide Complete**
 

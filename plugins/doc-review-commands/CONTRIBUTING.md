@@ -15,8 +15,8 @@ Thank you for your interest in contributing! This document provides guidelines f
 **Before submitting a bug report:**
 
 1. Check existing [issues](https://github.com/kimcharli/doc-review-commands/issues)
-2. Verify you're using the latest version
-3. Test with the analyzer tool: `tools/analyzer.sh help`
+1. Verify you're using the latest version
+1. Test with the analyzer tool: `tools/analyzer.sh help`
 
 **Bug report should include:**
 
@@ -31,9 +31,9 @@ Thank you for your interest in contributing! This document provides guidelines f
 We welcome feature suggestions! Please:
 
 1. Check [existing feature requests](https://github.com/kimcharli/doc-review-commands/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
-2. Describe the use case clearly
-3. Explain how it fits the project's goals
-4. Consider token efficiency and performance impact
+1. Describe the use case clearly
+1. Explain how it fits the project's goals
+1. Consider token efficiency and performance impact
 
 ## 🔧 Development Setup
 
@@ -108,18 +108,20 @@ tools/analyzer.sh all
 ## 📤 Pull Request Process
 
 1. **Fork the repository**
-2. **Create a feature branch**
+
+1. **Create a feature branch**
 
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
-3. **Make your changes**
+1. **Make your changes**
+
    - Follow code style guidelines
    - Add tests if applicable
    - Update documentation
 
-4. **Commit with clear messages**
+1. **Commit with clear messages**
 
    ```bash
    git commit -m "feat: add diagram generation command"
@@ -128,6 +130,7 @@ tools/analyzer.sh all
    ```
 
    Use conventional commits:
+
    - `feat:` - New feature
    - `fix:` - Bug fix
    - `docs:` - Documentation only
@@ -136,13 +139,14 @@ tools/analyzer.sh all
    - `test:` - Add/update tests
    - `chore:` - Maintenance tasks
 
-5. **Push to your fork**
+1. **Push to your fork**
 
    ```bash
    git push origin feature/your-feature-name
    ```
 
-6. **Create a Pull Request**
+1. **Create a Pull Request**
+
    - Clear title and description
    - Reference related issues (#123)
    - Explain the change and why
@@ -151,10 +155,10 @@ tools/analyzer.sh all
 ## 🔍 Review Process
 
 1. **Automated Checks**: Basic tests run automatically
-2. **Code Review**: Maintainer reviews code quality
-3. **Testing**: Manual testing by maintainers
-4. **Feedback**: Address any requested changes
-5. **Merge**: Once approved, PR is merged
+1. **Code Review**: Maintainer reviews code quality
+1. **Testing**: Manual testing by maintainers
+1. **Feedback**: Address any requested changes
+1. **Merge**: Once approved, PR is merged
 
 ## 📋 Checklist for PRs
 
@@ -190,6 +194,6 @@ Contributors will be:
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
----
+______________________________________________________________________
 
 **Thank you for contributing to Doc Review Commands!** 🎉

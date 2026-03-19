@@ -2,7 +2,7 @@
 
 Upgrade from older versions or migrate from alternative documentation management approaches.
 
----
+______________________________________________________________________
 
 ## 📋 Overview
 
@@ -13,7 +13,7 @@ This guide covers:
 - Migrating from manual documentation workflows
 - Data and configuration migration
 
----
+______________________________________________________________________
 
 ## 🚀 Version Upgrades
 
@@ -47,7 +47,7 @@ v1.0 introduces major architectural changes with **full backward compatibility**
    /ck:doc-review/help
    ```
 
-2. **Installation Method Changed**
+1. **Installation Method Changed**
 
    ```bash
    # Old: Manual file copying
@@ -55,7 +55,7 @@ v1.0 introduces major architectural changes with **full backward compatibility**
    ./install.sh
    ```
 
-3. **Configuration Added**
+1. **Configuration Added**
 
    ```bash
    # New: Pattern-based categories
@@ -93,7 +93,7 @@ cd doc-review-commands
 | (N/A)                   | `/ck:doc-review/qa`      | 70% less than old |
 | (N/A)                   | `/ck:doc-review/analyze` | 75% less than old |
 
----
+______________________________________________________________________
 
 ## 🔄 Migrating from Monolithic to Modular
 
@@ -135,12 +135,12 @@ If you were using a monolithic documentation command:
 ### Update Your Processes
 
 1. **Update documentation for team**
-2. **Update CI/CD pipelines** (if using automation)
-3. **Test new commands** in development
-4. **Migrate custom configurations** (if any)
-5. **Monitor token usage** for improvements
+1. **Update CI/CD pipelines** (if using automation)
+1. **Test new commands** in development
+1. **Migrate custom configurations** (if any)
+1. **Monitor token usage** for improvements
 
----
+______________________________________________________________________
 
 ## 📚 Migrating from Manual Workflows
 
@@ -214,7 +214,7 @@ Share the help guide with your team:
 /ck:doc-review/help
 ```
 
----
+______________________________________________________________________
 
 ## 🔧 Configuration Migration
 
@@ -257,7 +257,7 @@ Our API docs should have:
    grep -r "## " docs/ | cut -d: -f2 | sort | uniq
    ```
 
-2. **Group into categories**
+1. **Group into categories**
 
    ```
    - API docs → "## API", "Endpoint", "Request"
@@ -265,7 +265,7 @@ Our API docs should have:
    - Architecture → "## Architecture", "Design"
    ```
 
-3. **Create configuration**
+1. **Create configuration**
 
    ```json
    {
@@ -278,13 +278,13 @@ Our API docs should have:
    }
    ```
 
-4. **Test**
+1. **Test**
 
    ```bash
    /ck:doc-review/analyze
    ```
 
----
+______________________________________________________________________
 
 ## 📁 File Structure Migration
 
@@ -344,7 +344,7 @@ git add .
 git commit -m "docs: migrate to Doc Review Commands structure"
 ```
 
----
+______________________________________________________________________
 
 ## 🗄️ Data and Content Migration
 
@@ -400,7 +400,7 @@ Uses patterns defined in `config/categories.json`
 - analyze_categorization()
 ```
 
----
+______________________________________________________________________
 
 ## ⚙️ Custom Command Migration
 
@@ -458,7 +458,7 @@ analyze_custom() {
 }
 ```
 
----
+______________________________________________________________________
 
 ## 🧪 Testing After Migration
 
@@ -502,7 +502,7 @@ git commit -m "docs: adopt Doc Review Commands system"
 - [ ] All file references correct
 - [ ] Team understands new workflow
 
----
+______________________________________________________________________
 
 ## 🤝 Team Migration
 
@@ -517,7 +517,7 @@ git commit -m "docs: adopt Doc Review Commands system"
    Benefits: Faster updates, better consistency, less manual work.
    ```
 
-2. **Share resources**
+1. **Share resources**
 
    ```bash
    # Send this to team
@@ -529,7 +529,7 @@ git commit -m "docs: adopt Doc Review Commands system"
    - CUSTOMIZATION.md (team-specific setup)
    ```
 
-3. **Train team**
+1. **Train team**
 
    ```bash
    # Schedule walkthrough
@@ -539,7 +539,7 @@ git commit -m "docs: adopt Doc Review Commands system"
    - /qa (best practice)
    ```
 
-4. **Gradual rollout**
+1. **Gradual rollout**
 
    ```bash
    # Phase 1: Volunteers only
@@ -548,7 +548,7 @@ git commit -m "docs: adopt Doc Review Commands system"
    # Phase 4: Legacy workflows deprecated
    ```
 
----
+______________________________________________________________________
 
 ## 🆘 Rollback Plan
 
@@ -568,7 +568,7 @@ git log --oneline -- '*.md' | head -5
 git revert <commit-sha>
 ```
 
----
+______________________________________________________________________
 
 ## 📊 Migration Metrics
 
@@ -594,18 +594,18 @@ Doc Review Commands:
 - Token usage: 1.2K per update (vs 10K+ if monolithic)
 ```
 
----
+______________________________________________________________________
 
 ## 📞 Support
 
 If you encounter issues during migration:
 
 1. **Check FAQ** in [USAGE.md](USAGE.md)
-2. **Review errors** with `/ck:doc-review/qa`
-3. **Consult customization** in [CUSTOMIZATION.md](CUSTOMIZATION.md)
-4. **Check architecture** in [ARCHITECTURE.md](ARCHITECTURE.md)
+1. **Review errors** with `/ck:doc-review/qa`
+1. **Consult customization** in [CUSTOMIZATION.md](CUSTOMIZATION.md)
+1. **Check architecture** in [ARCHITECTURE.md](ARCHITECTURE.md)
 
----
+______________________________________________________________________
 
 **Migration Guide Complete**
 

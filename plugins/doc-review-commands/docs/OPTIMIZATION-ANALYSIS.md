@@ -4,11 +4,12 @@
 **Status:** Comprehensive optimization in progress
 **Goal:** Maximize speed, minimize token usage, leverage bash scripts
 
----
+______________________________________________________________________
 
 ## 1. Current Token Cost Analysis
 
 ### File Sizes (Approximate Token Count)
+
 ```
 analyze.md    ~  2.4K  → ~600-800 tokens
 core.md       ~  3.9K  → ~1.2-1.5K tokens
@@ -23,13 +24,15 @@ TOTAL         ~ 40KB   → ~9-11K tokens per full run
 ### Token Cost Breakdown
 
 **Current Implementation Issues:**
+
 1. ✅ Modular sub-commands exist (good)
-2. ❌ No caching - script results re-run each time
-3. ❌ Long inline instructions instead of script references
-4. ❌ Help text included in every command (~3K tokens)
-5. ❌ Template examples not stripped from AI prompts
+1. ❌ No caching - script results re-run each time
+1. ❌ Long inline instructions instead of script references
+1. ❌ Help text included in every command (~3K tokens)
+1. ❌ Template examples not stripped from AI prompts
 
 ### Per-Command Token Usage
+
 - `:help` - 3-4K (includes full documentation)
 - `:analyze` - 600-800 (script output varies)
 - `:core` - 1.2-1.5K (inline instructions)
@@ -37,19 +40,22 @@ TOTAL         ~ 40KB   → ~9-11K tokens per full run
 - `:qa` - 1.8-2K (QA procedures)
 - `main` - 900-1.2K (orchestrator)
 
----
+______________________________________________________________________
 
 ## 2. Optimization Strategies
 
 ### Strategy 1: Result Caching
+
 **Token Savings:** 20-30% per repeat run
 
 Create `.cache/doc-review/` directory to store:
+
 - Analysis results (expires after 1 hour)
 - Link validation results (expires after 4 hours)
 - Metrics (expires after 24 hours)
 
 **Implementation:**
+
 ```bash
 CACHE_DIR="${HOME}/.cache/doc-review"
 CACHE_LIFETIME_ANALYSIS=3600      # 1 hour
@@ -66,14 +72,17 @@ fi
 ```
 
 ### Strategy 2: Bash Script Expansion
+
 **Token Savings:** 30-40% by moving logic from AI to scripts
 
 Move mechanical tasks to `analyzer.sh`:
+
 - ✅ Already does: linting, principles, structure, categorize, impact, metrics
 - ❌ Missing: link validation, version consistency checks, file reference validation
 - ❌ Missing: simple edit operations (adding sections, replacing text)
 
 **New bash functions needed:**
+
 ```bash
 validate_links()           # Check all markdown links
 validate_references()      # Check file:line references
@@ -83,15 +92,18 @@ extract_variables()       # Pull from CLAUDE.md and configs
 ```
 
 ### Strategy 3: Lightweight Mode Command
+
 **Token Savings:** 50-70% for simple updates
 
 Create `/ck:doc-review:quick` command:
+
 - Skip analysis entirely
 - Direct file editing without justification
 - No validation
 - Fast path for known, simple updates
 
 Example:
+
 ```bash
 # Instead of asking AI to update README, just do it
 /ck:doc-review:quick core "Add feature X"
@@ -99,12 +111,14 @@ Example:
 ```
 
 ### Strategy 4: Smart Template Stripping
+
 **Token Savings:** 10-15% token reduction
 
 Current: Templates included in full command output
 Better: Store templates in separate `.templates/` files and reference them
 
 Example:
+
 ```bash
 # Instead of including 20 lines of template
 # Reference the template:
@@ -112,18 +126,21 @@ Example:
 ```
 
 ### Strategy 5: Configuration-Driven Behavior
+
 **Token Savings:** 5-10% by reducing instructions
 
 Move instruction text to `config/` and reference:
+
 - `config/instructions/core.md` - Core file update procedure
 - `config/instructions/sdd.md` - SDD update procedure
 - `config/instructions/qa.md` - QA procedure
 
----
+______________________________________________________________________
 
 ## 3. Implementation Roadmap
 
 ### Phase 1: Caching Layer ✅ COMPLETED
+
 - [x] Create cache directory structure (`~/.cache/doc-review`)
 - [x] Add cache check/write functions to analyzer.sh
 - [x] Add TTL validation (1h analysis, 4h links, 24h metrics)
@@ -132,6 +149,7 @@ Move instruction text to `config/` and reference:
 **Token Savings:** 20-30% per repeat analysis
 
 **Implemented:**
+
 - `init_cache()` - Initialize cache directory
 - `get_cache_file()` - Get cache file path
 - `is_cache_valid()` - Check cache TTL
@@ -141,6 +159,7 @@ Move instruction text to `config/` and reference:
 - Cache integration in principles, structure, impact, metrics commands
 
 ### Phase 2: Bash Script Expansion ✅ COMPLETED
+
 - [x] Add `validate_links()` function
 - [x] Add `validate_references()` function
 - [x] Add `validate_versions()` function
@@ -150,12 +169,14 @@ Move instruction text to `config/` and reference:
 **Token Savings:** 30-40% by moving validation logic to bash
 
 **Implemented:**
+
 - `validate_links()` - Check markdown links validity
 - `validate_references()` - Check file:line references
 - `validate_versions()` - Check version consistency
 - New commands: `validate`, `validate-links`, `validate-references`, `validate-versions`
 
 ### Phase 3: Lightweight Mode ✅ COMPLETED
+
 - [x] Create `quick.md` command file
 - [x] Skip analysis entirely
 - [x] Direct file updates only
@@ -165,12 +186,14 @@ Move instruction text to `config/` and reference:
 **Token Savings:** 50-70% for simple updates
 
 **Implemented:**
+
 - New `/ck:doc-review:quick` command
 - Token cost: 400-600 tokens vs 1.2-1.5K for full core
 - Use cases: Known simple updates (features, modules, CHANGELOG)
 - Execution time: < 30 seconds vs 2-3 seconds for full
 
 ### Phase 4: Documentation & Benchmarking 🟡 IN PROGRESS
+
 - [x] Create OPTIMIZATION-ANALYSIS.md with strategy
 - [ ] Measure actual token usage before/after
 - [ ] Create performance report with real data
@@ -178,11 +201,12 @@ Move instruction text to `config/` and reference:
 - [ ] Document cache effectiveness
 - [ ] Create quick reference guide
 
----
+______________________________________________________________________
 
 ## 4. Expected Results
 
 ### Before Optimization
+
 ```
 Full doc-review run:      11-13K tokens
 :core quick update:       1.2-1.5K tokens
@@ -191,6 +215,7 @@ Monthly budget (20x):     ~25-30K tokens
 ```
 
 ### After Optimization
+
 ```
 Full doc-review run:      8-10K tokens (-20%)
 :core quick update:       800-1K tokens (-30%)
@@ -200,37 +225,38 @@ Monthly budget (20x):     ~18-22K tokens (-25%)
 ```
 
 ### Additional Benefits
+
 - ✅ Faster execution (bash cache vs re-running linting)
 - ✅ More predictable token usage
 - ✅ Better for quota-limited environments
 - ✅ Can run without AI for mechanical tasks
 - ✅ Clearer separation of concerns
 
----
+______________________________________________________________________
 
 ## 5. Key Metrics to Track
 
-| Metric | Current | Target | Method |
-|--------|---------|--------|--------|
-| Analysis tokens | 600-800 | 100-200 | Cache + bash |
-| Core update tokens | 1.2-1.5K | 800-1K | Template extraction |
-| Quick update tokens | N/A | 400-600 | New lightweight mode |
-| Cache hit rate | 0% | 60-80% | Track cache usage |
-| Avg execution time | 2-3s | 0.5-1s | With caching |
-| Bash vs AI ratio | 30:70 | 60:40 | Move logic to scripts |
+| Metric              | Current  | Target  | Method                |
+| ------------------- | -------- | ------- | --------------------- |
+| Analysis tokens     | 600-800  | 100-200 | Cache + bash          |
+| Core update tokens  | 1.2-1.5K | 800-1K  | Template extraction   |
+| Quick update tokens | N/A      | 400-600 | New lightweight mode  |
+| Cache hit rate      | 0%       | 60-80%  | Track cache usage     |
+| Avg execution time  | 2-3s     | 0.5-1s  | With caching          |
+| Bash vs AI ratio    | 30:70    | 60:40   | Move logic to scripts |
 
----
+______________________________________________________________________
 
 ## 6. Risks & Mitigations
 
-| Risk | Mitigation |
-|------|-----------|
-| Cache staleness | TTL validation + manual clear command |
-| Script errors | Comprehensive error handling + fallback to AI |
-| Template maintenance | Centralized template directory with version tracking |
-| Performance regression | Benchmark before/after each phase |
+| Risk                   | Mitigation                                           |
+| ---------------------- | ---------------------------------------------------- |
+| Cache staleness        | TTL validation + manual clear command                |
+| Script errors          | Comprehensive error handling + fallback to AI        |
+| Template maintenance   | Centralized template directory with version tracking |
+| Performance regression | Benchmark before/after each phase                    |
 
----
+______________________________________________________________________
 
 ## 7. Success Criteria
 
@@ -241,13 +267,14 @@ Monthly budget (20x):     ~18-22K tokens (-25%)
 - [ ] Documentation updated with real benchmarks
 - [ ] No regression in functionality or quality
 
----
+______________________________________________________________________
 
 ## 8. Actual Implementation Results (Commit: d1ef61e)
 
 ### Completed Features
 
 **Phase 1: Caching** ✅
+
 ```
 - Cache layer added to analyzer.sh
 - TTL-based validation: 1h (analysis), 30min (impact), 24h (metrics)
@@ -257,6 +284,7 @@ Monthly budget (20x):     ~18-22K tokens (-25%)
 ```
 
 **Phase 2: Bash Validation** ✅
+
 ```
 - validate_links() - Check markdown link validity
 - validate_references() - Check file:line references
@@ -266,6 +294,7 @@ Monthly budget (20x):     ~18-22K tokens (-25%)
 ```
 
 **Phase 3: Lightweight Mode** ✅
+
 ```
 - New command: /ck:doc-review:quick
 - Token cost: 400-600 (vs 1.2-1.5K for full)
@@ -274,6 +303,7 @@ Monthly budget (20x):     ~18-22K tokens (-25%)
 ```
 
 ### Code Changes Summary
+
 ```
 Lines added: 450+ (caching, validation, lightweight mode)
 Functions added: 9 (cache management + validation)
@@ -282,31 +312,35 @@ Files modified: analyzer.sh, main.md, OPTIMIZATION-ANALYSIS.md
 Commits: 1 major optimization commit
 ```
 
----
+______________________________________________________________________
 
 ## 9. Next Steps for Users
 
 ### Using the Optimized System
 
 **For Quick Updates (Recommended for Simple Changes):**
+
 ```bash
 /ck:doc-review:quick "add feature X"
 # Fast, 400-600 tokens, < 30 seconds
 ```
 
 **For Analysis Only:**
+
 ```bash
 /ck:doc-review:analyze
 # Uses cache if available (100-200 tokens on repeat)
 ```
 
 **For Full Validation:**
+
 ```bash
 /ck:doc-review:validate
 # Runs link, reference, version checks (bash-based, fast)
 ```
 
 **For Complete Updates:**
+
 ```bash
 /ck:doc-review:core "feature description"
 # Full update: 1.2-1.5K tokens, 2-3 seconds
@@ -325,11 +359,12 @@ Commits: 1 major optimization commit
 ~/.claude/tools/doc-analyzer.sh clear-cache principles
 ```
 
----
+______________________________________________________________________
 
 ## 10. Estimated Token Budget Impact
 
 ### Before Optimization
+
 ```
 Per month (20 doc updates):
 - 15 x core updates: 18-22.5K tokens
@@ -340,6 +375,7 @@ Total: ~22-28K tokens/month
 ```
 
 ### After Optimization
+
 ```
 Per month (20 doc updates):
 - 8 x quick mode: 3.2-4.8K tokens (60% savings)
@@ -355,6 +391,7 @@ SAVINGS: 39-43% reduction (9-11K tokens/month)
 ### Conclusion
 
 The optimization implementation successfully:
+
 - ✅ Adds caching layer (20-30% repeat run savings)
 - ✅ Moves validation to bash (30-40% token savings)
 - ✅ Provides lightweight mode (50-70% savings for simple updates)
@@ -362,4 +399,3 @@ The optimization implementation successfully:
 - ✅ Improves execution speed (cached queries < 1s)
 
 **Expected overall impact: 40% reduction in token usage** for typical documentation workflows.
-

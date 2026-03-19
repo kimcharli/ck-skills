@@ -117,10 +117,12 @@ substitute "$TEMPLATE_DIR/specs/tasks.md"                   "$REPO_PATH/specs/ta
 substitute "$TEMPLATE_DIR/specs/features/_template.md"      "$REPO_PATH/specs/features/_template.md"
 substitute "$TEMPLATE_DIR/docs/sdd-how-to-apply.md"         "$REPO_PATH/docs/sdd-how-to-apply.md"
 cp         "$TEMPLATE_DIR/.gitignore"                       "$REPO_PATH/.gitignore"
+cp         "$TEMPLATE_DIR/.markdownlint.json"              "$REPO_PATH/.markdownlint.json"
 
 echo -e "${GREEN}   ✓ AGENTS.md${NC}"
 echo -e "${GREEN}   ✓ README.md${NC}"
 echo -e "${GREEN}   ✓ .gitignore${NC}"
+echo -e "${GREEN}   ✓ .markdownlint.json${NC}"
 echo -e "${GREEN}   ✓ specs/requirements.md${NC}"
 echo -e "${GREEN}   ✓ specs/design.md${NC}"
 echo -e "${GREEN}   ✓ specs/tasks.md${NC}"

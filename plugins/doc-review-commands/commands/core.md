@@ -1,8 +1,6 @@
----
+______________________________________________________________________
 
-description: Update core documentation files (README, CLAUDE, CHANGELOG)
-allowed-tools: Bash(cat:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(*)
----
+## description: Update core documentation files (README, CLAUDE, CHANGELOG) allowed-tools: Bash(cat:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(\*)
 
 # Core Documentation Update Command
 
@@ -23,13 +21,13 @@ allowed-tools: Bash(cat:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Gl
 - CLAUDE.md
 - CHANGELOG.md
 
----
+______________________________________________________________________
 
 ## Step 1: Read Current Files
 
 Read the current state of core files to understand what needs updating.
 
----
+______________________________________________________________________
 
 ## Step 2: README.md Updates
 
@@ -58,7 +56,7 @@ Brief description of what it does and why it's useful.
 - Feature point 1
 - Feature point 2
 
-````
+`````
 
 **Installation Section:**
 - Update if new dependencies added
@@ -99,14 +97,14 @@ Add AI assistant context for: $ARGUMENTS
   ```bash
   # Example usage
   ```
-````
+`````
 
 - **Error Handling**:
   - Common error 1: Solution
   - Common error 2: Solution
 - **Related Components**: [Links to related sections]
 
-````
+`````
 
 **Additional Context:**
 - Update architecture overview if structure changed
@@ -148,7 +146,7 @@ Check current version and determine if this is:
 
 ### Deprecated
 - [What's being removed in future]
-````
+`````
 
 ### Make Updates
 
@@ -156,7 +154,7 @@ Check current version and determine if this is:
 - Add new entry at the top (most recent first)
 - Use Edit tool to update
 
----
+______________________________________________________________________
 
 ## Step 5: Validation
 
@@ -169,7 +167,7 @@ Check current version and determine if this is:
 - [ ] File:line references are accurate
 - [ ] No sensitive information exposed
 
----
+______________________________________________________________________
 
 ## Output: Summary
 
@@ -198,7 +196,7 @@ Check current version and determine if this is:
 
 **Execution Time:** [X]s
 
----
+______________________________________________________________________
 
 ## Next Steps
 

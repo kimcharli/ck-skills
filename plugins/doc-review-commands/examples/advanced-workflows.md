@@ -2,7 +2,7 @@
 
 Power user patterns and advanced use cases for Doc Review Commands.
 
----
+______________________________________________________________________
 
 ## 📋 Overview
 
@@ -14,7 +14,7 @@ This guide covers:
 - Custom automation
 - Team collaboration patterns
 
----
+______________________________________________________________________
 
 ## 🚀 Advanced Patterns
 
@@ -44,7 +44,7 @@ cat /tmp/analysis.txt
 - One commit instead of 5
 - Better documentation of release cohort
 
----
+______________________________________________________________________
 
 ### Pattern 2: Phase-Based SDD Updates
 
@@ -78,7 +78,7 @@ Phase 2: Implementation
 └── /ck:doc-review/sdd at end
 ```
 
----
+______________________________________________________________________
 
 ### Pattern 3: Daily Workflow + Weekly QA
 
@@ -108,7 +108,7 @@ git commit -m "docs: weekly documentation update"
 
 vs. Daily QA would cost: 4.8K + 7.2K = 12K tokens
 
----
+______________________________________________________________________
 
 ### Pattern 4: Pre-Release Documentation Sprint
 
@@ -147,7 +147,7 @@ Continue until:
 - All requirements marked complete
 ```
 
----
+______________________________________________________________________
 
 ## 🔄 CI/CD Integration
 
@@ -243,7 +243,7 @@ exit 0
 [Issue numbers]
 ```
 
----
+______________________________________________________________________
 
 ## 🛠️ Custom Workflows
 
@@ -319,7 +319,7 @@ For large teams:
 /ck:doc-review/main "Q4: comprehensive review"
 ```
 
----
+______________________________________________________________________
 
 ## 👥 Team Collaboration
 
@@ -385,7 +385,7 @@ If someone owns documentation:
 # Track quality scores over time
 ```
 
----
+______________________________________________________________________
 
 ## 📊 Advanced Validation
 
@@ -431,7 +431,7 @@ echo "$DATE,$SCORE" >> reports/metrics.csv
 tail -5 reports/metrics.csv
 ```
 
----
+______________________________________________________________________
 
 ## 🚀 Advanced Customization Workflows
 
@@ -486,7 +486,7 @@ docs/tasks.md
 # Require score >= 90 to merge
 ```
 
----
+______________________________________________________________________
 
 ## 📈 Metrics & Reporting
 
@@ -531,7 +531,7 @@ Week 3: Score 90 → Good!
 Week 4: Score 95 → Excellent!
 ```
 
----
+______________________________________________________________________
 
 ## 🎓 Learning Workflows
 
@@ -575,7 +575,7 @@ cp examples/custom-config.json config/
 /ck:doc-review/main "project onboarding setup"
 ```
 
----
+______________________________________________________________________
 
 ## 🔧 Troubleshooting Advanced Workflows
 
@@ -621,7 +621,7 @@ alias docs-check="/ck:doc-review/qa"
 # This avoids merge conflicts
 ```
 
----
+______________________________________________________________________
 
 ## 💡 Advanced Tips
 
@@ -681,7 +681,7 @@ git commit -m "docs: automated update"
 - [ ] Examples are valid
 ```
 
----
+______________________________________________________________________
 
 ## 📚 Further Reading
 
@@ -689,7 +689,7 @@ git commit -m "docs: automated update"
 - [ARCHITECTURE.md](../docs/ARCHITECTURE.md) - System design
 - [CUSTOMIZATION.md](../docs/CUSTOMIZATION.md) - Advanced customization
 
----
+______________________________________________________________________
 
 **Advanced Workflows Complete**
 

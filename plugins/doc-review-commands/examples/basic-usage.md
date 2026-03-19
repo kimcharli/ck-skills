@@ -19,7 +19,7 @@ Common workflows and patterns for everyday use.
 
 **Time:** 15-20 seconds
 
----
+______________________________________________________________________
 
 ## Example 2: Completed Implementation Phase
 
@@ -33,14 +33,14 @@ Common workflows and patterns for everyday use.
 **Workflow:**
 
 1. Analysis shown (principles, structure, changes, metrics)
-2. You're asked: "Which areas to update?"
-3. You select: "Core Files" + "SDD Artifacts"
-4. Commands execute: `/core` then `/sdd`
-5. Aggregated summary shown
+1. You're asked: "Which areas to update?"
+1. You select: "Core Files" + "SDD Artifacts"
+1. Commands execute: `/core` then `/sdd`
+1. Aggregated summary shown
 
 **Time:** 60-90 seconds
 
----
+______________________________________________________________________
 
 ## Example 3: Before Git Commit
 
@@ -71,7 +71,7 @@ Recommendations:
 
 **Time:** 10-15 seconds
 
----
+______________________________________________________________________
 
 ## Example 4: Understanding Documentation Needs
 
@@ -99,7 +99,7 @@ Recommendations:
 
 **Time:** < 1 second
 
----
+______________________________________________________________________
 
 ## Example 5: SDD Update After Phase
 
@@ -119,7 +119,7 @@ Recommendations:
 
 **Time:** 30-45 seconds
 
----
+______________________________________________________________________
 
 ## Example 6: Custom Workflow
 
@@ -142,12 +142,12 @@ git commit -m "docs: update for feature X"
 
 **Benefits:** Full control, predictable, can interrupt at any step.
 
----
+______________________________________________________________________
 
 ## Tips
 
 1. **Use `:analyze` first** when unsure what needs updating
-2. **Use `:core` for quick updates** (most common use case)
-3. **Use `:qa` before commits** (catch issues early)
-4. **Use `:help` anytime** (comprehensive guide, ~200 tokens)
-5. **Use `:main` when overwhelmed** (guided workflow)
+1. **Use `:core` for quick updates** (most common use case)
+1. **Use `:qa` before commits** (catch issues early)
+1. **Use `:help` anytime** (comprehensive guide, ~200 tokens)
+1. **Use `:main` when overwhelmed** (guided workflow)

@@ -2,7 +2,7 @@
 
 Common install and runtime failures and how to fix them.
 
----
+______________________________________________________________________
 
 ## Install Failures
 
@@ -20,7 +20,7 @@ claude plugin marketplace update ck-skills
 claude plugin install X@ck-skills
 ```
 
----
+______________________________________________________________________
 
 ### "Invalid manifest file — skills: Invalid input"
 
@@ -35,13 +35,13 @@ claude plugin install X@ck-skills
 fields: `name`, `description`, `version`, `author`, `license`, `keywords`.
 The `commands/` directory is auto-discovered — no `skills` field needed.
 
----
+______________________________________________________________________
 
 ## Adding a New Plugin Checklist
 
 After adding a plugin and pushing to GitHub:
 
 1. `claude plugin marketplace update ck-skills` — refresh cache
-2. `claude plugin install <name>@ck-skills` — install
-3. Verify `plugin.json` is inside `.claude-plugin/` with metadata-only fields
-4. Test `copilot plugin install <name>@ck-skills` as well
+1. `claude plugin install <name>@ck-skills` — install
+1. Verify `plugin.json` is inside `.claude-plugin/` with metadata-only fields
+1. Test `copilot plugin install <name>@ck-skills` as well
