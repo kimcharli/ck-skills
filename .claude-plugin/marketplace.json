@@ -74,6 +74,47 @@
         "workflow"
       ],
       "category": "project-management"
+    },
+    {
+      "name": "sdd-git-commit",
+      "version": "1.0.0",
+      "source": "./plugins/sdd-git-commit",
+      "description": "Professional SDD Git commit workflow — hygiene, SDD gates, CHANGELOG, and reflection",
+      "author": {
+        "name": "kimcharli"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/sdd-git-commit",
+      "tags": [
+        "git",
+        "commit",
+        "sdd",
+        "workflow",
+        "changelog",
+        "documentation"
+      ],
+      "category": "git-management"
+    },
+    {
+      "name": "python-lint-fix",
+      "version": "1.0.0",
+      "source": "./plugins/python-lint-fix",
+      "description": "Auto-fix and format Python (Ruff) and Markdown code in one shot",
+      "author": {
+        "name": "kimcharli"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/python-lint-fix",
+      "tags": [
+        "lint",
+        "format",
+        "python",
+        "ruff",
+        "markdown",
+        "mdformat",
+        "markdownlint"
+      ],
+      "category": "linting"
     }
   ]
 }

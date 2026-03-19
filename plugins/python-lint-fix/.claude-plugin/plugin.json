@@ -1,0 +1,10 @@
+{
+  "name": "python-lint-fix",
+  "version": "1.0.0",
+  "description": "Auto-fix and format Python (Ruff) and Markdown",
+  "author": {
+    "name": "kimcharli"
+  },
+  "license": "MIT",
+  "keywords": ["lint", "format", "python", "ruff", "markdown", "mdformat", "markdownlint"]
+}

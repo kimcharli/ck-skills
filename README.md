@@ -15,6 +15,8 @@
 | **sdd-project-init** | Bootstrap a new project with Spec-Driven Development structure | `/ck:sdd-init` |
 | **doc-review-commands** | Keep documentation in sync with code changes | `/ck:doc-review/main` |
 | **skill-builder** | Create new production-ready skills in minutes | `/ck:skill-builder` |
+| **sdd-git-commit** | Professional SDD Git commit workflow | `/ck:commit` |
+| **python-lint-fix** | Auto-fix and format Python and Markdown code | `/ck:lint` |
 
 ---
 
@@ -41,6 +43,8 @@ copilot plugin marketplace add kimcharli/ck-skills
 claude plugin install sdd-project-init@ck-skills
 claude plugin install doc-review-commands@ck-skills
 claude plugin install skill-builder@ck-skills
+claude plugin install sdd-git-commit@ck-skills
+claude plugin install python-lint-fix@ck-skills
 ```
 
 **Copilot CLI:**
@@ -48,6 +52,8 @@ claude plugin install skill-builder@ck-skills
 copilot plugin install sdd-project-init@ck-skills
 copilot plugin install doc-review-commands@ck-skills
 copilot plugin install skill-builder@ck-skills
+copilot plugin install sdd-git-commit@ck-skills
+copilot plugin install python-lint-fix@ck-skills
 ```
 
 ### Install directly from repo (no marketplace registration)

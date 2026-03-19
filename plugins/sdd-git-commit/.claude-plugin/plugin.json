@@ -1,0 +1,10 @@
+{
+  "name": "sdd-git-commit",
+  "version": "1.0.0",
+  "description": "Professional SDD Git commit workflow — hygiene, SDD gates, CHANGELOG, and reflection",
+  "author": {
+    "name": "kimcharli"
+  },
+  "license": "MIT",
+  "keywords": ["git", "commit", "sdd", "workflow", "changelog", "documentation"]
+}
