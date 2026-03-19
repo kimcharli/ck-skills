@@ -32,7 +32,7 @@ if [ -d "$INSTALL_DIR" ]; then
 fi
 
 echo -e "${BLUE}📁 Creating directory structure...${NC}"
-mkdir -p "$INSTALL_DIR"/{template/.github,template/docs,template/specs/features,tools}
+mkdir -p "$INSTALL_DIR"/{template/docs,template/specs/features,tools}
 
 echo -e "${BLUE}📝 Installing command file...${NC}"
 cp "$SCRIPT_DIR/commands/init.md" "$INSTALL_DIR/"
@@ -40,16 +40,14 @@ echo -e "${GREEN}   ✓ init.md${NC}"
 
 echo -e "${BLUE}📋 Installing model file tree...${NC}"
 cp "$SCRIPT_DIR/template/AGENTS.md"                        "$INSTALL_DIR/template/"
-cp "$SCRIPT_DIR/template/GEMINI.md"                        "$INSTALL_DIR/template/"
 cp "$SCRIPT_DIR/template/README.md"                        "$INSTALL_DIR/template/"
 cp "$SCRIPT_DIR/template/.gitignore"                       "$INSTALL_DIR/template/"
-cp "$SCRIPT_DIR/template/.github/copilot-instructions.md"  "$INSTALL_DIR/template/.github/"
 cp "$SCRIPT_DIR/template/docs/sdd-how-to-apply.md"         "$INSTALL_DIR/template/docs/"
 cp "$SCRIPT_DIR/template/specs/requirements.md"            "$INSTALL_DIR/template/specs/"
 cp "$SCRIPT_DIR/template/specs/design.md"                  "$INSTALL_DIR/template/specs/"
 cp "$SCRIPT_DIR/template/specs/tasks.md"                   "$INSTALL_DIR/template/specs/"
 cp "$SCRIPT_DIR/template/specs/features/_template.md"      "$INSTALL_DIR/template/specs/features/"
-echo -e "${GREEN}   ✓ template/ (10 files)${NC}"
+echo -e "${GREEN}   ✓ template/ (8 files)${NC}"
 
 echo -e "${BLUE}🔧 Installing tools...${NC}"
 cp "$SCRIPT_DIR/tools/create-project.sh" "$INSTALL_DIR/tools/"

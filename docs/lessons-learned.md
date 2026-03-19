@@ -79,13 +79,27 @@ Always test install on both tools when adding a new plugin.
 
 ---
 
-### Gemini CLI has no plugin system
+### Gemini CLI supports AGENTS.md (v0.28.0+)
 **Date:** 2026-03-18  
-**Context:** Checking equivalence across Claude Code, Copilot CLI, Gemini CLI.
+**Context:** Consolidating AI steering files.
 
-Gemini CLI reads `GEMINI.md` in the project root only. There is no
-`gemini plugin install` equivalent. Skills generate `GEMINI.md` as output;
-they cannot be installed into Gemini CLI itself.
+Gemini CLI (v0.28.0+) now reads `AGENTS.md` if `GEMINI.md` is missing. This
+allows us to maintain a single "constitution" file that works across Claude
+Code, Copilot, and Gemini CLI.
+
+**Rule:** Use `AGENTS.md` as the single source of truth for AI instructions.
+Avoid creating `GEMINI.md` or `.github/copilot-instructions.md` unless
+tool-specific overrides are absolutely necessary.
+
+---
+
+### Copilot CLI supports AGENTS.md (v0.19.0+)
+**Date:** 2026-03-18  
+**Context:** Consolidating AI steering files.
+
+GitHub Copilot CLI (v0.19.0+) honors `AGENTS.md` for project-level
+instructions. This alignment with Claude Code's convention simplifies
+repository management.
 
 ---
 

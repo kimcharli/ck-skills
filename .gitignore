@@ -30,6 +30,7 @@ test-output/
 # Local Configuration
 local.config.json
 .env.local
+.claude/
 
 # Build Artifacts (if any in future)
 dist/
@@ -48,3 +49,4 @@ __pycache__/
 # Temporary directories
 tmp/
 temp/
+work/

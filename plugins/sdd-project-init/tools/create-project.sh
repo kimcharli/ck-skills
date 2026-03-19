@@ -88,18 +88,21 @@ mkdir -p "$REPO_PATH/specs/features"
 echo -e "${BLUE}📁 Created directory structure${NC}"
 
 # ── Substitution helper ────────────────────────────────────────────────────────
+# Escape sed replacement special characters (& and \)
+sed_escape() { printf '%s\n' "$1" | sed 's/[&\\/]/\\&/g'; }
+
 substitute() {
     local src="$1"
     local dst="$2"
     sed \
-        -e "s|{{PROJECT_NAME}}|${PROJECT_NAME}|g" \
-        -e "s|{{PROJECT_PURPOSE}}|${PROJECT_PURPOSE}|g" \
-        -e "s|{{LANGUAGE_STACK}}|${LANGUAGE_STACK}|g" \
-        -e "s|{{RUNTIME_TARGET}}|${RUNTIME_TARGET}|g" \
-        -e "s|{{PACKAGE_NAME}}|${PACKAGE_NAME}|g" \
-        -e "s|{{INTEGRATIONS_LINE}}|${INTEGRATIONS_LINE}|g" \
-        -e "s|{{SETUP_HINT}}|${SETUP_HINT}|g" \
-        -e "s|{{DATE}}|${DATE}|g" \
+        -e "s|{{PROJECT_NAME}}|$(sed_escape "$PROJECT_NAME")|g" \
+        -e "s|{{PROJECT_PURPOSE}}|$(sed_escape "$PROJECT_PURPOSE")|g" \
+        -e "s|{{LANGUAGE_STACK}}|$(sed_escape "$LANGUAGE_STACK")|g" \
+        -e "s|{{RUNTIME_TARGET}}|$(sed_escape "$RUNTIME_TARGET")|g" \
+        -e "s|{{PACKAGE_NAME}}|$(sed_escape "$PACKAGE_NAME")|g" \
+        -e "s|{{INTEGRATIONS_LINE}}|$(sed_escape "$INTEGRATIONS_LINE")|g" \
+        -e "s|{{SETUP_HINT}}|$(sed_escape "$SETUP_HINT")|g" \
+        -e "s|{{DATE}}|$(sed_escape "$DATE")|g" \
         "$src" > "$dst"
 }
 

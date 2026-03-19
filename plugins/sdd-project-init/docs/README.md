@@ -7,10 +7,9 @@ placeholders left behind.
 ## What It Does
 
 - Interviews you on project name, purpose, stack, AI tools
-- Creates `AGENTS.md` with SDD gates enforced (ready for Claude Code, OpenCode)
+- Creates `AGENTS.md` as the single source of truth for AI instructions (honored by Claude Code, Gemini CLI v0.28.0+, and Copilot v0.19.0+)
 - Creates `specs/requirements.md`, `specs/design.md`, `specs/tasks.md`
 - Creates `docs/sdd-how-to-apply.md` as a human reference
-- Conditionally creates `GEMINI.md` and `.github/copilot-instructions.md`
 
 ## Installation
 
@@ -44,11 +43,9 @@ Claude will ask 7 questions, then generate the full project structure in one pas
 
 ```
 your-project/
-├── AGENTS.md                          ← AI constitution + SDD gates
-├── GEMINI.md                          ← (if Gemini CLI selected)
+├── AGENTS.md                          ← AI constitution + SDD gates (Single Source of Truth)
 ├── README.md
-├── .github/
-│   └── copilot-instructions.md        ← (if Copilot selected)
+├── .gitignore
 ├── docs/
 │   └── sdd-how-to-apply.md
 └── specs/

@@ -53,12 +53,9 @@ file tree with variable substitution — deterministic, no AI-generated content.
 
 ```
 your-project/
-├── AGENTS.md                          ← AI constitution + SDD gates
-├── GEMINI.md                          ← (if Gemini CLI selected)
+├── AGENTS.md                          ← AI constitution + SDD gates (Single Source of Truth)
 ├── README.md
 ├── .gitignore
-├── .github/
-│   └── copilot-instructions.md        ← (if Copilot selected)
 ├── docs/
 │   └── sdd-how-to-apply.md            ← human workflow reference
 └── specs/
