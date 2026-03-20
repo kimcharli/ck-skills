@@ -20,6 +20,7 @@
 - [ ] **Multi-language template support** (doc-review-commands)
 - [ ] **CI/CD integration mode** (doc-review-commands)
 - [ ] **Interactive Interview Mode** (skill-builder)
+- [ ] **Renaming doc-review-commands to doc-review** (doc-review-commands) - Consider for a cleaner, more idiomatic name, but maintain backward compatibility.
 
 ## Documentation
 
