@@ -8,10 +8,30 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-INSTALL_DIR="${HOME}/.claude/commands/ck/commit"
+# 1. Detect Base Directory
+# Default to ~/.claude, but check for ~/.agents
+BASE_DIR="${HOME}/.claude"
+if [ -d "${HOME}/.agents" ]; then
+    BASE_DIR="${HOME}/.agents"
+fi
+
+# Allow overrides via flags
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --agents) BASE_DIR="${HOME}/.agents"; shift ;;
+        --claude) BASE_DIR="${HOME}/.claude"; shift ;;
+        --dir)    BASE_DIR="$2"; shift 2 ;;
+        *) shift ;;
+    esac
+done
+
+# Home-relative path for patching (e.g., ~/.agents)
+REL_BASE_DIR="${BASE_DIR/#$HOME/~}"
+
+INSTALL_DIR="${BASE_DIR}/commands/ck/commit"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo -e "${BLUE}🚀 Installing SDD Git Commit skill...${NC}"
+echo -e "${BLUE}🚀 Installing SDD Git Commit skill to ${REL_BASE_DIR}...${NC}"
 
 if [ -d "$INSTALL_DIR" ]; then
     echo -e "${BLUE}   Cleaning up existing installation...${NC}"
@@ -27,10 +47,16 @@ cp "$SCRIPT_DIR/SKILL.md" "$INSTALL_DIR/"
 echo -e "${GREEN}   ✓ commit.md${NC}"
 echo -e "${GREEN}   ✓ SKILL.md${NC}"
 
+# 4. Patch Path References
+echo -e "${BLUE}🔧 Patching paths for ${REL_BASE_DIR}...${NC}"
+# Use perl for better portability than sed -i on different OSes
+find "$INSTALL_DIR" -type f \( -name "*.md" -o -name "*.json" -o -name "SKILL.md" \) -print0 | \
+    xargs -0 perl -i -pe "s|~/.claude|${REL_BASE_DIR}|g"
+
 echo ""
 echo -e "${GREEN}╔════════════════════════════════════════════╗${NC}"
 echo -e "${GREEN}║   ✓ SDD Git Commit installed!              ║${NC}"
 echo -e "${GREEN}╚════════════════════════════════════════════╝${NC}"
 echo ""
-echo -e "You can now use ${BLUE}/ck:commit${NC} in Claude Code."
+echo -e "You can now use ${BLUE}/ck:commit${NC} in the CLI tool."
 echo ""

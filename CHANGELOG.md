@@ -13,9 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Dynamic Installation Paths**: Updated all `install.sh` and `uninstall.sh` scripts to automatically detect and support `~/.agents` (Gemini CLI) and `~/.claude` (Claude Code) base directories.
+- **Automated Path Patching**: Implemented `perl`-based automated patching of hardcoded `~/.claude` references in `.md`, `.json`, and `SKILL.md` files during installation to match the actual installation path.
+- **Generic CLI Support**: Standardized success and usage messages to be tool-agnostic, supporting a wider range of AI CLI runners.
 - **Automated Validation**: Created `validate-skill.sh` to ensure `SKILL.md` files remain compliant with Gemini CLI requirements.
-- **Skill Builder Resilience**: Enhanced `generator.sh` to automatically generate root `SKILL.md` files and run post-generation validation.
-- **Linting Integration**: Integrated automated skill validation into the `python-lint-fix` workflow (`lint-fix.sh`).
 
 ### Planned
 

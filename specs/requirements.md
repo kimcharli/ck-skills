@@ -35,6 +35,19 @@ AI CLI agents like Claude Code, Gemini CLI, and GitHub Copilot CLI are powerful 
 - [x] `sdd-project-init` creates `specs/` and `docs/` structure.
 - [x] All generated files have template variables replaced correctly.
 
+### Story 2: Cross-Runner Compatibility
+
+**As a** developer using multiple AI CLI tools (Claude Code, Gemini CLI, etc.)
+**I want to** install skills into different base directories (`~/.claude`, `~/.agents`)
+**So that** all internal path references in the skills are automatically corrected to match the actual installation location.
+
+**Acceptance Criteria:**
+
+- [x] Installation scripts automatically detect `~/.agents` and `~/.claude`.
+- [x] Scripts support explicit path overrides via flags (`--agents`, `--claude`, `--dir`).
+- [x] Hardcoded `~/.claude` references in `.md`, `.json`, and `SKILL.md` are patched during installation.
+- [x] Uninstallation scripts correctly locate and remove skills from dynamic paths.
+
 ## Constraints & Assumptions
 
 - Assumption: User has `uv`, `node`, and `npm` installed.

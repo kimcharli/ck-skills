@@ -32,6 +32,12 @@ The project is structured as a mono-repo of individual skill packages. Each skil
 - **Decision**: We enforce `AGENTS.md` gates where agents must check requirements and design status before writing code.
 - **Rationale**: Reduces rework and ensures alignment with user intent.
 
+### Decision 2: Dynamic Path Support
+
+- **Context**: Different AI runners use different base directories for skills (e.g., `~/.claude` vs. `~/.agents`). Internal path references in markdown and JSON files must be valid for the skill to work.
+- **Decision**: Installation scripts (`install.sh`) perform automated base directory detection and path patching using `perl` upon installation.
+- **Rationale**: Decouples the source files from a specific runner's directory structure, allowing the same plugin code to work in multiple environments without manual configuration.
+
 ## Testing Strategy
 
 - Unit tests using `BATS` for bash scripts.

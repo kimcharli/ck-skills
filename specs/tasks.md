@@ -34,6 +34,12 @@ ______________________________________________________________________
 - [x] **T07** — Create `specs/` directory and initial spec files `[deps: T01]`
 - [x] **T08** — Create `AGENTS.md` for consistent project constitution `[deps: T07]`
 
+### Phase 4: Cross-Runner Compatibility
+
+- [x] **T09** — Dynamic base directory detection in `install.sh` `[deps: T04, T05, T06]`
+- [x] **T10** — Implement automated path patching (`~/.claude` → dynamic) `[deps: T09]`
+- [x] **T11** — Dynamic uninstallation logic in `uninstall.sh` `[deps: T09]`
+
 ______________________________________________________________________
 
 ## Completed
@@ -46,6 +52,9 @@ ______________________________________________________________________
 - **T06** — Implement `sdd-git-commit`
 - **T07** — Create `specs/` directory and initial spec files
 - **T08** — Create `AGENTS.md` for consistent project constitution
+- **T09** — Dynamic base directory detection in `install.sh`
+- **T10** — Implement automated path patching
+- **T11** — Dynamic uninstallation logic in `uninstall.sh`
 
 ______________________________________________________________________
 

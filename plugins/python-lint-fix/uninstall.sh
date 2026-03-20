@@ -7,7 +7,24 @@ BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-INSTALL_DIR="${HOME}/.claude/commands/ck/lint"
+# 1. Detect Base Directory
+# Default to ~/.claude, but check for ~/.agents
+BASE_DIR="${HOME}/.claude"
+if [ -d "${HOME}/.agents/commands/ck/lint" ]; then
+    BASE_DIR="${HOME}/.agents"
+fi
+
+# Allow overrides via flags
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --agents) BASE_DIR="${HOME}/.agents"; shift ;;
+        --claude) BASE_DIR="${HOME}/.claude"; shift ;;
+        --dir)    BASE_DIR="$2"; shift 2 ;;
+        *) shift ;;
+    esac
+done
+
+INSTALL_DIR="${BASE_DIR}/commands/ck/lint"
 
 echo -e "${BLUE}🗑️  Uninstalling Python Lint Fix skill...${NC}"
 

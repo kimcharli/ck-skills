@@ -13,8 +13,26 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-INSTALL_DIR="$HOME/.claude/commands/ck/doc-review"
-TOOLS_GLOBAL="$HOME/.claude/tools/doc-analyzer.sh"
+# 1. Detect Base Directory
+# Default to ~/.claude, but check for ~/.agents
+BASE_DIR="${HOME}/.claude"
+if [ -d "${HOME}/.agents/commands/ck/doc-review" ]; then
+    BASE_DIR="${HOME}/.agents"
+fi
+
+# Allow overrides via flags
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --agents) BASE_DIR="${HOME}/.agents"; shift ;;
+        --claude) BASE_DIR="${HOME}/.claude"; shift ;;
+        --dir)    BASE_DIR="$2"; shift 2 ;;
+        *) shift ;;
+    esac
+done
+
+INSTALL_DIR="${BASE_DIR}/commands/ck/doc-review"
+TOOLS_GLOBAL="${BASE_DIR}/tools/doc-analyzer.sh"
+
 
 echo -e "${BLUE}╔════════════════════════════════════════════╗${NC}"
 echo -e "${BLUE}║   Doc Review Commands Uninstaller         ║${NC}"

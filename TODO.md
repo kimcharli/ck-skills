@@ -1,5 +1,11 @@
 # TODO: Future Work & Technical Debt
 
+## Infrastructure & Compatibility (Priority: Completed)
+
+- [x] **Dynamic Base Directory Detection:** Updated all `install.sh` and `uninstall.sh` to support `~/.agents` and `~/.claude`.
+- [x] **Automated Path Patching:** Implemented `perl`-based patching to correct hardcoded paths during installation.
+- [x] **Runner-Agnostic Messaging:** Updated usage and success messages to be tool-agnostic.
+
 ## Testing Infrastructure (Priority: High)
 
 - [ ] **Unified Test Runner:** Create a root-level script (e.g., `test-all.sh`) to run tests across all plugins.
