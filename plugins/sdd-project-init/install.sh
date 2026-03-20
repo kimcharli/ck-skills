@@ -33,7 +33,7 @@ done
 REL_BASE_DIR="${BASE_DIR/#$HOME/~}"
 
 CLAUDE_DIR="$BASE_DIR"
-COMMANDS_DIR="$CLAUDE_DIR/commands/ck"
+COMMANDS_DIR="$CLAUDE_DIR/plugins/ck"
 INSTALL_DIR="$COMMANDS_DIR/sdd-init"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

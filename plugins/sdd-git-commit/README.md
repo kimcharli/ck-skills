@@ -25,18 +25,14 @@ ______________________________________________________________________
 
 ## Usage
 
-**Claude Code:**
-
-```
-/ck:commit
-```
-
-Or naturally:
+The Git commit workflow is **AI-Native**. Just tell the tool what you want:
 
 ```
 Commit my changes
 Wrap up this task and commit
 ```
+
+The AI will automatically activate the `sdd-git-commit` skill, check hygiene, sync specs, and guide you through the professional commit process.
 
 ______________________________________________________________________
 

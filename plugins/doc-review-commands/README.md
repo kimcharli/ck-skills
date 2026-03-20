@@ -25,44 +25,19 @@ cd plugins/doc-review-commands && ./install.sh
 
 ______________________________________________________________________
 
-## Commands
+## Usage
 
-| Command                  | Purpose                                        | Token Cost |
-| ------------------------ | ---------------------------------------------- | ---------- |
-| `/ck:doc-review/main`    | Smart orchestrator — analyzes then delegates   | ~900–1.2K  |
-| `/ck:doc-review/analyze` | Analysis only, zero file changes               | ~600–800   |
-| `/ck:doc-review/core`    | Update README, CHANGELOG, CLAUDE.md            | ~1.2–1.5K  |
-| `/ck:doc-review/sdd`     | Update SDD artifacts (specs, tasks, contracts) | ~1.5–1.8K  |
-| `/ck:doc-review/qa`      | Quality validation, 0–100 scoring              | ~1.8–2K    |
-| `/ck:doc-review/help`    | Usage guide                                    | ~200       |
+All commands are **AI-Native**. Just tell the tool what you want:
 
-______________________________________________________________________
+| Goal                                | Activation Intent                             |
+| ----------------------------------- | --------------------------------------------- |
+| **Full Review**                     | "review my documentation and update everything" |
+| **Analysis Only**                   | "analyze documentation health"                |
+| **Core Files (README, CHANGELOG)**  | "update core documentation for [change]"      |
+| **SDD Specs & Tasks**               | "update SDD artifacts for [feature]"          |
+| **Quality Check**                   | "run a documentation QA check"                |
 
-## Usage Patterns
-
-**After adding a feature:**
-
-```bash
-/ck:doc-review/core "added feature X"
-```
-
-**After completing an SDD phase:**
-
-```bash
-/ck:doc-review/sdd "phase 2 complete"
-```
-
-**Before committing:**
-
-```bash
-/ck:doc-review/qa
-```
-
-**Full orchestrated update:**
-
-```bash
-/ck:doc-review/main "what changed"
-```
+The AI will automatically activate the `doc-review-commands` skill and use its specialized sub-commands to keep your docs in sync.
 
 ______________________________________________________________________
 

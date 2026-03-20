@@ -16,7 +16,7 @@ NC='\033[0m'
 # 1. Detect Base Directory
 # Default to ~/.claude, but check for ~/.agents
 BASE_DIR="${HOME}/.claude"
-if [ -d "${HOME}/.agents/commands/ck/doc-review" ]; then
+if [ -d "${HOME}/.agents/plugins/ck/doc-review" ]; then
     BASE_DIR="${HOME}/.agents"
 fi
 
@@ -30,7 +30,7 @@ while [[ "$#" -gt 0 ]]; do
     esac
 done
 
-INSTALL_DIR="${BASE_DIR}/commands/ck/doc-review"
+INSTALL_DIR="${BASE_DIR}/plugins/ck/doc-review"
 TOOLS_GLOBAL="${BASE_DIR}/tools/doc-analyzer.sh"
 
 

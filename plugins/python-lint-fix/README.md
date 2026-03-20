@@ -25,19 +25,15 @@ ______________________________________________________________________
 
 ## Usage
 
-**Claude Code:**
-
-```
-/ck:lint
-```
-
-Or naturally:
+All logic is **AI-Native**. Just tell the tool what you want:
 
 ```
 Fix lint errors
 Lint and format my code
 Make it clean and passing
 ```
+
+The AI will automatically activate the `python-lint-fix` skill, run the necessary tools (Ruff, mdformat, markdownlint), and verify the results.
 
 ______________________________________________________________________
 

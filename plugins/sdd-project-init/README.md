@@ -28,24 +28,14 @@ ______________________________________________________________________
 
 ## Usage
 
-**Claude Code:**
-
-```
-/ck:sdd-init
-```
-
-**Copilot CLI:**
-
-```
-/sdd-project-init
-```
-
-Or naturally in either tool:
+Initializing a project is **AI-Native**. Just tell the tool what you want:
 
 ```
 Initialize a new project with SDD
 Set up a new repo with SDD structure
 ```
+
+The AI will automatically activate the `sdd-project-init` skill and start the interactive interview process.
 
 Runs a 7-question interview, then calls `create-project.sh` to copy the model
 file tree with variable substitution — deterministic, no AI-generated content.

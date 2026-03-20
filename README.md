@@ -10,13 +10,13 @@ ______________________________________________________________________
 
 ## Available Skills
 
-| Skill                   | Description                                                    | Command               |
-| ----------------------- | -------------------------------------------------------------- | --------------------- |
-| **sdd-project-init**    | Bootstrap a new project with Spec-Driven Development structure | `/ck:sdd-init`        |
-| **doc-review-commands** | Keep documentation in sync with code changes                   | `/ck:doc-review/main` |
-| **skill-builder**       | Create new production-ready skills in minutes                  | `/ck:skill-builder`   |
-| **sdd-git-commit**      | Professional SDD Git commit workflow                           | `/ck:commit`          |
-| **python-lint-fix**     | Auto-fix and format Python and Markdown code                   | `/ck:lint`            |
+| Skill                   | Description                                                    | Activation Intent             |
+| ----------------------- | -------------------------------------------------------------- | ----------------------------- |
+| **sdd-project-init**    | Bootstrap a new project with Spec-Driven Development structure | "initialize a new project"    |
+| **doc-review-commands** | Keep documentation in sync with code changes                   | "review my documentation"     |
+| **skill-builder**       | Create new production-ready skills in minutes                  | "create a new skill"          |
+| **sdd-git-commit**      | Professional SDD Git commit workflow                           | "commit my changes"           |
+| **python-lint-fix**     | Auto-fix and format Python and Markdown code                   | "fix/lint my code"            |
 
 ______________________________________________________________________
 
@@ -98,29 +98,26 @@ ______________________________________________________________________
 
 ## Quick Start by Skill
 
+All skills are **AI-Native**. You don't need to remember slash commands; just tell the tool what you want to do.
+
 ### sdd-project-init — Bootstrap a new SDD project
 
-```
-/ck:sdd-init
-```
+> "initialize a new project with SDD"
 
 Runs a 7-question interview, then generates a fully populated project with
 `AGENTS.md` (the AI constitution), `specs/`, and `docs/`.
 
 ### doc-review-commands — Keep docs in sync
 
-```bash
-/ck:doc-review/core "added feature X"   # update README, CHANGELOG
-/ck:doc-review/sdd "phase 2 complete"   # update SDD artifacts
-/ck:doc-review/qa                       # quality check before commit
-/ck:doc-review/main "what changed"      # full orchestrated update
-```
+> "review my documentation and update the changelog"
+
+Or more focused:
+> "update SDD specs for the new feature"
+> "run a documentation QA check"
 
 ### skill-builder — Create new skills
 
-```
-/ck:skill-builder "describe your new skill"
-```
+> "help me build a new skill for [purpose]"
 
 ______________________________________________________________________
 
