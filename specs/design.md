@@ -38,6 +38,12 @@ The project is structured as a mono-repo of individual skill packages. Each skil
 - **Decision**: Installation scripts (`install.sh`) perform automated base directory detection and path patching using `perl` upon installation.
 - **Rationale**: Decouples the source files from a specific runner's directory structure, allowing the same plugin code to work in multiple environments without manual configuration.
 
+### Decision 3: Full Modern (Skills-Only) Pattern
+
+- **Context**: AI CLI runners are moving toward autonomous "Skills" that the model activates based on intent, rather than manual slash commands. Claude Code has deprecated the global `commands/` folder.
+- **Decision**: All plugins must follow the **Full Modern (Skills-Only)** pattern defined in `docs/unified-plugin-model.md`. This installs all components (expertise, commands, tools) into a self-contained package under `plugins/ck/<name>/` and eliminates global `commands/` shims.
+- **Rationale**: Future-proofs the architecture, provides a cleaner UX by relying on natural language intent, and ensures atomic management of skills across all major runners (Claude, Gemini, Copilot).
+
 ## Testing Strategy
 
 - Unit tests using `BATS` for bash scripts.

@@ -40,6 +40,14 @@ ______________________________________________________________________
 - [x] **T10** — Implement automated path patching (`~/.claude` → dynamic) `[deps: T09]`
 - [x] **T11** — Dynamic uninstallation logic in `uninstall.sh` `[deps: T09]`
 
+### Phase 5: Full Modern Architecture (Skills-Only)
+
+- [ ] **T12** — Refactor `install.sh` to use `plugins/ck/` root only `[deps: T09]`
+- [ ] **T13** — Remove global `commands/` shims from all plugins `[deps: T12]`
+- [ ] **T14** — Update `uninstall.sh` to reflect new directory structure `[deps: T11, T12]`
+- [ ] **T15** — Update READMEs and usage docs to focus on natural language `[deps: T13]`
+- [ ] **T16** — Verify autonomous activation via `SKILL.md` in Gemini/Claude `[deps: T12]`
+
 ______________________________________________________________________
 
 ## Completed

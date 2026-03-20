@@ -111,6 +111,23 @@ ______________________________________________________________________
 
 ### SDD Structure
 
+### Full Modern (Skills-Only) Architecture
+
+**Date:** 2026-03-20
+**Context:** Pivoting from "Command Shims" to a pure "Skill" architecture for better AI-native performance.
+
+While a "Command Shim" provided legacy slash-command support, it introduced redundant file management and clung to a deprecated directory structure. We decided to go **Full Modern**:
+- **Pure Skills**: Rely exclusively on `SKILL.md` expertise and natural language activation.
+- **Root Only**: All files live under `BASE_DIR/plugins/ck/<skill-name>`.
+- **No Shims**: The global `commands/` folder is no longer used.
+
+**Benefits:**
+- **Future-Proof**: Aligns with the core roadmap of Claude Code and Gemini CLI.
+- **Zero Pollution**: No global slash-command bloat.
+- **Atomic**: Deleting a single folder removes all trace of the plugin and its expertise.
+
+**Rule:** Always optimize the `SKILL.md` description; it is now the only way for the AI to "discover" and use your plugin.
+
 ### .markdownlint.json Normalization via Symlinks
 
 **Date:** 2026-03-19\
