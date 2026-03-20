@@ -35,7 +35,7 @@ done
 REL_BASE_DIR="${BASE_DIR/#$HOME/~}"
 
 CLAUDE_DIR="$BASE_DIR"
-COMMANDS_DIR="$CLAUDE_DIR/plugins/ck"
+COMMANDS_DIR="$CLAUDE_DIR/skills/ck"
 INSTALL_DIR="$COMMANDS_DIR/doc-review"
 TOOLS_GLOBAL="$CLAUDE_DIR/tools"
 
@@ -99,6 +99,13 @@ echo -e "${BLUE}🔧 Patching paths for ${REL_BASE_DIR}...${NC}"
 find "$INSTALL_DIR" -type f \( -name "*.md" -o -name "*.json" -o -name "SKILL.md" \) -print0 | \
     xargs -0 perl -i -pe "s|~/.claude|${REL_BASE_DIR}|g"
 
+# 5. Ensure Claude discovery
+if [ "$BASE_DIR" = "${HOME}/.agents" ] && [ ! -d "${HOME}/.claude/skills" ]; then
+    echo -e "${BLUE}🔗 Linking to ~/.claude/skills for cross-tool discovery...${NC}"
+    mkdir -p "${HOME}/.claude"
+    ln -s "${HOME}/.agents/skills" "${HOME}/.claude/skills"
+fi
+
 # Optionally install global copy of analyzer
 if [ ! -d "$TOOLS_GLOBAL" ]; then
     mkdir -p "$TOOLS_GLOBAL"
@@ -155,9 +162,8 @@ if [ $ERRORS -eq 0 ]; then
     echo -e "${BLUE}📦 Installed to:${NC} $INSTALL_DIR"
     echo ""
     echo -e "${BLUE}🚀 Quick Start:${NC}"
-    echo -e "   ${YELLOW}/ck:doc-review/help${NC}      - Show usage guide"
-    echo -e "   ${YELLOW}/ck:doc-review/analyze${NC}   - Analyze documentation needs"
-    echo -e "   ${YELLOW}/ck:doc-review/core \"X\"${NC}  - Update core files"
+    echo -e "   Tell the tool: ${YELLOW}\"review my documentation\"${NC}"
+    echo -e "   or: ${YELLOW}\"run a doc QA check\"${NC}"
     echo ""
     echo -e "${BLUE}📚 Documentation:${NC}"
     echo -e "   README: $SCRIPT_DIR/README.md"

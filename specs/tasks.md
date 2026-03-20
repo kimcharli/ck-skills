@@ -42,12 +42,12 @@ ______________________________________________________________________
 
 ### Phase 5: Full Modern Architecture (Skills-Only)
 
-- [ ] **T12** — Refactor `install.sh` to use `skills/ck/` root only `[deps: T09]`
+- [x] **T12** — Refactor `install.sh` to use `skills/ck/` root only `[deps: T09]`
 - [x] **T13** — Remove global `commands/` shims from all plugins `[deps: T12]`
-- [ ] **T14** — Update `uninstall.sh` to reflect new directory structure `[deps: T11, T12]`
+- [x] **T14** — Update `uninstall.sh` to reflect new directory structure `[deps: T11, T12]`
 - [x] **T15** — Update READMEs and usage docs to focus on natural language `[deps: T13]`
-- [ ] **T16** — Implement automatic symlinking for Claude discovery in `install.sh` `[deps: T12]`
-- [ ] **T17** — Verify autonomous activation via `SKILL.md` in Gemini/Claude `[deps: T12]`
+- [x] **T16** — Implement automatic symlinking for Claude discovery in `install.sh` `[deps: T12]`
+- [x] **T17** — Verify autonomous activation via `SKILL.md` in Gemini/Claude `[deps: T12]`
 
 ______________________________________________________________________
 
@@ -64,9 +64,12 @@ ______________________________________________________________________
 - **T09** — Dynamic base directory detection in `install.sh`
 - **T10** — Implement automated path patching
 - **T11** — Dynamic uninstallation logic in `uninstall.sh`
+- **T12** — Refactor `install.sh` to use `skills/ck/` root only
 - **T13** — Remove global `commands/` shims from all plugins
+- **T14** — Update `uninstall.sh` to reflect new directory structure
 - **T15** — Update READMEs and usage docs to focus on natural language
-- **T16** — Verify autonomous activation via `SKILL.md`
+- **T16** — Implement automatic symlinking for Claude discovery
+- **T17** — Verify autonomous activation via `SKILL.md`
 
 ______________________________________________________________________
 

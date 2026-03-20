@@ -28,7 +28,7 @@ done
 # Home-relative path for patching (e.g., ~/.agents)
 REL_BASE_DIR="${BASE_DIR/#$HOME/~}"
 
-INSTALL_DIR="${BASE_DIR}/plugins/ck/lint"
+INSTALL_DIR="${BASE_DIR}/skills/ck/lint"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo -e "${BLUE}🚀 Installing Python Lint Fix skill to ${REL_BASE_DIR}...${NC}"
@@ -60,10 +60,17 @@ echo -e "${BLUE}🔧 Patching paths for ${REL_BASE_DIR}...${NC}"
 find "$INSTALL_DIR" -type f \( -name "*.md" -o -name "*.json" -o -name "SKILL.md" \) -print0 | \
     xargs -0 perl -i -pe "s|~/.claude|${REL_BASE_DIR}|g"
 
+# 5. Ensure Claude discovery
+if [ "$BASE_DIR" = "${HOME}/.agents" ] && [ ! -d "${HOME}/.claude/skills" ]; then
+    echo -e "${BLUE}🔗 Linking to ~/.claude/skills for cross-tool discovery...${NC}"
+    mkdir -p "${HOME}/.claude"
+    ln -s "${HOME}/.agents/skills" "${HOME}/.claude/skills"
+fi
+
 echo ""
 echo -e "${GREEN}╔════════════════════════════════════════════╗${NC}"
 echo -e "${GREEN}║   ✓ Python Lint Fix installed!             ║${NC}"
 echo -e "${GREEN}╚════════════════════════════════════════════╝${NC}"
 echo ""
-echo -e "You can now use ${BLUE}/ck:lint${NC} in the CLI tool."
+echo -e "You can now tell the tool: ${BLUE}\"fix my code\"${NC} or ${BLUE}\"lint this project\"${NC}"
 echo ""
