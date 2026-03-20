@@ -49,7 +49,7 @@
     "method": "script",
     "script": "install.sh",
     "uninstall_script": "uninstall.sh",
-    "location": "~/.claude/commands/ck/lint"
+    "location": "~/.agents/skills/ck/lint"
   },
   "system_requirements": {
     "claude_code": "latest",
