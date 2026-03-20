@@ -22,9 +22,9 @@ We have decided to move to a **Purely AI-Native** architecture. We are abandonin
 
 ```text
 BASE_DIR/ (e.g., ~/.agents or ~/.claude)
-└── plugins/
+└── skills/
     └── ck/
-        └── <skill-name>/          <-- THE PLUGIN ROOT (Universal)
+        └── <skill-name>/          <-- THE SKILL ROOT (Universal)
             ├── manifest.json      # Claude Code / Gemini Discovery
             ├── plugin.json        # Copilot CLI Metadata
             ├── SKILL.md           # The "Expertise" (Autonomous Activation)
@@ -75,16 +75,16 @@ ______________________________________________________________________
 ## ✅ Validation Reference
 
 ### Claude Code
-- **Path:** `~/.claude/plugins/`
+- **Path:** `~/.claude/skills/` (Direct Discovery)
 - **Mechanism:** Reads `manifest.json`.
 - **UX:** Supports autonomous skill activation via `SKILL.md`.
 
 ### Gemini CLI
-- **Path:** `~/.agents/plugins/` (Skill Discovery)
+- **Path:** `~/.agents/skills/` (Skill Discovery)
 - **Mechanism:** Reads `SKILL.md` for expertise and autonomous activation.
 - **UX:** Intent-based activation (e.g., "commit my changes").
 
 ### Copilot CLI
-- **Path:** `~/.copilot/plugins/` (or configured root)
+- **Path:** `~/.agents/skills/` (Neutral Root)
 - **Mechanism:** Reads `plugin.json`.
 - **UX:** Traditional tool invocation and intent-based help.

@@ -111,6 +111,19 @@ ______________________________________________________________________
 
 ### SDD Structure
 
+### Anthropic "Agent Skills" Reference Analysis
+
+**Date:** 2026-03-20
+**Source:** [anthropics/skills](https://github.com/anthropics/skills)
+
+Our analysis of the official Anthropic skills repository confirmed several key architectural assumptions:
+- **Self-Containment**: Skills are organized into individual, isolated folders.
+- **SKILL.md is King**: The mandatory entry point must have YAML frontmatter (`name`, `description`).
+- **Autonomous Triggering**: Agents use the `description` to decide when to activate a skill based on user intent, moving away from explicit slash commands.
+- **Universal Paths**: The 2026 industry standard for direct discovery is settling on `~/.agents/skills/` (Gemini/Copilot) and `~/.claude/skills/` (Claude).
+
+**Impact:** This research validates our pivot to the "Full Modern" architecture and reinforces the need to prioritize natural language "Activation Intents" in our documentation.
+
 ### Full Modern (Skills-Only) Architecture
 
 **Date:** 2026-03-20
