@@ -51,7 +51,7 @@
     "method": "script",
     "script": "install.sh",
     "uninstall_script": "uninstall.sh",
-    "location": "~/.agents/skills/ck/sdd-init"
+    "location": "~/.agents/skills/sdd-project-init"
   },
   "system_requirements": {
     "claude_code": "latest",

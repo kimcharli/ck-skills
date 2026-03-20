@@ -38,7 +38,7 @@ ______________________________________________________________________
 ### Alignment with our "Unified Plugin Model" (UPM)
 - Our move to a **Self-Contained Root** (`plugins/ck/<name>`) is perfectly aligned with the official Anthropic structure.
 - We should ensure our `install.sh` scripts prioritize placing the `SKILL.md` file exactly where the agent expects it.
-- **Action:** Consider renaming our `plugins/` directory to `skills/` in the installation target to match the 2026 standard (`~/.agents/skills/ck/<name>`).
+- **Action:** Consider renaming our `plugins/` directory to `skills/` in the installation target to match the 2026 standard (`~/.agents/skills/<name>`).
 
 ### Standardized Metadata
 - We must ensure our `SKILL.md` descriptions are "Trigger-Optimized"—focused on the verbs and tasks the user will actually say.

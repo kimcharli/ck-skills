@@ -42,7 +42,7 @@ ______________________________________________________________________
 
 ### Phase 5: Full Modern Architecture (Skills-Only)
 
-- [x] **T12** — Refactor `install.sh` to use `skills/ck/` root only `[deps: T09]`
+- [x] **T12** — Refactor `install.sh` to use `skills/` root only `[deps: T09]`
 - [x] **T13** — Remove global `commands/` shims from all plugins `[deps: T12]`
 - [x] **T14** — Update `uninstall.sh` to reflect new directory structure `[deps: T11, T12]`
 - [x] **T15** — Update READMEs and usage docs to focus on natural language `[deps: T13]`

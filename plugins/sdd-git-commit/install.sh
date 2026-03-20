@@ -28,7 +28,7 @@ done
 # Home-relative path for patching (e.g., ~/.agents)
 REL_BASE_DIR="${BASE_DIR/#$HOME/~}"
 
-INSTALL_DIR="${BASE_DIR}/skills/ck/commit"
+INSTALL_DIR="${BASE_DIR}/skills/sdd-git-commit"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo -e "${BLUE}🚀 Installing SDD Git Commit skill to ${REL_BASE_DIR}...${NC}"
@@ -44,8 +44,10 @@ mkdir -p "$INSTALL_DIR/commands"
 echo -e "${BLUE}📝 Installing command files...${NC}"
 cp "$SCRIPT_DIR/commands/commit.md" "$INSTALL_DIR/commands/"
 cp "$SCRIPT_DIR/SKILL.md" "$INSTALL_DIR/"
+cp "$SCRIPT_DIR/manifest.json" "$INSTALL_DIR/"
 echo -e "${GREEN}   ✓ commands/commit.md${NC}"
 echo -e "${GREEN}   ✓ SKILL.md${NC}"
+echo -e "${GREEN}   ✓ manifest.json${NC}"
 
 # 4. Patch Path References
 echo -e "${BLUE}🔧 Patching paths for ${REL_BASE_DIR}...${NC}"

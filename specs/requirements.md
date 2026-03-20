@@ -38,13 +38,13 @@ AI CLI agents like Claude Code, Gemini CLI, and GitHub Copilot CLI are powerful 
 ### Story 2: Cross-Runner Compatibility
 
 **As a** developer using multiple AI CLI tools (Claude Code, Gemini CLI, etc.)
-**I want to** install skills into a universal standard path (`skills/ck/`)
+**I want to** install skills into a universal standard path (`skills/`)
 **So that** all agents can automatically discover and activate the skills via their `SKILL.md` descriptions.
 
 **Acceptance Criteria:**
 
 - [x] Installation scripts automatically detect `~/.agents` and `~/.claude`.
-- [ ] Skills are installed to `${BASE_DIR}/skills/ck/` (The Universal Standard).
+- [ ] Skills are installed to `${BASE_DIR}/skills/` (The Universal Standard).
 - [ ] Scripts support explicit path overrides via flags (`--agents`, `--claude`, `--dir`).
 - [x] Hardcoded `~/.claude` references in `.md`, `.json`, and `SKILL.md` are patched during installation.
 - [ ] If `~/.claude/skills` is missing, the installer creates a symlink to `~/.agents/skills` for seamless discovery.

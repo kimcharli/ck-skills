@@ -35,8 +35,7 @@ done
 REL_BASE_DIR="${BASE_DIR/#$HOME/~}"
 
 CLAUDE_DIR="$BASE_DIR"
-COMMANDS_DIR="$CLAUDE_DIR/skills/ck"
-INSTALL_DIR="$COMMANDS_DIR/doc-review"
+INSTALL_DIR="$CLAUDE_DIR/skills/doc-review-commands"
 TOOLS_GLOBAL="$CLAUDE_DIR/tools"
 
 # Script directory (where install.sh is located)
@@ -52,12 +51,6 @@ if [ ! -d "$CLAUDE_DIR" ]; then
     echo -e "${YELLOW}⚠️  Claude Code directory not found at $CLAUDE_DIR${NC}"
     echo -e "${YELLOW}   Creating directory structure...${NC}"
     mkdir -p "$CLAUDE_DIR"
-fi
-
-# Create ck namespace if it doesn't exist
-if [ ! -d "$COMMANDS_DIR" ]; then
-    echo -e "${YELLOW}   Creating ck commands namespace...${NC}"
-    mkdir -p "$COMMANDS_DIR"
 fi
 
 # Check if doc-review already exists
@@ -80,7 +73,9 @@ mkdir -p "$INSTALL_DIR"/{config,tools}
 # Copy command files
 echo -e "${BLUE}📝 Installing command files...${NC}"
 cp "$SCRIPT_DIR"/commands/*.md "$INSTALL_DIR/"
-echo -e "${GREEN}   ✓ Installed 6 command files${NC}"
+cp "$SCRIPT_DIR/SKILL.md" "$INSTALL_DIR/"
+cp "$SCRIPT_DIR/manifest.json" "$INSTALL_DIR/"
+echo -e "${GREEN}   ✓ Installed command files, SKILL.md, and manifest.json${NC}"
 
 # Copy configuration
 echo -e "${BLUE}⚙️  Installing configuration...${NC}"
@@ -135,6 +130,22 @@ for cmd in main analyze core sdd qa help; do
         ERRORS=$((ERRORS + 1))
     fi
 done
+
+# Check SKILL.md
+if [ -f "$INSTALL_DIR/SKILL.md" ]; then
+    echo -e "${GREEN}   ✓ SKILL.md${NC}"
+else
+    echo -e "${RED}   ✗ SKILL.md missing${NC}"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Check manifest.json
+if [ -f "$INSTALL_DIR/manifest.json" ]; then
+    echo -e "${GREEN}   ✓ manifest.json${NC}"
+else
+    echo -e "${RED}   ✗ manifest.json missing${NC}"
+    ERRORS=$((ERRORS + 1))
+fi
 
 # Check config
 if [ -f "$INSTALL_DIR/config/categories.json" ]; then

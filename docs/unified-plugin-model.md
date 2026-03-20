@@ -23,15 +23,14 @@ We have decided to move to a **Purely AI-Native** architecture. We are abandonin
 ```text
 BASE_DIR/ (e.g., ~/.agents or ~/.claude)
 └── skills/
-    └── ck/
-        └── <skill-name>/          <-- THE SKILL ROOT (Universal)
-            ├── manifest.json      # Claude Code / Gemini Discovery
-            ├── plugin.json        # Copilot CLI Metadata
-            ├── SKILL.md           # The "Expertise" (Autonomous Activation)
-            ├── commands/
-            │   └── <name>.md      # Prompt logic (accessed via Skill)
-            └── tools/
-                └── <script>.sh    # Supporting logic/scripts
+    └── <skill-name>/          <-- THE SKILL ROOT (Universal)
+        ├── manifest.json      # Claude Code / Gemini Discovery
+        ├── plugin.json        # Copilot CLI Metadata
+        ├── SKILL.md           # The "Expertise" (Autonomous Activation)
+        ├── commands/
+        │   └── <name>.md      # Prompt logic (accessed via Skill)
+        └── tools/
+            └── <script>.sh    # Supporting logic/scripts
 ```
 
 ______________________________________________________________________
@@ -59,10 +58,10 @@ ______________________________________________________________________
 Every plugin MUST include a high-quality `SKILL.md` file. The `description` in the YAML frontmatter is the **"Activation Trigger."** It must be descriptive enough for the AI to know exactly when to use this skill.
 
 ### Base Directory Detection
-Installation scripts continue to support dynamic base directories (`~/.agents`, `~/.claude`), but now install **exclusively** to the `plugins/ck/` sub-directory.
+Installation scripts continue to support dynamic base directories (`~/.agents`, `~/.claude`), but now install **exclusively** to the `skills/` sub-directory.
 
 ### Automated Path Patching
-Since tools are moved to a `plugins/` sub-directory, all `.md` and `.json` files must be patched during installation to ensure paths point to the correct `BASE_DIR`.
+Since tools are moved to a `skills/` sub-directory, all `.md` and `.json` files must be patched during installation to ensure paths point to the correct `BASE_DIR`.
 
 **Example Patch Logic:**
 ```bash

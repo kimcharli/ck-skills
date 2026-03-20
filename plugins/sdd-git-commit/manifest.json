@@ -47,7 +47,7 @@
     "method": "script",
     "script": "install.sh",
     "uninstall_script": "uninstall.sh",
-    "location": "~/.agents/skills/ck/commit"
+    "location": "~/.agents/skills/sdd-git-commit"
   },
   "system_requirements": {
     "claude_code": "latest",

@@ -10,7 +10,7 @@ NC='\033[0m'
 # 1. Detect Base Directory
 # Default to ~/.claude, but check for ~/.agents
 BASE_DIR="${HOME}/.claude"
-if [ -d "${HOME}/.agents/skills/ck/commit" ]; then
+if [ -d "${HOME}/.agents/skills/sdd-git-commit" ]; then
     BASE_DIR="${HOME}/.agents"
 fi
 
@@ -24,7 +24,7 @@ while [[ "$#" -gt 0 ]]; do
     esac
 done
 
-INSTALL_DIR="${BASE_DIR}/skills/ck/commit"
+INSTALL_DIR="${BASE_DIR}/skills/sdd-git-commit"
 
 echo -e "${BLUE}🗑️  Uninstalling SDD Git Commit skill...${NC}"
 

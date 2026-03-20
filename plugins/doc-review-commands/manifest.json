@@ -107,7 +107,7 @@
     "method": "script",
     "script": "install.sh",
     "uninstall_script": "uninstall.sh",
-    "location": "~/.agents/skills/ck/doc-review"
+    "location": "~/.agents/skills/doc-review-commands"
   },
   "system_requirements": {
     "claude_code": "latest",

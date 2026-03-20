@@ -33,8 +33,7 @@ done
 REL_BASE_DIR="${BASE_DIR/#$HOME/~}"
 
 CLAUDE_DIR="$BASE_DIR"
-COMMANDS_DIR="$CLAUDE_DIR/skills/ck"
-INSTALL_DIR="$COMMANDS_DIR/sdd-init"
+INSTALL_DIR="$CLAUDE_DIR/skills/sdd-project-init"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo -e "${BLUE}╔════════════════════════════════════════════╗${NC}"
@@ -43,7 +42,6 @@ echo -e "${BLUE}╚════════════════════�
 echo ""
 
 [ ! -d "$CLAUDE_DIR" ]   && mkdir -p "$CLAUDE_DIR"
-[ ! -d "$COMMANDS_DIR" ] && mkdir -p "$COMMANDS_DIR"
 
 if [ -d "$INSTALL_DIR" ]; then
     echo -e "${YELLOW}⚠️  Existing installation found at $INSTALL_DIR${NC}"
@@ -57,7 +55,11 @@ mkdir -p "$INSTALL_DIR"/{template/docs,template/specs/features,tools}
 
 echo -e "${BLUE}📝 Installing command file...${NC}"
 cp "$SCRIPT_DIR/commands/init.md" "$INSTALL_DIR/"
+cp "$SCRIPT_DIR/SKILL.md" "$INSTALL_DIR/"
+cp "$SCRIPT_DIR/manifest.json" "$INSTALL_DIR/"
 echo -e "${GREEN}   ✓ init.md${NC}"
+echo -e "${GREEN}   ✓ SKILL.md${NC}"
+echo -e "${GREEN}   ✓ manifest.json${NC}"
 
 echo -e "${BLUE}📋 Installing model file tree...${NC}"
 cp "$SCRIPT_DIR/template/AGENTS.md"                        "$INSTALL_DIR/template/"
