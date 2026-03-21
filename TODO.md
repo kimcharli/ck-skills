@@ -26,3 +26,8 @@
 
 - [ ] **Comprehensive API Docs:** Document the internal tool APIs for each plugin.
 - [ ] **Contribution Guide:** Expand `CONTRIBUTING.md` with detailed testing requirements for new plugins.
+
+## Agent Improvements (Cross-CLI)
+
+- [ ] **Track and implement agent revisions:** See [AGENT-TRACKING.md](docs/agents/AGENT-TRACKING.md) for details on `STATE.md` standardization and skill updates for Gemini, Claude, and Copilot.
+- [ ] **Implement `sdd-state-sync` plugin:** Automate state tracking to improve session hand-offs.

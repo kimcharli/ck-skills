@@ -48,6 +48,7 @@ ______________________________________________________________________
 - [x] **T15** — Update READMEs and usage docs to focus on natural language `[deps: T13]`
 - [x] **T16** — Implement automatic symlinking for Claude discovery in `install.sh` `[deps: T12]`
 - [x] **T17** — Verify autonomous activation via `SKILL.md` in Gemini/Claude `[deps: T12]`
+- [x] **T18** — Implement `docs/agents/AGENTS-gemini.md` with strict SDD "Two-Commit" workflow `[deps: T08]`
 
 ______________________________________________________________________
 
@@ -70,6 +71,7 @@ ______________________________________________________________________
 - **T15** — Update READMEs and usage docs to focus on natural language
 - **T16** — Implement automatic symlinking for Claude discovery
 - **T17** — Verify autonomous activation via `SKILL.md`
+- **T18** — Implement `docs/agents/AGENTS-gemini.md` with strict SDD "Two-Commit" workflow
 
 ______________________________________________________________________
 

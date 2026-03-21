@@ -34,9 +34,11 @@ ck-skills/
 
 - All new features MUST start with a requirement update in `specs/`.
 - Use `BATS` for testing all shell-based skills.
+- Always create temporary scripts or scratch files in `./work/tmp/` instead of system `/tmp/`.
 - Follow the `.markdownlint.json` standards for all documentation.
 - Commit after every completed task in `specs/tasks.md`.
 - Mark tasks `[x]` in `specs/tasks.md` before committing.
+- **Temporary files**: Always create temporary scripts and files under `./work/tmp/` (not `/tmp/`).
 
 ## SDD Gates — check before every coding session
 
