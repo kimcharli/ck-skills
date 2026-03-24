@@ -68,3 +68,6 @@ AGENTS.md is the single source of truth for all AI tools:
 - **Claude Code** — reads AGENTS.md natively
 - **Gemini CLI** — reads AGENTS.md natively
 - **GitHub Copilot Chat** — reads AGENTS.md via context
+
+## Shell: Multi-line Content
+NEVER pass multi-line strings inline to the shell. Write to `work/tmp/<name>.txt` first.
