@@ -2,8 +2,8 @@
   "manifest_version": "1.0",
   "skill_id": "python-lint-fix",
   "name": "Python Lint Fix",
-  "version": "1.0.0",
-  "description": "One-shot auto-fix and formatting for Python (Ruff) and Markdown (mdformat, markdownlint).",
+  "version": "1.1.0",
+  "description": "Environment health checks and pre-commit setup guidance for Python and Markdown quality automation.",
   "author": "kimcharli",
   "license": "MIT",
   "homepage": "https://github.com/kimcharli/ck-skills",
@@ -29,17 +29,17 @@
   "commands": [
     {
       "name": "lint",
-      "description": "Fix, format, and verify Python and Markdown code",
+      "description": "Check environment health and guide pre-commit setup",
       "file": "commands/lint.md"
     }
   ],
   "features": [
-    "Python auto-fix and formatting with Ruff",
-    "Markdown formatting with mdformat",
-    "Markdown linting with markdownlint-cli",
-    "Automated verification of clean state",
-    "Bundled test execution (pytest)",
-    "Environment detection (supports uv and native tools)"
+    "Pre-commit setup guidance for commit-time quality automation",
+    "Environment health checks for uv, pre-commit, and hook installation",
+    "Project policy checks for .pre-commit-config.yaml and markdownlint version",
+    "Compatibility checks for markdownlint-cli (MD060 support)",
+    "Skill validation support via validate-skill.sh detection",
+    "Actionable remediation hints for missing tools"
   ],
   "dependencies": [],
   "documentation": {
@@ -66,6 +66,6 @@
     "git_access": false
   },
   "created_at": "2026-03-18",
-  "updated_at": "2026-03-18",
-  "last_release": "2026-03-18"
+  "updated_at": "2026-04-09",
+  "last_release": "2026-04-09"
 }

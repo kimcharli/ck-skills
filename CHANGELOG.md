@@ -18,7 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`lint-fix.sh` Refactored**: Repurposed from a lint runner to an environment health checker; verifies uv, pre-commit, git hook installation, `.pre-commit-config.yaml` presence, and markdownlint version (≥ 0.45.0).
 - **`python-lint-fix` SKILL.md**: Updated to reflect pre-commit as primary gate; lint-fix.sh described as health checker.
 - **`AGENTS.md`**: Updated AI Agent Workflow section to use `uv run pre-commit install` and reference lint-fix.sh as environment verifier.
-- **MD060 Policy**: Changed `.markdownlint.json` MD060 style from `aligned` to `compact`; table separators standardized to `| --- |` format.
+- **MD060 Policy**: Finalized `.markdownlint.json` MD060 style as `aligned` to match `mdformat-tables` behavior and avoid recurring table-style conflicts.
+- **Marketplace/Plugin Versioning**: Bumped marketplace package version to `1.0.1` and `python-lint-fix` plugin version metadata to `1.1.0`.
 
 ### Fixed
 

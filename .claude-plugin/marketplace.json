@@ -3,7 +3,7 @@
     "name": "kimcharli"
   },
   "name": "ck-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Collection of Claude Code skills by kimcharli",
   "author": {
     "name": "kimcharli"
@@ -97,9 +97,9 @@
     },
     {
       "name": "python-lint-fix",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "source": "./plugins/python-lint-fix",
-      "description": "Auto-fix and format Python (Ruff) and Markdown code in one shot",
+      "description": "Environment health check and pre-commit setup guidance for Python and Markdown quality automation",
       "author": {
         "name": "kimcharli"
       },
