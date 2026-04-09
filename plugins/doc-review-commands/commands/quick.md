@@ -1,6 +1,6 @@
-______________________________________________________________________
+---
 
-## description: Quick documentation update - skip analysis, direct edits only allowed-tools: Read(*), Edit(*), Write(*), Bash(git:*)
+## description: Quick documentation update - skip analysis, direct edits only allowed-tools: Read(_), Edit(_), Write(_), Bash(git:_)
 
 # Quick Documentation Update
 
@@ -9,7 +9,7 @@ ______________________________________________________________________
 **Execution Time:** < 30 seconds
 **Use Case:** Known, simple documentation updates
 
-______________________________________________________________________
+---
 
 ## Task
 

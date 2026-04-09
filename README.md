@@ -10,13 +10,13 @@ ______________________________________________________________________
 
 ## Available Skills
 
-| Skill                   | Description                                                    | Activation Intent             |
-| ----------------------- | -------------------------------------------------------------- | ----------------------------- |
-| **sdd-project-init**    | Bootstrap a new project with Spec-Driven Development structure | "initialize a new project"    |
-| **doc-review-commands** | Keep documentation in sync with code changes                   | "review my documentation"     |
-| **skill-builder**       | Create new production-ready skills in minutes                  | "create a new skill"          |
-| **sdd-git-commit**      | Professional SDD Git commit workflow                           | "commit my changes"           |
-| **python-lint-fix**     | Auto-fix and format Python and Markdown code                   | "fix/lint my code"            |
+| Skill                   | Description                                                    | Activation Intent          |
+| ----------------------- | -------------------------------------------------------------- | -------------------------- |
+| **sdd-project-init**    | Bootstrap a new project with Spec-Driven Development structure | "initialize a new project" |
+| **doc-review-commands** | Keep documentation in sync with code changes                   | "review my documentation"  |
+| **skill-builder**       | Create new production-ready skills in minutes                  | "create a new skill"       |
+| **sdd-git-commit**      | Professional SDD Git commit workflow                           | "commit my changes"        |
+| **python-lint-fix**     | Auto-fix and format Python and Markdown code                   | "fix/lint my code"         |
 
 ______________________________________________________________________
 
@@ -112,6 +112,7 @@ Runs a 7-question interview, then generates a fully populated project with
 > "review my documentation and update the changelog"
 
 Or more focused:
+
 > "update SDD specs for the new feature"
 > "run a documentation QA check"
 

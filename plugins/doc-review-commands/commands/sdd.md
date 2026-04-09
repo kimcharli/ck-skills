@@ -1,6 +1,6 @@
-______________________________________________________________________
+---
 
-## description: Update SDD artifacts (spec.md, plan.md, tasks.md, contracts) allowed-tools: Bash(find:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(\*)
+## description: Update SDD artifacts (spec.md, plan.md, tasks.md, contracts) allowed-tools: Bash(find:_), Bash(git:_), Read(_), Write(_), Edit(_), Grep(_), Glob(\*)
 
 # SDD Artifacts Update Command
 
@@ -22,9 +22,9 @@ SDD stands for Specification-Driven Development.
 - specs/\*/spec.md - Functional requirements
 - specs/\*/plan.md - Implementation plan
 - specs/\*/tasks.md - Task breakdown
-- specs/*/contracts/*.md - Design contracts
+- specs/_/contracts/_.md - Design contracts
 
-______________________________________________________________________
+---
 
 ## Step 1: Identify Relevant Spec Directory
 
@@ -198,7 +198,7 @@ ______________________________________________________________________
 
 ### Find Contract Files
 
-Look for specs/*/contracts/*.md files related to this feature.
+Look for specs/_/contracts/_.md files related to this feature.
 
 ### Update Contracts
 

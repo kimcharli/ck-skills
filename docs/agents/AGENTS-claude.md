@@ -17,22 +17,22 @@ Every feature or fix follows this sequence — no exceptions.
 ### Phase A: Spec Commit (before any code)
 
 1. **Read** `AGENTS.md`, `specs/requirements.md`, `specs/design.md`, `specs/tasks.md`.
-2. **Update specs** to reflect the planned change:
+1. **Update specs** to reflect the planned change:
    - `specs/requirements.md` — what and why
    - `specs/design.md` — how
    - `specs/tasks.md` — add `[ ]` items for implementation steps
-3. **Cross-check** — does the design solve the requirement? Do the tasks cover the design?
-4. **Commit specs** before writing implementation code.
+1. **Cross-check** — does the design solve the requirement? Do the tasks cover the design?
+1. **Commit specs** before writing implementation code.
    - Message format: `docs(<scope>): update specs for <feature>`
 
 ### Phase B: Implementation Commit (after specs are committed)
 
 1. Work through `[ ]` items in `specs/tasks.md` one at a time.
-2. If implementation reveals a spec flaw, **stop coding and update the spec first**.
-3. Mark tasks `[x]` as completed.
-4. Run the quality gate (see below) before committing.
-5. **Update `specs/status.md`** to reflect current state (see §8).
-6. **Commit code** only after the quality gate passes.
+1. If implementation reveals a spec flaw, **stop coding and update the spec first**.
+1. Mark tasks `[x]` as completed.
+1. Run the quality gate (see below) before committing.
+1. **Update `specs/status.md`** to reflect current state (see §8).
+1. **Commit code** only after the quality gate passes.
    - Message format: `feat(<scope>): <description>` or `fix(<scope>): <description>`
 
 ## 3. Quality Gate — Run Before Every Commit
@@ -60,13 +60,13 @@ Never write temporary or scratch scripts to `/tmp/`. Use `./work/tmp/` instead s
 
 This is a Python project. All Python execution goes through `uv`.
 
-| Action | Command |
-|---|---|
-| Run a script | `uv run python script.py` |
-| Run tests | `uv run pytest` |
-| Lint | `uv run ruff check --fix .` |
-| Add dependency | `uv add <package>` |
-| Remove dependency | `uv remove <package>` |
+| Action            | Command                     |
+| ----------------- | --------------------------- |
+| Run a script      | `uv run python script.py`   |
+| Run tests         | `uv run pytest`             |
+| Lint              | `uv run ruff check --fix .` |
+| Add dependency    | `uv add <package>`          |
+| Remove dependency | `uv remove <package>`       |
 
 **Never** use bare `python`, `python3`, or `pip`.
 
@@ -75,8 +75,8 @@ This is a Python project. All Python execution goes through `uv`.
 Read all spec files at the start of every session. Refuse to write code if any gate fails:
 
 1. **Requirements gate** — `specs/requirements.md` status is `APPROVED`
-2. **Design gate** — `specs/design.md` status is `APPROVED`
-3. **Task gate** — the work maps to an open `[ ]` in `specs/tasks.md`
+1. **Design gate** — `specs/design.md` status is `APPROVED`
+1. **Task gate** — the work maps to an open `[ ]` in `specs/tasks.md`
 
 If a gate fails, name it and help the user resolve it before proceeding.
 
@@ -101,16 +101,20 @@ last_session: <YYYY-MM-DD>
 ---
 
 ## Current Focus
+
 <1-2 sentences: what is actively being worked on or what was just finished>
 
 ## Next Steps
+
 - [ ] <next task or priority>
 - [ ] <following task>
 
 ## Blockers
+
 <"None" or list of blocking issues>
 
 ## Recent Decisions
+
 <Any design decisions or scope changes made this session that affect future work>
 ```
 

@@ -1,12 +1,6 @@
-______________________________________________________________________
-
-## description: Build production-ready Claude Code skills efficiently and quickly allowed-tools: Read(*), Write(*), Edit(*), Bash(mkdir:*,cp:*,chmod:*), Glob(*), AskUserQuestion(*)
-
-# Skill Builder
-
+---
 Interactive skill creation system. Build production-ready Claude Code skills in minutes.
-
-______________________________________________________________________
+---
 
 ## 🎯 Task
 

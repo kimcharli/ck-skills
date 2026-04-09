@@ -59,7 +59,9 @@ If a requirement changes mid-implementation, stop and update specs first.
 
 - Use **Opus** (Claude) or **Pro** (Gemini) for spec phases (requirements, design).
 - Use **Sonnet** (Claude) or **Flash** (Gemini) for implementation phases (tasks, code).
-- Always run `bash plugins/python-lint-fix/tools/lint-fix.sh` before completing a task.
+- Install pre-commit hooks once per clone: `uv run pre-commit install`.
+- Use pre-commit as the default quality gate before commit.
+- Run `bash plugins/python-lint-fix/tools/lint-fix.sh` to verify environment health (tools present, hook installed).
 
 ## Tool Compatibility
 
@@ -70,4 +72,5 @@ AGENTS.md is the single source of truth for all AI tools:
 - **GitHub Copilot Chat** — reads AGENTS.md via context
 
 ## Shell: Multi-line Content
+
 NEVER pass multi-line strings inline to the shell. Write to `work/tmp/<name>.txt` first.

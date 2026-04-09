@@ -1,6 +1,6 @@
-______________________________________________________________________
+---
 
-## description: Run documentation analysis without making changes allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:*), Bash(~/.claude/tools/doc-analyzer.sh:*)
+## description: Run documentation analysis without making changes allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:_), Bash(~/.claude/tools/doc-analyzer.sh:_)
 
 # Documentation Analysis Command
 
@@ -13,7 +13,7 @@ ______________________________________________________________________
 
 **Analysis-only mode** - Review project documentation without making changes.
 
-______________________________________________________________________
+---
 
 ## Analysis Summary
 

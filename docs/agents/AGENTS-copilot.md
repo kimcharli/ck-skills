@@ -18,6 +18,7 @@ STATE.md → present? → read it → verify SDD gates → proceed
 
 ```markdown
 ## State: <ISO-date>
+
 - phase: <specify|implement|review>
 - current-task: "<exact [ ] item from specs/tasks.md>"
 - completed: <T-N through T-M, or list>
@@ -43,38 +44,48 @@ Every feature or fix MUST follow this mandatory sequence. No exceptions.
 ### Phase A — Specify (Commit Intent First)
 
 1. **Read** `AGENTS.md`, `specs/requirements.md`, `specs/design.md`, `specs/tasks.md`.
-2. **Enforce SDD Gates** (in order):
+
+1. **Enforce SDD Gates** (in order):
+
    - `specs/requirements.md` status must be `APPROVED` → if DRAFT, stop and help complete it first.
    - `specs/design.md` status must be `APPROVED` → if DRAFT, stop and help complete it first.
    - Work must map to an open `[ ]` item in `specs/tasks.md` → if missing, add it before any code.
-3. **Update Specs**:
+
+1. **Update Specs**:
+
    - Add/update requirements in `specs/requirements.md`.
    - Refine architecture in `specs/design.md`.
    - Break work into discrete steps in `specs/tasks.md`.
-4. **Consistency Check**: Verify the design solves the requirement and tasks cover the full design.
-5. **COMMIT SPECS** before touching implementation:
+
+1. **Consistency Check**: Verify the design solves the requirement and tasks cover the full design.
+
+1. **COMMIT SPECS** before touching implementation:
 
    ```
    docs: update specs for <feature>
-   
+
    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
    ```
 
 ### Phase B — Implement (Commit Code After Quality Gate)
 
 1. **Code & Test**: Work through `[ ]` items in `specs/tasks.md` one by one.
-2. **Doc Sync**: If implementation reveals a spec flaw, update the spec *immediately* before proceeding.
-3. **Quality Gate** (must pass before any commit):
+
+1. **Doc Sync**: If implementation reveals a spec flaw, update the spec _immediately_ before proceeding.
+
+1. **Quality Gate** (must pass before any commit):
+
    - Run lint/fix: `bash plugins/python-lint-fix/tools/lint-fix.sh`
    - **Doc Consistency Check**: Do `docs/` and `specs/` still accurately describe the final code?
    - Mark the task `[x]` in `specs/tasks.md`.
    - **Update `STATE.md`** — set `current-task` to next `[ ]` item, update `completed`, `last-commit`.
      Or run: `bash plugins/sdd-state-sync/sync.sh` if the skill is installed.
-4. **COMMIT CODE** only after the quality gate passes:
+
+1. **COMMIT CODE** only after the quality gate passes:
 
    ```
    feat: implement <task>
-   
+
    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
    ```
 
@@ -82,14 +93,14 @@ Every feature or fix MUST follow this mandatory sequence. No exceptions.
 
 This project uses `uv` for all Python tooling. Strict adherence required.
 
-| Action              | Command                |
-| ------------------- | ---------------------- |
-| Run scripts / tools | `uv run <command>`     |
-| Run tests           | `uv run pytest`        |
-| Run linter          | `uv run ruff check`    |
-| Add dependency      | `uv add <package>`     |
-| Remove dependency   | `uv remove <package>`  |
-| Sync environment    | `uv sync`              |
+| Action              | Command               |
+| ------------------- | --------------------- |
+| Run scripts / tools | `uv run <command>`    |
+| Run tests           | `uv run pytest`       |
+| Run linter          | `uv run ruff check`   |
+| Add dependency      | `uv add <package>`    |
+| Remove dependency   | `uv remove <package>` |
+| Sync environment    | `uv sync`             |
 
 - **Never** use `pip`, `python -m pip`, or bare `python` directly.
 - All Python config lives in `pyproject.toml` — do not create `setup.py` or `requirements.txt`.
@@ -134,7 +145,7 @@ Then verify manually:
 ## 7. Communication Protocol
 
 - **State Your Gate**: Always announce which SDD phase you are in
-  (e.g., *"Phase A: updating specs for X"* or *"Phase B: implementing task Y"*).
+  (e.g., _"Phase A: updating specs for X"_ or _"Phase B: implementing task Y"_).
 - **Ask Before Implementing**: After Phase A, ask the user to approve the spec before starting Phase B.
 - **Evidence on Completion**: When a task is done, report the lint/test result as proof of quality.
 - **Be Direct**: Flag DRY violations or spec drift immediately. Don't silently work around them.

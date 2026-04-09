@@ -117,6 +117,7 @@ ______________________________________________________________________
 **Source:** [anthropics/skills](https://github.com/anthropics/skills)
 
 Our analysis of the official Anthropic skills repository confirmed several key architectural assumptions:
+
 - **Self-Containment**: Skills are organized into individual, isolated folders.
 - **SKILL.md is King**: The mandatory entry point must have YAML frontmatter (`name`, `description`).
 - **Autonomous Triggering**: Agents use the `description` to decide when to activate a skill based on user intent, moving away from explicit slash commands.
@@ -130,11 +131,13 @@ Our analysis of the official Anthropic skills repository confirmed several key a
 **Context:** Pivoting from "Command Shims" to a pure "Skill" architecture for better AI-native performance.
 
 While a "Command Shim" provided legacy slash-command support, it introduced redundant file management and clung to a deprecated directory structure. We decided to go **Full Modern**:
+
 - **Pure Skills**: Rely exclusively on `SKILL.md` expertise and natural language activation.
 - **Root Only**: All files live under `BASE_DIR/plugins/ck/<skill-name>`.
 - **No Shims**: The global `commands/` folder is no longer used.
 
 **Benefits:**
+
 - **Future-Proof**: Aligns with the core roadmap of Claude Code and Gemini CLI.
 - **Zero Pollution**: No global slash-command bloat.
 - **Atomic**: Deleting a single folder removes all trace of the plugin and its expertise.
@@ -149,17 +152,18 @@ While a "Command Shim" provided legacy slash-command support, it introduced redu
 To maintain a single source of truth for markdown linting standards while ensuring each plugin remains self-contained upon installation, we use symbolic links within the repository.
 
 **The Setup:**
+
 - The master configuration is at the project root: `.markdownlint.json`.
 - Plugins (like `python-lint-fix` and `sdd-project-init`) symlink to this master file within their own directory structure (e.g., `plugins/python-lint-fix/tools/.markdownlint.json` → `../../../.markdownlint.json`).
 
 **Why this works:**
+
 - **Repository Normalization**: Only one version of the config exists in the repo.
-- **Standalone Functional Integrity**: The `cp` command used in `install.sh` and `create-project.sh` follows the symlink and copies the *actual content*. This ensures that once a skill is installed or a project is initialized, it has its own independent copy of the config and does not rely on the `ck-skills` repository structure.
+- **Standalone Functional Integrity**: The `cp` command used in `install.sh` and `create-project.sh` follows the symlink and copies the _actual content_. This ensures that once a skill is installed or a project is initialized, it has its own independent copy of the config and does not rely on the `ck-skills` repository structure.
 
 **Rule:** For shared configuration files across plugins, use symlinks to a root-level master file to avoid normalization issues.
 
 ### specs/ vs docs/ separation
-
 
 **Date:** 2026-03-18\
 **Context:** `sdd-project-init` template design.
@@ -176,3 +180,37 @@ Mixing them in `docs/` blurs the boundary and makes AI context noisier.
 For solo projects, these duplicate `AGENTS.md` sections with no benefit.
 Delete them and keep everything in `AGENTS.md`. Splitting only makes sense
 in team settings where different people own different docs.
+
+______________________________________________________________________
+
+## Markdown Tables: Use Compact Style (MD060)
+
+**Date:** 2026-04-09\
+**Context:** After enabling pre-commit with markdownlint, the VS Code markdownlint extension
+reported ~47 MD060 problems for unaligned tables in `docs/pre-commit-integration-analysis.md`.
+
+**Investigation findings:**
+
+- pre-commit (`markdownlint --fix`) passed silently on those same files
+- The problems were editor-only (VS Code extension vs hook version mismatch)
+- `aligned` style requires every table column to be padded to maximum cell width — verbose and
+  noisy to maintain, especially in analysis docs with long cell values
+- `compact` style (`|---|---|`) is equivalent in rendered output and does not produce false
+  positives in the editor
+
+**Decision:** Changed `.markdownlint.json` MD060 style from `aligned` to `compact`:
+
+```json
+"MD060": {
+  "style": "compact"
+}
+```
+
+**Rule going forward:**
+
+- All Markdown tables in this repo use compact style separators: `|---|---|`
+- Do NOT pad table columns to align on content width — it creates maintenance burden and
+  conflicts between editor and pre-commit linter
+- `mdformat` may rewrite tables; if it reformats to aligned style, either revert or suppress
+  with `<!-- mdformat off -->`
+- This applies to all files: `docs/`, `plugins/`, `specs/`, root-level files

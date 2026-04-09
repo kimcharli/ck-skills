@@ -1,6 +1,6 @@
-______________________________________________________________________
+---
 
-## description: Update core documentation files (README, CLAUDE, CHANGELOG) allowed-tools: Bash(cat:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(\*)
+## description: Update core documentation files (README, CLAUDE, CHANGELOG) allowed-tools: Bash(cat:_), Bash(git:_), Read(_), Write(_), Edit(_), Grep(_), Glob(\*)
 
 # Core Documentation Update Command
 
@@ -21,7 +21,7 @@ ______________________________________________________________________
 - CLAUDE.md
 - CHANGELOG.md
 
-______________________________________________________________________
+---
 
 ## Step 1: Read Current Files
 
@@ -39,7 +39,6 @@ Based on $ARGUMENTS, update relevant sections:
 If new feature added, use this template:
 
 ````markdown
-
 ### [Feature Name]
 
 Brief description of what it does and why it's useful.

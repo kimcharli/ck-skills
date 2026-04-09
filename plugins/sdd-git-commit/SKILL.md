@@ -22,7 +22,7 @@ Review what is about to be committed and ensure no sensitive or temporary files 
    git diff HEAD --name-only | grep -iE '(cache|node_modules|\.env$|\.secret|\.key$|dist/|build/|__pycache__)' || true
    ```
 
-   *Action*: If matched, unstage the file, update `.gitignore`, and stage `.gitignore`.
+   _Action_: If matched, unstage the file, update `.gitignore`, and stage `.gitignore`.
 
 ### Step 2: Quality & Linting (Optional)
 
@@ -89,4 +89,4 @@ Briefly reflect on the work. Was anything surprising, painful, or worth remember
 
 ______________________________________________________________________
 
-*Note: This skill is designed to be flexible. Adapt paths (e.g., `specs/` vs `docs/specs/`) and state files to the local project structure.*
+_Note: This skill is designed to be flexible. Adapt paths (e.g., `specs/` vs `docs/specs/`) and state files to the local project structure._

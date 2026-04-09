@@ -1,73 +1,53 @@
 ---
 name: python-lint-fix
-description: Runs Ruff (Python), mdformat (Markdown), and markdownlint (Markdown) checks, auto-fixes issues, and verifies tests pass. Use when the user asks to lint, fix, format, or clean up code.
+description: Checks environment health and guides pre-commit setup. Lint, format, and test run automatically via pre-commit on every git commit. Use when the user asks to lint, fix, format, set up hooks, or check environment readiness.
 ---
 
 # Python Lint Fix
 
-This skill runs auto-fixers and formatters for Python and Markdown to ensure the repository remains in a clean, consistent state.
+Lint, format, and test are handled automatically by **pre-commit** on every `git commit`.
+This skill checks that the environment is healthy and pre-commit hooks are installed.
 
 ## References
 
 - **MarkdownLint Rules**: [DavidAnson/markdownlint Rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md)
 - **Ruff Documentation**: [Ruff Rules](https://docs.astral.sh/ruff/rules/)
+- **pre-commit**: [pre-commit.com](https://pre-commit.com)
 
-## Quick Run
-
-Run the bundled script to fix, format, verify, and test in one shot:
+## First-Time Setup (once per clone)
 
 ```bash
-# Path will be injected by Claude Code at runtime based on installation location
-bash ~/.claude/commands/ck/lint/tools/lint-fix.sh
+uv tool install pre-commit    # install pre-commit if not already present
+uv run pre-commit install     # install git hook
 ```
 
-## Workflow
+After installation, every `git commit` automatically runs:
 
-### Step 1: Python Auto-fix (Ruff)
+- **ruff** — Python lint + format
+- **mdformat** — Markdown format (GFM, frontmatter, tables, shfmt)
+- **markdownlint** — Markdown style (`--fix`)
+- **pytest** — tests on `pre-push` stage
 
-Ruff is used for both linting and formatting.
+## Environment Health Check
+
+Run the bundled script to verify tools and hook installation:
 
 ```bash
-uv run ruff check --fix .
-uv run ruff format .
+bash plugins/python-lint-fix/tools/lint-fix.sh
 ```
 
-### Step 2: Markdown Auto-format (mdformat)
+It checks: `uv`, `pre-commit`, git hook presence, `.pre-commit-config.yaml`, and markdownlint version (≥ 0.45.0).
 
-Mdformat ensures consistent Markdown structure.
-
-```bash
-mdformat .
-```
-
-### Step 3: Markdown Linting (markdownlint)
-
-Markdownlint checks for style issues and consistency.
+## Manual Run (without committing)
 
 ```bash
-markdownlint --fix 'docs/**/*.md' 'CHANGELOG.md' 'README.md'
-```
-
-### Step 4: Verification
-
-Verify that all checks now pass.
-
-```bash
-uv run ruff check . && uv run ruff format --check .
-```
-
-### Step 5: Testing (pytest)
-
-Ensure formatting changes didn't break any functionality.
-
-```bash
-uv run pytest -q
+uvx pre-commit run --all-files
 ```
 
 ## Summary Reporting
 
-After completion, report:
+After running, report:
 
-- Files modified.
-- Types of issues fixed (unused imports, formatting, markdown spacing).
-- Final test status.
+- Whether the pre-commit hook is installed.
+- Any missing tools or version mismatches found.
+- Next action for the user if issues were detected.

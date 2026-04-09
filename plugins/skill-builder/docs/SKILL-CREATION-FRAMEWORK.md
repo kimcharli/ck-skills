@@ -26,7 +26,6 @@ ______________________________________________________________________
 description: What this skill does (concise)
 allowed-tools: Bash(*), Read(*), Write(*), Edit(*), Grep(*)
 ---
-
 # Skill Name
 
 Brief description...
@@ -543,6 +542,7 @@ One-sentence description.
 
 ```bash
 /skill "simple task"
+```
 ````
 
 ## Examples

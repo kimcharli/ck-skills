@@ -107,10 +107,7 @@ At the root `.claude-plugin/marketplace.json`:
       },
       "license": "MIT",
       "homepage": "https://github.com/your-username/my-marketplace/tree/main/plugins/my-skill",
-      "tags": [
-        "skill",
-        "automation"
-      ],
+      "tags": ["skill", "automation"],
       "category": "development"
     }
   ]

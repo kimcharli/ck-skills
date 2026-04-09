@@ -63,6 +63,7 @@ Format source code with consistency and style standards.
 ## Step 1: Analyze Input
 
 Determine:
+
 - Programming language
 - Current code style
 - Target style/standards
@@ -80,6 +81,7 @@ Determine:
        load_standard_rules
        cache_for_1_hour
    fi
+   ```
 ````
 
 2. Load formatting rules for language
@@ -411,6 +413,7 @@ Format code in Python, JavaScript, TypeScript, Go, and Rust.
 
 ```bash
 /ck:code-formatter:quick "src/main.py"
+```
 ````
 
 ## Full Usage
@@ -573,13 +576,13 @@ Cache operations: < 100ms
 
 ## 📈 Results
 
-| Metric | Target | Achieved |
-|--------|--------|----------|
-| Token savings (cached) | 20-30% | 35-50% ✅ |
-| Token savings (quick) | 50-70% | 50-60% ✅ |
-| Execution time | < 30s | 5-20s ✅ |
-| Test coverage | > 80% | 85% ✅ |
-| Documentation | Complete | Complete ✅ |
+| Metric                 | Target   | Achieved   |
+|------------------------|----------|------------|
+| Token savings (cached) | 20-30%   | 35-50% ✅   |
+| Token savings (quick)  | 50-70%   | 50-60% ✅   |
+| Execution time         | < 30s    | 5-20s ✅    |
+| Test coverage          | > 80%    | 85% ✅      |
+| Documentation          | Complete | Complete ✅ |
 
 ---
 

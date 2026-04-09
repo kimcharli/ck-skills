@@ -50,6 +50,10 @@ ______________________________________________________________________
 - [x] **T17** — Verify autonomous activation via `SKILL.md` in Gemini/Claude `[deps: T12]`
 - [x] **T18** — Implement `docs/agents/AGENTS-gemini.md` with strict SDD "Two-Commit" workflow `[deps: T08]`
 
+### Phase 6: Quality Automation
+
+- [x] **T19** — Migrate to pre-commit Option A workflow `[deps: T05, T18]`
+
 ______________________________________________________________________
 
 ## Completed

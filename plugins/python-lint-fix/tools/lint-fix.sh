@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# lint-fix: auto-fix lint issues, format, verify, and run tests.
-# This script is designed for Python (Ruff) and Markdown (mdformat, markdownlint).
+# lint-fix: environment health check + pre-commit setup guide.
+# Lint/format/test are handled automatically by pre-commit on every git commit.
+# This script verifies tools are present and pre-commit hooks are installed.
 # Reference: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 
 set -e
@@ -11,127 +12,76 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ISSUES=0
 
-# Minimum required versions for MD060 support
-MIN_MDL_VERSION="0.40.0"
+echo -e "${BLUE}=== Environment Health Check ===${NC}"
 
-# ── Tool Availability Checks ──────────────────────────────────────────────────
-check_python_tools() {
-    if ! command -v ruff &> /dev/null && ! { command -v uv &> /dev/null && uv run ruff --version &> /dev/null; }; then
-        echo -e "${YELLOW}⚠️  Ruff not found.${NC}"
-        echo -e "   Install: ${BLUE}pip install ruff${NC} or ${BLUE}brew install ruff${NC}"
-        return 1
-    fi
-    return 0
-}
+# ── 1. uv ─────────────────────────────────────────────────────────────────────
+if command -v uv &> /dev/null; then
+    echo -e "${GREEN}✓ uv found:${NC} $(uv --version)"
+else
+    echo -e "${RED}✗ uv not found.${NC}"
+    echo -e "   Install: ${BLUE}brew install uv${NC} or ${BLUE}curl -LsSf https://astral.sh/uv/install.sh | sh${NC}"
+    ISSUES=$((ISSUES + 1))
+fi
 
-check_mdformat() {
-    if ! command -v mdformat &> /dev/null && ! { command -v uv &> /dev/null && uvx mdformat --version &> /dev/null; }; then
-        echo -e "${YELLOW}⚠️  mdformat not found.${NC}"
-        echo -e "   Install: ${BLUE}pip install mdformat-gfm mdformat-frontmatter mdformat-tables mdformat-shfmt${NC}"
-        return 1
-    fi
-    return 0
-}
+# ── 2. pre-commit ─────────────────────────────────────────────────────────────
+if command -v uv &> /dev/null && uvx pre-commit --version &> /dev/null; then
+    echo -e "${GREEN}✓ pre-commit available via uvx${NC}"
+elif command -v pre-commit &> /dev/null; then
+    echo -e "${GREEN}✓ pre-commit found:${NC} $(pre-commit --version)"
+else
+    echo -e "${RED}✗ pre-commit not found.${NC}"
+    echo -e "   Install: ${BLUE}uv tool install pre-commit${NC} or ${BLUE}pipx install pre-commit${NC}"
+    ISSUES=$((ISSUES + 1))
+fi
 
-check_markdownlint() {
-    if ! command -v markdownlint &> /dev/null; then
-        echo -e "${YELLOW}⚠️  markdownlint-cli not found.${NC}"
-        echo -e "   Install: ${BLUE}npm install -g markdownlint-cli@latest${NC}"
-        return 1
-    fi
+# ── 3. pre-commit hook installed ──────────────────────────────────────────────
+if [ -f ".git/hooks/pre-commit" ]; then
+    echo -e "${GREEN}✓ pre-commit git hook is installed${NC}"
+else
+    echo -e "${YELLOW}⚠️  pre-commit git hook is NOT installed.${NC}"
+    echo -e "   Linting will NOT run automatically on commit."
+    echo -e "   Fix: ${BLUE}uv run pre-commit install${NC}"
+    ISSUES=$((ISSUES + 1))
+fi
 
-    # Check version for MD060 support (requires markdownlint-cli 0.45.0+)
-    local current_version
+# ── 4. .pre-commit-config.yaml present ────────────────────────────────────────
+if [ -f ".pre-commit-config.yaml" ]; then
+    echo -e "${GREEN}✓ .pre-commit-config.yaml found${NC}"
+else
+    echo -e "${RED}✗ .pre-commit-config.yaml not found.${NC}"
+    echo -e "   This project requires a pre-commit config to enforce lint/format."
+    ISSUES=$((ISSUES + 1))
+fi
+
+# ── 5. markdownlint-cli version ───────────────────────────────────────────────
+if command -v markdownlint &> /dev/null; then
     current_version=$(markdownlint --version 2>&1 | head -n 1)
-    
-    # Simple function to compare versions
-    version_ge() {
-        printf '%s\n%s' "$2" "$1" | sort -V -C
-    }
-
-    if ! version_ge "$current_version" "0.45.0"; then
-        echo -e "${YELLOW}⚠️  markdownlint-cli version (${current_version}) is too old.${NC}"
-        echo -e "   Required: 0.45.0+ (for MD060 support)."
-        echo -e "   Update: ${BLUE}npm install -g markdownlint-cli@latest${NC}"
-    fi
-    return 0
-}
-
-echo -e "${BLUE}=== Step 1: Python Linting (Ruff) ===${NC}"
-if check_python_tools; then
-    if command -v uv &> /dev/null && [ -f "pyproject.toml" ]; then
-        echo "Running uv run ruff check --fix ."
-        uv run ruff check --fix .
-        echo "Running uv run ruff format ."
-        uv run ruff format .
+    version_ge() { printf '%s\n%s' "$2" "$1" | sort -V -C; }
+    if version_ge "$current_version" "0.45.0"; then
+        echo -e "${GREEN}✓ markdownlint-cli ${current_version} (meets 0.45.0+ requirement)${NC}"
     else
-        echo "Running ruff check --fix ."
-        ruff check --fix . || true
-        echo "Running ruff format ."
-        ruff format . || true
+        echo -e "${YELLOW}⚠️  markdownlint-cli ${current_version} is too old (need 0.45.0+ for MD060).${NC}"
+        echo -e "   Update: ${BLUE}npm install -g markdownlint-cli@latest${NC}"
+        ISSUES=$((ISSUES + 1))
     fi
-fi
-
-echo -e "${BLUE}=== Step 2: Markdown Formatting (mdformat) ===${NC}"
-if check_mdformat; then
-    # Essential mdformat plugins for GitHub-style Markdown and aligned tables
-    MDFORMAT_PLUGINS="--with mdformat-gfm --with mdformat-frontmatter --with mdformat-tables --with mdformat-shfmt"
-    
-    if command -v uv &> /dev/null; then
-        echo "Running uvx $MDFORMAT_PLUGINS mdformat ."
-        # Use find to avoid potential shell expansion issues with many files
-        find . -name "*.md" -not -path "*/.git/*" -print0 | xargs -0 uvx $MDFORMAT_PLUGINS mdformat
-    elif command -v mdformat &> /dev/null; then
-        echo "Running mdformat ."
-        mdformat .
-    fi
-fi
-
-echo -e "${BLUE}=== Step 3: Markdown Linting (markdownlint) ===${NC}"
-if check_markdownlint; then
-    if [ ! -f ".markdownlint.json" ] && [ ! -f ".markdownlint.yaml" ] && [ ! -f ".markdownlint.yml" ]; then
-        if [ -f "${SCRIPT_DIR}/.markdownlint.json" ]; then
-            echo -e "${YELLOW}No markdownlint config found, copying model to project root.${NC}"
-            cp "${SCRIPT_DIR}/.markdownlint.json" .
-        else
-            echo -e "${YELLOW}Warning: No markdownlint config found and model missing in ${SCRIPT_DIR}.${NC}"
-        fi
-    fi
-
-    echo "Running markdownlint --fix ..."
-    # markdownlint-cli supports globbing
-    markdownlint --fix '**/*.md' 2>/dev/null || true
-    
-    echo "Running final markdownlint check..."
-    markdownlint '**/*.md'
-fi
-
-echo -e "${BLUE}=== Step 4: Skill Validation (SKILL.md) ===${NC}"
-VALIDATOR=$(find . -name "validate-skill.sh" -not -path "*/.git/*" | head -n 1)
-if [ -f "$VALIDATOR" ]; then
-    bash "$VALIDATOR" .
 else
-    echo -e "${YELLOW}⚠️  Skill validator (validate-skill.sh) not found.${NC}"
+    echo -e "${YELLOW}⚠️  markdownlint-cli not found (used by pre-commit hook).${NC}"
+    echo -e "   Install: ${BLUE}npm install -g markdownlint-cli@latest${NC}"
+    ISSUES=$((ISSUES + 1))
 fi
 
-echo -e "${BLUE}=== Step 5: Verification ===${NC}"
-if command -v uv &> /dev/null && [ -f "pyproject.toml" ]; then
-    echo "Verifying clean state..."
-    uv run ruff check . && uv run ruff format --check .
-elif command -v ruff &> /dev/null; then
-    ruff check . && ruff format --check .
-fi
-
-echo -e "${BLUE}=== Step 6: Testing (pytest) ===${NC}"
-if command -v uv &> /dev/null && [ -f "pyproject.toml" ]; then
-    echo "Running tests..."
-    uv run pytest -q || echo -e "${RED}Tests failed!${NC}"
-elif [ -d "tests" ] && command -v pytest &> /dev/null; then
-    pytest -q || echo -e "${RED}Tests failed!${NC}"
+# ── Summary ───────────────────────────────────────────────────────────────────
+echo ""
+if [ "$ISSUES" -eq 0 ]; then
+    echo -e "${GREEN}=== Environment ready. pre-commit will lint/format/test on every git commit. ===${NC}"
 else
-    echo "No tests found or pytest missing, skipping."
+    echo -e "${YELLOW}=== ${ISSUES} issue(s) found. Resolve the above before committing. ===${NC}"
+    echo ""
+    echo -e "Quick setup:"
+    echo -e "  ${BLUE}uv tool install pre-commit${NC}   # install pre-commit"
+    echo -e "  ${BLUE}uv run pre-commit install${NC}    # install git hook (once per clone)"
+    echo -e "  ${BLUE}uvx pre-commit run --all-files${NC}  # run all hooks manually"
+    exit 1
 fi
-
-echo -e "${GREEN}=== All checks completed ===${NC}"

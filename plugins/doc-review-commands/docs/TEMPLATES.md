@@ -77,7 +77,7 @@ Used for installation and basic usage:
 ## 🔍 Commands Reference
 
 | Command    | Purpose       | Tokens    | Time   |
-| ---------- | ------------- | --------- | ------ |
+|------------|---------------|-----------|--------|
 | `/command` | [Description] | ~XXX-XXXK | XX-XXs |
 
 ### `/command` - [Title]

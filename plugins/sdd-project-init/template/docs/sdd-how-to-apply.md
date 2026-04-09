@@ -11,7 +11,7 @@ AI coding tools are most effective when given complete context upfront. Without
 a spec, the AI discovers requirements incrementally — leading to rework, drift,
 and code that's hard to explain later. A spec written before coding:
 
-- Forces clarity on *what* and *why* before *how*
+- Forces clarity on _what_ and _why_ before _how_
 - Gives the AI a single source of truth to validate against
 - Becomes living documentation that outlasts any one session
 - Makes switching AI tools frictionless — move the `specs/` folder, not the history
@@ -55,21 +55,21 @@ ______________________________________________________________________
 ## The Daily Loop
 
 1. Open `specs/requirements.md`, describe the feature
-1. Ask the AI: *"Read AGENTS.md and specs/requirements.md. Help me complete
-   requirements for [feature]."*
+1. Ask the AI: _"Read AGENTS.md and specs/requirements.md. Help me complete
+   requirements for [feature]."_
 1. Review and approve (change Status to `APPROVED`)
-1. Ask the AI: *"Requirements approved. Write the design."*
+1. Ask the AI: _"Requirements approved. Write the design."_
 1. Review and approve
-1. Ask the AI: *"Design approved. Break this into tasks."*
+1. Ask the AI: _"Design approved. Break this into tasks."_
 1. Review and approve
-1. Ask the AI: *"Execute T01."* — implements, commits, marks `[x]`
+1. Ask the AI: _"Execute T01."_ — implements, commits, marks `[x]`
 1. Repeat per task
 
 ### Mid-feature discovery
 
 If something new surfaces during implementation:
 
-1. Stop: *"Hold on, this changes the requirements."*
+1. Stop: _"Hold on, this changes the requirements."_
 1. Update `specs/requirements.md` (back to DRAFT)
 1. Cascade through design and tasks before resuming
 

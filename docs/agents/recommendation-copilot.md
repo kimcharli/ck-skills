@@ -11,10 +11,10 @@ causes agents to lose context when sessions are interrupted.
 The most effective solution requires two things working together:
 
 1. **`STATE.md`** — a single, fixed-schema snapshot file that agents read first every session.
-2. **`sdd-state-sync`** — a skill/script that generates and updates `STATE.md` automatically from
+1. **`sdd-state-sync`** — a skill/script that generates and updates `STATE.md` automatically from
    `specs/tasks.md` and `git log`, so agents don't have to maintain it manually.
 
----
+______________________________________________________________________
 
 ## Part 1 — STATE.md Schema
 
@@ -22,6 +22,7 @@ Place `STATE.md` in the project root. Enforce this exact schema:
 
 ```markdown
 ## State: <YYYY-MM-DD>
+
 - phase: <specify | implement | review | done>
 - current-task: "<exact [ ] text from specs/tasks.md, with task ID if present>"
 - completed: <"T-1 through T-5" or comma-separated list>
@@ -42,6 +43,7 @@ Place `STATE.md` in the project root. Enforce this exact schema:
 
 ```markdown
 ## State: 2026-03-21
+
 - phase: implement
 - current-task: "[ ] T-12 Add sdd-state-sync sync.sh script"
 - completed: T-1 through T-11
@@ -50,7 +52,7 @@ Place `STATE.md` in the project root. Enforce this exact schema:
 - last-commit: a3f9c12
 ```
 
----
+______________________________________________________________________
 
 ## Part 2 — sdd-state-sync Skill
 
@@ -166,44 +168,48 @@ Add to AGENTS.md pre-commit checklist:
     bash plugins/sdd-state-sync/sync.sh
 ```
 
----
+______________________________________________________________________
 
 ## Part 3 — Where Instructions Should Live
 
-| Concern | Location | Rationale |
-|---|---|---|
-| "Read STATE.md first at session start" | `AGENTS.md` (§0) | Universal protocol; every agent must follow |
-| "Update STATE.md before every commit" | `AGENTS.md` pre-commit checklist | Enforced at the commit gate, not optionally |
-| STATE.md schema definition | `AGENTS.md` §0 + this doc | Schema in AGENTS.md (brief); full spec here |
-| sdd-state-sync automation | `plugins/sdd-state-sync/` | Reusable skill, not agent-specific |
-| How to regenerate STATE.md manually | This document (§ above) | Reference for implementers |
+| Concern                                | Location                         | Rationale                                   |
+| -------------------------------------- | -------------------------------- | ------------------------------------------- |
+| "Read STATE.md first at session start" | `AGENTS.md` (§0)                 | Universal protocol; every agent must follow |
+| "Update STATE.md before every commit"  | `AGENTS.md` pre-commit checklist | Enforced at the commit gate, not optionally |
+| STATE.md schema definition             | `AGENTS.md` §0 + this doc        | Schema in AGENTS.md (brief); full spec here |
+| sdd-state-sync automation              | `plugins/sdd-state-sync/`        | Reusable skill, not agent-specific          |
+| How to regenerate STATE.md manually    | This document (§ above)          | Reference for implementers                  |
 
 **Key principle**: The protocol (what/when) belongs in AGENTS.md. The implementation (how) belongs
 in the skill. This keeps AGENTS.md concise and skill logic portable across projects.
 
----
+______________________________________________________________________
 
 ## Part 4 — Comparison of Approaches
 
-| Approach | Efficiency | Reliability | Maintenance |
-|---|---|---|---|
-| Read all files every session | O(n) tokens | Always current | None needed |
-| Manual STATE.md | O(1) read | Drifts if forgotten | High (agent must remember) |
-| **STATE.md + sdd-state-sync** | **O(1) read** | **Auto-regenerated** | **Low (run at commit)** |
-| External DB / JSON index | O(1) read | Requires tooling | High (infra overhead) |
+| Approach                      | Efficiency    | Reliability          | Maintenance                |
+| ----------------------------- | ------------- | -------------------- | -------------------------- |
+| Read all files every session  | O(n) tokens   | Always current       | None needed                |
+| Manual STATE.md               | O(1) read     | Drifts if forgotten  | High (agent must remember) |
+| **STATE.md + sdd-state-sync** | **O(1) read** | **Auto-regenerated** | **Low (run at commit)**    |
+| External DB / JSON index      | O(1) read     | Requires tooling     | High (infra overhead)      |
 
 The recommended approach (row 3) hits the best trade-off: no external dependencies, Git-trackable,
 works across all AI agents, and automation removes the "agent forgot to update" failure mode.
 
----
+______________________________________________________________________
 
 ## Part 5 — Migration Path
 
 1. **Day 1**: Add `STATE.md` schema to `AGENTS.md` §0 (done in `AGENTS-copilot.md`).
-2. **Day 2**: Create `STATE.md` manually for the current project state.
-3. **Day 3**: Implement `plugins/sdd-state-sync/sync.sh` (template above).
-4. **Ongoing**: Add `bash plugins/sdd-state-sync/sync.sh` to pre-commit checklist.
-5. **Optional**: Add as a git pre-commit hook for full automation:
+
+1. **Day 2**: Create `STATE.md` manually for the current project state.
+
+1. **Day 3**: Implement `plugins/sdd-state-sync/sync.sh` (template above).
+
+1. **Ongoing**: Add `bash plugins/sdd-state-sync/sync.sh` to pre-commit checklist.
+
+1. **Optional**: Add as a git pre-commit hook for full automation:
 
    ```bash
    # .git/hooks/pre-commit (or hooks/pre-commit tracked in repo)

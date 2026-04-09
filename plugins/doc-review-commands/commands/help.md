@@ -1,4 +1,4 @@
-______________________________________________________________________
+---
 
 ## description: Documentation review system help - usage guide and command reference allowed-tools: Bash(cat:\*)
 
@@ -7,7 +7,7 @@ ______________________________________________________________________
 **Version:** Phase 3 (Modular Architecture)
 **Last Updated:** 2025-10-24
 
-______________________________________________________________________
+---
 
 ## 🎯 What Is This?
 

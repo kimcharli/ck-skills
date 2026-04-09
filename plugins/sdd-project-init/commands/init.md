@@ -1,4 +1,4 @@
-______________________________________________________________________
+---
 
 ## name: init description: Interview-driven SDD project initializer — creates AGENTS.md, specs/, docs/ fully populated
 
@@ -16,7 +16,7 @@ the model file tree with variable substitution.
 - "create a project skeleton"
 - "apply SDD to this project"
 
-______________________________________________________________________
+---
 
 ## Step 1 — Interview
 

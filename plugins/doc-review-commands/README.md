@@ -29,13 +29,13 @@ ______________________________________________________________________
 
 All commands are **AI-Native**. Just tell the tool what you want:
 
-| Goal                                | Activation Intent                             |
-| ----------------------------------- | --------------------------------------------- |
-| **Full Review**                     | "review my documentation and update everything" |
-| **Analysis Only**                   | "analyze documentation health"                |
-| **Core Files (README, CHANGELOG)**  | "update core documentation for [change]"      |
-| **SDD Specs & Tasks**               | "update SDD artifacts for [feature]"          |
-| **Quality Check**                   | "run a documentation QA check"                |
+| Goal                               | Activation Intent                               |
+| ---------------------------------- | ----------------------------------------------- |
+| **Full Review**                    | "review my documentation and update everything" |
+| **Analysis Only**                  | "analyze documentation health"                  |
+| **Core Files (README, CHANGELOG)** | "update core documentation for [change]"        |
+| **SDD Specs & Tasks**              | "update SDD artifacts for [feature]"            |
+| **Quality Check**                  | "run a documentation QA check"                  |
 
 The AI will automatically activate the `doc-review-commands` skill and use its specialized sub-commands to keep your docs in sync.
 

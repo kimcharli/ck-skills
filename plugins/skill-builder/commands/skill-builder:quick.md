@@ -1,12 +1,6 @@
-______________________________________________________________________
-
-## description: Quick skill scaffolding - generate skill structure with defaults allowed-tools: Bash(mkdir:*,cp:*), Write(*), Glob(*)
-
-# Quick Skill Builder
-
+---
 Rapid skill generation using default configuration and templates.
-
-______________________________________________________________________
+---
 
 ## ⚡ Task
 

@@ -14,6 +14,7 @@ Your goal: produce the most EFFICIENT AGENTS.md possible. Efficiency means:
 ## Instructions
 
 1. Ask me these questions (or infer from context if I provide a repo):
+
    - Project purpose (1 sentence)
    - Tech stack (languages, frameworks, package managers)
    - Project structure (key directories and their roles)
@@ -25,19 +26,19 @@ Your goal: produce the most EFFICIENT AGENTS.md possible. Efficiency means:
    - Model selection guidance (if applicable — which model for which phase)
    - Status tracking (where does session state live? how do agents hand off between sessions?)
 
-2. Write the AGENTS.md following these principles:
+1. Write the AGENTS.md following these principles:
 
    **Structure** — Use this exact section order:
 
    1. Purpose (1-2 sentences, no fluff)
-   2. Session Start (what to read first to resume — status file before full specs)
-   3. Stack & Environment (bulleted, scannable)
-   4. Project Structure (tree diagram, annotated)
-   5. Workflow (numbered phases — what agents do and in what order)
-   6. Quality Gates (commands in execution order, with pass/fail behavior)
-   7. Status Tracking (format and rules for the session-handoff file)
-   8. Conventions (hard rules as imperative statements: "Always X", "Never Y")
-   9. Tool Compatibility (which agents read this file and how)
+   1. Session Start (what to read first to resume — status file before full specs)
+   1. Stack & Environment (bulleted, scannable)
+   1. Project Structure (tree diagram, annotated)
+   1. Workflow (numbered phases — what agents do and in what order)
+   1. Quality Gates (commands in execution order, with pass/fail behavior)
+   1. Status Tracking (format and rules for the session-handoff file)
+   1. Conventions (hard rules as imperative statements: "Always X", "Never Y")
+   1. Tool Compatibility (which agents read this file and how)
 
    **Session continuity pattern:**
 
@@ -76,7 +77,8 @@ Your goal: produce the most EFFICIENT AGENTS.md possible. Efficiency means:
    - Documentation standards that duplicate what a linter config already enforces
    - Putting mutable project state (current task, progress, blockers) inside AGENTS.md
 
-3. After generating, self-review:
+1. After generating, self-review:
+
    - Read every line and ask: "Can an AI agent act on this without ambiguity?" Delete if no.
    - Check for duplicates across sections. Merge ruthlessly.
    - Verify total line count is under 100.
