@@ -1,13 +1,22 @@
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        exclude: ^configs/source/  # source files use Junos syntax, not strict YAML
+      - id: check-merge-conflict
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.10
+    rev: v0.15.10
     hooks:
       - id: ruff
         args: [--fix]
       - id: ruff-format
 
   - repo: https://github.com/hukkin/mdformat
-    rev: 0.7.22
+    rev: 0.7.21
     hooks:
       - id: mdformat
         additional_dependencies:
@@ -17,7 +26,7 @@ repos:
           - mdformat-shfmt==0.2.0
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.45.0
+    rev: v0.48.0
     hooks:
       - id: markdownlint
         args: [--fix]
