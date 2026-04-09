@@ -183,34 +183,30 @@ in team settings where different people own different docs.
 
 ______________________________________________________________________
 
-## Markdown Tables: Use Compact Style (MD060)
+## Markdown Tables: Use Aligned Style (MD060)
 
 **Date:** 2026-04-09\
-**Context:** After enabling pre-commit with markdownlint, the VS Code markdownlint extension
-reported ~47 MD060 problems for unaligned tables in `docs/pre-commit-integration-analysis.md`.
+**Context:** After enabling pre-commit with mdformat and markdownlint, table formatting
+repeatedly drifted between formatter and linter expectations.
 
 **Investigation findings:**
 
-- pre-commit (`markdownlint --fix`) passed silently on those same files
-- The problems were editor-only (VS Code extension vs hook version mismatch)
-- `aligned` style requires every table column to be padded to maximum cell width — verbose and
-  noisy to maintain, especially in analysis docs with long cell values
-- `compact` style (`|---|---|`) is equivalent in rendered output and does not produce false
-  positives in the editor
+- `mdformat` with `mdformat-tables` pads table columns for alignment
+- MD060 `compact` rejects those padded rows and raises repeated lint failures
+- `markdownlint --fix` does not consistently normalize this mismatch automatically
+- Keeping formatter and linter in the same table style avoids recurring commit friction
 
-**Decision:** Changed `.markdownlint.json` MD060 style from `aligned` to `compact`:
+**Decision:** Changed `.markdownlint.json` MD060 style from `compact` to `aligned`:
 
 ```json
 "MD060": {
-  "style": "compact"
+  "style": "aligned"
 }
 ```
 
 **Rule going forward:**
 
-- All Markdown tables in this repo use compact style separators: `|---|---|`
-- Do NOT pad table columns to align on content width — it creates maintenance burden and
-  conflicts between editor and pre-commit linter
-- `mdformat` may rewrite tables; if it reformats to aligned style, either revert or suppress
-  with `<!-- mdformat off -->`
+- All Markdown tables in this repo use aligned style to match mdformat-tables output
+- Do NOT force compact table style while mdformat-tables is enabled in pre-commit
+- Keep formatter and linter policies consistent to avoid repeated MD060 failures
 - This applies to all files: `docs/`, `plugins/`, `specs/`, root-level files

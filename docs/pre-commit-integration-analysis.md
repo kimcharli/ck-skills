@@ -53,6 +53,10 @@ review before re-committing. Skip with `git commit --no-verify` when needed.
 declared via `additional_dependencies` and installed into pre-commit's isolated env via `pip`
 (not `uv`). Pin versions explicitly to replicate `uv.lock` guarantees.
 
+**Table style policy note:** Because `mdformat-tables` pads columns for readability, MD060 should
+use `aligned` style in `.markdownlint.json`. Using MD060 `compact` with this formatter stack
+causes recurring lint conflicts on Markdown tables.
+
 ## Decision Options
 
 ### Option A: pre-commit as auto-fixer + gate (recommended)
