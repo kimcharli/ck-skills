@@ -210,4 +210,14 @@ MIT — see [LICENSE](LICENSE)
 
 ______________________________________________________________________
 
+## Recommended Tools for AI Agents
+
+To maximize the efficiency of AI agents (Claude Code, Copilot CLI, Gemini CLI, etc.), it is highly recommended to install the following tools:
+
+- **[tokensave](https://github.com/aovestdipaperino/tokensave)**: Provides instant semantic results from a pre-built knowledge graph, making codebase analysis significantly faster and more token-efficient.
+- **codebase-memory-mcp**: Provides persistent, long-term memory for your codebase across sessions, helping agents remember architectural decisions, previous bug fixes, and project-specific conventions.
+- **[pre-commit](https://pre-commit.com/)**: Essential for maintaining code quality. Combined with **[Ruff](https://github.com/astral-sh/ruff)** for Python, it allows agents to automatically fix linting and formatting issues before committing, ensuring a clean and consistent codebase.
+
+______________________________________________________________________
+
 **Links:** [GitHub](https://github.com/kimcharli/ck-skills) · [Issues](https://github.com/kimcharli/ck-skills/issues) · [Discussions](https://github.com/kimcharli/ck-skills/discussions)
