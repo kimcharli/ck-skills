@@ -15,13 +15,13 @@ ______________________________________________________________________
 
 ## Quick Comparison
 
-| Aspect       | Local Command  | Marketplace Plugin        |
-| ------------ | -------------- | ------------------------- |
-| Setup Time   | < 1 minute     | 5-10 minutes              |
-| Discovery    | Manual sharing | Discoverable by others    |
-| Installation | Copy directory | `claude plugin install`   |
-| Updates      | Manual         | Automatic via marketplace |
-| Scope        | Single machine | Team/Community            |
+| Aspect | Local Command | Marketplace Plugin |
+| -- | -- | -- |
+| Setup Time | < 1 minute | 5-10 minutes |
+| Discovery | Manual sharing | Discoverable by others |
+| Installation | Copy directory | `claude plugin install` |
+| Updates | Manual | Automatic via marketplace |
+| Scope | Single machine | Team/Community |
 
 ______________________________________________________________________
 

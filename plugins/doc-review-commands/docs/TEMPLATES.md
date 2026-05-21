@@ -76,7 +76,7 @@ Used for installation and basic usage:
 ```markdown
 ## 🔍 Commands Reference
 
-| Command    | Purpose       | Tokens    | Time   |
+| Command | Purpose | Tokens | Time |
 |------------|---------------|-----------|--------|
 | `/command` | [Description] | ~XXX-XXXK | XX-XXs |
 

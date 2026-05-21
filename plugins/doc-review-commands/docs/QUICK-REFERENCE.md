@@ -6,14 +6,14 @@ ______________________________________________________________________
 
 ## Command Overview
 
-| Command      | Use Case                                 | Tokens   | Time  | Cache |
-| ------------ | ---------------------------------------- | -------- | ----- | ----- |
-| **quick**    | Simple updates (README/CLAUDE/CHANGELOG) | 400-600  | < 30s | ✅    |
-| **analyze**  | Understand what needs updating           | 600-800  | 2-3s  | ✅    |
-| **core**     | Full README/CLAUDE/CHANGELOG update      | 1.2-1.5K | 2-3s  | ✅    |
-| **sdd**      | Update SDD artifacts (spec/plan/tasks)   | 1.5-1.8K | 2-3s  | —     |
-| **validate** | Check links, references, versions        | < 200    | < 5s  | —     |
-| **qa**       | Full quality assurance                   | 1.8-2K   | 2-3s  | —     |
+| Command | Use Case | Tokens | Time | Cache |
+| -- | -- | -- | -- | -- |
+| **quick** | Simple updates (README/CLAUDE/CHANGELOG) | 400-600 | < 30s | ✅ |
+| **analyze** | Understand what needs updating | 600-800 | 2-3s | ✅ |
+| **core** | Full README/CLAUDE/CHANGELOG update | 1.2-1.5K | 2-3s | ✅ |
+| **sdd** | Update SDD artifacts (spec/plan/tasks) | 1.5-1.8K | 2-3s | — |
+| **validate** | Check links, references, versions | < 200 | < 5s | — |
+| **qa** | Full quality assurance | 1.8-2K | 2-3s | — |
 
 ______________________________________________________________________
 

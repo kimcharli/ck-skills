@@ -236,25 +236,25 @@ ______________________________________________________________________
 
 ## 5. Key Metrics to Track
 
-| Metric              | Current  | Target  | Method                |
-| ------------------- | -------- | ------- | --------------------- |
-| Analysis tokens     | 600-800  | 100-200 | Cache + bash          |
-| Core update tokens  | 1.2-1.5K | 800-1K  | Template extraction   |
-| Quick update tokens | N/A      | 400-600 | New lightweight mode  |
-| Cache hit rate      | 0%       | 60-80%  | Track cache usage     |
-| Avg execution time  | 2-3s     | 0.5-1s  | With caching          |
-| Bash vs AI ratio    | 30:70    | 60:40   | Move logic to scripts |
+| Metric | Current | Target | Method |
+| -- | -- | -- | -- |
+| Analysis tokens | 600-800 | 100-200 | Cache + bash |
+| Core update tokens | 1.2-1.5K | 800-1K | Template extraction |
+| Quick update tokens | N/A | 400-600 | New lightweight mode |
+| Cache hit rate | 0% | 60-80% | Track cache usage |
+| Avg execution time | 2-3s | 0.5-1s | With caching |
+| Bash vs AI ratio | 30:70 | 60:40 | Move logic to scripts |
 
 ______________________________________________________________________
 
 ## 6. Risks & Mitigations
 
-| Risk                   | Mitigation                                           |
-| ---------------------- | ---------------------------------------------------- |
-| Cache staleness        | TTL validation + manual clear command                |
-| Script errors          | Comprehensive error handling + fallback to AI        |
-| Template maintenance   | Centralized template directory with version tracking |
-| Performance regression | Benchmark before/after each phase                    |
+| Risk | Mitigation |
+| -- | -- |
+| Cache staleness | TTL validation + manual clear command |
+| Script errors | Comprehensive error handling + fallback to AI |
+| Template maintenance | Centralized template directory with version tracking |
+| Performance regression | Benchmark before/after each phase |
 
 ______________________________________________________________________
 

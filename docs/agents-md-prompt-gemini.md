@@ -119,12 +119,12 @@ ______________________________________________________________________
 
 ## Anti-Patterns
 
-| Anti-Pattern                | Fix                                           |
-| --------------------------- | --------------------------------------------- |
-| Explaining "Why"            | Delete. Only state "What" and "How".          |
-| Vague verbs (try, consider) | Use MUST / MUST NOT / ALWAYS / NEVER.         |
-| Mixed State                 | Never put current task progress in AGENTS.md. |
-| System paths                | Forbid `/tmp/` and system-wide binaries.      |
+| Anti-Pattern | Fix |
+| -- | -- |
+| Explaining "Why" | Delete. Only state "What" and "How". |
+| Vague verbs (try, consider) | Use MUST / MUST NOT / ALWAYS / NEVER. |
+| Mixed State | Never put current task progress in AGENTS.md. |
+| System paths | Forbid `/tmp/` and system-wide binaries. |
 
 ______________________________________________________________________
 

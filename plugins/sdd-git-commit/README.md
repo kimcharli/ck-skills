@@ -51,10 +51,10 @@ ______________________________________________________________________
 
 The skill encourages maintaining a one-to-one relationship between source files and specifications:
 
-| Source File   | Spec File       |
-| ------------- | --------------- |
+| Source File | Spec File |
+| -- | -- |
 | `src/core.py` | `specs/core.md` |
-| `src/api.py`  | `specs/api.md`  |
+| `src/api.py` | `specs/api.md` |
 
 ______________________________________________________________________
 

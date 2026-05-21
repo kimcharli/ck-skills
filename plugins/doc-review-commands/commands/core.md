@@ -1,4 +1,4 @@
----
+______________________________________________________________________
 
 ## description: Update core documentation files (README, CLAUDE, CHANGELOG) allowed-tools: Bash(cat:_), Bash(git:_), Read(_), Write(_), Edit(_), Grep(_), Glob(\*)
 
@@ -21,7 +21,7 @@
 - CLAUDE.md
 - CHANGELOG.md
 
----
+______________________________________________________________________
 
 ## Step 1: Read Current Files
 
@@ -176,11 +176,11 @@ ______________________________________________________________________
 
 **Files Updated:**
 
-| File         | Sections Modified | Lines Changed |
-| ------------ | ----------------- | ------------- |
-| README.md    | [list sections]   | ~[estimate]   |
-| CLAUDE.md    | [list sections]   | ~[estimate]   |
-| CHANGELOG.md | [version entry]   | ~[estimate]   |
+| File | Sections Modified | Lines Changed |
+| -- | -- | -- |
+| README.md | [list sections] | ~[estimate] |
+| CLAUDE.md | [list sections] | ~[estimate] |
+| CHANGELOG.md | [version entry] | ~[estimate] |
 
 **Key Changes:**
 

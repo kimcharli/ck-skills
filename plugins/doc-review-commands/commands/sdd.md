@@ -284,12 +284,12 @@ ______________________________________________________________________
 
 **Files Updated:**
 
-| File            | Updates Made                             | Lines Changed |
-| --------------- | ---------------------------------------- | ------------- |
-| spec.md         | [FR-X completed, FR-Y updated]           | ~[estimate]   |
-| plan.md         | [Phase X status, architecture decisions] | ~[estimate]   |
-| tasks.md        | [X tasks completed, Y added]             | ~[estimate]   |
-| contracts/\*.md | [Contracts updated]                      | ~[estimate]   |
+| File | Updates Made | Lines Changed |
+| -- | -- | -- |
+| spec.md | [FR-X completed, FR-Y updated] | ~[estimate] |
+| plan.md | [Phase X status, architecture decisions] | ~[estimate] |
+| tasks.md | [X tasks completed, Y added] | ~[estimate] |
+| contracts/\*.md | [Contracts updated] | ~[estimate] |
 
 **Requirement Status:**
 

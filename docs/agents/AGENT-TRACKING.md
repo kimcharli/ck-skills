@@ -4,10 +4,10 @@ This document tracks the specialized agent candidates, their creation prompts, a
 
 ## 1. Agent Candidates
 
-| Candidate          | Target CLI  | Core Workflow                 | Spec File                                | Creation Prompt                          | Recommendation                                           |
-| :----------------- | :---------- | :---------------------------- | :--------------------------------------- | :--------------------------------------- | :------------------------------------------------------- |
-| **Gemini Expert**  | Gemini CLI  | `STATE.md` Focused            | [AGENTS-gemini.md](./AGENTS-gemini.md)   | [prompt-gemini.md](./prompt-gemini.md)   | [recommendation-gemini.md](./recommendation-gemini.md)   |
-| **Claude Expert**  | Claude Code | `specs/status.md` Focused     | [AGENTS-claude.md](./AGENTS-claude.md)   | [prompt-claude.md](./prompt-claude.md)   | (Internal to Spec)                                       |
+| Candidate | Target CLI | Core Workflow | Spec File | Creation Prompt | Recommendation |
+| :- | :- | :- | :- | :- | :- |
+| **Gemini Expert** | Gemini CLI | `STATE.md` Focused | [AGENTS-gemini.md](./AGENTS-gemini.md) | [prompt-gemini.md](./prompt-gemini.md) | [recommendation-gemini.md](./recommendation-gemini.md) |
+| **Claude Expert** | Claude Code | `specs/status.md` Focused | [AGENTS-claude.md](./AGENTS-claude.md) | [prompt-claude.md](./prompt-claude.md) | (Internal to Spec) |
 | **Copilot Expert** | Copilot CLI | `STATE.md` + `sdd-state-sync` | [AGENTS-copilot.md](./AGENTS-copilot.md) | [prompt-copilot.md](./prompt-copilot.md) | [recommendation-copilot.md](./recommendation-copilot.md) |
 
 ## 2. Key Revision Goals

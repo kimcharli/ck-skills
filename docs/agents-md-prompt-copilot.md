@@ -150,16 +150,16 @@ ______________________________________________________________________
 
 ## Anti-Patterns — Never Do These
 
-| Anti-Pattern                                   | Fix                                      |
-| ---------------------------------------------- | ---------------------------------------- |
-| "We use X because historically Y..."           | Delete entirely                          |
-| "Please remember to..."                        | Rewrite as MUST / MUST NOT               |
-| Duplicating content already in README          | Replace with `See README.md § <section>` |
-| Vague verbs: "consider", "try to", "generally" | Rewrite as hard rule or delete           |
-| Section with a single item                     | Merge into nearest related section       |
-| Bullets that are ordered steps                 | Convert to numbered list                 |
-| Numbered list that is not ordered steps        | Convert to bullets                       |
-| Comments longer than one line                  | Split into Key Files pointer or delete   |
+| Anti-Pattern | Fix |
+| -- | -- |
+| "We use X because historically Y..." | Delete entirely |
+| "Please remember to..." | Rewrite as MUST / MUST NOT |
+| Duplicating content already in README | Replace with `See README.md § <section>` |
+| Vague verbs: "consider", "try to", "generally" | Rewrite as hard rule or delete |
+| Section with a single item | Merge into nearest related section |
+| Bullets that are ordered steps | Convert to numbered list |
+| Numbered list that is not ordered steps | Convert to bullets |
+| Comments longer than one line | Split into Key Files pointer or delete |
 
 ______________________________________________________________________
 

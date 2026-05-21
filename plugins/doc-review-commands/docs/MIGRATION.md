@@ -85,13 +85,13 @@ cd doc-review-commands
 
 #### Command Mapping
 
-| Old Command             | New Equivalent           | Token Savings     |
-| ----------------------- | ------------------------ | ----------------- |
-| `doc-review monolithic` | `/ck:doc-review/main`    | Same              |
-| (N/A)                   | `/ck:doc-review/core`    | 85% less than old |
-| (N/A)                   | `/ck:doc-review/sdd`     | 80% less than old |
-| (N/A)                   | `/ck:doc-review/qa`      | 70% less than old |
-| (N/A)                   | `/ck:doc-review/analyze` | 75% less than old |
+| Old Command | New Equivalent | Token Savings |
+| -- | -- | -- |
+| `doc-review monolithic` | `/ck:doc-review/main` | Same |
+| (N/A) | `/ck:doc-review/core` | 85% less than old |
+| (N/A) | `/ck:doc-review/sdd` | 80% less than old |
+| (N/A) | `/ck:doc-review/qa` | 70% less than old |
+| (N/A) | `/ck:doc-review/analyze` | 75% less than old |
 
 ______________________________________________________________________
 

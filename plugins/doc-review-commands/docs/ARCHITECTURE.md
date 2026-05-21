@@ -53,14 +53,14 @@ ______________________________________________________________________
 
 Each command is **single-responsibility** and **independently executable**:
 
-| Command   | Responsibility                    | Dependencies     |
-| --------- | --------------------------------- | ---------------- |
-| `main`    | Orchestrate analysis + delegation | All sub-commands |
-| `analyze` | Extract project insights          | analyzer.sh tool |
-| `core`    | Update main docs                  | Read, Edit tools |
-| `sdd`     | Update specs/plans                | Read, Edit tools |
-| `qa`      | Validate documentation            | Grep tool        |
-| `help`    | Display usage guide               | None             |
+| Command | Responsibility | Dependencies |
+| -- | -- | -- |
+| `main` | Orchestrate analysis + delegation | All sub-commands |
+| `analyze` | Extract project insights | analyzer.sh tool |
+| `core` | Update main docs | Read, Edit tools |
+| `sdd` | Update specs/plans | Read, Edit tools |
+| `qa` | Validate documentation | Grep tool |
+| `help` | Display usage guide | None |
 
 ### Why Modular?
 
@@ -303,21 +303,21 @@ ______________________________________________________________________
 
 ### Token Efficiency
 
-| Operation  | Before   | After     | Savings |
-| ---------- | -------- | --------- | ------- |
-| Analysis   | 800      | 200       | 75%     |
-| Update     | 3K       | 1.2K      | 60%     |
-| Validation | 2.5K     | 1.8K      | 28%     |
-| **Total**  | **~10K** | **~1.2K** | **88%** |
+| Operation | Before | After | Savings |
+| -- | -- | -- | -- |
+| Analysis | 800 | 200 | 75% |
+| Update | 3K | 1.2K | 60% |
+| Validation | 2.5K | 1.8K | 28% |
+| **Total** | **~10K** | **~1.2K** | **88%** |
 
 ### Execution Speed
 
-| Operation   | Time        |
-| ----------- | ----------- |
-| Analyze     | < 1s (bash) |
-| Core update | 15-30s      |
-| SDD update  | 30-60s      |
-| Validate    | 10-20s      |
+| Operation | Time |
+| -- | -- |
+| Analyze | < 1s (bash) |
+| Core update | 15-30s |
+| SDD update | 30-60s |
+| Validate | 10-20s |
 
 ______________________________________________________________________
 

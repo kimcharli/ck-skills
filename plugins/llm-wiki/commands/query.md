@@ -66,6 +66,7 @@ page?" If yes:
    ```
 
 1. Add the page to `wiki/index.md` under **Analyses**.
+
 1. Append to `wiki/log.md`:
 
    ```markdown

@@ -39,15 +39,15 @@ review before re-committing. Skip with `git commit --no-verify` when needed.
 
 ## Mapping lint-fix.sh Steps to pre-commit
 
-| `lint-fix.sh` step                    | pre-commit hook                                  | Translates?                    |
-| ------------------------------------- | ------------------------------------------------ | ------------------------------ |
-| `uv run ruff check --fix .`           | `ruff` hook with `--fix` arg                     | Yes                            |
-| `uv run ruff format .`                | `ruff-format` hook                               | Yes                            |
-| `markdownlint --fix`                  | `markdownlint` hook                              | Yes                            |
-| `uv run pytest -q`                    | `pytest` hook                                    | Yes                            |
-| `mdformat` (via `uvx`)                | `hukkin/mdformat` with `additional_dependencies` | Yes — plugins pinned in config |
-| Tool availability checks              | Not supported                                    | No — pre-commit fails hard     |
-| markdownlint version check (≥ 0.45.0) | Not supported                                    | No                             |
+| `lint-fix.sh` step | pre-commit hook | Translates? |
+| -- | -- | -- |
+| `uv run ruff check --fix .` | `ruff` hook with `--fix` arg | Yes |
+| `uv run ruff format .` | `ruff-format` hook | Yes |
+| `markdownlint --fix` | `markdownlint` hook | Yes |
+| `uv run pytest -q` | `pytest` hook | Yes |
+| `mdformat` (via `uvx`) | `hukkin/mdformat` with `additional_dependencies` | Yes — plugins pinned in config |
+| Tool availability checks | Not supported | No — pre-commit fails hard |
+| markdownlint version check (≥ 0.45.0) | Not supported | No |
 
 **Note on mdformat:** pre-commit hosts it at `https://github.com/hukkin/mdformat`. Plugins are
 declared via `additional_dependencies` and installed into pre-commit's isolated env via `pip`
@@ -164,11 +164,11 @@ replace the `lint-fix.sh` convention with `pre-commit install` setup instruction
 
 ## Recommended Setup Matrix
 
-| Mode                                         | Install pre-commit                                 | Hook install                             | Typical use                                          | Pros                                                         | Tradeoffs                                                          |
-| -------------------------------------------- | -------------------------------------------------- | ---------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------ |
-| Standalone (pipx/pip/brew)                   | `pipx install pre-commit` (or equivalent)          | `pre-commit install`                     | Mixed-language repos, no `uv` requirement            | Most portable, independent of project Python tooling         | Separate toolchain from `uv`, less consistent with Python workflow |
-| UV-centric local (recommended for this repo) | `uv tool install pre-commit` or project dependency | `uv run pre-commit install`              | Python-first contributors already using `uv`         | Consistent command surface (`uv run ...`), simple onboarding | Hooks still run in pre-commit-managed envs (not `uv.lock`)         |
-| CI-friendly gate                             | Installed in CI runner image or job step           | `pre-commit run --all-files` in pipeline | Enforce checks server-side regardless of local setup | Deterministic gate, prevents bypass drift                    | Slower feedback than local hook, requires CI config                |
+| Mode | Install pre-commit | Hook install | Typical use | Pros | Tradeoffs |
+| -- | -- | -- | -- | -- | -- |
+| Standalone (pipx/pip/brew) | `pipx install pre-commit` (or equivalent) | `pre-commit install` | Mixed-language repos, no `uv` requirement | Most portable, independent of project Python tooling | Separate toolchain from `uv`, less consistent with Python workflow |
+| UV-centric local (recommended for this repo) | `uv tool install pre-commit` or project dependency | `uv run pre-commit install` | Python-first contributors already using `uv` | Consistent command surface (`uv run ...`), simple onboarding | Hooks still run in pre-commit-managed envs (not `uv.lock`) |
+| CI-friendly gate | Installed in CI runner image or job step | `pre-commit run --all-files` in pipeline | Enforce checks server-side regardless of local setup | Deterministic gate, prevents bypass drift | Slower feedback than local hook, requires CI config |
 
 ### Recommended Combination
 

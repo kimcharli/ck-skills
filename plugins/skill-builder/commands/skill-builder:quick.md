@@ -76,15 +76,15 @@ ______________________________________________________________________
 
 Automatically configured:
 
-| Setting        | Default                   |
-| -------------- | ------------------------- |
-| Cache TTL      | 3600 (1 hour)             |
-| Quick mode     | Enabled                   |
-| Validation     | Enabled                   |
-| Tests          | Basic suite included      |
-| Documentation  | Complete (README + GUIDE) |
-| Caching        | 20-30% savings built-in   |
-| Error handling | Comprehensive             |
+| Setting | Default |
+| -- | -- |
+| Cache TTL | 3600 (1 hour) |
+| Quick mode | Enabled |
+| Validation | Enabled |
+| Tests | Basic suite included |
+| Documentation | Complete (README + GUIDE) |
+| Caching | 20-30% savings built-in |
+| Error handling | Comprehensive |
 
 ______________________________________________________________________
 

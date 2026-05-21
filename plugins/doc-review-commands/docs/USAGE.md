@@ -6,14 +6,14 @@ ______________________________________________________________________
 
 ## 🎯 Quick Command Reference
 
-| Command                  | Token Cost       | Time     | Use Case                       |
-| ------------------------ | ---------------- | -------- | ------------------------------ |
-| `/ck:doc-review/help`    | ~200             | Instant  | First time? Start here         |
-| `/ck:doc-review/analyze` | ~600-800         | < 1s     | What needs updating?           |
-| `/ck:doc-review/core`    | ~1.2-1.5K        | 15-30s   | Update README/CLAUDE/CHANGELOG |
-| `/ck:doc-review/sdd`     | ~1.5-1.8K        | 30-60s   | Update spec/plan/tasks         |
-| `/ck:doc-review/qa`      | ~1.8-2K          | 10-20s   | Validate before commit         |
-| `/ck:doc-review/main`    | ~900-1.2K + subs | Variable | Full orchestrated update       |
+| Command | Token Cost | Time | Use Case |
+| -- | -- | -- | -- |
+| `/ck:doc-review/help` | ~200 | Instant | First time? Start here |
+| `/ck:doc-review/analyze` | ~600-800 | < 1s | What needs updating? |
+| `/ck:doc-review/core` | ~1.2-1.5K | 15-30s | Update README/CLAUDE/CHANGELOG |
+| `/ck:doc-review/sdd` | ~1.5-1.8K | 30-60s | Update spec/plan/tasks |
+| `/ck:doc-review/qa` | ~1.8-2K | 10-20s | Validate before commit |
+| `/ck:doc-review/main` | ~900-1.2K + subs | Variable | Full orchestrated update |
 
 ______________________________________________________________________
 

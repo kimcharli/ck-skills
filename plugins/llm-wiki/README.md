@@ -26,12 +26,12 @@ Installs to `~/.agents/skills/llm-wiki` (or `~/.claude/skills/llm-wiki` if
 
 ## Operations
 
-| Say                             | What happens                                               |
-| ------------------------------- | ---------------------------------------------------------- |
-| "create a wiki"                 | Scaffolds `raw/`, `wiki/`, `index.md`, `log.md`, `WIKI.md` |
-| "ingest this: raw/file.md"      | Extracts, writes pages, updates index + log                |
-| "what does my wiki say about X" | Index-first search, cited answer                           |
-| "lint my wiki"                  | Orphan check, contradiction scan, gap suggestions          |
+| Say | What happens |
+| -- | -- |
+| "create a wiki" | Scaffolds `raw/`, `wiki/`, `index.md`, `log.md`, `WIKI.md` |
+| "ingest this: raw/file.md" | Extracts, writes pages, updates index + log |
+| "what does my wiki say about X" | Index-first search, cited answer |
+| "lint my wiki" | Orphan check, contradiction scan, gap suggestions |
 
 ## Wiki structure (in your project)
 

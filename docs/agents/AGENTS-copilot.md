@@ -93,14 +93,14 @@ Every feature or fix MUST follow this mandatory sequence. No exceptions.
 
 This project uses `uv` for all Python tooling. Strict adherence required.
 
-| Action              | Command               |
-| ------------------- | --------------------- |
-| Run scripts / tools | `uv run <command>`    |
-| Run tests           | `uv run pytest`       |
-| Run linter          | `uv run ruff check`   |
-| Add dependency      | `uv add <package>`    |
-| Remove dependency   | `uv remove <package>` |
-| Sync environment    | `uv sync`             |
+| Action | Command |
+| -- | -- |
+| Run scripts / tools | `uv run <command>` |
+| Run tests | `uv run pytest` |
+| Run linter | `uv run ruff check` |
+| Add dependency | `uv add <package>` |
+| Remove dependency | `uv remove <package>` |
+| Sync environment | `uv sync` |
 
 - **Never** use `pip`, `python -m pip`, or bare `python` directly.
 - All Python config lives in `pyproject.toml` — do not create `setup.py` or `requirements.txt`.

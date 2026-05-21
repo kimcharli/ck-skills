@@ -105,7 +105,7 @@ today=$(date +%Y-%m-%d)
 # Preserve phase from existing STATE.md if not overridden
 if [[ -z "$PHASE" && -f "$STATE_FILE" ]]; then
   PHASE=$(grep -m1 '^- phase:' "$STATE_FILE" | sed 's/- phase: //' | tr -d '[:space:]') \
-    || PHASE="implement"
+    |  | PHASE="implement"
 fi
 PHASE="${PHASE:-implement}"
 
@@ -172,13 +172,13 @@ ______________________________________________________________________
 
 ## Part 3 — Where Instructions Should Live
 
-| Concern                                | Location                         | Rationale                                   |
-| -------------------------------------- | -------------------------------- | ------------------------------------------- |
-| "Read STATE.md first at session start" | `AGENTS.md` (§0)                 | Universal protocol; every agent must follow |
-| "Update STATE.md before every commit"  | `AGENTS.md` pre-commit checklist | Enforced at the commit gate, not optionally |
-| STATE.md schema definition             | `AGENTS.md` §0 + this doc        | Schema in AGENTS.md (brief); full spec here |
-| sdd-state-sync automation              | `plugins/sdd-state-sync/`        | Reusable skill, not agent-specific          |
-| How to regenerate STATE.md manually    | This document (§ above)          | Reference for implementers                  |
+| Concern | Location | Rationale |
+| -- | -- | -- |
+| "Read STATE.md first at session start" | `AGENTS.md` (§0) | Universal protocol; every agent must follow |
+| "Update STATE.md before every commit" | `AGENTS.md` pre-commit checklist | Enforced at the commit gate, not optionally |
+| STATE.md schema definition | `AGENTS.md` §0 + this doc | Schema in AGENTS.md (brief); full spec here |
+| sdd-state-sync automation | `plugins/sdd-state-sync/` | Reusable skill, not agent-specific |
+| How to regenerate STATE.md manually | This document (§ above) | Reference for implementers |
 
 **Key principle**: The protocol (what/when) belongs in AGENTS.md. The implementation (how) belongs
 in the skill. This keeps AGENTS.md concise and skill logic portable across projects.
@@ -187,12 +187,12 @@ ______________________________________________________________________
 
 ## Part 4 — Comparison of Approaches
 
-| Approach                      | Efficiency    | Reliability          | Maintenance                |
-| ----------------------------- | ------------- | -------------------- | -------------------------- |
-| Read all files every session  | O(n) tokens   | Always current       | None needed                |
-| Manual STATE.md               | O(1) read     | Drifts if forgotten  | High (agent must remember) |
-| **STATE.md + sdd-state-sync** | **O(1) read** | **Auto-regenerated** | **Low (run at commit)**    |
-| External DB / JSON index      | O(1) read     | Requires tooling     | High (infra overhead)      |
+| Approach | Efficiency | Reliability | Maintenance |
+| -- | -- | -- | -- |
+| Read all files every session | O(n) tokens | Always current | None needed |
+| Manual STATE.md | O(1) read | Drifts if forgotten | High (agent must remember) |
+| **STATE.md + sdd-state-sync** | **O(1) read** | **Auto-regenerated** | **Low (run at commit)** |
+| External DB / JSON index | O(1) read | Requires tooling | High (infra overhead) |
 
 The recommended approach (row 3) hits the best trade-off: no external dependencies, Git-trackable,
 works across all AI agents, and automation removes the "agent forgot to update" failure mode.

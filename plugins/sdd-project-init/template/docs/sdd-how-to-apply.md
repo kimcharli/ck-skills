@@ -77,14 +77,14 @@ ______________________________________________________________________
 
 ## What Belongs Where
 
-| Content                              | Location              |
-| ------------------------------------ | --------------------- |
-| AI behavioral rules + gates          | `AGENTS.md`           |
-| Active requirements / design / tasks | `specs/*.md`          |
-| Per-feature breakdown                | `specs/features/*.md` |
-| Human reference docs                 | `docs/`               |
-| Source code                          | `src/`                |
-| Tests                                | `tests/`              |
+| Content | Location |
+| -- | -- |
+| AI behavioral rules + gates | `AGENTS.md` |
+| Active requirements / design / tasks | `specs/*.md` |
+| Per-feature breakdown | `specs/features/*.md` |
+| Human reference docs | `docs/` |
+| Source code | `src/` |
+| Tests | `tests/` |
 
 ______________________________________________________________________
 

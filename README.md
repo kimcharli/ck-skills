@@ -10,13 +10,13 @@ ______________________________________________________________________
 
 ## Available Skills
 
-| Skill                   | Description                                                    | Activation Intent          |
-| ----------------------- | -------------------------------------------------------------- | -------------------------- |
-| **sdd-project-init**    | Bootstrap a new project with Spec-Driven Development structure | "initialize a new project" |
-| **doc-review-commands** | Keep documentation in sync with code changes                   | "review my documentation"  |
-| **skill-builder**       | Create new production-ready skills in minutes                  | "create a new skill"       |
-| **sdd-git-commit**      | Professional SDD Git commit workflow                           | "commit my changes"        |
-| **python-lint-fix**     | Auto-fix and format Python and Markdown code                   | "fix/lint my code"         |
+| Skill | Description | Activation Intent |
+| -- | -- | -- |
+| **sdd-project-init** | Bootstrap a new project with Spec-Driven Development structure | "initialize a new project" |
+| **doc-review-commands** | Keep documentation in sync with code changes | "review my documentation" |
+| **skill-builder** | Create new production-ready skills in minutes | "create a new skill" |
+| **sdd-git-commit** | Professional SDD Git commit workflow | "commit my changes" |
+| **python-lint-fix** | Auto-fix and format Python and Markdown code | "fix/lint my code" |
 
 ______________________________________________________________________
 
@@ -161,11 +161,11 @@ ______________________________________________________________________
 
 ## Compatibility
 
-| Tool            | Marketplace install                 | Direct install                                 | Notes        |
-| --------------- | ----------------------------------- | ---------------------------------------------- | ------------ |
-| **Claude Code** | ✅ `claude plugin marketplace add`  | ✅ `claude plugin install owner/repo`          | Full support |
-| **Copilot CLI** | ✅ `copilot plugin marketplace add` | ✅ `copilot plugin install owner/repo`         | Full support |
-| **Gemini CLI**  | ❌ No marketplace yet               | ✅ `gemini skills install repo --path p/skill` | Full support |
+| Tool | Marketplace install | Direct install | Notes |
+| -- | -- | -- | -- |
+| **Claude Code** | ✅ `claude plugin marketplace add` | ✅ `claude plugin install owner/repo` | Full support |
+| **Copilot CLI** | ✅ `copilot plugin marketplace add` | ✅ `copilot plugin install owner/repo` | Full support |
+| **Gemini CLI** | ❌ No marketplace yet | ✅ `gemini skills install repo --path p/skill` | Full support |
 
 ______________________________________________________________________
 
@@ -216,6 +216,7 @@ To maximize the efficiency of AI agents (Claude Code, Copilot CLI, Gemini CLI, e
 
 - **[tokensave](https://github.com/aovestdipaperino/tokensave)**: Provides instant semantic results from a pre-built knowledge graph, making codebase analysis significantly faster and more token-efficient.
 - **codebase-memory-mcp**: Provides persistent, long-term memory for your codebase across sessions, helping agents remember architectural decisions, previous bug fixes, and project-specific conventions.
+- **[caveman](https://github.com/JuliusBrussee/caveman)**: An extension offering ultra-compressed communication modes and skills (like `caveman-review`, `caveman-commit`, and `cavecrew`) to drastically reduce token usage while preserving technical accuracy.
 - **[pre-commit](https://pre-commit.com/)**: Essential for maintaining code quality. Combined with **[Ruff](https://github.com/astral-sh/ruff)** for Python, it allows agents to automatically fix linting and formatting issues before committing, ensuring a clean and consistent codebase.
 
 ______________________________________________________________________

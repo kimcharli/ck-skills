@@ -46,12 +46,12 @@ Ensure the codebase and its specifications remain in sync. This is mandatory for
 
 Update the files that track the project's continuity and history.
 
-| File                         | Requirement     | Action                                                                       |
-| ---------------------------- | --------------- | ---------------------------------------------------------------------------- |
-| `CHANGELOG.md`               | **Mandatory**   | Prepend a new entry under `# Changelog`. Use `## [Unreleased] - YYYY-MM-DD`. |
-| `docs/tasks.md` or `TODO.md` | **Required**    | Mark completed tasks `[x]`, newly started tasks `[~]`, or add new tasks.     |
-| `SESSION_MEMO.md`            | **Recommended** | Update "Current Status" and "Next Steps" for hand-off/continuity.            |
-| `repo-context.md`            | **As Needed**   | Update if structural architecture, environment, or stack has drifted.        |
+| File | Requirement | Action |
+| -- | -- | -- |
+| `CHANGELOG.md` | **Mandatory** | Prepend a new entry under `# Changelog`. Use `## [Unreleased] - YYYY-MM-DD`. |
+| `docs/tasks.md` or `TODO.md` | **Required** | Mark completed tasks `[x]`, newly started tasks `[~]`, or add new tasks. |
+| `SESSION_MEMO.md` | **Recommended** | Update "Current Status" and "Next Steps" for hand-off/continuity. |
+| `repo-context.md` | **As Needed** | Update if structural architecture, environment, or stack has drifted. |
 
 **Changelog Rules**:
 

@@ -33,11 +33,11 @@ While the current `sdd-git-commit` skill mentions `SESSION_MEMO.md`, it should b
 
 The tracking phase should now strictly enforce the update of `STATE.md`.
 
-| File             | Requirement   | Action                                                                  |
-| ---------------- | ------------- | ----------------------------------------------------------------------- |
-| `STATE.md`       | **Critical**  | Update with current task, status, and micro-steps for the next session. |
-| `CHANGELOG.md`   | **Mandatory** | Prepend new entry under `## [Unreleased]`.                              |
-| `specs/tasks.md` | **Mandatory** | Mark current task as `[x]`.                                             |
+| File | Requirement | Action |
+| -- | -- | -- |
+| `STATE.md` | **Critical** | Update with current task, status, and micro-steps for the next session. |
+| `CHANGELOG.md` | **Mandatory** | Prepend new entry under `## [Unreleased]`. |
+| `specs/tasks.md` | **Mandatory** | Mark current task as `[x]`. |
 
 ### Step 5: The "State-Staging" Step
 

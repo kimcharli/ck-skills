@@ -393,13 +393,13 @@ ______________________________________________________________________
 
 ### Per-Command Token Costs
 
-| Command      | Tokens                   | Use Case           |
-| ------------ | ------------------------ | ------------------ |
-| `:help`      | ~200                     | One-time reference |
-| `:analyze`   | ~600-800                 | Analysis only      |
-| `:core`      | ~1.2-1.5K                | Quick update       |
-| `:sdd`       | ~1.5-1.8K                | SDD update         |
-| `:qa`        | ~1.8-2K                  | Quality check      |
+| Command | Tokens | Use Case |
+| -- | -- | -- |
+| `:help` | ~200 | One-time reference |
+| `:analyze` | ~600-800 | Analysis only |
+| `:core` | ~1.2-1.5K | Quick update |
+| `:sdd` | ~1.5-1.8K | SDD update |
+| `:qa` | ~1.8-2K | Quality check |
 | `doc-review` | ~900-1.2K + sub-commands | Full orchestration |
 
 ### Monthly Token Budget Examples

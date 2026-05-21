@@ -71,14 +71,14 @@ See [Installation Guide](INSTALLATION.md) for more options.
 
 ## Command Cheat Sheet
 
-| Command                   | When to Use                |
-| ------------------------- | -------------------------- |
-| `/ck:doc-review/help`     | Need usage guide           |
-| `/ck:doc-review/analyze`  | "What docs need updating?" |
+| Command | When to Use |
+| -- | -- |
+| `/ck:doc-review/help` | Need usage guide |
+| `/ck:doc-review/analyze` | "What docs need updating?" |
 | `/ck:doc-review/core "X"` | Quick README/CLAUDE update |
-| `/ck:doc-review/sdd "X"`  | Update SDD artifacts       |
-| `/ck:doc-review/qa`       | Before committing docs     |
-| `/ck:doc-review/main "X"` | Full guided update         |
+| `/ck:doc-review/sdd "X"` | Update SDD artifacts |
+| `/ck:doc-review/qa` | Before committing docs |
+| `/ck:doc-review/main "X"` | Full guided update |
 
 ## Next Steps
 

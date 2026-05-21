@@ -81,14 +81,14 @@ ______________________________________________________________________
 
 ## 🚀 Commands Overview
 
-| Command   | Purpose                 | Tokens    | Time     |
-| --------- | ----------------------- | --------- | -------- |
-| `main`    | Smart orchestrator      | ~900-1.2K | Variable |
-| `analyze` | Analysis only           | ~600-800  | < 1s     |
-| `core`    | README/CLAUDE/CHANGELOG | ~1.2-1.5K | 15-30s   |
-| `sdd`     | SDD artifacts           | ~1.5-1.8K | 30-60s   |
-| `qa`      | Quality validation      | ~1.8-2K   | 10-20s   |
-| `help`    | Usage guide             | ~200      | Instant  |
+| Command | Purpose | Tokens | Time |
+| -- | -- | -- | -- |
+| `main` | Smart orchestrator | ~900-1.2K | Variable |
+| `analyze` | Analysis only | ~600-800 | < 1s |
+| `core` | README/CLAUDE/CHANGELOG | ~1.2-1.5K | 15-30s |
+| `sdd` | SDD artifacts | ~1.5-1.8K | 30-60s |
+| `qa` | Quality validation | ~1.8-2K | 10-20s |
+| `help` | Usage guide | ~200 | Instant |
 
 ______________________________________________________________________
 

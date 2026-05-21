@@ -155,11 +155,11 @@ ______________________________________________________________________
 
 ## Token Costs
 
-| Mode                       | Tokens  | Time     |
-| -------------------------- | ------- | -------- |
-| Create skill (interactive) | 1.5-2K  | 5-10 min |
-| Create skill (quick)       | 400-600 | < 30s    |
-| Template cache hit         | 100-200 | < 5s     |
+| Mode | Tokens | Time |
+| -- | -- | -- |
+| Create skill (interactive) | 1.5-2K | 5-10 min |
+| Create skill (quick) | 400-600 | < 30s |
+| Template cache hit | 100-200 | < 5s |
 
 ______________________________________________________________________
 

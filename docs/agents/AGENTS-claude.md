@@ -60,13 +60,13 @@ Never write temporary or scratch scripts to `/tmp/`. Use `./work/tmp/` instead s
 
 This is a Python project. All Python execution goes through `uv`.
 
-| Action            | Command                     |
-| ----------------- | --------------------------- |
-| Run a script      | `uv run python script.py`   |
-| Run tests         | `uv run pytest`             |
-| Lint              | `uv run ruff check --fix .` |
-| Add dependency    | `uv add <package>`          |
-| Remove dependency | `uv remove <package>`       |
+| Action | Command |
+| -- | -- |
+| Run a script | `uv run python script.py` |
+| Run tests | `uv run pytest` |
+| Lint | `uv run ruff check --fix .` |
+| Add dependency | `uv add <package>` |
+| Remove dependency | `uv remove <package>` |
 
 **Never** use bare `python`, `python3`, or `pip`.
 

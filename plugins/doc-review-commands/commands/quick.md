@@ -140,13 +140,13 @@ ______________________________________________________________________
 
 ## Token Savings Comparison
 
-| Task                  | Mode  | Tokens   | Time  |
-| --------------------- | ----- | -------- | ----- |
-| Add feature to README | quick | 400-600  | < 30s |
-| Add feature to README | core  | 1.2-1.5K | 2-3s  |
-| New module to CLAUDE  | quick | 400-600  | < 30s |
-| New module to CLAUDE  | core  | 1.2-1.5K | 2-3s  |
-| CHANGELOG entry       | quick | 300-500  | < 20s |
-| CHANGELOG entry       | core  | 1.2-1.5K | 2-3s  |
+| Task | Mode | Tokens | Time |
+| -- | -- | -- | -- |
+| Add feature to README | quick | 400-600 | < 30s |
+| Add feature to README | core | 1.2-1.5K | 2-3s |
+| New module to CLAUDE | quick | 400-600 | < 30s |
+| New module to CLAUDE | core | 1.2-1.5K | 2-3s |
+| CHANGELOG entry | quick | 300-500 | < 20s |
+| CHANGELOG entry | core | 1.2-1.5K | 2-3s |
 
 **Savings:** 60-70% tokens, 90%+ execution time reduction
