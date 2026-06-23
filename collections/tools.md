@@ -1,3 +1,8 @@
+Anthropic
+https://github.com/anthropics/skills
+https://github.com/anthropics/knowledge-work-plugins
+
+
 caveman:skill
 https://github.com/juliusbrussee/caveman
 
