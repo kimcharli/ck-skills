@@ -1,5 +1,5 @@
 ---
-Rapid skill generation using default configuration and templates.
+description: Rapid skill generation using default configuration and templates.
 ---
 
 ## ⚡ Task

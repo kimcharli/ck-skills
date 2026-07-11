@@ -1,6 +1,7 @@
-______________________________________________________________________
-
-## name: lint description: Fix, format, and verify Python and Markdown code
+---
+name: lint
+description: Fix, format, and verify Python and Markdown code
+---
 
 # Python Lint Fix
 

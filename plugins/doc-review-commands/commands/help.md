@@ -1,6 +1,7 @@
 ---
-
-## description: Documentation review system help - usage guide and command reference allowed-tools: Bash(cat:\*)
+description: Documentation review system help - usage guide and command reference
+allowed-tools: Bash(cat:*)
+---
 
 # 📚 Documentation Review System - Help Guide
 

@@ -1,6 +1,7 @@
 ---
-
-## description: Quality validation - auto-fix linting, check links, consistency, completeness allowed-tools: Bash(find:_), Bash(grep:_), Bash(git:_), Bash(npm:_), Read(_), Grep(_), Glob(_), Edit(_), Write(\*)
+description: Quality validation - auto-fix linting, check links, consistency, completeness
+allowed-tools: Bash(find:*), Bash(grep:*), Bash(git:*), Bash(npm:*), Read(*), Grep(*), Glob(*), Edit(*), Write(*)
+---
 
 # Quality Assurance Validation Command
 

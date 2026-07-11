@@ -1,6 +1,7 @@
 ---
-
-## name: init description: Interview-driven SDD project initializer — creates AGENTS.md, specs/, docs/ fully populated
+name: init
+description: Interview-driven SDD project initializer — creates AGENTS.md, specs/, docs/ fully populated
+---
 
 # /ck:sdd-init — SDD Project Initializer
 

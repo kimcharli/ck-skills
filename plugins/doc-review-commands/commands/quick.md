@@ -1,6 +1,7 @@
 ---
-
-## description: Quick documentation update - skip analysis, direct edits only allowed-tools: Read(_), Edit(_), Write(_), Bash(git:_)
+description: Quick documentation update - skip analysis, direct edits only
+allowed-tools: Read(*), Edit(*), Write(*), Bash(git:*)
+---
 
 # Quick Documentation Update
 

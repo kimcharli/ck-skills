@@ -1,6 +1,7 @@
-______________________________________________________________________
-
-## name: commit description: Run the professional SDD Git commit workflow
+---
+name: commit
+description: Run the professional SDD Git commit workflow
+---
 
 # SDD Git Commit
 

@@ -1,6 +1,7 @@
-______________________________________________________________________
-
-## description: Update core documentation files (README, CLAUDE, CHANGELOG) allowed-tools: Bash(cat:_), Bash(git:_), Read(_), Write(_), Edit(_), Grep(_), Glob(\*)
+---
+description: Update core documentation files (README, CLAUDE, CHANGELOG)
+allowed-tools: Bash(cat:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(*)
+---
 
 # Core Documentation Update Command
 

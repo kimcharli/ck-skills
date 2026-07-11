@@ -1,6 +1,7 @@
 ---
-
-## description: Update SDD artifacts (spec.md, plan.md, tasks.md, contracts) allowed-tools: Bash(find:_), Bash(git:_), Read(_), Write(_), Edit(_), Grep(_), Glob(\*)
+description: Update SDD artifacts (spec.md, plan.md, tasks.md, contracts)
+allowed-tools: Bash(find:*), Bash(git:*), Read(*), Write(*), Edit(*), Grep(*), Glob(*)
+---
 
 # SDD Artifacts Update Command
 

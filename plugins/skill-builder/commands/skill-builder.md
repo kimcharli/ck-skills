@@ -1,5 +1,5 @@
 ---
-Interactive skill creation system. Build production-ready Claude Code skills in minutes.
+description: Interactive skill creation system. Build production-ready Claude Code skills in minutes.
 ---
 
 ## 🎯 Task

@@ -1,6 +1,7 @@
 ---
-
-## description: Documentation update orchestrator - analyzes and delegates to sub-commands allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:_), Bash(~/.claude/tools/doc-analyzer.sh:_), Read(_), SlashCommand(_), AskUserQuestion(\*)
+description: Documentation update orchestrator - analyzes and delegates to sub-commands
+allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:*), Bash(~/.claude/tools/doc-analyzer.sh:*), Read(*), SlashCommand(*), AskUserQuestion(*)
+---
 
 # Documentation Update Orchestrator
 

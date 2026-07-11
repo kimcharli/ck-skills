@@ -1,6 +1,7 @@
 ---
-
-## description: Run documentation analysis without making changes allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:_), Bash(~/.claude/tools/doc-analyzer.sh:_)
+description: Run documentation analysis without making changes
+allowed-tools: Bash(~/.claude/commands/ck/doc-review/tools/analyzer.sh:*), Bash(~/.claude/tools/doc-analyzer.sh:*)
+---
 
 # Documentation Analysis Command
 
