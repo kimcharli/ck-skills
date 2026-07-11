@@ -4,6 +4,13 @@ Bootstraps a new project with Spec-Driven Development structure. Runs a short
 interview, then generates all files fully populated — no `[placeholder]` values
 left behind.
 
+> **Starting a Python repo?** Use
+> [python-repo-init](../python-repo-init/README.md) instead — it supersedes
+> this plugin for Python projects, adding a mechanical convention guard
+> (pre-commit + CI), a lifecycle-staged `data/` layout, `specs/NEXT.md`
+> session handoff, and uv/mise tooling. This plugin remains the
+> language-agnostic SDD scaffold.
+
 ______________________________________________________________________
 
 ## Installation
@@ -89,6 +96,7 @@ ______________________________________________________________________
 
 ## Related
 
+- [python-repo-init](../python-repo-init/README.md) — the Python-specific successor to this scaffold
 - [doc-review-commands](../doc-review-commands/README.md) — keep docs in sync during development
 - [skill-builder](../skill-builder/README.md) — create new ck-skills plugins
 - [ck-skills](../../README.md) — full marketplace README

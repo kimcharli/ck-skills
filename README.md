@@ -12,7 +12,7 @@ ______________________________________________________________________
 
 | Skill | Description | Activation Intent |
 | -- | -- | -- |
-| **sdd-project-init** | Bootstrap a new project with Spec-Driven Development structure | "initialize a new project" |
+| **sdd-project-init** | Bootstrap a new non-Python project with Spec-Driven Development structure | "initialize a new project" |
 | **doc-review-commands** | Keep documentation in sync with code changes | "review my documentation" |
 | **skill-builder** | Create new production-ready skills in minutes | "create a new skill" |
 | **sdd-git-commit** | Professional SDD Git commit workflow | "commit my changes" |

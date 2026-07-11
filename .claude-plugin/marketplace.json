@@ -59,7 +59,7 @@
       "name": "sdd-project-init",
       "version": "1.0.0",
       "source": "./plugins/sdd-project-init",
-      "description": "Initialize a new project with Spec-Driven Development structure — interview-driven, generates all files fully populated",
+      "description": "Initialize a new non-Python project with Spec-Driven Development structure — interview-driven, generates all files fully populated (for Python repos use python-repo-init)",
       "author": {
         "name": "kimcharli"
       },

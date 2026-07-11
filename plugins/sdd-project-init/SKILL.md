@@ -1,11 +1,16 @@
 ---
 name: sdd-project-init
-description: Bootstrap a new project with Spec-Driven Development (SDD) structure, including AGENTS.md, specs/, and docs/.
+description: Bootstrap a new non-Python project with Spec-Driven Development (SDD) structure, including AGENTS.md, specs/, and docs/. For Python repos, prefer the python-repo-init skill instead.
 ---
 
 # SDD Project Init
 
 This skill bootstraps a new project with Spec-Driven Development structure. It runs a short interview, then generates all files fully populated.
+
+> **Python repo?** Use the `python-repo-init` skill instead — it supersedes
+> this one for Python: mechanical convention enforcement (pre-commit guard +
+> CI), a lifecycle-staged `data/` contract, session handoff via `specs/NEXT.md`,
+> and uv/mise tooling. This skill remains the language-agnostic scaffold.
 
 ## Procedures
 

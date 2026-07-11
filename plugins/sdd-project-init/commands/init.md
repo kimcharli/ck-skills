@@ -8,6 +8,9 @@ Initialize a new project with Spec-Driven Development structure by running a
 short interview, then calling `create-project.sh` to generate exact copies of
 the model file tree with variable substitution.
 
+> If the interview reveals a **Python** stack, suggest the `python-repo-init`
+> skill instead (its Python-specific successor) before proceeding.
+
 ## Trigger Phrases
 
 - `/ck:sdd-init`
