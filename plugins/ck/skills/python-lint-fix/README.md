@@ -6,19 +6,19 @@ ______________________________________________________________________
 
 ## Installation
 
-For marketplace setup and general install instructions, see the [ck-skills README](../../README.md).
+For marketplace setup and general install instructions, see the [ck-skills README](../../../../README.md).
 
 **Quick install:**
 
 ```bash
-# Claude Code
-claude plugin install python-lint-fix@ck-skills
+# Claude Code (installs the whole ck plugin)
+claude plugin install ck@ck-skills
 
 # Copilot CLI
-copilot plugin install python-lint-fix@ck-skills
+copilot plugin install ck@ck-skills
 
 # Manual
-cd plugins/python-lint-fix && ./install.sh
+cp -r plugins/ck/skills/python-lint-fix ~/.claude/skills/python-lint-fix
 ```
 
 ______________________________________________________________________
@@ -58,4 +58,4 @@ ______________________________________________________________________
 
 - [sdd-project-init](../sdd-project-init/README.md) — bootstrap a new SDD project
 - [sdd-git-commit](../sdd-git-commit/README.md) — professional SDD commit workflow
-- [ck-skills](../../README.md) — full marketplace README
+- [ck-skills](../../../../README.md) — full marketplace README

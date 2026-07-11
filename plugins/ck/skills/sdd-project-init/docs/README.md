@@ -14,14 +14,13 @@ placeholders left behind.
 ## Installation
 
 ```bash
-cd /Users/ckim/Projects/ck-skills/plugins/sdd-project-init
-./install.sh
+cp -r plugins/ck/skills/sdd-project-init ~/.claude/skills/sdd-project-init
 ```
 
-Or from the marketplace:
+Or from the marketplace (installs the whole `ck` plugin):
 
 ```
-claude plugin install sdd-project-init@ck-skills
+claude plugin install ck@ck-skills
 ```
 
 ## Usage

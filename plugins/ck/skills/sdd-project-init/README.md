@@ -5,7 +5,7 @@ interview, then generates all files fully populated — no `[placeholder]` value
 left behind.
 
 > **Starting a Python repo?** Use
-> [python-repo-init](../python-repo-init/README.md) instead — it supersedes
+> [python-repo-init](../../../python-repo-init/README.md) instead — it supersedes
 > this plugin for Python projects, adding a mechanical convention guard
 > (pre-commit + CI), a lifecycle-staged `data/` layout, `specs/NEXT.md`
 > session handoff, and uv/mise tooling. This plugin remains the
@@ -16,19 +16,19 @@ ______________________________________________________________________
 ## Installation
 
 For marketplace setup and general install instructions, see the
-[ck-skills README](../../README.md).
+[ck-skills README](../../../../README.md).
 
 **Quick install:**
 
 ```bash
-# Claude Code
-claude plugin install sdd-project-init@ck-skills
+# Claude Code (installs the whole ck plugin)
+claude plugin install ck@ck-skills
 
 # Copilot CLI
-copilot plugin install sdd-project-init@ck-skills
+copilot plugin install ck@ck-skills
 
 # Manual
-cd plugins/sdd-project-init && ./install.sh
+cp -r plugins/ck/skills/sdd-project-init ~/.claude/skills/sdd-project-init
 ```
 
 ______________________________________________________________________
@@ -99,4 +99,4 @@ ______________________________________________________________________
 - [python-repo-init](../python-repo-init/README.md) — the Python-specific successor to this scaffold
 - [doc-review-commands](../doc-review-commands/README.md) — keep docs in sync during development
 - [skill-builder](../skill-builder/README.md) — create new ck-skills plugins
-- [ck-skills](../../README.md) — full marketplace README
+- [ck-skills](../../../../README.md) — full marketplace README

@@ -10,14 +10,14 @@ ______________________________________________________________________
 
 ## Available Skills
 
-| Skill | Description | Activation Intent |
-| -- | -- | -- |
-| **sdd-project-init** | Bootstrap a new non-Python project with Spec-Driven Development structure | "initialize a new project" |
-| **doc-review-commands** | Keep documentation in sync with code changes | "review my documentation" |
-| **skill-builder** | Create new production-ready skills in minutes | "create a new skill" |
-| **sdd-git-commit** | Professional SDD Git commit workflow | "commit my changes" |
-| **python-lint-fix** | Auto-fix and format Python and Markdown code | "fix/lint my code" |
-| **python-repo-init** | Scaffold a new Python repo with spec-first, agent-agnostic workflow governance | "init a python repo" |
+| Plugin | Skill | Description | Activation Intent |
+| -- | -- | -- | -- |
+| **ck** | sdd-project-init | Bootstrap a new non-Python project with Spec-Driven Development structure | "initialize a new project" |
+| **ck** | doc-review-commands | Keep documentation in sync with code changes | "review my documentation" |
+| **ck** | skill-builder | Create new production-ready skills in minutes | "create a new skill" |
+| **ck** | sdd-git-commit | Professional SDD Git commit workflow | "commit my changes" |
+| **ck** | python-lint-fix | Auto-fix and format Python and Markdown code | "fix/lint my code" |
+| **python-repo-init** | python-repo-init | Scaffold a new Python repo with spec-first, agent-agnostic workflow governance | "init a python repo" |
 
 ______________________________________________________________________
 
@@ -47,33 +47,25 @@ Gemini CLI uses a skill-based system. You can install individual skills directly
 **Claude Code:**
 
 ```bash
-claude plugin install sdd-project-init@ck-skills
-claude plugin install doc-review-commands@ck-skills
-claude plugin install skill-builder@ck-skills
-claude plugin install sdd-git-commit@ck-skills
-claude plugin install python-lint-fix@ck-skills
+claude plugin install ck@ck-skills
 claude plugin install python-repo-init@ck-skills
 ```
 
 **Copilot CLI:**
 
 ```bash
-copilot plugin install sdd-project-init@ck-skills
-copilot plugin install doc-review-commands@ck-skills
-copilot plugin install skill-builder@ck-skills
-copilot plugin install sdd-git-commit@ck-skills
-copilot plugin install python-lint-fix@ck-skills
+copilot plugin install ck@ck-skills
 copilot plugin install python-repo-init@ck-skills
 ```
 
 **Gemini CLI:**
 
 ```bash
-gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/sdd-project-init
-gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/doc-review-commands
-gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/skill-builder
-gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/sdd-git-commit
-gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/python-lint-fix
+gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/sdd-project-init
+gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/doc-review-commands
+gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/skill-builder
+gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/sdd-git-commit
+gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/python-lint-fix
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/python-repo-init/skills/python-repo-init
 ```
 
@@ -91,8 +83,11 @@ gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins
 
 ```bash
 git clone https://github.com/kimcharli/ck-skills.git
-cd ck-skills/plugins/<skill-name>
-chmod +x install.sh && ./install.sh
+cd ck-skills
+# ck skills (sdd-project-init, doc-review-commands, skill-builder, sdd-git-commit, python-lint-fix):
+cp -r plugins/ck/skills/<name> ~/.claude/skills/<name>
+# python-repo-init:
+cp -r plugins/python-repo-init/skills/python-repo-init ~/.claude/skills/python-repo-init
 ```
 
 > **Troubleshooting:** If install fails with "Plugin not found" after adding a
@@ -133,27 +128,42 @@ ck-skills/
 ├── .claude-plugin/
 │   └── marketplace.json              # Registry — read by Claude Code + Copilot CLI
 ├── plugins/
-│   ├── sdd-project-init/             # SDD project bootstrapper
+│   ├── ck/                           # Umbrella plugin bundling 5 skills
 │   │   ├── .claude-plugin/
 │   │   │   └── plugin.json           # Plugin manifest (metadata only)
-│   │   ├── commands/                 # Skill command files
-│   │   ├── template/                 # Model file tree for generated projects
-│   │   ├── tools/                    # create-project.sh
-│   │   ├── manifest.json             # Claude Code manifest
-│   │   ├── install.sh
-│   │   └── README.md
-│   ├── doc-review-commands/          # Documentation management
-│   │   ├── commands/
-│   │   ├── tools/
-│   │   ├── config/
-│   │   ├── manifest.json
-│   │   ├── install.sh
-│   │   └── README.md
-│   └── skill-builder/                # Skill creation tool
-│       ├── commands/
-│       ├── tools/
-│       ├── templates/
-│       └── README.md
+│   │   ├── README.md
+│   │   └── skills/
+│   │       ├── sdd-project-init/     # SDD project bootstrapper
+│   │       │   ├── commands/         # Skill command files
+│   │       │   ├── template/         # Model file tree for generated projects
+│   │       │   ├── tools/            # create-project.sh
+│   │       │   ├── manifest.json     # Gemini/Copilot skill metadata
+│   │       │   └── README.md
+│   │       ├── doc-review-commands/  # Documentation management
+│   │       │   ├── commands/
+│   │       │   ├── tools/
+│   │       │   ├── config/
+│   │       │   ├── manifest.json
+│   │       │   └── README.md
+│   │       ├── skill-builder/        # Skill creation tool
+│   │       │   ├── commands/
+│   │       │   ├── tools/
+│   │       │   ├── docs/
+│   │       │   └── README.md
+│   │       ├── sdd-git-commit/       # Git commit workflow
+│   │       │   ├── commands/
+│   │       │   ├── manifest.json
+│   │       │   └── README.md
+│   │       └── python-lint-fix/      # Lint automation
+│   │           ├── commands/
+│   │           ├── tools/
+│   │           ├── manifest.json
+│   │           └── README.md
+│   └── python-repo-init/             # Python repo scaffolder (standalone plugin)
+│       ├── .claude-plugin/
+│       │   └── plugin.json
+│       └── skills/
+│           └── python-repo-init/
 ├── docs/
 │   ├── lessons-learned.md            # Non-obvious findings and decisions
 │   └── troubleshooting.md            # Install failures and fixes
@@ -184,13 +194,15 @@ ______________________________________________________________________
 
 ```bash
 # Claude Code
-claude plugin uninstall <skill-name>
+claude plugin uninstall ck
+claude plugin uninstall python-repo-init
 
 # Copilot CLI
-copilot plugin uninstall <skill-name>
+copilot plugin uninstall ck
+copilot plugin uninstall python-repo-init
 
 # Manual
-cd plugins/<skill-name> && ./uninstall.sh
+rm -rf ~/.claude/skills/<name>
 ```
 
 ______________________________________________________________________
@@ -199,10 +211,10 @@ ______________________________________________________________________
 
 Contributions welcome. To add a new skill:
 
-1. Create `plugins/<your-skill>/` following the existing plugin structure
-1. Add `manifest.json` (Claude Code) and `plugin.json` (Copilot CLI, metadata only)
-1. Add `install.sh` / `uninstall.sh`
-1. Register in `.claude-plugin/marketplace.json`
+1. Small, general-purpose skill? Add `plugins/ck/skills/<your-skill>/` (`SKILL.md`, `commands/`, and any `tools/`/`docs/` it needs) alongside the existing bundled skills.
+1. Skill needs its own bundled generator/templates or independent versioning? Create a standalone plugin at `plugins/<your-skill>/` with its own `.claude-plugin/plugin.json`, following the `python-repo-init` structure.
+1. Add `manifest.json` (Gemini/Copilot skill metadata)
+1. Register in `.claude-plugin/marketplace.json` (new standalone plugins only — skills added to `ck` don't need a separate entry)
 1. Clear local cache and test install on both Claude Code and Copilot CLI
 1. Submit a pull request
 

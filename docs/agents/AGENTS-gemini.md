@@ -38,7 +38,7 @@ For every feature or bug fix, you MUST follow this mandatory sequence:
 1. **Code & Test**: Work through the `[ ]` items in `specs/tasks.md` one by one.
 1. **Documentation Sync**: If implementation reveals a flaw in the spec, update the spec _immediately_ before proceeding.
 1. **The Quality Gate**: Before marking a task `[x]` and committing:
-   - Run `bash plugins/python-lint-fix/tools/lint-fix.sh` to auto-fix linting and run tests.
+   - Run `bash plugins/ck/skills/python-lint-fix/tools/lint-fix.sh` to auto-fix linting and run tests.
    - Perform a **Doc Consistency Check**: Do the `docs/` and `specs/` still accurately reflect the final code?
 1. **COMMIT CODE**: Stage and commit the implementation only after the quality gate passes. Use a commit message like `feat: implement [task]` or `fix: resolve [issue]`.
 

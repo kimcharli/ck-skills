@@ -33,7 +33,7 @@ After installation, every `git commit` automatically runs:
 Run the bundled script to verify tools and hook installation:
 
 ```bash
-bash plugins/python-lint-fix/tools/lint-fix.sh
+bash plugins/ck/skills/python-lint-fix/tools/lint-fix.sh
 ```
 
 It checks: `uv`, `pre-commit`, git hook presence, `.pre-commit-config.yaml`, and markdownlint version (≥ 0.45.0).

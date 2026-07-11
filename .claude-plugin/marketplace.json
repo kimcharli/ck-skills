@@ -16,105 +16,42 @@
   },
   "plugins": [
     {
-      "name": "skill-builder",
+      "name": "ck",
       "version": "1.0.0",
-      "source": "./plugins/skill-builder",
-      "description": "Create production-ready Claude Code skills in minutes - fully generated, optimized, and well-tested skills without boilerplate",
+      "source": "./plugins/ck",
+      "description": "Bundle of five production-ready skills: sdd-project-init (SDD project scaffolding), doc-review-commands (documentation sync automation), skill-builder (skill generation), sdd-git-commit (professional Git commit workflow), and python-lint-fix (Python/Markdown lint automation)",
       "author": {
         "name": "kimcharli"
       },
       "license": "MIT",
-      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/skill-builder",
-      "tags": [
-        "skill-generation",
-        "automation",
-        "templates",
-        "productivity",
-        "development"
-      ],
-      "category": "development"
-    },
-    {
-      "name": "doc-review-commands",
-      "version": "1.0.0",
-      "source": "./plugins/doc-review-commands",
-      "description": "AI-powered documentation management system for Claude Code - keeps project documentation in sync with code changes",
-      "author": {
-        "name": "kimcharli"
-      },
-      "license": "MIT",
-      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/doc-review-commands",
-      "tags": [
-        "documentation",
-        "automation",
-        "markdown",
-        "changelog",
-        "readme",
-        "quality-assurance",
-        "sdd"
-      ],
-      "category": "documentation"
-    },
-    {
-      "name": "sdd-project-init",
-      "version": "1.0.0",
-      "source": "./plugins/sdd-project-init",
-      "description": "Initialize a new non-Python project with Spec-Driven Development structure — interview-driven, generates all files fully populated (for Python repos use python-repo-init)",
-      "author": {
-        "name": "kimcharli"
-      },
-      "license": "MIT",
-      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/sdd-project-init",
+      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/ck",
       "tags": [
         "sdd",
         "spec-driven-development",
         "project-init",
         "scaffold",
         "bootstrap",
-        "workflow"
-      ],
-      "category": "project-management"
-    },
-    {
-      "name": "sdd-git-commit",
-      "version": "1.0.0",
-      "source": "./plugins/sdd-git-commit",
-      "description": "Professional SDD Git commit workflow — hygiene, SDD gates, CHANGELOG, and reflection",
-      "author": {
-        "name": "kimcharli"
-      },
-      "license": "MIT",
-      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/sdd-git-commit",
-      "tags": [
+        "workflow",
+        "documentation",
+        "automation",
+        "markdown",
+        "changelog",
+        "readme",
+        "quality-assurance",
+        "skill-generation",
+        "templates",
+        "productivity",
+        "development",
         "git",
         "commit",
-        "sdd",
-        "workflow",
-        "changelog",
-        "documentation"
-      ],
-      "category": "git-management"
-    },
-    {
-      "name": "python-lint-fix",
-      "version": "1.1.0",
-      "source": "./plugins/python-lint-fix",
-      "description": "Environment health check and pre-commit setup guidance for Python and Markdown quality automation",
-      "author": {
-        "name": "kimcharli"
-      },
-      "license": "MIT",
-      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/python-lint-fix",
-      "tags": [
         "lint",
         "format",
         "python",
         "ruff",
-        "markdown",
         "mdformat",
         "markdownlint"
       ],
-      "category": "linting"
+      "category": "productivity"
     },
     {
       "name": "python-repo-init",

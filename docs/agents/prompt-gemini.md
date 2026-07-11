@@ -29,7 +29,7 @@ The resulting `AGENTS.md` must be designed for maximum context efficiency and st
 
 ### 3. Quality Gates & Validation
 
-- Define a specific "Quality Gate" command/script (e.g., `bash plugins/python-lint-fix/tools/lint-fix.sh`).
+- Define a specific "Quality Gate" command/script (e.g., `bash plugins/ck/skills/python-lint-fix/tools/lint-fix.sh`).
 - Include a "Doc Consistency Check": Ensuring `specs/` and `docs/` match the final implementation.
 - Mandate that all gates must pass before any implementation commit.
 

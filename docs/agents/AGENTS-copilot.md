@@ -75,7 +75,7 @@ Every feature or fix MUST follow this mandatory sequence. No exceptions.
 
 1. **Quality Gate** (must pass before any commit):
 
-   - Run lint/fix: `bash plugins/python-lint-fix/tools/lint-fix.sh`
+   - Run lint/fix: `bash plugins/ck/skills/python-lint-fix/tools/lint-fix.sh`
    - **Doc Consistency Check**: Do `docs/` and `specs/` still accurately describe the final code?
    - Mark the task `[x]` in `specs/tasks.md`.
    - **Update `STATE.md`** — set `current-task` to next `[ ]` item, update `completed`, `last-commit`.
@@ -131,7 +131,7 @@ This project uses `uv` for all Python tooling. Strict adherence required.
 Run these in order before every `git commit`:
 
 ```bash
-bash plugins/python-lint-fix/tools/lint-fix.sh   # lint + auto-fix + tests
+bash plugins/ck/skills/python-lint-fix/tools/lint-fix.sh   # lint + auto-fix + tests
 bash plugins/sdd-state-sync/sync.sh              # update STATE.md (if installed)
 ```
 

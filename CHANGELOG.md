@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 2026-07-10
 
+### Changed
+
+- **BREAKING: Consolidated 5 flat-form plugins into a single `ck` umbrella plugin**:
+  `python-lint-fix`, `sdd-project-init`, `doc-review-commands`, `sdd-git-commit`, and
+  `skill-builder` moved from independent top-level plugins (`plugins/<name>/`) into
+  `plugins/ck/skills/<name>/`, matching the nested `skills/<name>/SKILL.md` layout
+  Anthropic's plugin docs recommend for plugins that bundle more than one skill.
+  `python-repo-init` is unaffected and remains a standalone plugin.
+- **`marketplace.json`**: removed the 5 old plugin entries; added a single `ck` entry
+  (`source: ./plugins/ck`). Existing installs of the 5 individual plugin names will no
+  longer resolve — reinstall via `claude plugin install ck@ck-skills` (or the Copilot
+  CLI equivalent).
+- Dropped each moved skill's per-skill `install.sh`/`uninstall.sh`/`.claude-plugin/`
+  (superseded by the shared `plugins/ck/.claude-plugin/plugin.json`); manual install is
+  now a plain copy into `~/.claude/skills/<name>`.
+- Updated root `README.md` (Available Skills table, install instructions for all three
+  CLIs, repository structure diagram, uninstall instructions, contributing guide) to
+  reflect the new layout.
+
 ### Added
 
 - **python-repo-init Plugin (1.0.0)**: New plugin that scaffolds a Python repo pre-wired with spec-first, agent-agnostic workflow governance (AGENTS.md + thin per-tool pointers, `specs/` session handoff via NEXT.md, stdlib-only pre-commit convention guard + CI, uv/mise tooling with adjustable `--python` version, lifecycle-staged `data/` layout). Registered in marketplace; skill lives at `skills/python-repo-init/` per Claude Code plugin layout; `/python-repo-init` command included. Author defaults to `git config user.name`; generator is cwd-independent and reports `--force` overwrites.

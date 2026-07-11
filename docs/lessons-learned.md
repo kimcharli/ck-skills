@@ -154,7 +154,7 @@ To maintain a single source of truth for markdown linting standards while ensuri
 **The Setup:**
 
 - The master configuration is at the project root: `.markdownlint.json`.
-- Plugins (like `python-lint-fix` and `sdd-project-init`) symlink to this master file within their own directory structure (e.g., `plugins/python-lint-fix/tools/.markdownlint.json` → `../../../.markdownlint.json`).
+- Plugins (like `python-lint-fix` and `sdd-project-init`) symlink to this master file within their own directory structure (e.g., `plugins/ck/skills/python-lint-fix/tools/.markdownlint.json` → `../../../.markdownlint.json`).
 
 **Why this works:**
 

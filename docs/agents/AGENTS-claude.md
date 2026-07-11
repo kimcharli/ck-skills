@@ -41,7 +41,7 @@ Execute in this order. All must pass before committing.
 
 ```bash
 # 1. Lint and auto-fix
-bash plugins/python-lint-fix/tools/lint-fix.sh
+bash plugins/ck/skills/python-lint-fix/tools/lint-fix.sh
 
 # 2. Doc consistency check — specs and docs match the code
 #    Verify: Do specs/requirements.md, specs/design.md, and docs/

@@ -8,19 +8,19 @@ ______________________________________________________________________
 ## Installation
 
 For marketplace setup and general install instructions, see the
-[ck-skills README](../../README.md).
+[ck-skills README](../../../../README.md).
 
 **Quick install:**
 
 ```bash
-# Claude Code
-claude plugin install doc-review-commands@ck-skills
+# Claude Code (installs the whole ck plugin)
+claude plugin install ck@ck-skills
 
 # Copilot CLI
-copilot plugin install doc-review-commands@ck-skills
+copilot plugin install ck@ck-skills
 
 # Manual
-cd plugins/doc-review-commands && ./install.sh
+cp -r plugins/ck/skills/doc-review-commands ~/.claude/skills/doc-review-commands
 ```
 
 ______________________________________________________________________
@@ -74,4 +74,4 @@ ______________________________________________________________________
 
 - [sdd-project-init](../sdd-project-init/README.md) — bootstrap new SDD projects
 - [skill-builder](../skill-builder/README.md) — create new ck-skills plugins
-- [ck-skills](../../README.md) — full marketplace README
+- [ck-skills](../../../../README.md) — full marketplace README

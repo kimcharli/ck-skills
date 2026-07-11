@@ -31,12 +31,12 @@ This document tracks the specialized agent candidates, their creation prompts, a
 
 - **Goal**: Integrate `STATE.md` updates into the mandatory pre-commit checklist.
 - **Reference**: [recommendation-gemini.md](./recommendation-gemini.md)
-- **Status**: [ ] Update `plugins/sdd-git-commit/SKILL.md` to require `STATE.md` updates.
+- **Status**: [ ] Update `plugins/ck/skills/sdd-git-commit/SKILL.md` to require `STATE.md` updates.
 
 ### G-4: Update `sdd-project-init` Skill
 
 - **Goal**: Include a `STATE.md` template in the default project structure.
-- **Status**: [ ] Update `plugins/sdd-project-init/template/` to include `STATE.md`.
+- **Status**: [ ] Update `plugins/ck/skills/sdd-project-init/template/` to include `STATE.md`.
 
 ## 3. Improvement Roadmap
 

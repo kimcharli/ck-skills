@@ -6,19 +6,19 @@ ______________________________________________________________________
 
 ## Installation
 
-For marketplace setup and general install instructions, see the [ck-skills README](../../README.md).
+For marketplace setup and general install instructions, see the [ck-skills README](../../../../README.md).
 
 **Quick install:**
 
 ```bash
-# Claude Code
-claude plugin install sdd-git-commit@ck-skills
+# Claude Code (installs the whole ck plugin)
+claude plugin install ck@ck-skills
 
 # Copilot CLI
-copilot plugin install sdd-git-commit@ck-skills
+copilot plugin install ck@ck-skills
 
 # Manual
-cd plugins/sdd-git-commit && ./install.sh
+cp -r plugins/ck/skills/sdd-git-commit ~/.claude/skills/sdd-git-commit
 ```
 
 ______________________________________________________________________
@@ -62,4 +62,4 @@ ______________________________________________________________________
 
 - [sdd-project-init](../sdd-project-init/README.md) — bootstrap a new SDD project
 - [doc-review-commands](../doc-review-commands/README.md) — keep docs in sync during development
-- [ck-skills](../../README.md) — full marketplace README
+- [ck-skills](../../../../README.md) — full marketplace README

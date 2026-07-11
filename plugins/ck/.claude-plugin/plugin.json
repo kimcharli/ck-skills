@@ -1,0 +1,35 @@
+{
+  "name": "ck",
+  "version": "1.0.0",
+  "description": "Bundle of five production-ready skills: sdd-project-init (SDD project scaffolding), doc-review-commands (documentation sync automation), skill-builder (skill generation), sdd-git-commit (professional Git commit workflow), and python-lint-fix (Python/Markdown lint automation)",
+  "author": {
+    "name": "kimcharli"
+  },
+  "license": "MIT",
+  "keywords": [
+    "sdd",
+    "spec-driven-development",
+    "project-init",
+    "scaffold",
+    "bootstrap",
+    "workflow",
+    "documentation",
+    "automation",
+    "markdown",
+    "changelog",
+    "readme",
+    "quality-assurance",
+    "skill-generation",
+    "templates",
+    "productivity",
+    "development",
+    "git",
+    "commit",
+    "lint",
+    "format",
+    "python",
+    "ruff",
+    "mdformat",
+    "markdownlint"
+  ]
+}

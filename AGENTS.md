@@ -61,7 +61,7 @@ If a requirement changes mid-implementation, stop and update specs first.
 - Use **Sonnet** (Claude) or **Flash** (Gemini) for implementation phases (tasks, code).
 - Install pre-commit hooks once per clone: `uv run pre-commit install`.
 - Use pre-commit as the default quality gate before commit.
-- Run `bash plugins/python-lint-fix/tools/lint-fix.sh` to verify environment health (tools present, hook installed).
+- Run `bash plugins/ck/skills/python-lint-fix/tools/lint-fix.sh` to verify environment health (tools present, hook installed).
 - **Never run bare `mdformat`** — only via `uvx pre-commit run mdformat --files <files>`. Without the `mdformat-frontmatter` plugin (configured in `.pre-commit-config.yaml`), mdformat irreversibly destroys YAML frontmatter in SKILL.md and command files. `scripts/check_frontmatter.py` (pre-commit + CI) blocks mangled files, but prevention beats detection.
 
 ## Tool Compatibility

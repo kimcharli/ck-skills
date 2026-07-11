@@ -8,19 +8,19 @@ ______________________________________________________________________
 ## Installation
 
 For marketplace setup and general install instructions, see the
-[ck-skills README](../../README.md).
+[ck-skills README](../../../../README.md).
 
 **Quick install:**
 
 ```bash
-# Claude Code
-claude plugin install skill-builder@ck-skills
+# Claude Code (installs the whole ck plugin)
+claude plugin install ck@ck-skills
 
 # Copilot CLI
-copilot plugin install skill-builder@ck-skills
+copilot plugin install ck@ck-skills
 
 # Manual
-cd plugins/skill-builder && ./install.sh
+cp -r plugins/ck/skills/skill-builder ~/.claude/skills/skill-builder
 ```
 
 ______________________________________________________________________
@@ -86,4 +86,4 @@ ______________________________________________________________________
 
 - [sdd-project-init](../sdd-project-init/README.md) — bootstrap new SDD projects
 - [doc-review-commands](../doc-review-commands/README.md) — keep docs in sync
-- [ck-skills](../../README.md) — full marketplace README
+- [ck-skills](../../../../README.md) — full marketplace README
