@@ -7,7 +7,7 @@ description: >
   staged data/ layout). Use when the user says "init a python repo", "new
   python project with the workflow", "scaffold a python repo like this one",
   or invokes /python-repo-init.
-allowed-tools: Bash(python3 ${CLAUDE_PLUGIN_ROOT}/*) Read(${CLAUDE_PLUGIN_ROOT}/**) Read(~/.claude/plugins/**)
+allowed-tools: Bash(python3 ${CLAUDE_SKILL_DIR}/*) Bash(python3 ${CLAUDE_PLUGIN_ROOT}/*) Read(${CLAUDE_SKILL_DIR}/**) Read(~/.claude/plugins/**)
 ---
 
 # Python Repo Init
@@ -46,16 +46,16 @@ Into `<target-dir>`:
 ## How to run
 
 1. The generator is `scripts/generate.py`, adjacent to this SKILL.md, with
-   templates in `templates/`. **Run it directly — do not Read the generator
-   source or templates first.** This document tells you everything needed to
-   invoke it, its output is self-describing, and each extra Read of a bundled
-   file may cost the user a permission prompt. It works from **any cwd** —
-   invoke it by path (no `cd` needed). Resolve `<skill-dir>` to the directory
-   containing this SKILL.md (for a Claude Code plugin install that is
-   `${CLAUDE_PLUGIN_ROOT}/skills/python-repo-init`):
+   templates in `templates/`. **Run it directly — do not search for, locate,
+   or Read the skill's own files first.** The path below is already absolute
+   (`${CLAUDE_SKILL_DIR}` is substituted by the host before you see this
+   text; if you see the literal variable name, this file's own directory is
+   the value). This document tells you everything needed; the generator's
+   output is self-describing; every extra find/Read of a bundled file costs
+   the user a permission prompt. It works from **any cwd** — no `cd` needed:
 
    ```
-   python3 <skill-dir>/scripts/generate.py <target-dir> \
+   python3 ${CLAUDE_SKILL_DIR}/scripts/generate.py <target-dir> \
        [--name NAME] [--package PKG] [--author AUTHOR] \
        [--description DESC] [--python VERSION] [--force]
    ```
