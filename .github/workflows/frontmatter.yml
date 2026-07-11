@@ -1,0 +1,22 @@
+name: Frontmatter guard
+
+# Fails any push/PR where a SKILL.md or plugin command file has missing or
+# structurally broken YAML frontmatter -- the signature of an mdformat run
+# without the frontmatter plugin (see scripts/check_frontmatter.py). This is
+# the non-bypassable backstop: local hooks can be skipped with --no-verify or
+# simply not installed; this check runs for every contributor and agent.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Stdlib-only script; the runner's system python3 is enough.
+      - name: Check SKILL.md and command frontmatter
+        run: python3 scripts/check_frontmatter.py
