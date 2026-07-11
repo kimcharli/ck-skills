@@ -30,7 +30,7 @@ Claude Code, GitHub Copilot CLI, and Gemini CLI are supported.
 **Claude Code:**
 
 ```bash
-claude plugin marketplace add github:kimcharli/ck-skills
+claude plugin marketplace add https://github.com/kimcharli/ck-skills
 ```
 
 **Copilot CLI:**
