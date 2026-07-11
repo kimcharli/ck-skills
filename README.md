@@ -17,6 +17,7 @@ ______________________________________________________________________
 | **skill-builder** | Create new production-ready skills in minutes | "create a new skill" |
 | **sdd-git-commit** | Professional SDD Git commit workflow | "commit my changes" |
 | **python-lint-fix** | Auto-fix and format Python and Markdown code | "fix/lint my code" |
+| **python-repo-init** | Scaffold a new Python repo with spec-first, agent-agnostic workflow governance | "init a python repo" |
 
 ______________________________________________________________________
 
@@ -51,6 +52,7 @@ claude plugin install doc-review-commands@ck-skills
 claude plugin install skill-builder@ck-skills
 claude plugin install sdd-git-commit@ck-skills
 claude plugin install python-lint-fix@ck-skills
+claude plugin install python-repo-init@ck-skills
 ```
 
 **Copilot CLI:**
@@ -61,6 +63,7 @@ copilot plugin install doc-review-commands@ck-skills
 copilot plugin install skill-builder@ck-skills
 copilot plugin install sdd-git-commit@ck-skills
 copilot plugin install python-lint-fix@ck-skills
+copilot plugin install python-repo-init@ck-skills
 ```
 
 **Gemini CLI:**
@@ -71,6 +74,7 @@ gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/skill-builder
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/sdd-git-commit
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/python-lint-fix
+gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/python-repo-init/skills/python-repo-init
 ```
 
 ### Install directly from repo (no marketplace registration)

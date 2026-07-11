@@ -5,6 +5,12 @@ All notable changes to doc-review-commands will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - 2026-07-10
+
+### Added
+
+- **python-repo-init Plugin (1.0.0)**: New plugin that scaffolds a Python repo pre-wired with spec-first, agent-agnostic workflow governance (AGENTS.md + thin per-tool pointers, `specs/` session handoff via NEXT.md, stdlib-only pre-commit convention guard + CI, uv/mise tooling with adjustable `--python` version, lifecycle-staged `data/` layout). Registered in marketplace; skill lives at `skills/python-repo-init/` per Claude Code plugin layout; `/python-repo-init` command included. Author defaults to `git config user.name`; generator is cwd-independent and reports `--force` overwrites.
+
 ## [Unreleased] - 2026-04-09
 
 ### Added

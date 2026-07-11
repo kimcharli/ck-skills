@@ -115,6 +115,27 @@
         "markdownlint"
       ],
       "category": "linting"
+    },
+    {
+      "name": "python-repo-init",
+      "version": "1.0.0",
+      "source": "./plugins/python-repo-init",
+      "description": "Scaffold a new Python repo pre-wired with spec-first, agent-agnostic AI workflow governance — AGENTS.md pointers, specs/ session handoff, mechanical convention guard, uv/mise tooling",
+      "author": {
+        "name": "kimcharli"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/kimcharli/ck-skills/tree/main/plugins/python-repo-init",
+      "tags": [
+        "python",
+        "scaffold",
+        "repo-init",
+        "spec-driven-development",
+        "governance",
+        "agent-agnostic",
+        "uv"
+      ],
+      "category": "development"
     }
   ]
 }

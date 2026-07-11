@@ -1,0 +1,10 @@
+{
+  "name": "python-repo-init",
+  "version": "1.0.0",
+  "description": "Scaffold a new Python repo pre-wired with spec-first, agent-agnostic AI workflow governance: AGENTS.md pointers, specs/ with session handoff, a mechanical convention guard, uv/mise tooling",
+  "author": {
+    "name": "kimcharli"
+  },
+  "license": "MIT",
+  "keywords": ["python", "scaffold", "repo-init", "spec-driven", "governance", "agent-agnostic", "uv"]
+}
