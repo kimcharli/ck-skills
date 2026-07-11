@@ -1,7 +1,7 @@
 ---
 description: Scaffold a new Python repo with spec-first, agent-agnostic workflow governance
 argument-hint: <target-dir> [--name NAME] [--python VERSION]
-allowed-tools: Bash(python3 ${CLAUDE_PLUGIN_ROOT}/*) Read(${CLAUDE_PLUGIN_ROOT}/**) Read(~/.claude/plugins/**)
+allowed-tools: Bash(python3 *) Read(~/.claude/plugins/**) Read(~/.agents/skills/**)
 ---
 
 Use the `python-repo-init` skill to scaffold a new Python repository at the
