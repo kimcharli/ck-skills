@@ -73,5 +73,4 @@ ______________________________________________________________________
 ## Related
 
 - [sdd-project-init](../sdd-project-init/README.md) — bootstrap new SDD projects
-- [skill-builder](../skill-builder/README.md) — create new ck-skills plugins
 - [ck-skills](../../../../README.md) — full marketplace README

@@ -1,7 +1,7 @@
 {
   "name": "ck",
-  "version": "1.1.0",
-  "description": "Bundle of eight production-ready skills: sdd-project-init (SDD project scaffolding), doc-review-commands (documentation sync automation), skill-builder (skill generation), sdd-git-commit (professional Git commit workflow), python-lint-fix (Python/Markdown lint automation), plan-doc (plan-first batch-change workflow), decision-capture (mid-session decision-to-spec commits), and session-close (end-of-session handoff checklist)",
+  "version": "1.2.0",
+  "description": "Bundle of seven production-ready skills: sdd-project-init (SDD project scaffolding), doc-review-commands (documentation sync automation), sdd-git-commit (professional Git commit workflow), python-lint-fix (Python/Markdown lint automation), plan-doc (plan-first batch-change workflow), decision-capture (mid-session decision-to-spec commits), and session-close (end-of-session handoff checklist)",
   "author": {
     "name": "kimcharli"
   },
@@ -19,7 +19,6 @@
     "changelog",
     "readme",
     "quality-assurance",
-    "skill-generation",
     "templates",
     "productivity",
     "development",

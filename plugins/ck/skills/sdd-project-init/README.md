@@ -98,5 +98,4 @@ ______________________________________________________________________
 
 - [python-repo-init](../python-repo-init/README.md) — the Python-specific successor to this scaffold
 - [doc-review-commands](../doc-review-commands/README.md) — keep docs in sync during development
-- [skill-builder](../skill-builder/README.md) — create new ck-skills plugins
 - [ck-skills](../../../../README.md) — full marketplace README

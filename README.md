@@ -14,9 +14,11 @@ ______________________________________________________________________
 | -- | -- | -- | -- |
 | **ck** | sdd-project-init | Bootstrap a new non-Python project with Spec-Driven Development structure | "initialize a new project" |
 | **ck** | doc-review-commands | Keep documentation in sync with code changes | "review my documentation" |
-| **ck** | skill-builder | Create new production-ready skills in minutes | "create a new skill" |
 | **ck** | sdd-git-commit | Professional SDD Git commit workflow | "commit my changes" |
 | **ck** | python-lint-fix | Auto-fix and format Python and Markdown code | "fix/lint my code" |
+| **ck** | plan-doc | Plan-first workflow for multi-item change batches (committed plan doc before execution) | "plan first" / "create a plan doc" |
+| **ck** | decision-capture | Commit a mid-session design decision to specs before any implementation code | "capture this decision" |
+| **ck** | session-close | End-of-session handoff: refresh the NEXT pointer, append the dated log entry | "close session" / "wrap up" |
 | **python-repo-init** | python-repo-init | Scaffold a new Python repo with spec-first, agent-agnostic workflow governance | "init a python repo" |
 
 ______________________________________________________________________
@@ -63,7 +65,6 @@ copilot plugin install python-repo-init@ck-skills
 ```bash
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/sdd-project-init
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/doc-review-commands
-gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/skill-builder
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/sdd-git-commit
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/ck/skills/python-lint-fix
 gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins/python-repo-init/skills/python-repo-init
@@ -84,7 +85,8 @@ gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins
 ```bash
 git clone https://github.com/kimcharli/ck-skills.git
 cd ck-skills
-# ck skills (sdd-project-init, doc-review-commands, skill-builder, sdd-git-commit, python-lint-fix):
+# ck skills (sdd-project-init, doc-review-commands, sdd-git-commit, python-lint-fix,
+#            plan-doc, decision-capture, session-close):
 cp -r plugins/ck/skills/<name> ~/.claude/skills/<name>
 # python-repo-init:
 cp -r plugins/python-repo-init/skills/python-repo-init ~/.claude/skills/python-repo-init
@@ -115,10 +117,6 @@ Or more focused:
 > "update SDD specs for the new feature"
 > "run a documentation QA check"
 
-### skill-builder — Create new skills
-
-> "help me build a new skill for [purpose]"
-
 ______________________________________________________________________
 
 ## Repository Structure
@@ -144,11 +142,6 @@ ck-skills/
 │   │       │   ├── tools/
 │   │       │   ├── config/
 │   │       │   ├── manifest.json
-│   │       │   └── README.md
-│   │       ├── skill-builder/        # Skill creation tool
-│   │       │   ├── commands/
-│   │       │   ├── tools/
-│   │       │   ├── docs/
 │   │       │   └── README.md
 │   │       ├── sdd-git-commit/       # Git commit workflow
 │   │       │   ├── commands/
