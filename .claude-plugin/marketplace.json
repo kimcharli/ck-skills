@@ -3,7 +3,7 @@
     "name": "kimcharli"
   },
   "name": "ck-skills",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Collection of Claude Code skills by kimcharli",
   "author": {
     "name": "kimcharli"
@@ -17,9 +17,9 @@
   "plugins": [
     {
       "name": "ck",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "source": "./plugins/ck",
-      "description": "Bundle of five production-ready skills: sdd-project-init (SDD project scaffolding), doc-review-commands (documentation sync automation), skill-builder (skill generation), sdd-git-commit (professional Git commit workflow), and python-lint-fix (Python/Markdown lint automation)",
+      "description": "Bundle of eight production-ready skills: sdd-project-init (SDD project scaffolding), doc-review-commands (documentation sync automation), skill-builder (skill generation), sdd-git-commit (professional Git commit workflow), python-lint-fix (Python/Markdown lint automation), plan-doc (plan-first batch-change workflow), decision-capture (mid-session decision-to-spec commits), and session-close (end-of-session handoff checklist)",
       "author": {
         "name": "kimcharli"
       },
@@ -55,9 +55,9 @@
     },
     {
       "name": "python-repo-init",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "source": "./plugins/python-repo-init",
-      "description": "Scaffold a new Python repo pre-wired with spec-first, agent-agnostic AI workflow governance — AGENTS.md pointers, specs/ session handoff, mechanical convention guard, uv/mise tooling",
+      "description": "Scaffold a new Python repo pre-wired with spec-first, agent-agnostic AI workflow governance — AGENTS.md pointers, specs/ session handoff + append-only workflow log, shallow-spec two-file pattern, mechanical convention guard, uv/mise tooling",
       "author": {
         "name": "kimcharli"
       },
