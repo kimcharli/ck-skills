@@ -50,8 +50,9 @@ just when work is incomplete. Rules:
    file/section pointer (not "see spec").
 2. If nothing is pending, explicitly write "None." — an empty or stale "Active
    work" section is a bug, not an acceptable default.
-3. Do not duplicate the full decision rationale here — that lives in
-   `specs/workflow.md`'s log and the relevant `specs/NNN-*.md`. This file only
+3. Do not duplicate the full decision rationale here, and never stack
+   completed "Prior:" history — both live in `specs/workflow-log.md` and the
+   relevant `specs/NNN-*.md` (or its `-history.md` sibling). This file only
    holds the *pointer*.
 4. This file's own edits do not need a matching `specs/NNN-*.md` skill spec
    (it's process bookkeeping) — but commit it with the work it reflects.

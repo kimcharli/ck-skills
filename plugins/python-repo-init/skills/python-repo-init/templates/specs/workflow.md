@@ -69,6 +69,29 @@ decisions — see `specs/memory.md` for the historical record.
 5. **Close gaps explicitly.** When a skill resolves an item in `docs/` or
    `specs/NEXT.md`, cross-reference it there.
 
+## 3a. Spec Files Stay Shallow: the Two-File Pattern
+
+Always-loaded docs fatten — normative files accrete dated decision sections
+until a session can't read them in one pass (reference project: two skill
+specs hit ~830 lines each). For any `specs/NNN-<skill>.md` that accumulates
+dated decision sections:
+
+1. The spec file stays **shallow and normative** (target ≤ ~400 lines):
+   problem, inputs, *current* output format, edge cases, test plan. Update
+   these in place as decisions land — they describe current state, not history.
+2. Dated decision sections (headings like `## 8a. …`) move **verbatim,
+   numbering unchanged** to an append-only sibling
+   `specs/NNN-<skill>-history.md`; new dated sections are appended THERE.
+3. A **decision-index cue table** (section · date · one-line cue · status:
+   implemented / planned / superseded) sits where the sections were — readers
+   open a history section only when its row matters, and old references like
+   "spec 001 Section 8e" resolve through it.
+4. `scripts/split_spec_history.py <spec>` performs the split mechanically;
+   guard check 8 (Section 8) is the advisory-only backstop.
+
+Exempt: append-only archives that are *supposed* to grow and are read on
+demand only — `specs/workflow-log.md`, `specs/memory.md`, `*-history.md`.
+
 ## 4. Tooling
 
 - Dependency management: `uv add <pkg>` / `uv add --dev <pkg>`
@@ -130,13 +153,11 @@ without re-reading code.
 
 ## 6. Log
 
-- __DATE__: Created the repo's governance scaffolding via the
-  `python-repo-init` skill (ported from the pattern established in
-  `47688-columbia-school-district` / `junos-set-tree-sitter`): this
-  `specs/workflow.md`, `specs/memory.md`, `specs/NEXT.md`, minimal `AGENTS.md`
-  + thin pointers, `docs/README.md`, `scripts/check_repo_conventions.py` +
-  `.githooks/` + CI, and the `data/` + `src/`/`tests/` layout. No skills
-  implemented yet — see `specs/NEXT.md`.
+The dated decision log lives in [`specs/workflow-log.md`](./workflow-log.md) —
+**append new dated entries there, not here.** This file stays normative-only.
+(Lesson from the reference project: an inline log grew this file past 1000
+lines / ~26k tokens, too large for an AI session to read in one pass at
+session start.)
 
 ## 7. Cross-Tool Persistence Caveat
 
@@ -186,6 +207,11 @@ violation.
    `specs/**/*.md` file also touches `specs/NEXT.md` — backstop for "refresh
    the session-start pointer before ending." Same coarseness as 6; editing
    `specs/NEXT.md` itself never trips its own check.
+8. **Soft advisory only (never fails the commit):** a staged `specs/NNN-*.md`
+   (excluding `*-history.md`) over 400 lines gets a non-blocking nudge to
+   apply the Section 3a two-file split (`scripts/split_spec_history.py`).
+   Advisory, not a gate: a spec legitimately grows while decisions are in
+   flight; the nudge fires at commit time, when acting on it is cheap.
 
 **What it cannot check:** whether a decision's reasoning was sound, or whether
 an agent actually read `specs/memory.md`. Those stay trust-based (Sections 1a, 7).

@@ -32,10 +32,15 @@ Into `<target-dir>`:
 
 - `AGENTS.md` (minimal ≤70-line map) + thin `CLAUDE.md`, `GEMINI.md`,
   `.github/copilot-instructions.md` pointers.
-- `specs/workflow.md` (spec→skill→test→track, `data/` contract, enforcement),
-  `specs/memory.md` (seeded), `specs/NEXT.md` (first Active-work pointer).
+- `specs/workflow.md` (spec→skill→test→track, `data/` contract, the
+  shallow-spec two-file pattern, enforcement), `specs/workflow-log.md`
+  (append-only dated decision log — kept OUT of workflow.md so the
+  always-loaded file stays readable in one pass), `specs/memory.md` (seeded),
+  `specs/NEXT.md` (first Active-work pointer).
 - `docs/README.md` (domain-analysis home).
-- `scripts/check_repo_conventions.py` (stdlib-only convention guard) +
+- `scripts/check_repo_conventions.py` (stdlib-only convention guard, incl. an
+  advisory-only shallow-spec size nudge) + `scripts/split_spec_history.py`
+  (performs the two-file spec split mechanically) +
   `.githooks/pre-commit` & `post-commit` +
   `.github/workflows/repo-conventions.yml` (same guard in CI).
 - `pyproject.toml`, `mise.toml` (uv / pytest; Python version via `--python`),

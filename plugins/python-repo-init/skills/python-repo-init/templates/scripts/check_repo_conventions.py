@@ -321,6 +321,38 @@ def check_next_md_updated() -> None:
     )
 
 
+SPEC_FILE_RE = re.compile(r"^specs/\d{3}-.*\.md$")
+SPEC_SHALLOW_MAX_LINES = 400
+
+advisories: list[str] = []
+
+
+def check_spec_files_shallow() -> None:
+    """Soft advisory (never fails the commit): a staged specs/NNN-*.md
+    (excluding *-history.md siblings) over SPEC_SHALLOW_MAX_LINES lines gets
+    a nudge to apply the two-file split — dated decision sections move
+    verbatim to specs/NNN-<skill>-history.md behind a decision-index table.
+    Run `python scripts/split_spec_history.py <spec>` to perform it. See
+    specs/workflow.md Section 3a / Section 8 item 8."""
+    for rel_path in staged_files():
+        if not SPEC_FILE_RE.match(rel_path) or rel_path.endswith("-history.md"):
+            continue
+        content = file_text(rel_path)
+        if content is None:
+            continue
+        line_count = len(content.splitlines())
+        if line_count > SPEC_SHALLOW_MAX_LINES:
+            advisories.append(
+                f"'{rel_path}' is {line_count} lines (shallow-spec target: "
+                f"{SPEC_SHALLOW_MAX_LINES}). Consider moving dated decision "
+                "sections verbatim to its '-history.md' sibling behind a "
+                "decision-index table — run "
+                f"`python scripts/split_spec_history.py {rel_path}` — see "
+                "specs/workflow.md Section 3a. Advisory only; your commit is "
+                "not blocked."
+            )
+
+
 def main() -> int:
     check_agents_md_size()
     check_agents_md_duplication()
@@ -329,6 +361,13 @@ def main() -> int:
     check_generated_provenance()
     check_spec_before_or_with_code()
     check_next_md_updated()
+    check_spec_files_shallow()
+
+    if advisories:
+        print("repo convention advisory (non-blocking):\n", file=sys.stderr)
+        for note in advisories:
+            print(f"  - {note}", file=sys.stderr)
+        print(file=sys.stderr)
 
     if errors:
         print("repo convention check failed:\n", file=sys.stderr)
