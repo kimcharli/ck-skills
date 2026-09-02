@@ -13,12 +13,12 @@ tokensave:mcp(+hook)
 
 rtk:hook
 [[https://github.com/rtk-ai/rtk]]
-saving command output to be fed to agents
+Rust Token Killer: saving command output to be fed to agents
 
 
 codebase-memory-mcp:mcp
 [[https://github.com/DeusData/codebase-memory-mcp]]
-index codebase in in-memory-sql
+code analyzer: index codebase in in-memory-sql. No external tools, LLMs
 
 
 context-mode:mcp 
@@ -34,3 +34,17 @@ token-savior:mcp
 
 obscura:mcp - headless browser engine written in rust
 [[https://github.com/h4ckf0r0day/obscura]]
+
+
+arpathy-skills:skill
+[[https://github.com/multica-ai/andrej-karpathy-skills]]
+
+graphifyy:mcp
+[[https://github.com/Graphify-Labs/graphify]]
+more than code
+
+obsidian-skills
+[[https://github.com/kepano/obsidian-skills]]
+
+ccusage
+[[https://github.com/ccusage/ccusage]]
