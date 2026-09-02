@@ -30,13 +30,18 @@ new Python repository with this workflow.
 
 Into `<target-dir>`:
 
-- `AGENTS.md` (minimal ≤70-line map) + thin `CLAUDE.md`, `GEMINI.md`,
-  `.github/copilot-instructions.md` pointers.
+- `AGENTS.md` (behavioral rules only, ≤90-line ceiling) + thin `CLAUDE.md`,
+  `GEMINI.md`, `.github/copilot-instructions.md` pointers. Repo layout,
+  improvement routing, and the escalation threshold live in
+  `specs/project.md` instead, which is what keeps `AGENTS.md` behavioral.
 - `specs/workflow.md` (spec→skill→test→track, `data/` contract, the
   shallow-spec two-file pattern, enforcement), `specs/workflow-log.md`
   (append-only dated decision log — kept OUT of workflow.md so the
   always-loaded file stays readable in one pass), `specs/memory.md` (seeded),
-  `specs/NEXT.md` (first Active-work pointer).
+  `specs/NEXT.md` (first Active-work pointer), `specs/project.md` (repo map +
+  routing + escalation threshold), `specs/improvements.md` (append-only
+  agent-proposes / human-decides log, with a permanent Rejected section so the
+  same proposal is not made twice).
 - `docs/README.md` (domain-analysis home).
 - `scripts/check_repo_conventions.py` (stdlib-only convention guard, incl. an
   advisory-only shallow-spec size nudge) + `scripts/split_spec_history.py`
@@ -93,6 +98,22 @@ Into `<target-dir>`:
    uv sync --dev                         # deps + test tooling
    git add -A && git commit -m "chore: scaffold repo governance"
    ```
+
+## Optional: symlinked tool pointers
+
+`CLAUDE.md` and `GEMINI.md` ship as real thin pointer files. If the user
+prefers zero duplication, they can be replaced with symlinks to `AGENTS.md`:
+
+```
+cd <target-dir> && rm CLAUDE.md GEMINI.md && ln -s AGENTS.md CLAUDE.md && ln -s AGENTS.md GEMINI.md
+```
+
+The convention guard recognizes this: a pointer that is a symlink to
+`AGENTS.md` skips the thinness and must-reference checks (its content *is*
+`AGENTS.md`, so it cannot drift) and only has its link target validated. Leave
+`.github/copilot-instructions.md` a real file — GitHub's web UI does not
+follow symlinks. Do not do this on a repo that must be cloned on Windows
+without developer mode.
 
 ## After scaffolding
 

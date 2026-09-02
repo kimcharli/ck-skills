@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import os
 import re
 import shutil
 import subprocess
@@ -110,6 +111,19 @@ def scaffold(args: argparse.Namespace) -> tuple[list[Path], list[Path]]:
         rel = src.relative_to(TEMPLATES_DIR)
         rel_str = str(rel).replace(PATH_PLACEHOLDER, args.package)
         dest = target / rel_str
+
+        if src.is_symlink():
+            # Preserve pointer symlinks (e.g. CLAUDE.md -> AGENTS.md) instead of
+            # dereferencing them into duplicate files -- duplication is exactly
+            # the drift that check_repo_conventions.py check 3 guards against.
+            # Must precede is_dir(), which follows the link.
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            if dest.is_symlink() or dest.exists():
+                overwritten.append(dest)
+                dest.unlink()
+            os.symlink(os.readlink(src), dest)
+            written.append(dest)
+            continue
 
         if src.is_dir():
             dest.mkdir(parents=True, exist_ok=True)

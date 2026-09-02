@@ -23,6 +23,10 @@ Gemini CLI, or others), not just the one that authored it. Concretely:
 - Do not put repo-specific knowledge only in a tool-specific file (e.g.
   `.github/copilot-instructions.md`, `CLAUDE.md`, `GEMINI.md`) — those must
   stay thin pointers to `AGENTS.md`, the single canonical source.
+- Do not put a repeated procedure only in one tool's skill/prompt directory.
+  Behavioral rules go in `AGENTS.md`; repo layout and routing go in
+  `specs/project.md`; proposals to change either go in
+  [`specs/improvements.md`](./improvements.md), which any tool can read.
 - When adding a new instruction/config file for a new tool, make it a thin
   pointer to `AGENTS.md`, matching the existing pattern.
 
@@ -32,8 +36,9 @@ decisions — see `specs/memory.md` for the historical record.
 ## 2. Current State (as of __DATE__)
 
 - Governance scaffolding is in place (this file, `specs/memory.md`,
-  `specs/NEXT.md`, `AGENTS.md` + thin pointers, `docs/README.md`, the
-  convention checker + hooks + CI, the `data/` layout, `src/`/`tests/`).
+  `specs/NEXT.md`, `specs/project.md`, `specs/improvements.md`, `AGENTS.md` +
+  thin pointers, `docs/README.md`, the convention checker + hooks + CI, the
+  `data/` layout, `src/`/`tests/`).
 - No skills implemented yet — see `specs/NEXT.md` for the first one.
 - Tooling: `pyproject.toml` + `mise.toml` (uv / Python __PYTHON_VERSION__).
   Commands in Section 4 are final only after a first successful run.
@@ -185,12 +190,18 @@ present, so it isn't lost. The checker reads the *staged* content of files
 violation.
 
 **What it checks (mechanical only):**
-1. `AGENTS.md` stays under a line-count ceiling (70 lines) — catches content
-   bloat / re-inlining.
+1. `AGENTS.md` stays under a line-count ceiling (90 lines) — catches content
+   bloat / re-inlining. Repo layout and routing live in `specs/project.md`,
+   which is what keeps `AGENTS.md` purely behavioral and under the ceiling.
 2. `AGENTS.md` doesn't contain markers that belong in `specs/workflow.md` (the
    provenance-header fields, the skill-spec template) — duplication guard.
 3. `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md` stay thin
-   (≤20 lines) and link to `AGENTS.md`.
+   (≤20 lines) and link to `AGENTS.md`. A pointer that is a *symlink* to
+   `AGENTS.md` is exempt from both rules and only has its link target
+   checked — its content **is** `AGENTS.md`, so it cannot drift. Symlink the
+   two root pointers if your toolchain and platform allow it; keep
+   `.github/copilot-instructions.md` a real file, since GitHub's web UI does
+   not follow symlinks.
 4. No staged text file under `data/01_raw/` or `data/03_generated/` contains an
    obvious plaintext secret (private-key header, AWS key, `password`/
    `plain-text-password`/`pre-shared-key` with a real value) — sample inputs
@@ -198,7 +209,9 @@ violation.
    already-hashed credential)? Append the marker `conventions:allow-secret`
    to that line to exempt it — the exemption is visible in the diff.
 5. Any staged file under `data/03_generated/` has the required provenance
-   header fields (`generated_by`, `spec`, `source`, `generated_at`).
+   header fields (`generated_by`, `spec`, `source`, `generated_at`), or a
+   sibling `<file>.manifest.yaml` supplying them — the Section 5a escape
+   hatch for formats that cannot carry an inline `#` comment.
 6. Any commit touching `src/**/*.py` or `data/03_generated/**` also has a
    `specs/**/*.md` change — same commit/PR range, or (local single-commit run)
    the immediately preceding commit. Backstop for the spec-before-or-with-code

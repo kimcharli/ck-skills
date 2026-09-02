@@ -54,9 +54,9 @@
     },
     {
       "name": "python-repo-init",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "source": "./plugins/python-repo-init",
-      "description": "Scaffold a new Python repo pre-wired with spec-first, agent-agnostic AI workflow governance — AGENTS.md pointers, specs/ session handoff + append-only workflow log, shallow-spec two-file pattern, mechanical convention guard, uv/mise tooling",
+      "description": "Scaffold a new Python repo pre-wired with spec-first, agent-agnostic AI workflow governance — AGENTS.md behavioral rules split from specs/project.md layout/routing, specs/ session handoff + append-only workflow log, append-only improvement-proposal log, shallow-spec two-file pattern, mechanical convention guard, uv/mise tooling",
       "author": {
         "name": "kimcharli"
       },

@@ -5,6 +5,49 @@ All notable changes to doc-review-commands will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [python-repo-init 1.2.0] - 2026-09-02
+
+Backported from the conventions proven in the `46137-darden-l3-prep` project
+repo, which ran this scaffold in anger and diverged in four useful ways.
+
+### Added
+
+- **`templates/specs/project.md`** — repo map, improvement routing, and a
+  concrete escalation threshold, split out of `AGENTS.md`. Keeps the
+  always-loaded file purely behavioral instead of spending its line budget on
+  a directory listing.
+- **`templates/specs/improvements.md`** — append-only improvement-proposal log
+  with an agent-proposes / human-decides protocol: four named triggers, max
+  three proposals per session, agents never change a status, and rejected
+  entries stay permanently so the same proposal is not made twice.
+- **`AGENTS.md` Output Discipline section** — enforceable budgets (per user
+  request, not per step): edit-never-rewrite with a 30% threshold, silence
+  between tool calls, no preamble, a 4-sentence prose budget that counts
+  headers and bullets, a 3-line risk cap, and a fixed closing-report shape.
+- **`AGENTS.md` Improvement Proposals section** — propose-never-apply, with
+  acceptance explicitly not constituting authorization to apply.
+- **Symlinked tool pointers, opt-in.** `check_repo_conventions.py` check 3 now
+  exempts a pointer that is a symlink to `AGENTS.md` from the thinness and
+  must-reference rules and validates its link target instead. Previously such
+  a repo passed locally (where `git show :path` yields the link target) but
+  failed in CI (where the checkout dereferences to a 90-line file) — a silent
+  local/CI split. `generate.py` now preserves symlinks in `templates/` rather
+  than dereferencing them into duplicate files.
+
+### Fixed
+
+- **Sibling-manifest provenance escape hatch now actually works.**
+  `specs/workflow.md` Section 5a has always documented `<file>.manifest.yaml`
+  as the provenance carrier for formats that cannot hold an inline `#` comment
+  (binary, or a CSV whose first line a strict importer reads as the column
+  header), but `check_repo_conventions.py` never implemented it and rejected
+  those files unconditionally. Spec/code drift, closed.
+
+### Changed
+
+- `AGENTS_MD_MAX_LINES` 70 → 90. The added content is behavioral; the repo-map
+  content that used to consume the budget moved to `specs/project.md`.
+
 ## [Unreleased] - 2026-07-10
 
 ### Changed

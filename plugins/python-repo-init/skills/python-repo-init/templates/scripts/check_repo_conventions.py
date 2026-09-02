@@ -11,14 +11,18 @@ Checks:
   2. AGENTS.md does not contain content-markers that belong in
      specs/workflow.md (provenance-header fields, skill-spec template).
   3. CLAUDE.md, GEMINI.md, and .github/copilot-instructions.md stay thin
-     pointers: small line-count ceiling + must link to AGENTS.md.
+     pointers: small line-count ceiling + must link to AGENTS.md. A pointer
+     that is a symlink to AGENTS.md is exempt from both (its content IS
+     AGENTS.md, so it cannot drift); only its link target is validated.
   4. No staged text file under data/01_raw/ or data/03_generated/ contains an
      obvious plaintext secret (private-key header, AWS key, password /
      plain-text-password / pre-shared-key with a real value). A line ending in
      the marker 'conventions:allow-secret' is exempt -- use it for
      deliberately-committed non-secrets the patterns can't distinguish.
   5. Any staged file under data/03_generated/ contains the required provenance
-     header (generated_by / spec / source / generated_at).
+     header (generated_by / spec / source / generated_at), or ships a sibling
+     '<file>.manifest.yaml' carrying those fields instead -- the escape hatch
+     for formats that cannot hold an inline '#' comment.
   6. Any commit touching src/**/*.py or data/03_generated/** also has a
      specs/**/*.md change -- either in the same commit/PR range, or (for a
      local single-commit check) in the immediately preceding commit. Coarse,
@@ -43,7 +47,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-AGENTS_MD_MAX_LINES = 70
+AGENTS_MD_MAX_LINES = 90
 POINTER_FILE_MAX_LINES = 20
 
 # Markers that indicate engineering content has leaked back into AGENTS.md
@@ -166,6 +170,22 @@ def check_agents_md_duplication() -> None:
 
 def check_pointer_files_thin() -> None:
     for rel_path in POINTER_FILES:
+        path = REPO_ROOT / rel_path
+        if path.is_symlink():
+            # A symlink to AGENTS.md is the canonical zero-duplication pointer:
+            # its content *is* AGENTS.md rather than a second copy that can
+            # drift, so the thinness and must-reference checks below are moot.
+            # Decide this before file_text(), because the two read paths
+            # disagree on symlinks -- `git show :path` yields the link target,
+            # while a CI checkout yields the dereferenced AGENTS.md and would
+            # blow the line ceiling.
+            expected = os.path.relpath("AGENTS.md", os.path.dirname(rel_path))
+            target = os.readlink(path)
+            if target != expected:
+                errors.append(
+                    f"{rel_path} is a symlink to '{target}', expected '{expected}'."
+                )
+            continue
         content = file_text(rel_path)
         if content is None:
             errors.append(f"{rel_path} is missing -- required as a thin pointer to AGENTS.md.")
@@ -216,11 +236,22 @@ def check_generated_provenance() -> None:
             continue
         head = content[:2000]
         missing = [field for field in PROVENANCE_FIELDS if field not in head]
-        if missing:
-            errors.append(
-                f"'{rel_path}' is under data/03_generated/ but is missing provenance "
-                f"field(s) {missing} in its header. See specs/workflow.md Section 5a."
-            )
+        if not missing:
+            continue
+        # Sibling-manifest escape hatch (specs/workflow.md Section 5a): a file
+        # that cannot carry an inline '#' comment header -- a binary format, or
+        # a CSV whose first line a strict importer reads as the column header
+        # -- may ship '<file>.manifest.yaml' with the same fields instead.
+        manifest_rel = f"{rel_path}.manifest.yaml"
+        manifest_text = file_text(manifest_rel) or ""
+        if not [f for f in PROVENANCE_FIELDS if f not in manifest_text[:2000]]:
+            continue
+        errors.append(
+            f"'{rel_path}' is under data/03_generated/ but is missing provenance "
+            f"field(s) {missing} in its header, and has no sibling "
+            f"'{Path(manifest_rel).name}' supplying them. "
+            "See specs/workflow.md Section 5a."
+        )
 
 
 def _is_code_change(rel_path: str) -> bool:
