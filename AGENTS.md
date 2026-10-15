@@ -115,8 +115,9 @@ If a requirement changes mid-implementation, stop and update specs first.
 
 ## Testing
 
-1. Shell tools: `bats tests/` (install with `brew install bats-core`). Add or
-   update a BATS test when you change a script's behavior.
+1. Shell tools: `bats tests/` (install with `brew install bats-core`; CI runs
+   it on every push and PR). Add or update a BATS test when you change a
+   script's behavior.
 1. Quality gate: `uvx pre-commit run --files <changed files>` (CI runs
    `--all-files`).
 1. Skills and commands: install the plugin locally and invoke the skill once

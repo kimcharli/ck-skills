@@ -1,0 +1,29 @@
+name: BATS tests
+
+# Runs the shell-tool test suite on every push/PR. Without this, a path move
+# in plugins/ silently broke tests/create-project.bats (see task T22).
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  bats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install bats
+        run: sudo apt-get update -q && sudo apt-get install -y -q bats
+
+      # create-project.sh runs `git commit` in the generated project.
+      - name: Configure git identity
+        run: |
+          git config --global user.name "ci"
+          git config --global user.email "ci@example.invalid"
+
+      - name: Run bats
+        run: bats tests/
