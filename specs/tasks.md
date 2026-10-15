@@ -9,7 +9,8 @@ ______________________________________________________________________
 ## Rules
 
 - Tasks are executed in order unless marked `[parallel]`
-- Commit after EACH task with message: `task(N): <title>`
+- Commit after EACH task using Conventional Commits (`feat(scope): <title>`),
+  with `Task: TN` in the body
 - Mark `[x]` before committing
 - If a task reveals new requirements → STOP, update `specs/requirements.md` first
 
@@ -57,6 +58,7 @@ ______________________________________________________________________
 ### Phase 7: Governance Maintenance
 
 - [x] **T20** — Refresh `AGENTS.md`: current structure, gate scope, dedupe conventions; gitignore `graphify-out/` `[deps: T08]`
+- [x] **T21** — Add plugin architecture, testing loop, Definition of Done, and Conventional Commits rule to `AGENTS.md` `[deps: T20]`
 
 ______________________________________________________________________
 
@@ -82,6 +84,7 @@ ______________________________________________________________________
 - **T18** — Implement `docs/agents/AGENTS-gemini.md` with strict SDD "Two-Commit" workflow
 - **T19** — Migrate to pre-commit Option A workflow
 - **T20** — Refresh `AGENTS.md` and gitignore `graphify-out/`
+- **T21** — `AGENTS.md`: architecture, testing, Definition of Done, commit style
 
 ______________________________________________________________________
 
