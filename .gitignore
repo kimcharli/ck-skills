@@ -57,3 +57,6 @@ work/
 # (kept via .gitkeep) that must be tracked
 !plugins/**/templates/data/tmp/
 !plugins/**/templates/data/work/
+
+# graphify knowledge-graph output (generated, local)
+graphify-out/

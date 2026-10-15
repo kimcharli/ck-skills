@@ -6,9 +6,9 @@ A collection of specialized skills and plugins for AI CLI agents (Claude Code, G
 
 ## Stack & Environment
 
-- **Language**: Bash, Node.js, Python
+- **Language**: Bash, Python, Markdown (skills and commands)
 - **Runtime**: CLI Plugins
-- **Package Managers**: `uv` (Python), `npm` (Node.js)
+- **Package Manager**: `uv` (Python)
 
 ## Project Structure
 
@@ -16,34 +16,49 @@ A collection of specialized skills and plugins for AI CLI agents (Claude Code, G
 ck-skills/
 ├── AGENTS.md                    # This file — read first, always
 ├── README.md
+├── CHANGELOG.md
+├── TODO.md                      # Informal backlog (not a spec)
+├── .claude-plugin/              # Marketplace manifest
 ├── .markdownlint.json           # Shared lint config
+├── .pre-commit-config.yaml      # Quality gate (see AI Agent Workflow)
+├── collections/                 # Curated tool/skill lists
 ├── docs/                        # Project documentation
-├── plugins/                     # Self-contained skill packages
-│   ├── python-lint-fix/
-│   ├── sdd-project-init/
-│   └── sdd-git-commit/
+├── plugins/                     # Self-contained plugin packages
+│   ├── ck/
+│   │   ├── commands/
+│   │   └── skills/              # decision-capture, doc-review-commands, plan-doc,
+│   │                            # python-lint-fix, sdd-git-commit, sdd-project-init,
+│   │                            # session-close
+│   ├── llm-wiki/
+│   └── python-repo-init/
+├── scripts/                     # Repo tooling (e.g. check_frontmatter.py)
 ├── specs/
 │   ├── requirements.md          # What + Why  (edit before any feature)
 │   ├── design.md                # How         (edit after requirements approved)
-│   ├── tasks.md                 # Ordered tasks (edit after design approved)
-│   └── features/                # Per-feature spec files
-└── tests/                       # Project-wide tests (BATS)
+│   └── tasks.md                 # Ordered tasks (edit after design approved)
+├── tests/                       # Project-wide tests (BATS)
+└── work/                        # Gitignored scratch space (work/tmp/)
 ```
 
 ## Conventions
 
 - All new features MUST start with a requirement update in `specs/`.
 - Use `BATS` for testing all shell-based skills.
-- Always create temporary scripts or scratch files in `./work/tmp/` instead of system `/tmp/`.
+- **Temporary files**: create temporary scripts and scratch files under `./work/tmp/`, not `/tmp/`.
 - Follow the `.markdownlint.json` standards for all documentation.
-- Commit after every completed task in `specs/tasks.md`.
-- Mark tasks `[x]` in `specs/tasks.md` before committing.
-- **Temporary files**: Always create temporary scripts and files under `./work/tmp/` (not `/tmp/`).
+- Commit after every completed task in `specs/tasks.md`, marking it `[x]` first.
+- If `graphify-out/` exists (local, gitignored), read `graphify-out/GRAPH_REPORT.md` before broad exploration.
 
-## SDD Gates — check before every coding session
+## SDD Gates — check before changing executable code
 
-Read `specs/requirements.md`, `specs/design.md`, and `specs/tasks.md` at the
-start of every session. Then enforce these gates in order:
+The gates apply to executable code: `plugins/**/tools/`, `install.sh` and
+`uninstall.sh` scripts, `scripts/`, and `tests/`. Skill prose (`SKILL.md`,
+commands), docs and `collections/` don't need a task entry. Record design
+decisions for them with the `decision-capture` skill, and plan multi-item
+batches with the `plan-doc` skill.
+
+Before changing executable code, read `specs/requirements.md`,
+`specs/design.md`, and `specs/tasks.md`. Then enforce these gates in order:
 
 1. **requirements gate** — `specs/requirements.md` status must be `APPROVED`
    → If DRAFT: stop, tell the user, help them complete requirements first
@@ -57,8 +72,6 @@ If a requirement changes mid-implementation, stop and update specs first.
 
 ## AI Agent Workflow
 
-- Use **Opus** (Claude) or **Pro** (Gemini) for spec phases (requirements, design).
-- Use **Sonnet** (Claude) or **Flash** (Gemini) for implementation phases (tasks, code).
 - Install pre-commit hooks once per clone: `uv run pre-commit install`.
 - Use pre-commit as the default quality gate before commit.
 - Run `bash plugins/ck/skills/python-lint-fix/tools/lint-fix.sh` to verify environment health (tools present, hook installed).

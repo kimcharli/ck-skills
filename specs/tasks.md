@@ -54,6 +54,10 @@ ______________________________________________________________________
 
 - [x] **T19** — Migrate to pre-commit Option A workflow `[deps: T05, T18]`
 
+### Phase 7: Governance Maintenance
+
+- [x] **T20** — Refresh `AGENTS.md`: current structure, gate scope, dedupe conventions; gitignore `graphify-out/` `[deps: T08]`
+
 ______________________________________________________________________
 
 ## Completed
@@ -76,6 +80,8 @@ ______________________________________________________________________
 - **T16** — Implement automatic symlinking for Claude discovery
 - **T17** — Verify autonomous activation via `SKILL.md`
 - **T18** — Implement `docs/agents/AGENTS-gemini.md` with strict SDD "Two-Commit" workflow
+- **T19** — Migrate to pre-commit Option A workflow
+- **T20** — Refresh `AGENTS.md` and gitignore `graphify-out/`
 
 ______________________________________________________________________
 
