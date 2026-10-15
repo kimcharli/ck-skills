@@ -1,20 +1,16 @@
 #!/usr/bin/env bats
 #
-# Tests for plugins/sdd-project-init/tools/create-project.sh
+# Tests for plugins/ck/skills/sdd-project-init/tools/create-project.sh
 #
-# Uses work/ (gitignored) as a temp directory for generated projects.
+# Each test generates projects under its own $BATS_TEST_TMPDIR, which bats
+# removes afterwards. Never point WORK_DIR at the repo's work/ directory.
 #
 
-SCRIPT="$BATS_TEST_DIRNAME/../plugins/sdd-project-init/tools/create-project.sh"
-WORK_DIR="$BATS_TEST_DIRNAME/../work"
+SCRIPT="$BATS_TEST_DIRNAME/../plugins/ck/skills/sdd-project-init/tools/create-project.sh"
 
 setup() {
-    rm -rf "$WORK_DIR"
+    WORK_DIR="$BATS_TEST_TMPDIR/work"
     mkdir -p "$WORK_DIR"
-}
-
-teardown() {
-    rm -rf "$WORK_DIR"
 }
 
 # Helper: run create-project with common defaults

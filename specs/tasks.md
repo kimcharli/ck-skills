@@ -59,6 +59,7 @@ ______________________________________________________________________
 
 - [x] **T20** — Refresh `AGENTS.md`: current structure, gate scope, dedupe conventions; gitignore `graphify-out/` `[deps: T08]`
 - [x] **T21** — Add plugin architecture, testing loop, Definition of Done, and Conventional Commits rule to `AGENTS.md` `[deps: T20]`
+- [x] **T22** — Fix stale script path in `tests/create-project.bats` after the plugin consolidation `[deps: T04]`
 
 ______________________________________________________________________
 
@@ -85,6 +86,7 @@ ______________________________________________________________________
 - **T19** — Migrate to pre-commit Option A workflow
 - **T20** — Refresh `AGENTS.md` and gitignore `graphify-out/`
 - **T21** — `AGENTS.md`: architecture, testing, Definition of Done, commit style
+- **T22** — Fix stale script path and work/ wipe in `tests/create-project.bats`
 
 ______________________________________________________________________
 
