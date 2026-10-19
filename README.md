@@ -20,6 +20,7 @@ ______________________________________________________________________
 | **ck** | decision-capture | Commit a mid-session design decision to specs before any implementation code | "capture this decision" |
 | **ck** | session-close | End-of-session handoff: refresh the NEXT pointer, append the dated log entry | "close session" / "wrap up" |
 | **ck** | ste-procedure | Write MOPs, runbooks, and change procedures in Simplified Technical English style | "write a MOP" / "write a runbook" |
+| **ck** | agents-md | Audit, split, and wire up global (`~/.agents/AGENTS.md`) and repo `AGENTS.md` files | "audit AGENTS.md" / "check global agents setup" |
 | **python-repo-init** | python-repo-init | Scaffold a new Python repo with spec-first, agent-agnostic workflow governance | "init a python repo" |
 
 ______________________________________________________________________
@@ -87,7 +88,7 @@ gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins
 git clone https://github.com/kimcharli/ck-skills.git
 cd ck-skills
 # ck skills (sdd-project-init, doc-review-commands, sdd-git-commit, python-lint-fix,
-#            plan-doc, decision-capture, session-close, ste-procedure):
+#            plan-doc, decision-capture, session-close, ste-procedure, agents-md):
 cp -r plugins/ck/skills/<name> ~/.claude/skills/<name>
 # python-repo-init:
 cp -r plugins/python-repo-init/skills/python-repo-init ~/.claude/skills/python-repo-init

@@ -1,6 +1,6 @@
 # ck
 
-**Umbrella plugin bundling eight production-ready Claude Code skills.**
+**Umbrella plugin bundling nine production-ready Claude Code skills.**
 
 For marketplace setup and general install instructions, see the
 [ck-skills README](../../README.md).
@@ -29,6 +29,7 @@ ______________________________________________________________________
 | **decision-capture** | Commit a mid-session design decision to specs before any implementation code | "capture this decision" |
 | **session-close** | End-of-session handoff: refresh the NEXT pointer, append the dated log entry | "close session" / "wrap up" |
 | **ste-procedure** | Write MOPs, runbooks, and change procedures in Simplified Technical English style | "write a MOP" / "write a runbook" |
+| **agents-md** | Audit, split, and wire up global (`~/.agents/AGENTS.md`) and repo `AGENTS.md` files | "audit AGENTS.md" / "check global agents setup" |
 
 All skills are **AI-Native** — you don't need to remember slash commands, just tell the
 tool what you want to do. Each skill also exposes its own commands under `/ck:<name>`
@@ -50,7 +51,8 @@ ck/
     ├── plan-doc/
     ├── decision-capture/
     ├── session-close/
-    └── ste-procedure/
+    ├── ste-procedure/
+    └── agents-md/
 ```
 
 Each skill directory is self-contained (`SKILL.md`, `commands/`, and any `tools/`,

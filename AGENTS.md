@@ -26,9 +26,9 @@ ck-skills/
 ├── plugins/                     # Self-contained plugin packages
 │   ├── ck/
 │   │   ├── commands/
-│   │   └── skills/              # decision-capture, doc-review-commands, plan-doc,
-│   │                            # python-lint-fix, sdd-git-commit, sdd-project-init,
-│   │                            # session-close, ste-procedure
+│   │   └── skills/              # agents-md, decision-capture, doc-review-commands,
+│   │                            # plan-doc, python-lint-fix, sdd-git-commit,
+│   │                            # sdd-project-init, session-close, ste-procedure
 │   ├── llm-wiki/
 │   └── python-repo-init/
 ├── scripts/                     # Repo tooling (e.g. check_frontmatter.py)
