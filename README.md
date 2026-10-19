@@ -19,6 +19,7 @@ ______________________________________________________________________
 | **ck** | plan-doc | Plan-first workflow for multi-item change batches (committed plan doc before execution) | "plan first" / "create a plan doc" |
 | **ck** | decision-capture | Commit a mid-session design decision to specs before any implementation code | "capture this decision" |
 | **ck** | session-close | End-of-session handoff: refresh the NEXT pointer, append the dated log entry | "close session" / "wrap up" |
+| **ck** | ste-procedure | Write MOPs, runbooks, and change procedures in Simplified Technical English style | "write a MOP" / "write a runbook" |
 | **python-repo-init** | python-repo-init | Scaffold a new Python repo with spec-first, agent-agnostic workflow governance | "init a python repo" |
 
 ______________________________________________________________________
@@ -86,7 +87,7 @@ gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins
 git clone https://github.com/kimcharli/ck-skills.git
 cd ck-skills
 # ck skills (sdd-project-init, doc-review-commands, sdd-git-commit, python-lint-fix,
-#            plan-doc, decision-capture, session-close):
+#            plan-doc, decision-capture, session-close, ste-procedure):
 cp -r plugins/ck/skills/<name> ~/.claude/skills/<name>
 # python-repo-init:
 cp -r plugins/python-repo-init/skills/python-repo-init ~/.claude/skills/python-repo-init

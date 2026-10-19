@@ -5,6 +5,17 @@ All notable changes to doc-review-commands will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [ck 1.3.0] - 2026-10-18
+
+### Added
+
+- **`ste-procedure` skill**: writes and revises operational procedures (MOPs,
+  runbooks, change, cutover, and rollback plans) in Simplified Technical English
+  style based on ASD-STE100. Enforces short imperative steps, cautions before the
+  step, a measurable `Expected:` result and `If not:` action per step, abort
+  criteria, and rollback. Not certified STE100: the official dictionary is not
+  checked.
+
 ## [python-repo-init 1.2.0] - 2026-09-02
 
 Backported from the conventions proven in the `46137-darden-l3-prep` project

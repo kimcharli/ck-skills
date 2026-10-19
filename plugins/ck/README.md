@@ -1,6 +1,6 @@
 # ck
 
-**Umbrella plugin bundling five production-ready Claude Code skills.**
+**Umbrella plugin bundling eight production-ready Claude Code skills.**
 
 For marketplace setup and general install instructions, see the
 [ck-skills README](../../README.md).
@@ -28,6 +28,7 @@ ______________________________________________________________________
 | **plan-doc** | Plan-first workflow for multi-item change batches (committed plan doc before execution) | "plan first" / "create a plan doc" |
 | **decision-capture** | Commit a mid-session design decision to specs before any implementation code | "capture this decision" |
 | **session-close** | End-of-session handoff: refresh the NEXT pointer, append the dated log entry | "close session" / "wrap up" |
+| **ste-procedure** | Write MOPs, runbooks, and change procedures in Simplified Technical English style | "write a MOP" / "write a runbook" |
 
 All skills are **AI-Native** — you don't need to remember slash commands, just tell the
 tool what you want to do. Each skill also exposes its own commands under `/ck:<name>`
@@ -48,7 +49,8 @@ ck/
     ├── python-lint-fix/
     ├── plan-doc/
     ├── decision-capture/
-    └── session-close/
+    ├── session-close/
+    └── ste-procedure/
 ```
 
 Each skill directory is self-contained (`SKILL.md`, `commands/`, and any `tools/`,

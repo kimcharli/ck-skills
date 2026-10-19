@@ -28,7 +28,7 @@ ck-skills/
 │   │   ├── commands/
 │   │   └── skills/              # decision-capture, doc-review-commands, plan-doc,
 │   │                            # python-lint-fix, sdd-git-commit, sdd-project-init,
-│   │                            # session-close
+│   │                            # session-close, ste-procedure
 │   ├── llm-wiki/
 │   └── python-repo-init/
 ├── scripts/                     # Repo tooling (e.g. check_frontmatter.py)
