@@ -5,6 +5,18 @@ All notable changes to doc-review-commands will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [ck 1.5.0] - 2026-10-27
+
+### Added
+
+- **`agents-md` global `AGENTS.md` template**: added
+  `plugins/ck/skills/agents-md/templates/global-AGENTS.md`, merging
+  [Ponytail](https://github.com/dietrichgebert/ponytail/blob/main/AGENTS.md)'s
+  lazy-senior-developer / smallest-complete-change rules with global verification,
+  safety, git, STE-style communication, and `uv`/`mise` defaults, and wired
+  `plugins/ck/skills/agents-md/SKILL.md` and `docs/global-repo-docs/sharing-global-agents.md`
+  to reference it.
+
 ## [ck 1.4.0] - 2026-10-18
 
 ### Added

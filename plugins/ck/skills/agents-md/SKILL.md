@@ -21,7 +21,7 @@ Place every instruction in the lowest-cost layer that fits its scope:
 
 | Layer | Location | Scope & Load Behavior | What Belongs Here |
 | -- | -- | -- | -- |
-| **1. Global / Personal** | `~/.agents/AGENTS.md` (imported by `~/.claude/CLAUDE.md`, `~/.gemini/GEMINI.md`, symlinked by `~/.copilot/copilot-instructions.md`) | **Universal personal.** Loaded in every repo. | How *you* work everywhere: `uv` for Python, commit style, ask before destructive git ops or new deps, test before done, terse output. |
+| **1. Global / Personal** | `~/.agents/AGENTS.md` (imported by `~/.claude/CLAUDE.md`, `~/.gemini/GEMINI.md`, symlinked by `~/.copilot/copilot-instructions.md`) | **Universal personal.** Loaded in every repo. | How *you* work everywhere: lazy senior dev / smallest complete change, `uv` for Python, commit style, ask before destructive git ops or new deps, test before done, terse output with 1-2 line risk/skipped footer. |
 | **2. Repo Root `AGENTS.md`** | `./AGENTS.md` (with thin pointers or symlinks from `./CLAUDE.md`, `./GEMINI.md`, `.github/copilot-instructions.md`) | **Repo-wide.** Auto-loaded on every turn (`<=150` lines). | Repo purpose, exact build/test/lint commands, directory map, fragile repo invariants, SDD workflow hooks, team standards, conditional pointers to Layer 4. |
 | **3. Subsystem `AGENTS.md`** | Nested directories (`skills/AGENTS.md`, `packages/*/AGENTS.md`) | **Directory-scoped.** Loaded only when working in that subtree. | Local architectural rules, schema requirements, or naming conventions specific to that subfolder. |
 | **4. On-Demand Docs & Skills** | `docs/agents/*.md`, `specs/`, `skills/*/SKILL.md` | **Task-triggered.** Linked from root; loaded only when needed. | Multi-step procedural workflows (`SKILL.md`), deep architectural rationale, external API specs. |
@@ -52,6 +52,13 @@ Run every proposed rule sequentially through these six questions. **The first "Y
 ## 3. Global Sharing Layout (`~/.agents/AGENTS.md`)
 
 Keep one canonical personal file **outside** `~/.claude` and `~/.gemini` (avoids tool-specific coupling and Claude Code `@` import bugs inside `~/.claude`).
+
+Use the bundled canonical template at `templates/global-AGENTS.md` (merging [Ponytail](https://github.com/dietrichgebert/ponytail/blob/main/AGENTS.md)'s "lazy senior developer" / smallest-complete-change discipline with verification, safety, git, STE-style communication, and `uv`/`mise` defaults) by copying or symlinking it to `~/.agents/AGENTS.md`:
+
+```sh
+mkdir -p ~/.agents
+ln -sf ~/Projects/ck-skills/plugins/ck/skills/agents-md/templates/global-AGENTS.md ~/.agents/AGENTS.md
+```
 
 ```text
 ~/.agents/AGENTS.md                  # canonical personal rules (tool-neutral)

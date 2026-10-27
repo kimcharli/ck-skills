@@ -12,7 +12,12 @@ Keep your personal, cross-repo rules in **one canonical file**. Make `~/.claude/
 
 Keep the canonical file **outside** `~/.claude` and `~/.gemini`. One reported Claude Code import bug only cleared up after the imported files were moved out of `~/.claude` ([issue #8765](https://github.com/anthropics/claude-code/issues/8765)). A neutral location also avoids implying the file belongs to one tool.
 
-To version-control it, keep the real file in a dotfiles repo and symlink `~/.agents/AGENTS.md` to it.
+To version-control it, keep the real file in `ck-skills` (`plugins/ck/skills/agents-md/templates/global-AGENTS.md`, which merges [Ponytail](https://github.com/dietrichgebert/ponytail/blob/main/AGENTS.md)'s lazy-senior-dev discipline with global safety, verification, git, and communication rules) and symlink `~/.agents/AGENTS.md` to it:
+
+```sh
+mkdir -p ~/.agents
+ln -sf ~/Projects/ck-skills/plugins/ck/skills/agents-md/templates/global-AGENTS.md ~/.agents/AGENTS.md
+```
 
 ## Wrappers
 
@@ -67,4 +72,4 @@ ln -s ~/.agents/AGENTS.md ~/.copilot/copilot-instructions.md
 
 ## Relation to ck-skills
 
-`~/.agents/AGENTS.md` is the **personal** half of the constitution. Team-wide rules that collaborators and CI need stay committed in the repo, for example as a constitution file referenced from each repo's `AGENTS.md`.
+`~/.agents/AGENTS.md` is the **personal** half of the constitution (canonical baseline shipped in `plugins/ck/skills/agents-md/templates/global-AGENTS.md`). Team-wide rules that collaborators and CI need stay committed in the repo, for example as a constitution file referenced from each repo's `AGENTS.md`.

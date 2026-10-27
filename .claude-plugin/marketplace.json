@@ -17,7 +17,7 @@
   "plugins": [
     {
       "name": "ck",
-      "version": "1.4.0",
+      "version": "1.5.0",
       "source": "./plugins/ck",
       "description": "Bundle of nine production-ready skills: sdd-project-init (SDD project scaffolding), doc-review-commands (documentation sync automation), sdd-git-commit (professional Git commit workflow), python-lint-fix (Python/Markdown lint automation), plan-doc (plan-first batch-change workflow), decision-capture (mid-session decision-to-spec commits), session-close (end-of-session handoff checklist), ste-procedure (STE-style MOPs and runbooks), and agents-md (global and repo AGENTS.md hygiene)",
       "author": {
