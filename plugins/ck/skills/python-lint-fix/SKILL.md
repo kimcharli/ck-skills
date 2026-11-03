@@ -1,6 +1,13 @@
 ---
 name: python-lint-fix
-description: Checks environment health and guides pre-commit setup. Lint, format, and test run automatically via pre-commit on every git commit. Use when the user asks to lint, fix, format, set up hooks, or check environment readiness.
+description: >-
+  Check that a Python repo's lint and format tooling is ready (uv, pre-commit
+  and its git hook, .pre-commit-config.yaml, markdownlint version) and run
+  pre-commit across the repo on demand. Use when the user asks to lint or
+  format the repo, run ruff/mdformat/markdownlint, set up or install
+  pre-commit hooks, asks why hooks are not running on commit, or wants to
+  check that a fresh clone is ready to work in. Not for hand-fixing one
+  specific lint error.
 ---
 
 # Python Lint Fix
@@ -17,8 +24,7 @@ This skill checks that the environment is healthy and pre-commit hooks are insta
 ## First-Time Setup (once per clone)
 
 ```bash
-uv tool install pre-commit    # install pre-commit if not already present
-uv run pre-commit install     # install git hook
+uvx pre-commit install # install the git hook; uvx runs pre-commit without a project dependency
 ```
 
 After installation, every `git commit` automatically runs:
@@ -30,10 +36,10 @@ After installation, every `git commit` automatically runs:
 
 ## Environment Health Check
 
-Run the bundled script to verify tools and hook installation:
+Run the bundled script from the target repo's root. `SKILL_DIR` is the base directory announced when this skill loaded (`Base directory for this skill: <path>`), so the script works wherever the skill is installed:
 
 ```bash
-bash plugins/ck/skills/python-lint-fix/tools/lint-fix.sh
+bash "$SKILL_DIR/tools/lint-fix.sh"
 ```
 
 It checks: `uv`, `pre-commit`, git hook presence, `.pre-commit-config.yaml`, and markdownlint version (≥ 0.45.0).

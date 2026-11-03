@@ -57,8 +57,10 @@ Use the bundled canonical template at `templates/global-AGENTS.md` (merging [Pon
 
 ```sh
 mkdir -p ~/.agents
-ln -sf ~/Projects/ck-skills/plugins/ck/skills/agents-md/templates/global-AGENTS.md ~/.agents/AGENTS.md
+cp "$SKILL_DIR/templates/global-AGENTS.md" ~/.agents/AGENTS.md
 ```
+
+`SKILL_DIR` is the base directory announced when this skill loaded (`Base directory for this skill: <path>`). Copy rather than symlink: the installed skill may be replaced on reinstall, and a copy is the user's own file to edit. Never overwrite an existing `~/.agents/AGENTS.md` without showing the diff and asking first.
 
 ```text
 ~/.agents/AGENTS.md                  # canonical personal rules (tool-neutral)

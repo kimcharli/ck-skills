@@ -1,92 +1,96 @@
 ---
 name: sdd-git-commit
-description: Orchestrates a professional Git commit workflow including hygiene checks, documentation parity (SDD), project state tracking (CHANGELOG, TODO, Session Memos), and post-commit reflection.
+description: >-
+  Commit workflow for Spec-Driven Development repos: checks the diff for
+  secrets and junk files, keeps specs, the task list, the session pointer and
+  the CHANGELOG in step with the code, then writes a Conventional Commits
+  message. Use whenever the user asks to commit, "commit this", "make a
+  commit", "check this in", or to finish a task with a commit in a repo that
+  has specs/, a tasks list or a CHANGELOG, even if they do not mention specs.
+  For only drafting a commit message with no repo bookkeeping, a lighter
+  commit-message skill fits better.
 ---
 
 # SDD Git Commit
 
-Use this skill when asked to commit code, push changes, or document progress. It ensures the repository remains clean, documented, and synchronized with its specifications.
+A commit in a spec-driven repo is the moment code, specs and project state must agree. A future session reads the specs and the log, not this chat, so anything not recorded at commit time is lost.
 
-## Workflow
+Before you start, read the repo's own `AGENTS.md` (or `CLAUDE.md`). Its commit rules, file names and trailers win over the defaults below. Use the files the repo already has; do not create new tracking files.
 
-### Step 1: Hygiene & Inspection
+## Step 1: Inspect
 
-Review what is about to be committed and ensure no sensitive or temporary files are accidentally staged.
+1. Run `git status --short` and `git diff --staged` (or `git diff HEAD` if nothing is staged). Know what goes in before you touch anything.
 
-1. **Review Diff**: Run `git diff --staged` (or `git diff HEAD` if nothing is staged) to understand the changes.
-
-1. **Hygiene Check**: Verify that no secrets, local configs, or build artifacts are being committed.
+1. Check for files that must not be committed:
 
    ```bash
-   git status --short
-   git diff HEAD --name-only | grep -iE '(cache|node_modules|\.env$|\.secret|\.key$|dist/|build/|__pycache__)' || true
+   git diff --staged --name-only | grep -iE '(\.env$|\.secret|\.key$|\.pem$|node_modules/|__pycache__/|dist/|build/|\.cache)'
    ```
 
-   _Action_: If matched, unstage the file, update `.gitignore`, and stage `.gitignore`.
+   No output means nothing matched. If something matched, tell the user, unstage it, and propose a `.gitignore` entry. Do not print the contents of a file that may hold a secret.
 
-### Step 2: Quality & Linting (Optional)
+1. If the diff mixes unrelated changes, say so and propose separate commits. One logical change per commit keeps history revertible.
 
-If the project has automated linting or formatting tools, run them now.
+## Step 2: Quality gate
+
+Run the repo's documented check (pre-commit, `make lint`, `npm test`, a `scripts/check_*.py`). If a formatter rewrites files, re-stage only the files that were already staged:
 
 ```bash
-# Example (adjust for project stack: npm run lint, ruff check, etc.)
-[ -f "scripts/lint.sh" ] && bash scripts/lint.sh && git add -u
+list=$(mktemp)
+git diff --staged --name-only -z >"$list" # before running the formatter
+xargs -0 git add -- <"$list"              # after
 ```
 
-### Step 3: Documentation Parity (SDD Gate)
+Do not use `git add -u` or `git add -A`: they stage unrelated work the user did not ask to commit. If the check fails, fix the cause or report it. Never bypass hooks with `--no-verify`.
 
-Ensure the codebase and its specifications remain in sync. This is mandatory for any changes in source directories (e.g., `src/`, `lib/`, `app/`).
+## Step 3: Spec parity
 
-1. **Identify Specs**: For every modified source file, find its corresponding specification file (usually in `specs/` or `docs/specs/`).
-1. **Check Alignment**: Verify that new/modified public functions, classes, CLI signatures, or architectural changes are reflected in the spec.
-1. **Update Specs**: Mark implemented components as completed (e.g., in an "Implementation Status" table) and ensure no documentation is left stale.
-1. **Stage Changes**: `git add <spec-files>`
+For changes to executable code, check that the specs still describe what was built:
 
-### Step 4: Project State Tracking
+1. Find the spec that covers each changed area (`specs/`, `docs/specs/`, or what `AGENTS.md` names).
+1. If a public interface, CLI flag, file layout or behavior changed, update the spec in the same commit.
+1. If the change maps to a task, mark it `[x]` in the task list (`specs/tasks.md`, `docs/tasks.md` or `TODO.md`, whichever exists).
+1. If the change needs a requirement or design change the specs do not have, stop and tell the user. Specs come before code.
 
-Update the files that track the project's continuity and history.
+Skip this step for changes that touch only docs or comments.
 
-| File | Requirement | Action |
-| -- | -- | -- |
-| `CHANGELOG.md` | **Mandatory** | Prepend a new entry under `# Changelog`. Use `## [Unreleased] - YYYY-MM-DD`. |
-| `docs/tasks.md` or `TODO.md` | **Required** | Mark completed tasks `[x]`, newly started tasks `[~]`, or add new tasks. |
-| `SESSION_MEMO.md` | **Recommended** | Update "Current Status" and "Next Steps" for hand-off/continuity. |
-| `repo-context.md` | **As Needed** | Update if structural architecture, environment, or stack has drifted. |
+## Step 4: Project state
 
-**Changelog Rules**:
+Update only what this change affects:
 
-- Sections: `### Added`, `### Changed`, `### Fixed`, `### Removed` (omit empty ones).
-- Format: `- **Subject**: concise description`. Write for a reader who did not see the diff.
+| File | When |
+| -- | -- |
+| `CHANGELOG.md` | The change is visible to users (feature, fix, behavior change, removal). Follow the file's existing format. If it has an `## [Unreleased]` section, add the entry there. |
+| Session pointer (`specs/NEXT.md`, or `SESSION_MEMO.md` if the repo uses that) | What is actionable next has changed. |
+| Version files | The repo's rules say to bump a version for this kind of change. |
 
-**Stage Changes**: `git add CHANGELOG.md docs/tasks.md TODO.md SESSION_MEMO.md` (as applicable).
+Write CHANGELOG entries for a reader who did not see the diff.
 
-### Step 5: Commit Generation
+## Step 5: Commit
 
-Follow **Conventional Commits** format.
+Use Conventional Commits unless the repo says otherwise:
 
 ```text
-<type>(<scope>): <short imperative description>
+<type>(<scope>): <imperative summary, ≤72 chars, no period>
 
-[optional body describing "why" if not obvious]
+<why the change was made, if the summary does not say>
+
+<trailers the repo requires, e.g. Task: T12>
 ```
 
-**Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`.
+Types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `ci`. Add `!` for breaking changes. Write multi-line messages to a file and commit with `git commit -F <file>`; inline multi-line strings break in some shells.
 
-- **Subject**: Max 72 chars, present tense, no period.
-- **Scope**: Specific component or module (e.g., `api`, `ui`, `parser`).
+Push only if the user asked for it.
 
-```bash
-git commit -m "<type>(<scope>): <description>"
-```
+## Step 6: Reflect
 
-### Step 6: Post-Commit Reflection (Lessons Learned)
+Ask yourself if anything surprising or painful came up:
 
-Briefly reflect on the work. Was anything surprising, painful, or worth remembering?
+- A project quirk goes in the repo's lessons file (e.g. `docs/lessons-learned.md`), in a follow-up `docs` commit.
+- A rule an agent keeps breaking goes in `AGENTS.md`, if the repo's rules say so.
 
-1. **Project Specific**: Append to `docs/lessons-learned.md` if it's a project-specific quirk or edge case.
-1. **Generic/Reusable**: If you discovered a reusable technique or tool behavior, create/update a dedicated **SKILL** in the appropriate skills directory.
-1. **Amending**: If reflection leads to a minor doc update, `git commit --amend` or make a follow-up `docs` commit.
+Do not `git commit --amend` a commit without asking: it rewrites history the user may already have pushed.
 
-______________________________________________________________________
+## Report
 
-_Note: This skill is designed to be flexible. Adapt paths (e.g., `specs/` vs `docs/specs/`) and state files to the local project structure._
+End with the commit hash and subject, the files changed beyond the code (specs, CHANGELOG, pointer), and anything you skipped or that failed.

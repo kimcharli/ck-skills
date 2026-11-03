@@ -5,6 +5,25 @@ All notable changes to doc-review-commands will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [ck 1.6.0] - 2026-11-03
+
+### Changed
+
+- **Self-contained skill paths**: `python-lint-fix`, `sdd-project-init`,
+  `doc-review-commands` and `agents-md` now run their bundled scripts and
+  templates from the skill's own directory, so they work when installed
+  outside this repo (e.g. `~/.agents/skills/`).
+- **`sdd-git-commit`**: follows the repo's own `AGENTS.md` rules first, uses
+  the repo's existing task and session files, adds CHANGELOG entries only for
+  user-visible changes, re-stages only already-staged files after a formatter
+  (no `git add -u`), and no longer amends or pushes unasked.
+- **`doc-review-commands`**: lists all seven workflows as files to read,
+  including `quick` and `help`.
+- **`python-lint-fix`**: one way to run pre-commit (`uvx pre-commit`).
+- **Descriptions**: rewrote the `sdd-git-commit`, `sdd-project-init`,
+  `doc-review-commands` and `python-lint-fix` descriptions so they say when to
+  use each skill.
+
 ## [ck 1.5.0] - 2026-10-27
 
 ### Added
