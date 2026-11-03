@@ -204,7 +204,15 @@ ______________________________________________________________________
 
 ## Contributing
 
-Contributions welcome. To add a new skill:
+Contributions welcome.
+
+**Create and review skills with
+[skill-creator](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/skill-creator/skills/skill-creator).**
+Use it to draft a new skill, to review an existing one before a release, and
+to test its `description` triggering. Install it in Claude Code with
+`/plugin install skill-creator@claude-plugins-official`.
+
+To add a new skill:
 
 1. Small, general-purpose skill? Add `plugins/ck/skills/<your-skill>/` (`SKILL.md`, `commands/`, and any `tools/`/`docs/` it needs) alongside the existing bundled skills.
 1. Skill needs its own bundled generator/templates or independent versioning? Create a standalone plugin at `plugins/<your-skill>/` with its own `.claude-plugin/plugin.json`, following the `python-repo-init` structure.

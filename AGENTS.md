@@ -79,6 +79,10 @@ Background on these and other gotchas: `docs/lessons-learned.md`.
 - **Dependencies**: skills stay self-contained. Use Bash, the Python standard
   library, or tools run through `uv`/`uvx`. Ask before adding any new runtime
   dependency.
+- **Skills**: create or review a skill with the `skill-creator` skill (see
+  README Contributing). In a SKILL.md shell block, write the skill folder as
+  `"$SKILL_DIR"`, not `<skill-dir>`: the mdformat shell formatter reads `<` as
+  a redirect and garbles the command.
 - **Ask first** before renaming a skill, command, or plugin, or changing a
   skill's `description` frontmatter — that changes how users invoke it.
 - If `graphify-out/` exists (local, gitignored), read `graphify-out/GRAPH_REPORT.md` before broad exploration.
