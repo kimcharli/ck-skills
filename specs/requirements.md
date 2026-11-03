@@ -1,7 +1,7 @@
 # Requirements
 
 > **Status**: APPROVED
-> **Last updated**: 2026-03-19
+> **Last updated**: 2026-11-03
 
 ______________________________________________________________________
 
@@ -38,16 +38,17 @@ AI CLI agents like Claude Code, Gemini CLI, and GitHub Copilot CLI are powerful 
 ### Story 2: Cross-Runner Compatibility
 
 **As a** developer using multiple AI CLI tools (Claude Code, Gemini CLI, etc.)
-**I want to** install skills into a universal standard path (`skills/`)
+**I want to** install skills once into the tool-neutral path `~/.agents/skills/`
 **So that** all agents can automatically discover and activate the skills via their `SKILL.md` descriptions.
 
 **Acceptance Criteria:**
 
-- [x] Installation scripts automatically detect `~/.agents` and `~/.claude`.
-- [ ] Skills are installed to `${BASE_DIR}/skills/` (The Universal Standard).
-- [ ] Scripts support explicit path overrides via flags (`--agents`, `--claude`, `--dir`).
+- [x] Installation scripts automatically detect `~/.agents` and `~/.claude`. (Superseded 2026-11-03: the target is always `~/.agents/skills/`; see design Decision 4.)
+- [ ] Each skill is installed to `~/.agents/skills/<name>/`, for every tool. `--dir` overrides the base for testing.
+- [ ] The installer copies each skill by default; `--link` symlinks it to the repo checkout for skill development.
+- [ ] Each tool skills directory (`~/.claude/skills/`, `~/.gemini/skills/`, ...) gets a per-skill symlink to `~/.agents/skills/<name>`, unless that tool reads `~/.agents/skills/` natively. The tool directory itself is never replaced.
+- [ ] An installed skill works with no reference to the repo checkout: scripts and templates resolve from the skill's own directory.
 - [x] Hardcoded `~/.claude` references in `.md`, `.json`, and `SKILL.md` are patched during installation.
-- [ ] If `~/.claude/skills` is missing, the installer creates a symlink to `~/.agents/skills` for seamless discovery.
 - [x] Uninstallation scripts correctly locate and remove skills from dynamic paths.
 
 ## Constraints & Assumptions

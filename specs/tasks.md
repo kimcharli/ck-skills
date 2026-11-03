@@ -2,7 +2,7 @@
 
 > **Status**: APPROVED
 > **Requires**: `specs/design.md` APPROVED
-> **Last updated**: 2026-03-19
+> **Last updated**: 2026-11-03
 
 ______________________________________________________________________
 
@@ -61,6 +61,10 @@ ______________________________________________________________________
 - [x] **T21** — Add plugin architecture, testing loop, Definition of Done, and Conventional Commits rule to `AGENTS.md` `[deps: T20]`
 - [x] **T22** — Fix stale script path in `tests/create-project.bats` after the plugin consolidation `[deps: T04]`
 - [x] **T23** — Run `bats tests/` in CI on every push and PR `[deps: T22]`
+
+### Phase 8: Tool-Neutral Install
+
+- [ ] **T24** — Installer for `~/.agents/skills/<name>/` (copy default, `--link`, per-tool symlinks, self-contained skill paths) per design Decision 4 `[deps: T16]`
 
 ______________________________________________________________________
 
