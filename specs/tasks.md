@@ -54,6 +54,7 @@ ______________________________________________________________________
 ### Phase 6: Quality Automation
 
 - [x] **T19** — Migrate to pre-commit Option A workflow `[deps: T05, T18]`
+- [x] **T25** — Sync pre-commit hooks with 49415-neu (ruff v0.17.5, JSON/key/large-file checks, BATS pre-push) and fix the ruff findings it surfaces `[deps: T19]`
 
 ### Phase 7: Governance Maintenance
 
@@ -93,6 +94,7 @@ ______________________________________________________________________
 - **T21** — `AGENTS.md`: architecture, testing, Definition of Done, commit style
 - **T22** — Fix stale script path and work/ wipe in `tests/create-project.bats`
 - **T23** — Run BATS in CI (`.github/workflows/bats.yml`)
+- **T25** — Sync pre-commit hooks with 49415-neu; fix surfaced ruff findings
 
 ______________________________________________________________________
 

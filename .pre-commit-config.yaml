@@ -5,15 +5,21 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
-        exclude: ^configs/source/  # source files use Junos syntax, not strict YAML
+      - id: check-json
+      - id: check-added-large-files
+        args: ['--maxkb=500']
       - id: check-merge-conflict
+      - id: detect-private-key
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.10
+    rev: v0.17.5
     hooks:
-      - id: ruff
+      # Template pyproject.toml has __PLACEHOLDER__ values ruff can't parse.
+      - id: ruff-check
         args: [--fix]
+        exclude: &templates ^plugins/python-repo-init/skills/python-repo-init/templates/
       - id: ruff-format
+        exclude: *templates
 
   - repo: https://github.com/hukkin/mdformat
     rev: 0.7.21
@@ -40,9 +46,9 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
-      - id: pytest-quick
-        name: pytest -q (pre-push)
-        entry: uv run pytest -q
+      - id: bats
+        name: bats tests/ (pre-push)
+        entry: bats tests/
         language: system
         pass_filenames: false
         stages: [pre-push]

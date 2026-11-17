@@ -32,8 +32,11 @@ def target_files() -> list[Path]:
     files = set(REPO_ROOT.glob("plugins/**/SKILL.md"))
     files |= set(REPO_ROOT.glob("plugins/*/commands/*.md"))
     return sorted(
-        f for f in files
-        if not any(part in ("template", "templates") for part in f.relative_to(REPO_ROOT).parts)
+        f
+        for f in files
+        if not any(
+            part in ("template", "templates") for part in f.relative_to(REPO_ROOT).parts
+        )
     )
 
 
@@ -64,8 +67,12 @@ def check(path: Path) -> str | None:
         if line.lstrip().startswith("#"):
             return f"line {i} is a markdown heading inside frontmatter -- mangle signature: {line.strip()!r}"
         if not (KEY_RE.match(line) or CONTINUATION_RE.match(line)):
-            return f"line {i} is not a 'key: value' pair or continuation: {line.strip()!r}"
-    keys = {m.group(0).rstrip(": \t") for line in block for m in [KEY_RE.match(line)] if m}
+            return (
+                f"line {i} is not a 'key: value' pair or continuation: {line.strip()!r}"
+            )
+    keys = {
+        m.group(0).rstrip(": \t") for line in block for m in [KEY_RE.match(line)] if m
+    }
     if not ({"description", "name"} & keys):
         return f"frontmatter has neither 'description' nor 'name' key (found: {sorted(keys) or 'none'})"
     return None

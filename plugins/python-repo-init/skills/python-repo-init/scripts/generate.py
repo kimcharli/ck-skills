@@ -35,7 +35,7 @@ def default_author() -> str:
     """Owner handle from git config; neutral placeholder if unset."""
     for key in ("user.name", "user.email"):
         result = subprocess.run(
-            ["git", "config", "--get", key], capture_output=True, text=True
+            ["git", "config", "--get", key], check=False, capture_output=True, text=True
         )
         if result.returncode == 0 and result.stdout.strip():
             return result.stdout.strip()
@@ -79,14 +79,18 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     p.add_argument("target", help="Directory to scaffold the new repo into.")
     p.add_argument("--name", help="Project name (default: target dir basename).")
     p.add_argument("--package", help="Python package name (default: sanitized name).")
-    p.add_argument("--author", help="Owner handle (default: git config user.name/user.email).")
+    p.add_argument(
+        "--author", help="Owner handle (default: git config user.name/user.email)."
+    )
     p.add_argument("--description", default="", help="Short project description.")
     p.add_argument(
         "--python",
         default=DEFAULT_PYTHON,
         help=f"Python version for pyproject.toml/mise.toml (default: {DEFAULT_PYTHON}).",
     )
-    p.add_argument("--force", action="store_true", help="Write even if target is non-empty.")
+    p.add_argument(
+        "--force", action="store_true", help="Write even if target is non-empty."
+    )
     args = p.parse_args(argv)
 
     if not re.fullmatch(r"3\.\d+(\.\d+)?", args.python):
@@ -153,7 +157,9 @@ def print_next_steps(args: argparse.Namespace) -> None:
     print("\nNext steps (run yourself; the generator intentionally does not):")
     print(f"  cd {rel}")
     print("  git init")
-    print("  git config core.hooksPath .githooks   # once per clone; hook is stdlib-only")
+    print(
+        "  git config core.hooksPath .githooks   # once per clone; hook is stdlib-only"
+    )
     print("  uv sync --dev                         # deps + test tooling")
     print("  git add -A && git commit -m 'chore: scaffold repo governance'")
     print("\nThen read specs/NEXT.md for the first skill to build.")
