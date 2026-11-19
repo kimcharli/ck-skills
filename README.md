@@ -236,6 +236,7 @@ To maximize the efficiency of AI agents (Claude Code, Copilot CLI, Gemini CLI, e
 - **[tokensave](https://github.com/aovestdipaperino/tokensave)**: Provides instant semantic results from a pre-built knowledge graph, making codebase analysis significantly faster and more token-efficient.
 - **codebase-memory-mcp**: Provides persistent, long-term memory for your codebase across sessions, helping agents remember architectural decisions, previous bug fixes, and project-specific conventions.
 - **[caveman](https://github.com/JuliusBrussee/caveman)**: An extension offering ultra-compressed communication modes and skills (like `caveman-review`, `caveman-commit`, and `cavecrew`) to drastically reduce token usage while preserving technical accuracy.
+- **[modern-web-guidance](https://developer.chrome.com/docs/modern-web-guidance)**: Google Chrome's skill that keeps agents current on web best practices (HTML, CSS, client-side JS) instead of relying on outdated training data. Install with `npx modern-web-guidance@latest install`.
 - **[pre-commit](https://pre-commit.com/)**: Essential for maintaining code quality. Combined with **[Ruff](https://github.com/astral-sh/ruff)** for Python, it allows agents to automatically fix linting and formatting issues before committing, ensuring a clean and consistent codebase.
 
 ______________________________________________________________________
