@@ -21,6 +21,13 @@ ______________________________________________________________________
 | **ck** | session-close | End-of-session handoff: refresh the NEXT pointer, append the dated log entry | "close session" / "wrap up" |
 | **ck** | ste-procedure | Write MOPs, runbooks, and change procedures in Simplified Technical English style | "write a MOP" / "write a runbook" |
 | **ck** | agents-md | Audit, split, and wire up global (`~/.agents/AGENTS.md`) and repo `AGENTS.md` files | "audit AGENTS.md" / "check global agents setup" |
+| **ck** | lab-iteration | Roll a rendered change out to a lab, run a numbered test iteration, record the result | "run an iteration" / "push to the lab" |
+| **ck** | rule-change | Owner ruling to decision record, rule-catalogue entry and implementation in three commits | "make it a rule" |
+| **ck** | lab-test-plan | Write, run and close a lab experiment plan before any test that changes device state | "plan a test" / "is it viable" |
+| **ck** | junos-image-upgrade | Upgrade or downgrade Junos on lab devices and record the release steps | "upgrade the leaves to <release>" |
+| **ck** | meeting-recap | File a pasted meeting recap verbatim and carry its action items into the to-do list | "add the recap" |
+| **ck** | jtac-case-draft | Draft or update a vendor (JTAC) case from lab evidence | "draft a JTAC case" |
+| **ck** | skill-review | Evidence-based periodic review and revision of agent skills | "review my skills" |
 | **python-repo-init** | python-repo-init | Scaffold a new Python repo with spec-first, agent-agnostic workflow governance | "init a python repo" |
 
 ______________________________________________________________________
@@ -88,7 +95,9 @@ gemini skills install https://github.com/kimcharli/ck-skills.git --path plugins
 git clone https://github.com/kimcharli/ck-skills.git
 cd ck-skills
 # ck skills (sdd-project-init, doc-review-commands, sdd-git-commit, python-lint-fix,
-#            plan-doc, decision-capture, session-close, ste-procedure, agents-md):
+#            plan-doc, decision-capture, session-close, ste-procedure, agents-md,
+#            lab-iteration, rule-change, lab-test-plan, junos-image-upgrade,
+#            meeting-recap, jtac-case-draft, skill-review):
 cp -r plugins/ck/skills/<name> ~/.claude/skills/<name>
 # python-repo-init:
 cp -r plugins/python-repo-init/skills/python-repo-init ~/.claude/skills/python-repo-init

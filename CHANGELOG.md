@@ -5,6 +5,21 @@ All notable changes to doc-review-commands will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [ck 1.7.0] - 2026-11-25
+
+### Added
+
+- **lab-iteration**: Roll a rendered change out to a lab, run a numbered test iteration, record the result.
+- **rule-change**: Owner ruling to decision record, rule-catalogue entry and implementation in three commits.
+- **lab-test-plan**: Write, run and close a lab experiment plan before any test that changes device state.
+- **junos-image-upgrade**: Upgrade or downgrade Junos on lab devices and record the release steps.
+- **meeting-recap**: File a pasted meeting recap verbatim and carry its action items into the to-do list.
+- **jtac-case-draft**: Draft or update a vendor (JTAC) case from lab evidence.
+  These six read their repo-specific paths and commands from the repo's
+  `AGENTS.md` `## Skill bindings` table.
+- **skill-review**: Evidence-based periodic review and revision of agent skills; log in `docs/skill-reviews.md`.
+- **docs/skill-reviews.md**: review log used by `skill-review`.
+
 ## [ck 1.6.0] - 2026-11-03
 
 ### Changed
