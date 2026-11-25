@@ -1,6 +1,6 @@
 # ck
 
-**Umbrella plugin bundling sixteen production-ready Claude Code skills.**
+**Umbrella plugin bundling twenty-two production-ready Claude Code skills.**
 
 For marketplace setup and general install instructions, see the
 [ck-skills README](../../README.md).
@@ -37,6 +37,12 @@ ______________________________________________________________________
 | **meeting-recap** | File a pasted meeting recap verbatim and carry its action items into the to-do list | "add the recap" |
 | **jtac-case-draft** | Draft or update a vendor (JTAC) case from lab evidence | "draft a JTAC case" |
 | **skill-review** | Evidence-based periodic review and revision of agent skills | "review my skills" |
+| **mop-live-evidence** | Write and run read-only ad-hoc live evidence capture scripts for routers | "capture live evidence" / "probe routing" |
+| **mop-note** | Write or update evidence-backed network operational notes and post-mortems | "write a MOP note" / "document outage" |
+| **mop-state-audit-rule** | Add a state collector item and corresponding declarative audit rule | "add a state item" / "add an audit rule" |
+| **mop-window-closeout** | Post-maintenance-window reconciliation, pinning, and findings closeout | "close out the window" / "verify cutover" |
+| **network-topology-svg** | Draw a hand-placed SVG network topology with interface tags and cable list | "draw a topology SVG" |
+| **securecrt-session** | List, create, or update SecureCRT `.ini` sessions | "add a SecureCRT session" |
 
 All skills are **AI-Native** — you don't need to remember slash commands, just tell the
 tool what you want to do. Each skill also exposes its own commands under `/ck:<name>`
@@ -66,7 +72,13 @@ ck/
     ├── junos-image-upgrade/
     ├── meeting-recap/
     ├── jtac-case-draft/
-    └── skill-review/
+    ├── skill-review/
+    ├── mop-live-evidence/
+    ├── mop-note/
+    ├── mop-state-audit-rule/
+    ├── mop-window-closeout/
+    ├── network-topology-svg/
+    └── securecrt-session/
 ```
 
 Each skill directory is self-contained (`SKILL.md`, `commands/`, and any `tools/`,

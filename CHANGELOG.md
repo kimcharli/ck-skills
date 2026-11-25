@@ -5,6 +5,18 @@ All notable changes to doc-review-commands will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [ck 1.8.0] - 2026-11-25
+
+### Added
+
+- **mop-live-evidence**: Write and run read-only ad-hoc live evidence capture scripts (`collect.py`) feeding `mop-note` evidence ledgers.
+- **mop-note**: Write or update evidence-backed network operational notes, outage analyses, post-mortems, and bespoke cutover MOP notes.
+- **mop-state-audit-rule**: Add a new state collector item and declarative audit rule with decision record, specs, and tests.
+- **mop-window-closeout**: Post-maintenance-window reconciliation workflow (archive pull, compare, pinning, topology rebuild, findings, pointer refresh).
+  These four read repo-specific paths and commands from the repo's `AGENTS.md` `## Skill bindings` table.
+- **network-topology-svg**: Draw hand-placed SVG network topologies with interface tags, matching cable lists, and a Quick Look preview helper (`scripts/preview.py`).
+- **securecrt-session**: List, create, or update SecureCRT `.ini` sessions via `scripts/crt_session.py`.
+
 ## [ck 1.7.0] - 2026-11-25
 
 ### Added

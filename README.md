@@ -28,6 +28,12 @@ ______________________________________________________________________
 | **ck** | meeting-recap | File a pasted meeting recap verbatim and carry its action items into the to-do list | "add the recap" |
 | **ck** | jtac-case-draft | Draft or update a vendor (JTAC) case from lab evidence | "draft a JTAC case" |
 | **ck** | skill-review | Evidence-based periodic review and revision of agent skills | "review my skills" |
+| **ck** | mop-live-evidence | Write and run read-only ad-hoc live evidence capture scripts for routers | "capture live evidence" / "probe routing" |
+| **ck** | mop-note | Write or update evidence-backed network operational notes and post-mortems | "write a MOP note" / "document outage" |
+| **ck** | mop-state-audit-rule | Add a state collector item and corresponding declarative audit rule | "add a state item" / "add an audit rule" |
+| **ck** | mop-window-closeout | Post-maintenance-window reconciliation, pinning, and findings closeout | "close out the window" / "verify cutover" |
+| **ck** | network-topology-svg | Draw a hand-placed SVG network topology with interface tags and cable list | "draw a topology SVG" |
+| **ck** | securecrt-session | List, create, or update SecureCRT `.ini` sessions | "add a SecureCRT session" |
 | **python-repo-init** | python-repo-init | Scaffold a new Python repo with spec-first, agent-agnostic workflow governance | "init a python repo" |
 
 ______________________________________________________________________
@@ -97,7 +103,9 @@ cd ck-skills
 # ck skills (sdd-project-init, doc-review-commands, sdd-git-commit, python-lint-fix,
 #            plan-doc, decision-capture, session-close, ste-procedure, agents-md,
 #            lab-iteration, rule-change, lab-test-plan, junos-image-upgrade,
-#            meeting-recap, jtac-case-draft, skill-review):
+#            meeting-recap, jtac-case-draft, skill-review, mop-live-evidence,
+#            mop-note, mop-state-audit-rule, mop-window-closeout,
+#            network-topology-svg, securecrt-session):
 cp -r plugins/ck/skills/<name> ~/.claude/skills/<name>
 # python-repo-init:
 cp -r plugins/python-repo-init/skills/python-repo-init ~/.claude/skills/python-repo-init

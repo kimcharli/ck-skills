@@ -17,9 +17,9 @@
   "plugins": [
     {
       "name": "ck",
-      "version": "1.7.0",
+      "version": "1.8.0",
       "source": "./plugins/ck",
-      "description": "Bundle of sixteen production-ready skills: sdd-project-init (SDD project scaffolding), doc-review-commands (documentation sync automation), sdd-git-commit (professional Git commit workflow), python-lint-fix (Python/Markdown lint automation), plan-doc (plan-first batch-change workflow), decision-capture (mid-session decision-to-spec commits), session-close (end-of-session handoff checklist), ste-procedure (STE-style MOPs and runbooks), agents-md (global and repo AGENTS.md hygiene), lab-iteration (lab rollout and test-iteration record), rule-change (ruling to decision, rule and implementation), lab-test-plan (lab experiment plans), junos-image-upgrade (Junos upgrades with lab-log record), meeting-recap (meeting recap filing and to-do), jtac-case-draft (vendor case drafts from lab evidence), and skill-review (evidence-based skill review)",
+      "description": "Bundle of twenty-two production-ready skills: sdd-project-init (SDD project scaffolding), doc-review-commands (documentation sync automation), sdd-git-commit (professional Git commit workflow), python-lint-fix (Python/Markdown lint automation), plan-doc (plan-first batch-change workflow), decision-capture (mid-session decision-to-spec commits), session-close (end-of-session handoff checklist), ste-procedure (STE-style MOPs and runbooks), agents-md (global and repo AGENTS.md hygiene), lab-iteration (lab rollout and test-iteration record), rule-change (ruling to decision, rule and implementation), lab-test-plan (lab experiment plans), junos-image-upgrade (Junos upgrades with lab-log record), meeting-recap (meeting recap filing and to-do), jtac-case-draft (vendor case drafts from lab evidence), skill-review (evidence-based skill review), mop-live-evidence (read-only ad-hoc live evidence capture), mop-note (evidence-backed operational notes and post-mortems), mop-state-audit-rule (state collector items and declarative audit rules), mop-window-closeout (post-maintenance-window reconciliation), network-topology-svg (hand-placed SVG network topologies with cable lists), and securecrt-session (SecureCRT session management)",
       "author": {
         "name": "kimcharli"
       },
